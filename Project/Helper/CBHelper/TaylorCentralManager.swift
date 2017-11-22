@@ -16,7 +16,7 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     static let sharedInstance = TaylorCentralManager()
     var centralManager = CBCentralManager.init(delegate: nil, queue: nil)
     var discoveredPeripheral: CBPeripheral?
-    let serviceID = CBUUID.init(string: "0000")
+    var serviceID: CBUUID?
     let notiID = CBUUID.init(string: "0001")
     
     // MARK: - Callback methods
@@ -42,7 +42,7 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     
     func connectAction() {
         centralManager.stopScan()
-        centralManager.scanForPeripherals(withServices: [CBUUID.init(string: "0000")], options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
+        centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
     }
     
     //MARK: - CBCentralManagerDelegate methods
@@ -61,11 +61,14 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        if let serviceIDArray = advertisementData[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] {
-            if serviceIDArray[0].uuidString == "0000" {
-                discoveredPeripheral = peripheral
-                centralManager.connect(peripheral, options: nil)
+        if let localName = advertisementData[CBAdvertisementDataLocalNameKey] as? String {
+            log.debug("central did discover peripheral with advertisement: \(advertisementData)")
+            if let serviceIDs = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID] {
+                serviceID = serviceIDs[0]
+                log.debug("store service id: \(serviceID)")
             }
+            discoveredPeripheral = peripheral
+            centralManager.connect(peripheral, options: nil)
         }
     }
     
