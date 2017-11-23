@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreBluetooth
+import MZFormSheetController
+
 
 class DeviceInfoViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -24,6 +26,7 @@ class DeviceInfoViewController: BaseViewController, UITableViewDataSource, UITab
             _textView.text = String.init(describing: advertisement)
         }
         if let device = peripheral {
+            TaylorCentralManager.sharedInstance.centralManager.stopScan()
             TaylorCentralManager.sharedInstance.centralManager.connect(device, options: nil)
         }
         TaylorCentralManager.sharedInstance.didFindCharacter = { (character) in
@@ -31,6 +34,20 @@ class DeviceInfoViewController: BaseViewController, UITableViewDataSource, UITab
         }
     }
 
+    @IBAction func didConnectClick(_ sender: Any) {
+        let value = Data.init(bytes: [0x00,0xFF,0xFF])
+        TaylorCentralManager.sharedInstance.peripheral(peripheral, write: value)
+        popupEnterCode()
+    }
+    
+    func popupEnterCode() {
+        let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EnterCodeController") as! EnterCodeController
+        controller.peripheral = peripheral
+        mz_presentFormSheet(with: controller, animated: true) { (formsheet) in
+            
+        }
+    }
+    
     // MARK; - Table view datasource and delegate
     
     func numberOfSections(in tableView: UITableView) -> Int {

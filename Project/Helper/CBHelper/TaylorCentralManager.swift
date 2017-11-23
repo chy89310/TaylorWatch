@@ -20,13 +20,14 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     var discoveredPeripheral: CBPeripheral?
     var serviceID: CBUUID?
     let notiID = CBUUID.init(string: "0001")
+    var writeCharacteristic: CBCharacteristic?
     
     // MARK: - Callback methods
     
     var didFindDevice: ((CBPeripheral) -> ())?
     var didFindCharacter: ((CBCharacteristic) -> ())?
     var didPowerOff: (() -> ())?
-    var didUpdateValue: ((String) -> ())?
+    var didUpdateValue: ((Data?) -> ())?
     
     // MARK: - Initialization
     
@@ -46,7 +47,19 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     
     func connectAction() {
         centralManager.stopScan()
-        centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
+        centralManager.scanForPeripherals(withServices: [CBUUID.init(string: "F638751C-E6D6-4F18-8316-35FFFA696365")], options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral?, write value: Data) {
+        log.warning("Writing value: \(value.map { String(format: "%02x", $0) }.joined())")
+        
+        if let writeCharact = writeCharacteristic {
+            if writeCharact.properties.contains(.write) {
+                peripheral?.writeValue(value, for: writeCharact, type: .withResponse)
+            } else {
+                peripheral?.writeValue(value, for: writeCharact, type: .withoutResponse)
+            }
+        }
     }
     
     //MARK: - CBCentralManagerDelegate methods
@@ -75,21 +88,13 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         log.debug("central did connect to peripheral: \(peripheral)")
         peripheral.delegate = self
-        var services = devices[peripheral]?[CBAdvertisementDataServiceUUIDsKey] as! [CBUUID]
-//        var serviceIDs = [CBUUID]()
-//        for service in services {
-//            serviceIDs.append(CBUUID.init(string: service))
-//        }
-        services.append(contentsOf: [
-            CBUUID.init(string: "0x180f"),
-            CBUUID.init(string: "0x1800"),
-            CBUUID.init(string: "0x180a"),
-            CBUUID.init(string: "CDF98BD6-DD14-4B74-9AC2-4F686A3C60A8")])
-        peripheral.discoverServices(services)
+        peripheral.discoverServices(nil)
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        log.error("central did disconnect to peripheral: \(peripheral)")
+        if error != nil {
+            log.error("central did disconnect to peripheral: \(peripheral.name ?? "") \(error!.localizedDescription)")
+        }
         discoveredPeripheral = nil
     }
     
@@ -101,28 +106,61 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     // MARK: - CBPeripheralDelegate methods
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        log.debug("peripheral did discover services: \(String(describing: peripheral.services))")
         for service: CBService in peripheral.services! {
+            log.debug("peripheral did discover service: \(service))")
             peripheral.discoverCharacteristics(nil, for: service)
         }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        log.debug("peripheral did discover characteristics: \(String(describing: service.characteristics))")
         for character: CBCharacteristic in service.characteristics! {
-            characters.append(character)
-            didFindCharacter?(character)
-//            log.debug("try to subscribe characteristics: \(character)")
-//            peripheral.setNotifyValue(true, for: character)
+            log.debug("peripheral did discover characteristic: \(character.uuid.uuidString) property: \(character.properties)")
+            if !characters.contains(character) {
+                characters.append(character)
+            }
+            if character.properties.contains(.read) {
+                log.info("\(character.uuid.uuidString) it is readable!!!")
+                peripheral.readValue(for: character)
+                
+            }
+            
+            if character.properties.isSuperset(of: [.write, .read]) {
+                log.info("\(character.uuid.uuidString) it is read and writable!!!")
+                log.verbose(character)
+//                writeCharacteristic = character
+            }
+            if character.properties.contains(.writeWithoutResponse) {
+                log.info("\(character.uuid.uuidString) it is writable! without response!!")
+                log.verbose(character)
+                writeCharacteristic = character
+            }
+            if character.properties.contains(.notify) {
+                log.info("\(character.uuid.uuidString) it is notify!!!")
+                peripheral.setNotifyValue(true, for: character)
+            }
+            didFindCharacter?(character)        }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: Error?) {
+        log.verbose("Service: \(service.uuid.uuidString) included service: \(String(describing: service.includedServices))")
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
+        log.info("Character \(characteristic.uuid.description) descriptor: \(String(describing: characteristic.descriptors))")
+        for descriptor in characteristic.descriptors! {
+            peripheral.readValue(for: descriptor)
         }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        log.debug("peripheral did update for characteristic: \(characteristic)")
-        if let value = characteristic.value, let data = String.init(data: value, encoding: .utf8) {
-            didUpdateValue?(data)
+        if let value = characteristic.value {
+            log.info("Characteristic: \(characteristic.uuid.description) value: \(value.map { String(format: "%02x", $0) }.joined())")
+        didUpdateValue?(characteristic.value)
         }
         
     }
     
+    func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        log.warning("Character: \(characteristic.uuid.description) write value success!!!")
+    }
 }

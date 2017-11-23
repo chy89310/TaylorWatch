@@ -4,6 +4,12 @@ PODS:
   - MagicalRecord (2.3.2):
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
+  - MZAppearance (1.1.6)
+  - MZFormSheetController (3.1.3):
+    - MZAppearance
+    - MZFormSheetController/Core (= 3.1.3)
+  - MZFormSheetController/Core (3.1.3):
+    - MZAppearance
   - Siren (2.0.2)
   - SwiftyBeaver (1.2.2)
   - SwiftyJSON (3.1.4)
@@ -13,6 +19,7 @@ DEPENDENCIES:
   - Alamofire
   - IQKeyboardManagerSwift
   - MagicalRecord
+  - MZFormSheetController
   - Siren
   - SwiftyBeaver
   - SwiftyJSON
@@ -22,11 +29,13 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   IQKeyboardManagerSwift: 2eefe6c429b86aa08bfbc1b5c891164d754adf91
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
+  MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
+  MZFormSheetController: da2df509805d757e04b052915057d8e1a338b050
   Siren: 33994aad31aab24344689b3a918d0a9d9eede2e2
   SwiftyBeaver: 90a39e3dc5136b7285f2e4c870b107e3933b8b84
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyTimer: 2efd74b060d69ad4f1496baf5bbedbe132125fcf
 
-PODFILE CHECKSUM: 5d971e06e693bc551e380f70216164b2424852ff
+PODFILE CHECKSUM: 5e0fdc655795cdde70fb255c5ec8702134b01d8a
 
 COCOAPODS: 1.3.1

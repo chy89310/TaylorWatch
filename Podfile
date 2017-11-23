@@ -10,6 +10,7 @@ target 'Taylor' do
   #pod 'Google/Analytics'
   pod 'IQKeyboardManagerSwift'
   pod 'MagicalRecord'
+  pod 'MZFormSheetController'
   pod 'Siren'
   pod 'SwiftyBeaver'
   pod 'SwiftyJSON'
