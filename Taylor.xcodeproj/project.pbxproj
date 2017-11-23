@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53141FC6C53100CC094D /* ScanViewController.swift */; };
+		0A0B53171FC6CE3600CC094D /* DeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53161FC6CE3600CC094D /* DeviceInfoViewController.swift */; };
 		0A1A85281FC595FF00EEA718 /* TaylorCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* TaylorCentralManager.swift */; };
 		0A1A85291FC595FF00EEA718 /* TaylorPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85271FC595FF00EEA718 /* TaylorPeripheralManager.swift */; };
 		4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7277981F12A021009AC306 /* BaseViewController.swift */; };
@@ -28,6 +30,8 @@
 		035D8FECAAA5489CFB508348 /* Pods_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		045576E0DC50DBB749868C98 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		07606831C0E45A3D527B3855 /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0B53141FC6C53100CC094D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		0A0B53161FC6CE3600CC094D /* DeviceInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfoViewController.swift; sourceTree = "<group>"; };
 		0A1A85261FC595FF00EEA718 /* TaylorCentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaylorCentralManager.swift; sourceTree = "<group>"; };
 		0A1A85271FC595FF00EEA718 /* TaylorPeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaylorPeripheralManager.swift; sourceTree = "<group>"; };
 		1009943C883916D85DE4D806 /* Pods-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,8 +115,10 @@
 		4BA6EE7C1EE87D510098C4DA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4BA6EE7D1EE87D510098C4DA /* ViewController.swift */,
 				4B7277981F12A021009AC306 /* BaseViewController.swift */,
+				0A0B53161FC6CE3600CC094D /* DeviceInfoViewController.swift */,
+				0A0B53141FC6C53100CC094D /* ScanViewController.swift */,
+				4BA6EE7D1EE87D510098C4DA /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -327,10 +333,12 @@
 				0A1A85291FC595FF00EEA718 /* TaylorPeripheralManager.swift in Sources */,
 				4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */,
 				0A1A85281FC595FF00EEA718 /* TaylorCentralManager.swift in Sources */,
+				0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */,
 				4BA6EE7E1EE87D510098C4DA /* ViewController.swift in Sources */,
 				4BA6EE0D1EE87B7B0098C4DA /* AppDelegate.swift in Sources */,
 				4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */,
 				4BA6EE831EE87D730098C4DA /* Project.xcdatamodeld in Sources */,
+				0A0B53171FC6CE3600CC094D /* DeviceInfoViewController.swift in Sources */,
 				4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */,
 				4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */,
 				4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */,

@@ -15,12 +15,16 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     
     static let sharedInstance = TaylorCentralManager()
     var centralManager = CBCentralManager.init(delegate: nil, queue: nil)
+    var devices = [CBPeripheral : [String : Any]]()
+    var characters = [CBCharacteristic]()
     var discoveredPeripheral: CBPeripheral?
     var serviceID: CBUUID?
     let notiID = CBUUID.init(string: "0001")
     
     // MARK: - Callback methods
     
+    var didFindDevice: ((CBPeripheral) -> ())?
+    var didFindCharacter: ((CBCharacteristic) -> ())?
     var didPowerOff: (() -> ())?
     var didUpdateValue: ((String) -> ())?
     
@@ -61,30 +65,36 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        if let localName = advertisementData[CBAdvertisementDataLocalNameKey] as? String {
+        if advertisementData.keys.contains(CBAdvertisementDataLocalNameKey), !devices.keys.contains(peripheral) {
             log.debug("central did discover peripheral with advertisement: \(advertisementData)")
-            if let serviceIDs = advertisementData[CBAdvertisementDataServiceDataKey] as? [CBUUID] {
-                serviceID = serviceIDs[0]
-                log.debug("store service id: \(serviceID)")
-            }
-            discoveredPeripheral = peripheral
-            centralManager.connect(peripheral, options: nil)
+            devices[peripheral] = advertisementData
+            didFindDevice?(peripheral)
         }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         log.debug("central did connect to peripheral: \(peripheral)")
         peripheral.delegate = self
-        peripheral.discoverServices(nil)
+        var services = devices[peripheral]?[CBAdvertisementDataServiceUUIDsKey] as! [CBUUID]
+//        var serviceIDs = [CBUUID]()
+//        for service in services {
+//            serviceIDs.append(CBUUID.init(string: service))
+//        }
+        services.append(contentsOf: [
+            CBUUID.init(string: "0x180f"),
+            CBUUID.init(string: "0x1800"),
+            CBUUID.init(string: "0x180a"),
+            CBUUID.init(string: "CDF98BD6-DD14-4B74-9AC2-4F686A3C60A8")])
+        peripheral.discoverServices(services)
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        log.debug("central did disconnect to peripheral: \(peripheral)")
+        log.error("central did disconnect to peripheral: \(peripheral)")
         discoveredPeripheral = nil
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
-        log.debug("central did fail to connect to peripheral: \(peripheral)")
+        log.error("central did fail to connect to peripheral: \(peripheral)")
         discoveredPeripheral = nil
     }
     
@@ -100,8 +110,10 @@ class TaylorCentralManager: NSObject, CBCentralManagerDelegate, CBPeripheralDele
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         log.debug("peripheral did discover characteristics: \(String(describing: service.characteristics))")
         for character: CBCharacteristic in service.characteristics! {
-            log.debug("try to subscribe characteristics: \(character)")
-            peripheral.setNotifyValue(true, for: character)
+            characters.append(character)
+            didFindCharacter?(character)
+//            log.debug("try to subscribe characteristics: \(character)")
+//            peripheral.setNotifyValue(true, for: character)
         }
     }
     
