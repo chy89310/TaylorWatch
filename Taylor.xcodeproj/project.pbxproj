@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53141FC6C53100CC094D /* ScanViewController.swift */; };
-		0A0B53171FC6CE3600CC094D /* DeviceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53161FC6CE3600CC094D /* DeviceInfoViewController.swift */; };
-		0A1A85281FC595FF00EEA718 /* TaylorCentralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* TaylorCentralManager.swift */; };
-		0A1A85291FC595FF00EEA718 /* TaylorPeripheralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85271FC595FF00EEA718 /* TaylorPeripheralManager.swift */; };
-		4B3B38641FC750B70052F653 /* EnterCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3B38631FC750B70052F653 /* EnterCodeController.swift */; };
+		0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B53181FC7CA3F00CC094D /* WatchApi.plist */; };
+		0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
+		4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
+		4B32BADF1FD30EF700EFC3E4 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */; };
+		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
+		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
+		4B61EA151FDC6549001FA30F /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA141FDC6549001FA30F /* TabController.swift */; };
+		4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
 		4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7277981F12A021009AC306 /* BaseViewController.swift */; };
+		4B81FE651FD0918A00B0DB25 /* StepsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B81FE641FD0918A00B0DB25 /* StepsController.swift */; };
+		4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */; };
 		4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */; };
 		4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DDB1EEEF932009C13A5 /* Config.swift */; };
 		4BA6EE0D1EE87B7B0098C4DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6EE0C1EE87B7B0098C4DA /* AppDelegate.swift */; };
 		4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE161EE87B7B0098C4DA /* Assets.xcassets */; };
-		4BA6EE7E1EE87D510098C4DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6EE7D1EE87D510098C4DA /* ViewController.swift */; };
-		4BA6EE831EE87D730098C4DA /* Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6EE811EE87D730098C4DA /* Project.xcdatamodeld */; };
 		4BA6EE871EE87D8E0098C4DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */; };
 		4BA6EE881EE87D8E0098C4DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE861EE87D8E0098C4DA /* Main.storyboard */; };
 		4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF65091F124471003230A1 /* ApiHelper.swift */; };
 		4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF650B1F124531003230A1 /* ApiHelper+Define.swift */; };
 		4BDF650E1F124559003230A1 /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BDF650D1F124559003230A1 /* Api.plist */; };
+		4BF01A5F1FCD56FD009B1262 /* Device+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF01A5E1FCD56FD009B1262 /* Device+Extension.swift */; };
+		4BF01A621FCD66A2009B1262 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF01A611FCD66A2009B1262 /* InfoController.swift */; };
 		8743F0EDB32E00BCC092C462 /* Pods_Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EBF0590D14EB0CC646CC5E /* Pods_Taylor.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,25 +38,31 @@
 		045576E0DC50DBB749868C98 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
 		07606831C0E45A3D527B3855 /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0B53141FC6C53100CC094D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		0A0B53161FC6CE3600CC094D /* DeviceInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfoViewController.swift; sourceTree = "<group>"; };
-		0A1A85261FC595FF00EEA718 /* TaylorCentralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaylorCentralManager.swift; sourceTree = "<group>"; };
-		0A1A85271FC595FF00EEA718 /* TaylorPeripheralManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaylorPeripheralManager.swift; sourceTree = "<group>"; };
+		0A0B53181FC7CA3F00CC094D /* WatchApi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WatchApi.plist; sourceTree = "<group>"; };
+		0A1A85261FC595FF00EEA718 /* SBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBManager.swift; sourceTree = "<group>"; };
 		1009943C883916D85DE4D806 /* Pods-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B3B38631FC750B70052F653 /* EnterCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCodeController.swift; sourceTree = "<group>"; };
+		4B1363931FD25D8000AAE628 /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
+		4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
+		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		4B61EA141FDC6549001FA30F /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		4B7277981F12A021009AC306 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4B81FE641FD0918A00B0DB25 /* StepsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsController.swift; sourceTree = "<group>"; };
+		4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPeripheral.swift; sourceTree = "<group>"; };
 		4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		4B9F7DDB1EEEF932009C13A5 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		4BA6EE091EE87B7B0098C4DA /* Taylor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taylor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA6EE0C1EE87B7B0098C4DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BA6EE161EE87B7B0098C4DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA6EE1B1EE87B7B0098C4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BA6EE7D1EE87D510098C4DA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4BA6EE821EE87D730098C4DA /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA6EE861EE87D8E0098C4DA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4BDF65091F124471003230A1 /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		4BDF650B1F124531003230A1 /* ApiHelper+Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApiHelper+Define.swift"; sourceTree = "<group>"; };
 		4BDF650D1F124559003230A1 /* Api.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
+		4BF01A5E1FCD56FD009B1262 /* Device+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Extension.swift"; sourceTree = "<group>"; };
+		4BF01A611FCD66A2009B1262 /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		4CFCA356A8701324A1BD2778 /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		528088D7C4C34E67C6C29599 /* Pods-Taylor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taylor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Taylor/Pods-Taylor.release.xcconfig"; sourceTree = "<group>"; };
 		6E047641F8B24AB1302365AC /* Pods_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +88,9 @@
 		0A1A85251FC595FF00EEA718 /* CBHelper */ = {
 			isa = PBXGroup;
 			children = (
-				0A1A85261FC595FF00EEA718 /* TaylorCentralManager.swift */,
-				0A1A85271FC595FF00EEA718 /* TaylorPeripheralManager.swift */,
+				0A1A85261FC595FF00EEA718 /* SBManager.swift */,
+				4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */,
+				4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */,
 			);
 			path = CBHelper;
 			sourceTree = "<group>";
@@ -118,10 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				4B7277981F12A021009AC306 /* BaseViewController.swift */,
-				0A0B53161FC6CE3600CC094D /* DeviceInfoViewController.swift */,
-				4B3B38631FC750B70052F653 /* EnterCodeController.swift */,
 				0A0B53141FC6C53100CC094D /* ScanViewController.swift */,
-				4BA6EE7D1EE87D510098C4DA /* ViewController.swift */,
+				4B61EA141FDC6549001FA30F /* TabController.swift */,
+				4BF01A601FCD6686009B1262 /* TabController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -140,7 +152,9 @@
 		4BA6EE801EE87D730098C4DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4BA6EE811EE87D730098C4DA /* Project.xcdatamodeld */,
+				4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */,
+				4BF01A5E1FCD56FD009B1262 /* Device+Extension.swift */,
+				4B61EA121FDC6263001FA30F /* Notification+Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,8 +174,20 @@
 				4BDF65091F124471003230A1 /* ApiHelper.swift */,
 				4BDF650B1F124531003230A1 /* ApiHelper+Define.swift */,
 				4BDF650D1F124559003230A1 /* Api.plist */,
+				0A0B53181FC7CA3F00CC094D /* WatchApi.plist */,
 			);
 			path = ApiHelper;
+			sourceTree = "<group>";
+		};
+		4BF01A601FCD6686009B1262 /* TabController */ = {
+			isa = PBXGroup;
+			children = (
+				4BF01A611FCD66A2009B1262 /* InfoController.swift */,
+				4B81FE641FD0918A00B0DB25 /* StepsController.swift */,
+				4B1363931FD25D8000AAE628 /* TimeController.swift */,
+				4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */,
+			);
+			path = TabController;
 			sourceTree = "<group>";
 		};
 		6431665D916F6E2DCEE79C1B /* Pods */ = {
@@ -256,6 +282,7 @@
 				4BA6EE881EE87D8E0098C4DA /* Main.storyboard in Resources */,
 				4BDF650E1F124559003230A1 /* Api.plist in Resources */,
 				4BA6EE871EE87D8E0098C4DA /* LaunchScreen.storyboard in Resources */,
+				0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,19 +364,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B3B38641FC750B70052F653 /* EnterCodeController.swift in Sources */,
-				0A1A85291FC595FF00EEA718 /* TaylorPeripheralManager.swift in Sources */,
+				4BF01A5F1FCD56FD009B1262 /* Device+Extension.swift in Sources */,
 				4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */,
-				0A1A85281FC595FF00EEA718 /* TaylorCentralManager.swift in Sources */,
+				4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */,
+				0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */,
 				0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */,
-				4BA6EE7E1EE87D510098C4DA /* ViewController.swift in Sources */,
 				4BA6EE0D1EE87B7B0098C4DA /* AppDelegate.swift in Sources */,
 				4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */,
-				4BA6EE831EE87D730098C4DA /* Project.xcdatamodeld in Sources */,
-				0A0B53171FC6CE3600CC094D /* DeviceInfoViewController.swift in Sources */,
+				4B61EA151FDC6549001FA30F /* TabController.swift in Sources */,
+				4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */,
+				4B32BADF1FD30EF700EFC3E4 /* MessageController.swift in Sources */,
+				4B81FE651FD0918A00B0DB25 /* StepsController.swift in Sources */,
 				4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */,
 				4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */,
+				4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */,
+				4BF01A621FCD66A2009B1262 /* InfoController.swift in Sources */,
 				4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */,
+				4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */,
+				4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,19 +535,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4BA6EE811EE87D730098C4DA /* Project.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4BA6EE821EE87D730098C4DA /* Project.xcdatamodel */,
-			);
-			currentVersion = 4BA6EE821EE87D730098C4DA /* Project.xcdatamodel */;
-			path = Project.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4BA6EE011EE87B7B0098C4DA /* Project object */;
 }

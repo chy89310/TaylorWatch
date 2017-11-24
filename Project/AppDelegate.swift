@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CoreBluetooth
 import IQKeyboardManagerSwift
 import Siren
 import SwiftyBeaver
@@ -23,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // SwiftyBeaver log setup
         let console = ConsoleDestination()
+        console.minLevel = .debug
+        console.format = "$L: $M"
         log.addDestination(console)
         log.info(Helper.documentDirectory)
         
@@ -34,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MagicalRecord
         MagicalRecord.setLoggingLevel(.off)
-        MagicalRecord.setupCoreDataStack()
+        MagicalRecord.setupAutoMigratingCoreDataStack()
+        
+        log.info(launchOptions)
         
         return true
     }
@@ -66,6 +71,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MagicalRecord.cleanUp()
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+        // Disable the message notification
+        SBManager.share.reset()
+        SBManager.share.peripheral(
+            SBManager.share.selectedPeripheral,
+            write: Data.init(bytes: [0x0d,0x00]))
+        SBPeripheral.share.stop()
     }
 
     // MARK: - Core Data stack
@@ -77,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "Project")
+        let container = NSPersistentContainer(name: "Taylor")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
