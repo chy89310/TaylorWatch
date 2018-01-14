@@ -75,9 +75,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         }
     }
     
-    func pairing(passkey: Int) -> Data {
-        return Data.init(bytes: [CMD.pair.rawValue,UInt8(passkey&0xff),UInt8(passkey>>8&0xff)])
-    }
+    
     
     func peripheral(_ peripheral: CBPeripheral?, write value: Data) {
         log.info("Writing value: \(value.map { String(format: "%02x", $0) }.joined())")
@@ -158,20 +156,20 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     peripheral.discoverServices(nil)
                     let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
                     if device != nil && device!.passcode != 0xffff {
-                        let value = SBManager.share.pairing(passkey: Int(device!.passcode))
-                        SBManager.share.didFindCharacter = { (characteristic) in
+                        self.didFindCharacter = { (characteristic) in
                             if characteristic.properties.rawValue == 4 {
-                                SBManager.share.peripheral(peripheral, write: value)
-                            }
-                        }
-                        SBManager.share.didUpdateEvent = { (evt, data) in
-                            if evt == .notify {
-                                log.debug("Make root view with tab controller")
-                                SBManager.share.didUpdateEvent = nil
-                                SBManager.share.selectedPeripheral = peripheral
-                                let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                appDelegate.window?.rootViewController = tabController
+                                self.pairing(
+                                    passkey: Int(device!.passcode),
+                                    peripheral: peripheral,
+                                    complete: { (success, info) in
+                                        if success {
+                                            log.debug("Make root view with tab controller")
+                                            SBManager.share.selectedPeripheral = peripheral
+                                            let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
+                                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                                            appDelegate.window?.rootViewController = tabController
+                                        }
+                                })
                             }
                         }
                     }
@@ -197,20 +195,23 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                             centralManager.connect(peripheral, options: nil)
                             let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
                             if device != nil && device!.passcode != 0xffff {
-                                let value = SBManager.share.pairing(passkey: Int(device!.passcode))
-                                SBManager.share.didFindCharacter = { (characteristic) in
+                                self.didFindCharacter = { (characteristic) in
                                     if characteristic.properties.rawValue == 4 {
-                                        SBManager.share.peripheral(peripheral, write: value)
-                                    }
-                                }
-                                SBManager.share.didUpdateEvent = { (evt, data) in
-                                    if evt == .notify {
-                                        log.debug("Make root view with tab controller")
-                                        SBManager.share.didUpdateEvent = nil
-                                        SBManager.share.selectedPeripheral = peripheral
-                                        let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                        appDelegate.window?.rootViewController = tabController
+                                        self.pairing(
+                                            passkey: Int(device!.passcode),
+                                            peripheral: peripheral,
+                                            complete: { (success, info) in
+                                                if success {
+                                                    log.debug("Make root view with tab controller")
+                                                    SBManager.share.didUpdateEvent = nil
+                                                    SBManager.share.selectedPeripheral = peripheral
+                                                    let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
+                                                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                                                    appDelegate.window?.rootViewController = tabController
+                                                } else {
+                                                    log.error(info)
+                                                }
+                                        })
                                     }
                                 }
                             }
@@ -249,20 +250,22 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                         self.centralManager.stopScan()
                         self.centralManager.connect(peripheral, options: nil)
                         log.debug("Remember device with passcode: \(device!.passcode)")
-                        let value = SBManager.share.pairing(passkey: Int(device!.passcode))
-                        SBManager.share.didFindCharacter = { (characteristic) in
+                        self.didFindCharacter = { (characteristic) in
                             if characteristic.properties.rawValue == 4 {
-                                SBManager.share.peripheral(peripheral, write: value)
-                            }
-                        }
-                        SBManager.share.didUpdateEvent = { (evt, data) in
-                            if evt == .notify {
-                                log.debug("Make root view with tab controller")
-                                SBManager.share.didUpdateEvent = nil
-                                SBManager.share.selectedPeripheral = peripheral
-                                let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                appDelegate.window?.rootViewController = tabController
+                                self.pairing(
+                                    passkey: Int(device!.passcode),
+                                    peripheral: peripheral,
+                                    complete: { (success, info) in
+                                        if success {
+                                            log.debug("Make root view with tab controller")
+                                            SBManager.share.selectedPeripheral = peripheral
+                                            let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
+                                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                                            appDelegate.window?.rootViewController = tabController
+                                        } else {
+                                            log.error(info)
+                                        }
+                                })
                             }
                         }
                     }
@@ -295,20 +298,22 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             if device != nil {
                 if device!.passcode != 0xffff {
                     self.centralManager.connect(peripheral, options: nil)
-                    let value = SBManager.share.pairing(passkey: Int(device!.passcode))
                     SBManager.share.didFindCharacter = { (characteristic) in
                         if characteristic.properties.rawValue == 4 {
-                            SBManager.share.peripheral(peripheral, write: value)
-                        }
-                    }
-                    SBManager.share.didUpdateEvent = { (evt, data) in
-                        if evt == .notify {
-                            log.debug("Make root view with tab controller")
-                            SBManager.share.didUpdateEvent = nil
-                            SBManager.share.selectedPeripheral = peripheral
-                            let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                            appDelegate.window?.rootViewController = tabController
+                            self.pairing(
+                                passkey: Int(device!.passcode),
+                                peripheral: peripheral,
+                                complete: { (success, info) in
+                                    if success {
+                                        log.debug("Make root view with tab controller")
+                                        SBManager.share.selectedPeripheral = peripheral
+                                        let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
+                                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                                        appDelegate.window?.rootViewController = tabController
+                                    } else {
+                                        log.error(info)
+                                    }
+                            })
                         }
                     }
                 }

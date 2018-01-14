@@ -40,20 +40,25 @@ class ScanViewController: BaseViewController, UITableViewDataSource, UITableView
         if let row = _tableView.indexPathForSelectedRow?.row {
             let peripheral = SBManager.share.peripherals[row]
             let passInt = Int(_textField.text ?? "0") ?? 0
-            let value = SBManager.share.pairing(passkey: passInt)
-            SBManager.share.didUpdateEvent = { (evt, data) in
-                if evt == .notify {
-                    SBManager.share.didUpdateEvent = nil
-                    SBManager.share.selectedPeripheral = peripheral
-                    // Save current device
-                    MagicalRecord.save({ (localContext) in
-                        SBManager.share.selectedDevice(in: localContext)?.passcode = Int32(passInt)
-                    })
-                    self.performSegue(withIdentifier: "showWatch", sender: nil)
-                }
-            }
-            SBManager.share.peripheral(peripheral, write: value)
-            
+            SBManager.share.pairing(
+                passkey: passInt,
+                peripheral: peripheral,
+                complete: { (success, info) in
+                    if success {
+                        SBManager.share.selectedPeripheral = peripheral
+                        // Save current device
+                        MagicalRecord.save({ (localContext) in
+                            SBManager.share.selectedDevice(in: localContext)?.passcode = Int32(passInt)
+                        })
+                        self.performSegue(withIdentifier: "showWatch", sender: nil)
+                    } else {
+                        log.error(info)
+                        SBManager.share.didUpdateValue = nil
+                        self._textField.isEnabled = true
+                        self._textField.becomeFirstResponder()
+                        SBManager.share.peripheral(peripheral, write: Data.init(bytes: Helper.stringToBytes("00ffff")))
+                    }
+            })
         }
     }
     
@@ -82,17 +87,19 @@ class ScanViewController: BaseViewController, UITableViewDataSource, UITableView
         SBManager.share.centralManager.connect(peripheral, options: nil)
         if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString), device.passcode != 0xffff {
             log.debug("Remember device with passcode: \(device.passcode)")
-            let value = SBManager.share.pairing(passkey: Int(device.passcode))
             SBManager.share.didFindCharacter = { (characteristic) in
                 if characteristic.properties.rawValue == 4 {
-                    SBManager.share.peripheral(peripheral, write: value)
-                }
-            }
-            SBManager.share.didUpdateEvent = { (evt, data) in
-                if evt == .notify {
-                    SBManager.share.didUpdateEvent = nil
-                    SBManager.share.selectedPeripheral = peripheral
-                    self.performSegue(withIdentifier: "showWatch", sender: nil)
+                    SBManager.share.pairing(
+                        passkey: Int(device.passcode),
+                        peripheral: peripheral,
+                        complete: { (success, info) in
+                            if success {
+                                SBManager.share.selectedPeripheral = peripheral
+                                self.performSegue(withIdentifier: "showWatch", sender: nil)
+                            } else {
+                                log.error(info)
+                            }
+                    })
                 }
             }
         } else {
