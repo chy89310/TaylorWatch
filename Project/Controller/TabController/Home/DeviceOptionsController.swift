@@ -77,8 +77,12 @@ class DeviceOptionsController: UIViewController, UITableViewDataSource, UITableV
             }
             let device = Device.mr_findAll()?[indexPath.row] as? Device ?? Device()
             cell.titleLabel.text = device.name
-            cell.detailLabel.isHidden = deleteState
-            cell.trashButton.isHidden = !deleteState
+            UIView.animate(withDuration: 0.2, animations: {
+                cell.detailLabel.alpha = self.deleteState ? 0.0 : 1.0
+                cell.detailLabel.isHidden = self.deleteState
+                cell.trashButton.alpha = self.deleteState ? 1.0 : 0.0
+                cell.trashButton.isHidden = !self.deleteState
+            })
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
             let date = (device.addDate ?? NSDate()) as Date

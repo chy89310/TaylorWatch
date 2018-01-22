@@ -10,6 +10,7 @@
 		0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53141FC6C53100CC094D /* ScanViewController.swift */; };
 		0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B53181FC7CA3F00CC094D /* WatchApi.plist */; };
 		0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
+		0A4984652015753B0010759E /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A4984642015753B0010759E /* Setting.storyboard */; };
 		4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
 		4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
 		4B2BB26E200B767A00ED482E /* SBManager+watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB26D200B767A00ED482E /* SBManager+watch.swift */; };
@@ -54,6 +55,7 @@
 		0A0B53141FC6C53100CC094D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		0A0B53181FC7CA3F00CC094D /* WatchApi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WatchApi.plist; sourceTree = "<group>"; };
 		0A1A85261FC595FF00EEA718 /* SBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBManager.swift; sourceTree = "<group>"; };
+		0A4984642015753B0010759E /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		1009943C883916D85DE4D806 /* Pods-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B1363931FD25D8000AAE628 /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOptionsController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,14 @@
 				4B2BB2822011182300ED482E /* HomeController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		4B167EBD201658E6009DCD4D /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		4B2BB27E200FD35500ED482E /* WatchView */ = {
@@ -237,6 +247,7 @@
 				4B2BB280200FD3AB00ED482E /* Info.storyboard */,
 				4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */,
 				4BA6EE861EE87D8E0098C4DA /* Main.storyboard */,
+				0A4984642015753B0010759E /* Setting.storyboard */,
 				4B2BB2892011341200ED482E /* Time.storyboard */,
 			);
 			path = View;
@@ -257,9 +268,9 @@
 			isa = PBXGroup;
 			children = (
 				4B167E9C2014A301009DCD4D /* Home */,
+				4B167EBD201658E6009DCD4D /* Setting */,
 				4BF01A611FCD66A2009B1262 /* InfoController.swift */,
 				4B1363931FD25D8000AAE628 /* TimeController.swift */,
-				4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */,
 			);
 			path = TabController;
 			sourceTree = "<group>";
@@ -365,6 +376,7 @@
 				4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */,
 				4B2BB28A2011341200ED482E /* Time.storyboard in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
+				0A4984652015753B0010759E /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

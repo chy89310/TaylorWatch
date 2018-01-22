@@ -9,6 +9,7 @@
 import HexColors
 import MagicalRecord
 import UIKit
+import SwiftIconFont
 
 class InfoController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -41,7 +42,19 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
             switch indexPath.row {
             case 0:
                 cell.textLabel?.text = NSLocalizedString("Watch Bettery", comment: "")
-                cell.detailTextLabel?.text = "\(device?.battery ?? 100)%"
+                let battery = device?.battery ?? 0
+                if battery < 2 {
+                    cell.detailTextLabel?.text = "\(battery)% fa:battery0"
+                } else if battery < 26 {
+                    cell.detailTextLabel?.text = "\(battery)% fa:battery1"
+                } else if battery < 51 {
+                    cell.detailTextLabel?.text = "\(battery)% fa:battery2"
+                } else if battery < 76 {
+                    cell.detailTextLabel?.text = "\(battery)% fa:battery3"
+                } else {
+                    cell.detailTextLabel?.text = "\(battery)% fa:battery4"
+                }
+                cell.detailTextLabel?.parseIcon()
             case 1:
                 cell.textLabel?.text = NSLocalizedString("Bluetooth", comment: "")
                 cell.detailTextLabel?.text = "\(device?.system ?? "N/A")"
@@ -50,7 +63,8 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
                 cell.detailTextLabel?.text = "\(device?.serial ?? "N/A")"
             case 3:
                 cell.textLabel?.text = NSLocalizedString("Pairing Code", comment: "")
-                cell.detailTextLabel?.text = "\(device?.passcode ?? 000000)"
+                let passcode = device?.passcode ?? 0
+                cell.detailTextLabel?.text = "\(passcode/1000)\(passcode%1000/100)\(passcode%100/10)\(passcode%10)"
             case 4:
                 cell.textLabel?.text = NSLocalizedString("Frame Number", comment: "")
                 cell.detailTextLabel?.text = "\(device?.firmware ?? "N/A")"

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,8 +47,8 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="90%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E94-7c-bBt">
-                                                    <rect key="frame" x="326" y="12" width="34" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="100% fa:battery" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E94-7c-bBt" customClass="SwiftIconLabel" customModule="SwiftIconFont">
+                                                    <rect key="frame" x="240.5" y="12" width="119.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,7 +90,7 @@
                             <constraint firstItem="CUy-TP-d45" firstAttribute="top" secondItem="9ZP-pi-B8q" secondAttribute="top" id="Wce-C9-5mq"/>
                             <constraint firstItem="9ZP-pi-B8q" firstAttribute="bottom" secondItem="fNp-9v-wPD" secondAttribute="bottom" id="fwM-Iv-EZT"/>
                             <constraint firstItem="9ZP-pi-B8q" firstAttribute="trailing" secondItem="fNp-9v-wPD" secondAttribute="trailing" id="hEX-qH-OC4"/>
-                            <constraint firstItem="fNp-9v-wPD" firstAttribute="top" secondItem="CUy-TP-d45" secondAttribute="bottom" constant="30" id="uxz-cf-a1A"/>
+                            <constraint firstItem="fNp-9v-wPD" firstAttribute="firstBaseline" secondItem="CUy-TP-d45" secondAttribute="baseline" constant="30" id="uxz-cf-a1A"/>
                             <constraint firstItem="fNp-9v-wPD" firstAttribute="leading" secondItem="9ZP-pi-B8q" secondAttribute="leading" id="wa9-yU-CvQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9ZP-pi-B8q"/>

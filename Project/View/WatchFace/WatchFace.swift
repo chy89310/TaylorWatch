@@ -54,10 +54,8 @@ class WatchFace: DesignableView {
         let minuteAngle = CGFloat(minute)*CGFloat.pi/30
         let hourPoint = CGPoint(x: sin(hourAngle)*hourHand.long, y: cos(hourAngle)*hourHand.long)
         let minutePoint = CGPoint(x: sin(minuteAngle)*minuteHand.long, y: cos(minuteAngle)*minuteHand.long)
-        UIView.animate(withDuration: 0.2, delay: 0.0, usingSpringWithDamping: 0.0, initialSpringVelocity: 0.0, options: .curveEaseOut, animations: {
-            self.hourView.transform = CGAffineTransform(rotationAngle: hourAngle)
-            self.minuteView.transform = CGAffineTransform(rotationAngle: minuteAngle)
-        }, completion: nil)
+        self.hourView.transform = CGAffineTransform(rotationAngle: hourAngle)
+        self.minuteView.transform = CGAffineTransform(rotationAngle: minuteAngle)
         
         return (hourPoint, minutePoint)
     }
@@ -114,9 +112,11 @@ class WatchFace: DesignableView {
     func setTime(_ time: Date) {
         hour = Calendar.current.component(.hour, from: time)
         minute = Calendar.current.component(.minute, from: time)
-        let (hourPoint, minutePoint) = updateTransform()
-        beginPoints = [minuteHand: minutePoint,
-                       hourHand: hourPoint]
+        UIView.animate(withDuration: 0.5) {
+            let (hourPoint, minutePoint) = self.updateTransform()
+            self.beginPoints = [self.minuteHand: minutePoint,
+                                self.hourHand: hourPoint]
+        }
     }
 
 }

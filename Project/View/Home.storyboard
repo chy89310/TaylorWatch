@@ -260,7 +260,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ub-c6-ghc">
-                                                <rect key="frame" x="207" y="0.0" width="207" height="32"/>
+                                                <rect key="frame" x="154.66666666666663" y="0.0" width="207" height="32"/>
                                                 <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="Delete">
@@ -281,7 +281,7 @@
                             <constraint firstAttribute="trailing" secondItem="Vxy-o2-f9q" secondAttribute="trailing" id="4XK-NF-sY2"/>
                             <constraint firstItem="Vxy-o2-f9q" firstAttribute="leading" secondItem="25h-cI-iNs" secondAttribute="leading" id="GT4-qp-HWS"/>
                             <constraint firstItem="Vxy-o2-f9q" firstAttribute="top" secondItem="u3z-i2-1rV" secondAttribute="top" id="I7b-PT-S7q"/>
-                            <constraint firstItem="SEj-Yc-kix" firstAttribute="firstBaseline" secondItem="g3n-Zz-yot" secondAttribute="baseline" constant="22" symbolType="layoutAnchor" id="PDl-Eu-66i"/>
+                            <constraint firstItem="SEj-Yc-kix" firstAttribute="firstBaseline" secondItem="g3n-Zz-yot" secondAttribute="baseline" constant="25.666666666666668" symbolType="layoutAnchor" id="PDl-Eu-66i"/>
                             <constraint firstItem="u3z-i2-1rV" firstAttribute="trailing" secondItem="g3n-Zz-yot" secondAttribute="trailing" id="WoH-GD-J6K"/>
                             <constraint firstItem="u3z-i2-1rV" firstAttribute="trailing" secondItem="SEj-Yc-kix" secondAttribute="trailing" id="g7p-8h-U3A"/>
                             <constraint firstItem="g3n-Zz-yot" firstAttribute="leading" secondItem="u3z-i2-1rV" secondAttribute="leading" id="hwW-Cd-3s6"/>
