@@ -7,11 +7,13 @@ target 'Taylor' do
 
   # Pods for Project
   pod 'Alamofire'
-  #pod 'Google/Analytics'
+#  pod 'Google/Analytics'
+  pod 'HexColors'
   pod 'IQKeyboardManagerSwift'
   pod 'MagicalRecord'
-  pod 'MZFormSheetController'
+#  pod 'MZFormSheetController'
   pod 'Siren'
+  pod 'SwiftIconFont', '2.7.1'
   pod 'SwiftyBeaver'
   pod 'SwiftyJSON'
   pod 'SwiftyTimer'

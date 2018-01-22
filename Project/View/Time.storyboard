@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aq-Yo-dQt">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--time-->
+        <scene sceneID="lS5-kM-7JI">
+            <objects>
+                <viewController id="2aq-Yo-dQt" customClass="TimeController" customModule="Taylor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IQo-j7-C9u"/>
+                        <viewControllerLayoutGuide type="bottom" id="wjl-NR-nYK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zyz-ao-Pvh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-Xx-efD" customClass="TitleView" customModule="Taylor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20" width="320" height="45"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="AeC-88-L5i"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="TIME"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ZZ-Ir-Amk" customClass="WatchFace" customModule="Taylor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="95" width="320" height="227"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="background" value="watch_foxter"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5ya-an-HjH">
+                                <rect key="frame" x="28" y="357" width="264" height="75.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mF-pu-ehI" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75.5"/>
+                                        <color key="backgroundColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="3mF-pu-ehI" secondAttribute="height" id="1ie-ev-Klk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Phone Time">
+                                            <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didButtonClick:" destination="2aq-Yo-dQt" eventType="touchUpInside" id="Pra-dH-Ez9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49e-W4-NoD" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
+                                        <rect key="frame" x="94.5" y="0.0" width="75" height="75.5"/>
+                                        <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="49e-W4-NoD" secondAttribute="height" id="HEB-Om-zQB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Manual Sync">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didButtonClick:" destination="2aq-Yo-dQt" eventType="touchUpInside" id="hpL-Wz-Xr3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-pG-2lU" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
+                                        <rect key="frame" x="189" y="0.0" width="75" height="75.5"/>
+                                        <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5VO-pG-2lU" secondAttribute="height" id="reF-RK-6ja"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Change Time Zone">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didButtonClick:" destination="2aq-Yo-dQt" eventType="touchUpInside" id="AxZ-Gs-QAh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5VO-pG-2lU" firstAttribute="width" secondItem="5VO-pG-2lU" secondAttribute="height" id="0Wq-CR-A1V"/>
+                                    <constraint firstItem="49e-W4-NoD" firstAttribute="width" secondItem="49e-W4-NoD" secondAttribute="height" id="7Eg-5g-gp8"/>
+                                    <constraint firstAttribute="width" secondItem="5ya-an-HjH" secondAttribute="height" multiplier="3.5:1" id="9Xj-3n-VRX"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5ZZ-Ir-Amk" firstAttribute="leading" secondItem="gLx-5a-Aib" secondAttribute="leading" id="0hB-U6-csC"/>
+                            <constraint firstAttribute="trailing" secondItem="0bG-Xx-efD" secondAttribute="trailing" id="11E-RW-0p4"/>
+                            <constraint firstItem="5ZZ-Ir-Amk" firstAttribute="top" secondItem="0bG-Xx-efD" secondAttribute="bottom" constant="30" id="CqC-RC-DbI"/>
+                            <constraint firstItem="gLx-5a-Aib" firstAttribute="top" secondItem="0bG-Xx-efD" secondAttribute="top" id="FMS-L5-0oc"/>
+                            <constraint firstItem="5ya-an-HjH" firstAttribute="top" secondItem="5ZZ-Ir-Amk" secondAttribute="bottom" constant="35" id="XRK-4t-6A8"/>
+                            <constraint firstItem="5ya-an-HjH" firstAttribute="leading" secondItem="gLx-5a-Aib" secondAttribute="leading" constant="28" id="XzW-Jf-P7L"/>
+                            <constraint firstItem="gLx-5a-Aib" firstAttribute="trailing" secondItem="5ZZ-Ir-Amk" secondAttribute="trailing" id="e8D-R4-XWu"/>
+                            <constraint firstItem="5ZZ-Ir-Amk" firstAttribute="height" secondItem="Zyz-ao-Pvh" secondAttribute="height" multiplier="0.4" id="lfr-8a-w8W"/>
+                            <constraint firstItem="0bG-Xx-efD" firstAttribute="leading" secondItem="Zyz-ao-Pvh" secondAttribute="leading" id="n0k-FN-umh"/>
+                            <constraint firstItem="gLx-5a-Aib" firstAttribute="trailing" secondItem="5ya-an-HjH" secondAttribute="trailing" constant="28" id="nud-tq-OP7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gLx-5a-Aib"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="time" image="nav_time" id="h5F-6f-v6H"/>
+                    <navigationItem key="navigationItem" id="6CV-Yk-4Of"/>
+                    <connections>
+                        <outlet property="manSyncBtn" destination="49e-W4-NoD" id="Ll0-IX-u9E"/>
+                        <outlet property="phoneSyncBtn" destination="3mF-pu-ehI" id="QTr-GQ-nPV"/>
+                        <outlet property="timeZoneBtn" destination="5VO-pG-2lU" id="QUV-7g-LQl"/>
+                        <outlet property="watchFace" destination="5ZZ-Ir-Amk" id="16U-F2-iNw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xy6-a4-CrK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4970.3999999999996" y="444.82758620689657"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="nav_time" width="26" height="27"/>
+        <image name="watch_foxter" width="270" height="270"/>
+    </resources>
+</document>

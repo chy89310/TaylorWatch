@@ -11,14 +11,27 @@
 		0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B53181FC7CA3F00CC094D /* WatchApi.plist */; };
 		0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
 		4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
+		4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
 		4B2BB26E200B767A00ED482E /* SBManager+watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB26D200B767A00ED482E /* SBManager+watch.swift */; };
+		4B2BB271200D1DC000ED482E /* WatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB270200D1DC000ED482E /* WatchView.xib */; };
+		4B2BB273200D22A900ED482E /* WatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB272200D22A900ED482E /* WatchView.swift */; };
+		4B2BB275200FBC2900ED482E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB274200FBC2900ED482E /* DesignableView.swift */; };
+		4B2BB277200FBCF000ED482E /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB276200FBCF000ED482E /* RoundView.swift */; };
+		4B2BB279200FC4C300ED482E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB278200FC4C300ED482E /* Home.storyboard */; };
+		4B2BB27B200FC7C000ED482E /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB27A200FC7C000ED482E /* TitleView.xib */; };
+		4B2BB27D200FC94400ED482E /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB27C200FC94400ED482E /* TitleView.swift */; };
+		4B2BB281200FD3AB00ED482E /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB280200FD3AB00ED482E /* Info.storyboard */; };
+		4B2BB2832011182300ED482E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB2822011182300ED482E /* HomeController.swift */; };
+		4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB28520112B9F00ED482E /* WatchFace.xib */; };
+		4B2BB28820112BB500ED482E /* WatchFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB28720112BB500ED482E /* WatchFace.swift */; };
+		4B2BB28A2011341200ED482E /* Time.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB2892011341200ED482E /* Time.storyboard */; };
+		4B2BB29120113EBF00ED482E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB29020113EBF00ED482E /* RoundButton.swift */; };
 		4B32BADF1FD30EF700EFC3E4 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */; };
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
 		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
 		4B61EA151FDC6549001FA30F /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA141FDC6549001FA30F /* TabController.swift */; };
 		4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
 		4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7277981F12A021009AC306 /* BaseViewController.swift */; };
-		4B81FE651FD0918A00B0DB25 /* StepsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B81FE641FD0918A00B0DB25 /* StepsController.swift */; };
 		4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */; };
 		4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */; };
 		4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DDB1EEEF932009C13A5 /* Config.swift */; };
@@ -43,14 +56,27 @@
 		0A1A85261FC595FF00EEA718 /* SBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBManager.swift; sourceTree = "<group>"; };
 		1009943C883916D85DE4D806 /* Pods-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B1363931FD25D8000AAE628 /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
+		4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOptionsController.swift; sourceTree = "<group>"; };
 		4B2BB26D200B767A00ED482E /* SBManager+watch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SBManager+watch.swift"; sourceTree = "<group>"; };
+		4B2BB270200D1DC000ED482E /* WatchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchView.xib; sourceTree = "<group>"; };
+		4B2BB272200D22A900ED482E /* WatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchView.swift; sourceTree = "<group>"; };
+		4B2BB274200FBC2900ED482E /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		4B2BB276200FBCF000ED482E /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		4B2BB278200FC4C300ED482E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		4B2BB27A200FC7C000ED482E /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		4B2BB27C200FC94400ED482E /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		4B2BB280200FD3AB00ED482E /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
+		4B2BB2822011182300ED482E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		4B2BB28520112B9F00ED482E /* WatchFace.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchFace.xib; sourceTree = "<group>"; };
+		4B2BB28720112BB500ED482E /* WatchFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFace.swift; sourceTree = "<group>"; };
+		4B2BB2892011341200ED482E /* Time.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Time.storyboard; sourceTree = "<group>"; };
+		4B2BB29020113EBF00ED482E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		4B61EA141FDC6549001FA30F /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		4B7277981F12A021009AC306 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		4B81FE641FD0918A00B0DB25 /* StepsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsController.swift; sourceTree = "<group>"; };
 		4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPeripheral.swift; sourceTree = "<group>"; };
 		4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		4B9F7DDB1EEEF932009C13A5 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -96,6 +122,42 @@
 				4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */,
 			);
 			path = CBHelper;
+			sourceTree = "<group>";
+		};
+		4B167E9C2014A301009DCD4D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */,
+				4B2BB2822011182300ED482E /* HomeController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4B2BB27E200FD35500ED482E /* WatchView */ = {
+			isa = PBXGroup;
+			children = (
+				4B2BB272200D22A900ED482E /* WatchView.swift */,
+				4B2BB270200D1DC000ED482E /* WatchView.xib */,
+			);
+			path = WatchView;
+			sourceTree = "<group>";
+		};
+		4B2BB27F200FD36500ED482E /* TitleView */ = {
+			isa = PBXGroup;
+			children = (
+				4B2BB27C200FC94400ED482E /* TitleView.swift */,
+				4B2BB27A200FC7C000ED482E /* TitleView.xib */,
+			);
+			path = TitleView;
+			sourceTree = "<group>";
+		};
+		4B2BB28420112B8700ED482E /* WatchFace */ = {
+			isa = PBXGroup;
+			children = (
+				4B2BB28720112BB500ED482E /* WatchFace.swift */,
+				4B2BB28520112B9F00ED482E /* WatchFace.xib */,
+			);
+			path = WatchFace;
 			sourceTree = "<group>";
 		};
 		4BA6EE001EE87B7B0098C4DA = {
@@ -165,8 +227,17 @@
 		4BA6EE841EE87D8E0098C4DA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4B2BB27F200FD36500ED482E /* TitleView */,
+				4B2BB28420112B8700ED482E /* WatchFace */,
+				4B2BB27E200FD35500ED482E /* WatchView */,
+				4B2BB274200FBC2900ED482E /* DesignableView.swift */,
+				4B2BB29020113EBF00ED482E /* RoundButton.swift */,
+				4B2BB276200FBCF000ED482E /* RoundView.swift */,
+				4B2BB278200FC4C300ED482E /* Home.storyboard */,
+				4B2BB280200FD3AB00ED482E /* Info.storyboard */,
 				4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */,
 				4BA6EE861EE87D8E0098C4DA /* Main.storyboard */,
+				4B2BB2892011341200ED482E /* Time.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,8 +256,8 @@
 		4BF01A601FCD6686009B1262 /* TabController */ = {
 			isa = PBXGroup;
 			children = (
+				4B167E9C2014A301009DCD4D /* Home */,
 				4BF01A611FCD66A2009B1262 /* InfoController.swift */,
-				4B81FE641FD0918A00B0DB25 /* StepsController.swift */,
 				4B1363931FD25D8000AAE628 /* TimeController.swift */,
 				4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */,
 			);
@@ -229,6 +300,7 @@
 				6D7AA5B64D450DCC6351DA1C /* [CP] Check Pods Manifest.lock */,
 				4BA6EE051EE87B7B0098C4DA /* Sources */,
 				4BA6EE061EE87B7B0098C4DA /* Frameworks */,
+				4B2BB26F200B7A4D00ED482E /* ShellScript */,
 				4BA6EE071EE87B7B0098C4DA /* Resources */,
 				4FD2103C3723A7F7250F7C80 /* [CP] Embed Pods Frameworks */,
 				A952F651E2CFA6C71A4379E1 /* [CP] Copy Pods Resources */,
@@ -282,10 +354,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B2BB281200FD3AB00ED482E /* Info.storyboard in Resources */,
+				4B2BB279200FC4C300ED482E /* Home.storyboard in Resources */,
 				4BA6EE881EE87D8E0098C4DA /* Main.storyboard in Resources */,
 				4BDF650E1F124559003230A1 /* Api.plist in Resources */,
+				4B2BB27B200FC7C000ED482E /* TitleView.xib in Resources */,
+				4B2BB271200D1DC000ED482E /* WatchView.xib in Resources */,
 				4BA6EE871EE87D8E0098C4DA /* LaunchScreen.storyboard in Resources */,
 				0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */,
+				4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */,
+				4B2BB28A2011341200ED482E /* Time.storyboard in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +371,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4B2BB26F200B7A4D00ED482E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment Build Number Bool (Increment ON with true, increment OFF with false)\nshouldIncrement=true\n\n#   App vesion / Build version constants\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\n#   Increment build number\nif [ \"$shouldIncrement\" = true ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"version: $versionNumber\\\"/\" \"$PROJECT_DIR/Project/View/LaunchScreen.storyboard\"";
+		};
 		4FD2103C3723A7F7250F7C80 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,11 +392,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Taylor/Pods-Taylor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MZAppearance/MZAppearance.framework",
-				"${BUILT_PRODUCTS_DIR}/MZFormSheetController/MZFormSheetController.framework",
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework",
@@ -313,11 +404,11 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZAppearance.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZFormSheetController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyTimer.framework",
@@ -368,21 +459,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF01A5F1FCD56FD009B1262 /* Device+Extension.swift in Sources */,
+				4B2BB277200FBCF000ED482E /* RoundView.swift in Sources */,
 				4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */,
 				4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */,
+				4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */,
 				0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */,
 				0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */,
+				4B2BB29120113EBF00ED482E /* RoundButton.swift in Sources */,
 				4BA6EE0D1EE87B7B0098C4DA /* AppDelegate.swift in Sources */,
 				4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */,
+				4B2BB28820112BB500ED482E /* WatchFace.swift in Sources */,
 				4B61EA151FDC6549001FA30F /* TabController.swift in Sources */,
 				4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */,
 				4B32BADF1FD30EF700EFC3E4 /* MessageController.swift in Sources */,
 				4B2BB26E200B767A00ED482E /* SBManager+watch.swift in Sources */,
-				4B81FE651FD0918A00B0DB25 /* StepsController.swift in Sources */,
+				4B2BB275200FBC2900ED482E /* DesignableView.swift in Sources */,
+				4B2BB273200D22A900ED482E /* WatchView.swift in Sources */,
+				4B2BB27D200FC94400ED482E /* TitleView.swift in Sources */,
 				4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */,
 				4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */,
 				4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */,
 				4BF01A621FCD66A2009B1262 /* InfoController.swift in Sources */,
+				4B2BB2832011182300ED482E /* HomeController.swift in Sources */,
 				4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */,
 				4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */,
 				4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */,

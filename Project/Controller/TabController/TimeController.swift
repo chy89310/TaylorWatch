@@ -9,26 +9,55 @@
 import UIKit
 
 
-class TimeController: BaseViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class TimeController: BaseViewController {
 
-    @IBOutlet weak var _pickerView: UIPickerView!
+    @IBOutlet weak var watchFace: WatchFace!
+    @IBOutlet weak var phoneSyncBtn: RoundButton!
+    @IBOutlet weak var manSyncBtn: RoundButton!
+    @IBOutlet weak var timeZoneBtn: RoundButton!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let date = Date()
-        let calendar = Calendar.init(identifier: .iso8601)
-        let component = calendar.dateComponents(in: .current, from: date)
-        _pickerView.selectRow(component.hour ?? 0, inComponent: 0, animated: true)
-        _pickerView.selectRow(component.minute ?? 0, inComponent: 2, animated: true)
-        _pickerView.selectRow(component.second ?? 0, inComponent: 4, animated: true)
+        watchFace.setTime(date)
     }
 
-    @IBAction func didSyncClick(_ sender: Any) {
-        let date = Date()
-        let calendar = Calendar.init(identifier: .iso8601)
-        let component = calendar.dateComponents(in: .current, from: date)
-        
+    @IBAction func didButtonClick(_ sender: RoundButton) {
+        let buttons = [phoneSyncBtn, manSyncBtn, timeZoneBtn]
+        for button in buttons {
+            if sender == button {
+                button?.focus(true)
+            } else {
+                button?.focus(false)
+            }
+        }
+        if sender == phoneSyncBtn {
+            doPhoneSync(hour: -1, minute: -1)
+        }
+        if sender == manSyncBtn {
+            watchFace.interactable = true
+            watchFace.didUpdateTime = { (hour, minute) in
+                self.doPhoneSync(hour: hour, minute: minute)
+            }
+        } else {
+            watchFace.interactable = false
+            watchFace.didUpdateTime = nil
+        }
+    }
+    
+    func doPhoneSync(hour: Int, minute: Int) {
+        let calendar = Calendar(identifier: .iso8601)
+        var date = Date()
+        var component = calendar.dateComponents(in: .current, from: date)
+        if hour > -1 {
+            component.hour = hour
+        }
+        if minute > -1 {
+            component.minute = minute
+        }
+        date = calendar.date(from: component) ?? date
+        watchFace.setTime(date)
         SBManager.share.setTime(
             year: component.year ?? 2018,
             month: component.month ?? 1,
@@ -39,52 +68,4 @@ class TimeController: BaseViewController, UIPickerViewDataSource, UIPickerViewDe
             weekday: component.weekday ?? 0)
     }
     
-    // MARK: - Picker view datasource & delegate
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 5
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch component {
-        case 0:
-            return 24
-        case 1:
-            return 1
-        case 2:
-            return 60
-        case 3:
-            return 1
-        case 4:
-            return 60
-        default:
-            return 0
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if (component == 1 || component == 3 || component == 5) {
-            return ":"
-        } else {
-            if (row < 10) {
-                return "0\(row)"
-            } else {
-                return String(row)
-            }
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let date = Date()
-        let calendar = Calendar.init(identifier: .iso8601)
-        let component = calendar.dateComponents(in: .current, from: date)
-        SBManager.share.setTime(
-            year: component.year ?? 2018,
-            month: component.month ?? 1,
-            day: component.day ?? 1,
-            hour: pickerView.selectedRow(inComponent: 0),
-            minute: pickerView.selectedRow(inComponent: 2),
-            second: pickerView.selectedRow(inComponent: 4),
-            weekday: component.weekday ?? 0)
-    }
 }

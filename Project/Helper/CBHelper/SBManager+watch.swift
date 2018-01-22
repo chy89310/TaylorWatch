@@ -18,12 +18,12 @@ extension SBManager {
     func pairing(passkey: Int, peripheral: CBPeripheral?, complete: @escaping (_ success: Bool, _ error: String?) -> ()) {
         let data = Data.init(bytes: [CMD.pair.rawValue,UInt8(passkey&0xff),UInt8(passkey>>8&0xff)])
         SBManager.share.didUpdateEvent = { (evt, data) in
-            SBManager.share.didUpdateEvent = nil
             switch evt {
             case .notify:
+                SBManager.share.didUpdateEvent = nil
                 complete(true, nil)
-            case .response:
-                complete(false, "Response: \(data)")
+//            case .response:
+//                complete(false, "Response: \(data)")
             default:
                 break
             }

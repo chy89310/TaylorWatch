@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitleView" customModule="Taylor" customModuleProvider="target">
+            <connections>
+                <outlet property="titleLabel" destination="Kfp-tS-gHg" id="zd0-07-7rX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBL-Sf-7qy">
+                    <rect key="frame" x="0.0" y="17.5" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="JCK-aT-6md"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_title" translatesAutoresizingMaskIntoConstraints="NO" id="6oo-po-gES">
+                    <rect key="frame" x="127.5" y="12" width="120" height="12"/>
+                    <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="Ahm-Rt-tiv"/>
+                        <constraint firstAttribute="width" constant="120" id="Wgf-Sa-zJe"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfp-tS-gHg">
+                    <rect key="frame" x="165.5" y="24" width="44" height="20.5"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                    <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="6oo-po-gES" firstAttribute="centerY" secondItem="fBL-Sf-7qy" secondAttribute="centerY" id="4s6-m0-8M9"/>
+                <constraint firstItem="Kfp-tS-gHg" firstAttribute="top" secondItem="6oo-po-gES" secondAttribute="bottom" id="GJh-cv-i5g"/>
+                <constraint firstItem="fBL-Sf-7qy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HbX-C3-uIt"/>
+                <constraint firstItem="Kfp-tS-gHg" firstAttribute="centerX" secondItem="fBL-Sf-7qy" secondAttribute="centerX" id="VOL-rQ-kQQ"/>
+                <constraint firstAttribute="trailing" secondItem="fBL-Sf-7qy" secondAttribute="trailing" id="Wts-HY-pZG"/>
+                <constraint firstItem="6oo-po-gES" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="hL9-e9-5h0"/>
+                <constraint firstItem="6oo-po-gES" firstAttribute="centerX" secondItem="fBL-Sf-7qy" secondAttribute="centerX" id="oUb-wm-6ky"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="34.5" y="365.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="launch_title" width="143" height="17"/>
+    </resources>
+</document>

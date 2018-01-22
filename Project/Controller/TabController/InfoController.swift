@@ -6,22 +6,18 @@
 //  Copyright © 2017 KevinSum. All rights reserved.
 //
 
+import HexColors
 import MagicalRecord
 import UIKit
 
 class InfoController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) ?? Device()
+    let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) ?? Device.mr_createEntity()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view datasource
@@ -31,55 +27,55 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.textColor = .black
-        switch indexPath.row {
-        case 0:
-            cell.textLabel?.text = "Name: \(device.name!)"
-        case 1:
-            cell.textLabel?.text = "Serial NO.: \(device.serial!)"
-        case 2:
-            cell.textLabel?.text = "System NO.: \(device.system!)"
-        case 3:
-            cell.textLabel?.text = "Firmware: \(device.firmware!)"
-        case 4:
-            cell.textLabel?.text = "Manufacturer: \(device.manufacturer!)"
-        case 5:
-            cell.textLabel?.text = "Passcode: \(device.passcode)"
-        case 6:
-            cell.textLabel?.text = "Battery: \(device.battery)"
-        case 7:
-            cell.textLabel?.text = "Delete device"
-            cell.textLabel?.textColor = .red
-        default:
-            break
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 7, let peripheral = SBManager.share.selectedPeripheral {
-            if let url = URL.init(string: "App-Prefs:root=Bluetooth"), UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: { (finish) in
-                    SBManager.share.didDisconnect = {
-                        MagicalRecord.save({ (localContext) in
-                            let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
-                            device?.mr_deleteEntity(in: localContext)
-                        }, completion: { (finish, error) in
-                            SBManager.share.reset()
-                            log.debug("Make root view with scan controller")
-                            let scanController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController")
-                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                            appDelegate.window?.rootViewController = scanController
-                        })
-                    }
-                })
+        if indexPath.row < 6 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
+            if indexPath.row%2 == 1 {
+                cell.backgroundColor = UIColor("#9b9b9b")
+            } else {
+                cell.backgroundColor = UIColor("#4a4a4a")
             }
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = NSLocalizedString("Watch Bettery", comment: "")
+                cell.detailTextLabel?.text = "\(device?.battery ?? 100)%"
+            case 1:
+                cell.textLabel?.text = NSLocalizedString("Bluetooth", comment: "")
+                cell.detailTextLabel?.text = "\(device?.system ?? "N/A")"
+            case 2:
+                cell.textLabel?.text = NSLocalizedString("Model Name", comment: "")
+                cell.detailTextLabel?.text = "\(device?.serial ?? "N/A")"
+            case 3:
+                cell.textLabel?.text = NSLocalizedString("Pairing Code", comment: "")
+                cell.detailTextLabel?.text = "\(device?.passcode ?? 000000)"
+            case 4:
+                cell.textLabel?.text = NSLocalizedString("Frame Number", comment: "")
+                cell.detailTextLabel?.text = "\(device?.firmware ?? "N/A")"
+            case 5:
+                cell.textLabel?.text = NSLocalizedString("App Version", comment: "")
+                #if DEBUG
+                    cell.detailTextLabel?.text = "\(Bundle.main.infoDictionary!["CFBundleShortVersionString"] ?? "1.0")(\(Bundle.main.infoDictionary!["CFBundleVersion"] ?? "1"))"
+                #else
+                    cell.detailTextLabel?.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+                    
+                #endif
+            default:
+                break
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "updateCell", for: indexPath)
+            switch indexPath.row {
+            case 6:
+                cell.textLabel?.text = NSLocalizedString("Update APP", comment: "")
+                cell.textLabel?.textColor = .black
+            default:
+                break
+            }
+            return cell
         }
     }
 

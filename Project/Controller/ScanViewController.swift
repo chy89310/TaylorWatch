@@ -34,6 +34,7 @@ class ScanViewController: BaseViewController, UITableViewDataSource, UITableView
         _textField.inputView = pickerView
         _textField.delegate = self
         _tableView.reloadData()
+        
     }
 
     @IBAction func didConnectClick(_ sender: Any) {
