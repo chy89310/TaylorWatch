@@ -8,6 +8,7 @@ target 'Taylor' do
   # Pods for Project
   pod 'Alamofire'
 #  pod 'Google/Analytics'
+  pod 'Charts', '3.0.3'
   pod 'HexColors'
   pod 'IQKeyboardManagerSwift'
   pod 'MagicalRecord'

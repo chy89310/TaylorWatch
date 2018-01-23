@@ -26,6 +26,7 @@
 		4B2BB28820112BB500ED482E /* WatchFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB28720112BB500ED482E /* WatchFace.swift */; };
 		4B2BB29120113EBF00ED482E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB29020113EBF00ED482E /* RoundButton.swift */; };
 		4B32BADF1FD30EF700EFC3E4 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */; };
+		4B48DA352017B9460067ECA0 /* HealthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA342017B9450067ECA0 /* HealthController.swift */; };
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
 		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
 		4B61EA151FDC6549001FA30F /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA141FDC6549001FA30F /* TabController.swift */; };
@@ -70,6 +71,7 @@
 		4B2BB28720112BB500ED482E /* WatchFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFace.swift; sourceTree = "<group>"; };
 		4B2BB29020113EBF00ED482E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		4B48DA342017B9450067ECA0 /* HealthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthController.swift; sourceTree = "<group>"; };
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		4B61EA141FDC6549001FA30F /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */,
+				4B48DA342017B9450067ECA0 /* HealthController.swift */,
 				4B2BB2822011182300ED482E /* HomeController.swift */,
 				4BF01A611FCD66A2009B1262 /* InfoController.swift */,
 				4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */,
@@ -378,6 +381,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Taylor/Pods-Taylor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
@@ -390,6 +394,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
@@ -453,6 +458,7 @@
 				0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */,
 				0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */,
 				4B2BB29120113EBF00ED482E /* RoundButton.swift in Sources */,
+				4B48DA352017B9460067ECA0 /* HealthController.swift in Sources */,
 				4BA6EE0D1EE87B7B0098C4DA /* AppDelegate.swift in Sources */,
 				4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */,
 				4B2BB28820112BB500ED482E /* WatchFace.swift in Sources */,
