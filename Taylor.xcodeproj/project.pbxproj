@@ -10,24 +10,22 @@
 		0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53141FC6C53100CC094D /* ScanViewController.swift */; };
 		0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B53181FC7CA3F00CC094D /* WatchApi.plist */; };
 		0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
-		0A4984652015753B0010759E /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A4984642015753B0010759E /* Setting.storyboard */; };
 		4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
 		4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
+		4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EBE20166900009DCD4D /* NavigationBar.swift */; };
+		4B167EC120166C82009DCD4D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EC020166C82009DCD4D /* BaseNavigationController.swift */; };
 		4B2BB26E200B767A00ED482E /* SBManager+watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB26D200B767A00ED482E /* SBManager+watch.swift */; };
 		4B2BB271200D1DC000ED482E /* WatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB270200D1DC000ED482E /* WatchView.xib */; };
 		4B2BB273200D22A900ED482E /* WatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB272200D22A900ED482E /* WatchView.swift */; };
 		4B2BB275200FBC2900ED482E /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB274200FBC2900ED482E /* DesignableView.swift */; };
 		4B2BB277200FBCF000ED482E /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB276200FBCF000ED482E /* RoundView.swift */; };
-		4B2BB279200FC4C300ED482E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB278200FC4C300ED482E /* Home.storyboard */; };
 		4B2BB27B200FC7C000ED482E /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB27A200FC7C000ED482E /* TitleView.xib */; };
 		4B2BB27D200FC94400ED482E /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB27C200FC94400ED482E /* TitleView.swift */; };
-		4B2BB281200FD3AB00ED482E /* Info.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB280200FD3AB00ED482E /* Info.storyboard */; };
 		4B2BB2832011182300ED482E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB2822011182300ED482E /* HomeController.swift */; };
 		4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB28520112B9F00ED482E /* WatchFace.xib */; };
 		4B2BB28820112BB500ED482E /* WatchFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB28720112BB500ED482E /* WatchFace.swift */; };
-		4B2BB28A2011341200ED482E /* Time.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB2892011341200ED482E /* Time.storyboard */; };
 		4B2BB29120113EBF00ED482E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB29020113EBF00ED482E /* RoundButton.swift */; };
-		4B32BADF1FD30EF700EFC3E4 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */; };
+		4B32BADF1FD30EF700EFC3E4 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */; };
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
 		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
 		4B61EA151FDC6549001FA30F /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA141FDC6549001FA30F /* TabController.swift */; };
@@ -55,25 +53,23 @@
 		0A0B53141FC6C53100CC094D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		0A0B53181FC7CA3F00CC094D /* WatchApi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WatchApi.plist; sourceTree = "<group>"; };
 		0A1A85261FC595FF00EEA718 /* SBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBManager.swift; sourceTree = "<group>"; };
-		0A4984642015753B0010759E /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		1009943C883916D85DE4D806 /* Pods-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B1363931FD25D8000AAE628 /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOptionsController.swift; sourceTree = "<group>"; };
+		4B167EBE20166900009DCD4D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		4B167EC020166C82009DCD4D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		4B2BB26D200B767A00ED482E /* SBManager+watch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SBManager+watch.swift"; sourceTree = "<group>"; };
 		4B2BB270200D1DC000ED482E /* WatchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchView.xib; sourceTree = "<group>"; };
 		4B2BB272200D22A900ED482E /* WatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchView.swift; sourceTree = "<group>"; };
 		4B2BB274200FBC2900ED482E /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		4B2BB276200FBCF000ED482E /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
-		4B2BB278200FC4C300ED482E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		4B2BB27A200FC7C000ED482E /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
 		4B2BB27C200FC94400ED482E /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		4B2BB280200FD3AB00ED482E /* Info.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Info.storyboard; sourceTree = "<group>"; };
 		4B2BB2822011182300ED482E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		4B2BB28520112B9F00ED482E /* WatchFace.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchFace.xib; sourceTree = "<group>"; };
 		4B2BB28720112BB500ED482E /* WatchFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFace.swift; sourceTree = "<group>"; };
-		4B2BB2892011341200ED482E /* Time.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Time.storyboard; sourceTree = "<group>"; };
 		4B2BB29020113EBF00ED482E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
+		4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		4B61EA141FDC6549001FA30F /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -124,23 +120,6 @@
 				4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */,
 			);
 			path = CBHelper;
-			sourceTree = "<group>";
-		};
-		4B167E9C2014A301009DCD4D /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */,
-				4B2BB2822011182300ED482E /* HomeController.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		4B167EBD201658E6009DCD4D /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				4B32BADE1FD30EF700EFC3E4 /* MessageController.swift */,
-			);
-			path = Setting;
 			sourceTree = "<group>";
 		};
 		4B2BB27E200FD35500ED482E /* WatchView */ = {
@@ -206,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				4B7277981F12A021009AC306 /* BaseViewController.swift */,
+				4B167EC020166C82009DCD4D /* BaseNavigationController.swift */,
 				0A0B53141FC6C53100CC094D /* ScanViewController.swift */,
 				4B61EA141FDC6549001FA30F /* TabController.swift */,
 				4BF01A601FCD6686009B1262 /* TabController */,
@@ -243,12 +223,9 @@
 				4B2BB274200FBC2900ED482E /* DesignableView.swift */,
 				4B2BB29020113EBF00ED482E /* RoundButton.swift */,
 				4B2BB276200FBCF000ED482E /* RoundView.swift */,
-				4B2BB278200FC4C300ED482E /* Home.storyboard */,
-				4B2BB280200FD3AB00ED482E /* Info.storyboard */,
+				4B167EBE20166900009DCD4D /* NavigationBar.swift */,
 				4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */,
 				4BA6EE861EE87D8E0098C4DA /* Main.storyboard */,
-				0A4984642015753B0010759E /* Setting.storyboard */,
-				4B2BB2892011341200ED482E /* Time.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,9 +244,10 @@
 		4BF01A601FCD6686009B1262 /* TabController */ = {
 			isa = PBXGroup;
 			children = (
-				4B167E9C2014A301009DCD4D /* Home */,
-				4B167EBD201658E6009DCD4D /* Setting */,
+				4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */,
+				4B2BB2822011182300ED482E /* HomeController.swift */,
 				4BF01A611FCD66A2009B1262 /* InfoController.swift */,
+				4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */,
 				4B1363931FD25D8000AAE628 /* TimeController.swift */,
 			);
 			path = TabController;
@@ -365,8 +343,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B2BB281200FD3AB00ED482E /* Info.storyboard in Resources */,
-				4B2BB279200FC4C300ED482E /* Home.storyboard in Resources */,
 				4BA6EE881EE87D8E0098C4DA /* Main.storyboard in Resources */,
 				4BDF650E1F124559003230A1 /* Api.plist in Resources */,
 				4B2BB27B200FC7C000ED482E /* TitleView.xib in Resources */,
@@ -374,9 +350,7 @@
 				4BA6EE871EE87D8E0098C4DA /* LaunchScreen.storyboard in Resources */,
 				0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */,
 				4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */,
-				4B2BB28A2011341200ED482E /* Time.storyboard in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
-				0A4984652015753B0010759E /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +449,7 @@
 				4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */,
 				4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */,
 				4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */,
+				4B167EC120166C82009DCD4D /* BaseNavigationController.swift in Sources */,
 				0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */,
 				0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */,
 				4B2BB29120113EBF00ED482E /* RoundButton.swift in Sources */,
@@ -483,7 +458,7 @@
 				4B2BB28820112BB500ED482E /* WatchFace.swift in Sources */,
 				4B61EA151FDC6549001FA30F /* TabController.swift in Sources */,
 				4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */,
-				4B32BADF1FD30EF700EFC3E4 /* MessageController.swift in Sources */,
+				4B32BADF1FD30EF700EFC3E4 /* SettingController.swift in Sources */,
 				4B2BB26E200B767A00ED482E /* SBManager+watch.swift in Sources */,
 				4B2BB275200FBC2900ED482E /* DesignableView.swift in Sources */,
 				4B2BB273200D22A900ED482E /* WatchView.swift in Sources */,
@@ -493,6 +468,7 @@
 				4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */,
 				4BF01A621FCD66A2009B1262 /* InfoController.swift in Sources */,
 				4B2BB2832011182300ED482E /* HomeController.swift in Sources */,
+				4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */,
 				4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */,
 				4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */,
 				4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */,

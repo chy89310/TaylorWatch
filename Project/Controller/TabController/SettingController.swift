@@ -1,5 +1,5 @@
 //
-//  MessageController.swift
+//  SettingController.swift
 //  Taylor
 //
 //  Created by Kevin Sum on 3/12/2017.
@@ -11,7 +11,7 @@ import SwiftIconFont
 import HexColors
 import UIKit
 
-class MessageController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SettingController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var _notificationSwitch: UISwitch!
     @IBOutlet weak var _collectionView: UICollectionView!

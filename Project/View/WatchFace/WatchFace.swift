@@ -35,6 +35,11 @@ class WatchFace: DesignableView {
         super.init(coder: aDecoder)
     }
     
+    override init(frame: CGRect) {
+        interactable = false
+        super.init(frame: frame)
+    }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         

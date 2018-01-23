@@ -11,7 +11,7 @@ import MagicalRecord
 import SwiftIconFont
 import UIKit
 
-class DeviceOptionsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var _tableView: UITableView!
     
@@ -19,8 +19,6 @@ class DeviceOptionsController: UIViewController, UITableViewDataSource, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
     }
 
@@ -40,20 +38,28 @@ class DeviceOptionsController: UIViewController, UITableViewDataSource, UITableV
     func deleteAt(index: Int) {
         if let peripheral = SBManager.share.selectedPeripheral {
             if let url = URL.init(string: "App-Prefs:root=Bluetooth"), UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: { (finish) in
-                    SBManager.share.didDisconnect = {
-                        MagicalRecord.save({ (localContext) in
-                            let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
-                            device?.mr_deleteEntity(in: localContext)
-                        }, completion: { (finish, error) in
-                            SBManager.share.reset()
-                            log.debug("Make root view with scan controller")
-                            let scanController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController")
-                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                            appDelegate.window?.rootViewController = scanController
-                        })
-                    }
-                })
+                let alert = UIAlertController(
+                    title: NSLocalizedString("Please note that all the history data including pairing code and health management will be cleared", comment: ""),
+                    message: NSLocalizedString("Please turn off your smart watch connection in Apple Notification Center Service (ANCS) in the Settings, and get back to app.", comment: ""),
+                    preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { (action) in
+                    UIApplication.shared.open(url, options: [:], completionHandler: { (finish) in
+                        SBManager.share.didDisconnect = {
+                            MagicalRecord.save({ (localContext) in
+                                let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
+                                device?.mr_deleteEntity(in: localContext)
+                            }, completion: { (finish, error) in
+                                SBManager.share.reset()
+                                log.debug("Make root view with scan controller")
+                                let scanController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController")
+                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                                appDelegate.window?.rootViewController = scanController
+                            })
+                        }
+                    })
+                }))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -66,6 +72,10 @@ class DeviceOptionsController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Device.mr_findAll()?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -9,14 +9,14 @@
 import MagicalRecord
 import UIKit
 
-class HomeController: UIViewController {
+class HomeController: BaseViewController {
 
     @IBOutlet weak var watchView: WatchView!
     @IBOutlet weak var stepLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         SBManager.share.didUpdateStep = {
             self.updateView()
         }

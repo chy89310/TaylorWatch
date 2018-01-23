@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class TimeController: BaseViewController {
 
     @IBOutlet weak var watchFace: WatchFace!
@@ -16,11 +15,14 @@ class TimeController: BaseViewController {
     @IBOutlet weak var manSyncBtn: RoundButton!
     @IBOutlet weak var timeZoneBtn: RoundButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let date = Date()
-        watchFace.setTime(date)
+        watchFace.setTime(Date())
     }
 
     @IBAction func didButtonClick(_ sender: RoundButton) {

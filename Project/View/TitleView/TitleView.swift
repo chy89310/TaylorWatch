@@ -11,15 +11,7 @@ import Foundation
 
 class TitleView: DesignableView {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBInspectable var title: String? {
-        get {
-            return titleLabel.text
-        }
-        set {
-            titleLabel.text = newValue
-        }
-    }
-    
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBInspectable var title: String?
     
 }
