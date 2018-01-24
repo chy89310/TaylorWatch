@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Siren.shared.checkVersion(checkType: .daily)
         
         // IQKeyboardManager
-        IQKeyboardManager.sharedManager().enable = false
+        IQKeyboardManager.sharedManager().enable = true
+        
         
         // MagicalRecord
         MagicalRecord.setLoggingLevel(.off)

@@ -27,6 +27,7 @@
 		4B2BB29120113EBF00ED482E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB29020113EBF00ED482E /* RoundButton.swift */; };
 		4B32BADF1FD30EF700EFC3E4 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */; };
 		4B48DA352017B9460067ECA0 /* HealthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA342017B9450067ECA0 /* HealthController.swift */; };
+		4B48DA382018F9C60067ECA0 /* TimeZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */; };
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
 		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
 		4B61EA151FDC6549001FA30F /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA141FDC6549001FA30F /* TabController.swift */; };
@@ -72,6 +73,7 @@
 		4B2BB29020113EBF00ED482E /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		4B48DA342017B9450067ECA0 /* HealthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthController.swift; sourceTree = "<group>"; };
+		4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneController.swift; sourceTree = "<group>"; };
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		4B61EA141FDC6549001FA30F /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				4BF01A611FCD66A2009B1262 /* InfoController.swift */,
 				4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */,
 				4B1363931FD25D8000AAE628 /* TimeController.swift */,
+				4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */,
 			);
 			path = TabController;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				4B2BB275200FBC2900ED482E /* DesignableView.swift in Sources */,
 				4B2BB273200D22A900ED482E /* WatchView.swift in Sources */,
 				4B2BB27D200FC94400ED482E /* TitleView.swift in Sources */,
+				4B48DA382018F9C60067ECA0 /* TimeZoneController.swift in Sources */,
 				4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */,
 				4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */,
 				4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */,

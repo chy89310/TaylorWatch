@@ -532,7 +532,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVF-1k-mir">
-                                                    <rect key="frame" x="212.5" y="0.0" width="142.5" height="44"/>
+                                                    <rect key="frame" x="199.5" y="0.0" width="155.5" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018-01-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyF-lM-R0p">
                                                             <rect key="frame" x="0.0" y="0.0" width="89.5" height="44"/>
@@ -541,7 +541,8 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9V-Oe-6iQ" customClass="SwiftIconButton" customModule="SwiftIconFont">
-                                                            <rect key="frame" x="89.5" y="0.0" width="53" height="44"/>
+                                                            <rect key="frame" x="89.5" y="0.0" width="66" height="44"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <state key="normal" title="fa:trash">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
@@ -708,7 +709,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="xb4-hg-09j"/>
+                                            <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="gaK-9s-H7O"/>
+                                            <segue destination="U3J-6o-nqJ" kind="show" id="qYi-TJ-cG2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -741,6 +743,141 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afo-5H-pQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3601" y="139"/>
+        </scene>
+        <!--CHANGE TIME ZONE-->
+        <scene sceneID="pwe-qm-inQ">
+            <objects>
+                <viewController id="U3J-6o-nqJ" customClass="TimeZoneController" customModule="Taylor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="36V-8i-Aw1"/>
+                        <viewControllerLayoutGuide type="bottom" id="TNb-hu-yy5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yxb-ek-dfb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QJl-Y0-yOb">
+                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="nbf-uE-sdw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="232"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJJ-sE-wsO" customClass="SwiftIconButton" customModule="SwiftIconFont">
+                                        <rect key="frame" x="0.0" y="232" width="375" height="32"/>
+                                        <color key="backgroundColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Choose a time zone fa:angleup">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didToggle:" destination="U3J-6o-nqJ" eventType="touchUpInside" id="TCn-uD-6q7"/>
+                                        </connections>
+                                    </button>
+                                    <searchBar contentMode="redraw" verticalHuggingPriority="750" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKE-x9-5Y6">
+                                        <rect key="frame" x="0.0" y="264" width="375" height="56"/>
+                                        <color key="barTintColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                        <connections>
+                                            <outlet property="delegate" destination="U3J-6o-nqJ" id="FKS-6b-jQg"/>
+                                        </connections>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZM-B5-XXb">
+                                        <rect key="frame" x="0.0" y="320" width="375" height="186"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="separatorColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeZoneCell" textLabel="mJf-v9-lqU" style="IBUITableViewCellStyleDefault" id="gXz-7F-uqj">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gXz-7F-uqj" id="zuj-Lf-nvi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mJf-v9-lqU">
+                                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="U3J-6o-nqJ" id="HjC-y2-W23"/>
+                                            <outlet property="delegate" destination="U3J-6o-nqJ" id="4dd-0R-1Ri"/>
+                                        </connections>
+                                    </tableView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QRe-cC-xc9">
+                                        <rect key="frame" x="0.0" y="506" width="375" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5na-yW-3n1">
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
+                                                <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="rQT-XR-WqE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didCancelClick:" destination="U3J-6o-nqJ" eventType="touchUpInside" id="8gc-0t-vsd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egd-bN-NyZ">
+                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="40"/>
+                                                <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal" title="Apply">
+                                                    <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="QJl-Y0-yOb" secondAttribute="trailing" id="2Ch-PD-U4X"/>
+                            <constraint firstItem="TNb-hu-yy5" firstAttribute="top" secondItem="QJl-Y0-yOb" secondAttribute="bottom" id="462-Iw-hd9"/>
+                            <constraint firstItem="QJl-Y0-yOb" firstAttribute="leading" secondItem="yxb-ek-dfb" secondAttribute="leading" id="UOb-C4-QBj"/>
+                            <constraint firstItem="QJl-Y0-yOb" firstAttribute="top" secondItem="36V-8i-Aw1" secondAttribute="bottom" constant="8" symbolic="YES" id="pKx-XN-Ijw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="CHANGE TIME ZONE" id="dgR-lK-jAr"/>
+                    <connections>
+                        <outlet property="_tableView" destination="kZM-B5-XXb" id="37X-AU-Y0o"/>
+                        <outlet property="mapView" destination="nbf-uE-sdw" id="CWf-O4-7lx"/>
+                        <outlet property="searchBar" destination="sKE-x9-5Y6" id="Mf6-E0-Hch"/>
+                        <outlet property="toggleButton" destination="KJJ-sE-wsO" id="fi1-Q9-IUD"/>
+                        <outlet property="toolBar" destination="0Xb-c4-0jS" id="GJd-7s-5ti"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pEy-Ln-4TQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="0Xb-c4-0jS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="X49-hi-Uja"/>
+                        <barButtonItem style="done" systemItem="done" id="3eV-aw-sLq">
+                            <connections>
+                                <action selector="didDoneClick:" destination="U3J-6o-nqJ" id="kev-Qg-dNF"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+            </objects>
+            <point key="canvasLocation" x="4612" y="139"/>
         </scene>
         <!--SETTING-->
         <scene sceneID="Dff-BK-ERh">
@@ -965,6 +1102,7 @@
     </scenes>
     <resources>
         <image name="Set" width="16" height="16"/>
+        <image name="map" width="350" height="232"/>
         <image name="nav_dash" width="24" height="24"/>
         <image name="nav_health" width="31" height="27"/>
         <image name="nav_info" width="27" height="28"/>
