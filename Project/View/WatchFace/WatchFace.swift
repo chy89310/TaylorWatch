@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyTimer
 
 class WatchFace: DesignableView {
 
@@ -29,6 +30,7 @@ class WatchFace: DesignableView {
     var hour: Int = 0
     var minute: Int = 0
     var didUpdateTime: ((_ hour: Int, _ minute: Int) -> ())?
+    var animateTimer: Timer?
     
     required init?(coder aDecoder: NSCoder) {
         interactable = false
@@ -121,6 +123,18 @@ class WatchFace: DesignableView {
             let (hourPoint, minutePoint) = self.updateTransform()
             self.beginPoints = [self.minuteHand: minutePoint,
                                 self.hourHand: hourPoint]
+        }
+    }
+    
+    func animate(_ animated: Bool) {
+        if animated {
+            animateTimer = Timer.every(1.0, {
+                let hour = Int(arc4random_uniform(12))
+                let minute = Int(arc4random_uniform(12))*5
+                self.setTime(Calendar.current.date(bySettingHour: hour, minute: minute, second: 0, of: Date())!)
+            })
+        } else {
+            animateTimer?.invalidate()
         }
     }
 

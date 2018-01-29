@@ -96,3 +96,6 @@ Carthage/Build
 #           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGONRE THE LOCK FILE
 
 # End of https://www.gitignore.io/api/swift,fastlane,cocoapods
+
+# Run script
+LaunchScreen.storyboardbak
