@@ -49,6 +49,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.setHidesBackButton(false, animated: true)
         _watchView.watchFace.animate(true)
     }
     

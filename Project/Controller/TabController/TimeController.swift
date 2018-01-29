@@ -29,6 +29,7 @@ class TimeController: BaseViewController {
         }
         highLightButton(highlight)
         watchFace.setTime(Date())
+        doPhoneSync(hour: -1, minute: -1)
     }
     
     func highLightButton(_ sender: RoundButton?) {
@@ -44,9 +45,11 @@ class TimeController: BaseViewController {
 
     @IBAction func didButtonClick(_ sender: RoundButton) {
         highLightButton(sender)
-        if sender == phoneSyncBtn {
+        if sender != timeZoneBtn {
             NSTimeZone.default = NSTimeZone.system
             UserDefaults.remove(for: .timezone)
+        }
+        if sender == phoneSyncBtn {
             doPhoneSync(hour: -1, minute: -1)
         }
         if sender == manSyncBtn {
@@ -61,16 +64,15 @@ class TimeController: BaseViewController {
     }
     
     func doPhoneSync(hour: Int, minute: Int) {
-        let calendar = Calendar(identifier: .iso8601)
-        var date = Date()
-        var component = calendar.dateComponents(in: .current, from: date)
+        let calendar = Calendar.current
+        var component = calendar.dateComponents(in: NSTimeZone.default, from: Date())
         if hour > -1 {
             component.hour = hour
         }
         if minute > -1 {
             component.minute = minute
         }
-        date = calendar.date(from: component) ?? date
+        let date = calendar.date(from: component) ?? Date()
         watchFace.setTime(date)
         SBManager.share.setTime(
             year: component.year ?? 2018,
