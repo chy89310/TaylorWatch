@@ -22,19 +22,31 @@ class TimeController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        var highlight = phoneSyncBtn
+        if UserDefaults.string(of: .timezone) != nil {
+            highlight = timeZoneBtn
+        }
+        highLightButton(highlight)
         watchFace.setTime(Date())
     }
-
-    @IBAction func didButtonClick(_ sender: RoundButton) {
+    
+    func highLightButton(_ sender: RoundButton?) {
         let buttons = [phoneSyncBtn, manSyncBtn, timeZoneBtn]
         for button in buttons {
-            if sender == button {
+            if button == sender {
                 button?.focus(true)
             } else {
                 button?.focus(false)
             }
         }
+    }
+
+    @IBAction func didButtonClick(_ sender: RoundButton) {
+        highLightButton(sender)
         if sender == phoneSyncBtn {
+            NSTimeZone.default = NSTimeZone.system
+            UserDefaults.remove(for: .timezone)
             doPhoneSync(hour: -1, minute: -1)
         }
         if sender == manSyncBtn {

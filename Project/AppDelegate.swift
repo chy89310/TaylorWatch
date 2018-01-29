@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // SwiftyBeaver log setup
@@ -39,6 +38,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MagicalRecord
         MagicalRecord.setLoggingLevel(.off)
         MagicalRecord.setupAutoMigratingCoreDataStack()
+        
+        // TimeZone
+        if let timeZoneName = UserDefaults.string(of: .timezone),
+            let timezone = TimeZone(identifier: timeZoneName) {
+            NSTimeZone.default = timezone
+        }
         
         log.info(launchOptions)
         

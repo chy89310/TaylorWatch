@@ -20,7 +20,11 @@ class HomeController: BaseViewController {
         SBManager.share.didUpdateStep = {
             self.updateView()
         }
-        self.updateView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateView()
     }
     
     func updateView() {

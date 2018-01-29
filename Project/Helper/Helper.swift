@@ -36,6 +36,25 @@ extension Data {
     
 }
 
+extension UserDefaults {
+    
+    enum UserDefaultKeys: String {
+        case timezone = "timezone"
+    }
+    
+    class func string(of key: UserDefaultKeys) -> String? {
+        return standard.string(forKey: key.rawValue)
+    }
+    
+    class func set(_ value: String, forKey key: UserDefaultKeys) {
+        standard.setValue(value, forKey: key.rawValue)
+    }
+    
+    class func remove(for key: UserDefaultKeys) {
+        standard.removeObject(forKey: key.rawValue)
+    }
+}
+
 class Helper: Any {
     
     class var documentDirectory: URL {
