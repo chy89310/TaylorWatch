@@ -39,14 +39,21 @@ extension Data {
 extension UserDefaults {
     
     enum UserDefaultKeys: String {
-        case timezone = "timezone"
+        case birthday
+        case height
+        case timezone
+        case weight
     }
     
     class func string(of key: UserDefaultKeys) -> String? {
         return standard.string(forKey: key.rawValue)
     }
     
-    class func set(_ value: String, forKey key: UserDefaultKeys) {
+    class func int(of key: UserDefaultKeys) -> Int {
+        return standard.integer(forKey: key.rawValue)
+    }
+    
+    class func set(_ value: Any?, forKey key: UserDefaultKeys) {
         standard.setValue(value, forKey: key.rawValue)
     }
     

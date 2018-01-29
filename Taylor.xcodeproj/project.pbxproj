@@ -34,6 +34,7 @@
 		4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
 		4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7277981F12A021009AC306 /* BaseViewController.swift */; };
 		4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */; };
+		4B8EAB29201F83EC00B2A9C6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */; };
 		4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */; };
 		4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DDB1EEEF932009C13A5 /* Config.swift */; };
 		4BA6EE0D1EE87B7B0098C4DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6EE0C1EE87B7B0098C4DA /* AppDelegate.swift */; };
@@ -80,6 +81,7 @@
 		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		4B7277981F12A021009AC306 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPeripheral.swift; sourceTree = "<group>"; };
+		4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		4B9F7DDB1EEEF932009C13A5 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		4BA6EE091EE87B7B0098C4DA /* Taylor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taylor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +192,7 @@
 			children = (
 				4B7277981F12A021009AC306 /* BaseViewController.swift */,
 				4B167EC020166C82009DCD4D /* BaseNavigationController.swift */,
+				4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */,
 				0A0B53141FC6C53100CC094D /* ScanViewController.swift */,
 				4B61EA141FDC6549001FA30F /* TabController.swift */,
 				4BF01A601FCD6686009B1262 /* TabController */,
@@ -458,6 +461,7 @@
 				4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */,
 				4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */,
 				4B167EC120166C82009DCD4D /* BaseNavigationController.swift in Sources */,
+				4B8EAB29201F83EC00B2A9C6 /* ProfileController.swift in Sources */,
 				0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */,
 				0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */,
 				4B2BB29120113EBF00ED482E /* RoundButton.swift in Sources */,

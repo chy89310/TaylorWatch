@@ -67,7 +67,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             if change*easterEgg[0] > 0 {
                 easterEgg.remove(at: 0)
                 if easterEgg.count == 0 {
-                    performSegue(withIdentifier: "showWatch", sender: nil)
+                    performSegue(withIdentifier: "showProfile", sender: nil)
                 }
             } else {
                 // Game over
@@ -131,7 +131,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isSimulator {
-            performSegue(withIdentifier: "showWatch", sender: nil)
+            performSegue(withIdentifier: "showProfile", sender: nil)
             return
         }
         let peripheral = SBManager.share.peripherals[indexPath.row]
