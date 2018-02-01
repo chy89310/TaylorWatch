@@ -40,7 +40,6 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
                 validate = false
                 break
             }
-            
         }
         _emailLabel.textColor = _emailText.text == "" ? .red : .white
         _deviceLabel.textColor = _deviceText.text == "" ? .red : .white
@@ -58,6 +57,7 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
         if let heightStr = _heightText.text {
             UserDefaults.set(Int(heightStr), forKey: .height)
         }
+        UserDefaults.set(_genderButton.title(for: .normal) == "Male", forKey: .isMale)
         return validate
     }
 

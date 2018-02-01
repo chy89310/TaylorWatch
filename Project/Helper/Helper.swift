@@ -40,7 +40,9 @@ extension UserDefaults {
     
     enum UserDefaultKeys: String {
         case birthday
+        case goal
         case height
+        case isMale
         case timezone
         case weight
     }
@@ -51,6 +53,10 @@ extension UserDefaults {
     
     class func int(of key: UserDefaultKeys) -> Int {
         return standard.integer(forKey: key.rawValue)
+    }
+    
+    class func bool(of key: UserDefaultKeys) -> Bool {
+        return standard.bool(forKey: key.rawValue)
     }
     
     class func set(_ value: Any?, forKey key: UserDefaultKeys) {

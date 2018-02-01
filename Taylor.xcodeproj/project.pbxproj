@@ -10,6 +10,7 @@
 		0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53141FC6C53100CC094D /* ScanViewController.swift */; };
 		0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B53181FC7CA3F00CC094D /* WatchApi.plist */; };
 		0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
+		0A27F68F202946A600BAA063 /* Step+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27F68E202946A600BAA063 /* Step+Extension.swift */; };
 		4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
 		4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
 		4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EBE20166900009DCD4D /* NavigationBar.swift */; };
@@ -41,10 +42,11 @@
 		4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE161EE87B7B0098C4DA /* Assets.xcassets */; };
 		4BA6EE871EE87D8E0098C4DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */; };
 		4BA6EE881EE87D8E0098C4DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE861EE87D8E0098C4DA /* Main.storyboard */; };
+		4BBED73120262C3200B560F4 /* HealthOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED73020262C3200B560F4 /* HealthOptions.xib */; };
+		4BBED733202630EB00B560F4 /* HealthOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBED732202630EB00B560F4 /* HealthOptions.swift */; };
 		4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF65091F124471003230A1 /* ApiHelper.swift */; };
 		4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF650B1F124531003230A1 /* ApiHelper+Define.swift */; };
 		4BDF650E1F124559003230A1 /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BDF650D1F124559003230A1 /* Api.plist */; };
-		4BF01A5F1FCD56FD009B1262 /* Device+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF01A5E1FCD56FD009B1262 /* Device+Extension.swift */; };
 		4BF01A621FCD66A2009B1262 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF01A611FCD66A2009B1262 /* InfoController.swift */; };
 		8743F0EDB32E00BCC092C462 /* Pods_Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EBF0590D14EB0CC646CC5E /* Pods_Taylor.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,7 @@
 		0A0B53141FC6C53100CC094D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		0A0B53181FC7CA3F00CC094D /* WatchApi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WatchApi.plist; sourceTree = "<group>"; };
 		0A1A85261FC595FF00EEA718 /* SBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBManager.swift; sourceTree = "<group>"; };
+		0A27F68E202946A600BAA063 /* Step+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step+Extension.swift"; sourceTree = "<group>"; };
 		1009943C883916D85DE4D806 /* Pods-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B1363931FD25D8000AAE628 /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOptionsController.swift; sourceTree = "<group>"; };
@@ -90,10 +93,11 @@
 		4BA6EE1B1EE87B7B0098C4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA6EE861EE87D8E0098C4DA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4BBED73020262C3200B560F4 /* HealthOptions.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthOptions.xib; sourceTree = "<group>"; };
+		4BBED732202630EB00B560F4 /* HealthOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthOptions.swift; sourceTree = "<group>"; };
 		4BDF65091F124471003230A1 /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		4BDF650B1F124531003230A1 /* ApiHelper+Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApiHelper+Define.swift"; sourceTree = "<group>"; };
 		4BDF650D1F124559003230A1 /* Api.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
-		4BF01A5E1FCD56FD009B1262 /* Device+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Extension.swift"; sourceTree = "<group>"; };
 		4BF01A611FCD66A2009B1262 /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		4CFCA356A8701324A1BD2778 /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		528088D7C4C34E67C6C29599 /* Pods-Taylor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taylor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Taylor/Pods-Taylor.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,8 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */,
-				4BF01A5E1FCD56FD009B1262 /* Device+Extension.swift */,
 				4B61EA121FDC6263001FA30F /* Notification+Extension.swift */,
+				0A27F68E202946A600BAA063 /* Step+Extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,6 +228,7 @@
 		4BA6EE841EE87D8E0098C4DA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4BBED72F20262C0A00B560F4 /* HealthOptions */,
 				4B2BB27F200FD36500ED482E /* TitleView */,
 				4B2BB28420112B8700ED482E /* WatchFace */,
 				4B2BB27E200FD35500ED482E /* WatchView */,
@@ -235,6 +240,15 @@
 				4BA6EE861EE87D8E0098C4DA /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4BBED72F20262C0A00B560F4 /* HealthOptions */ = {
+			isa = PBXGroup;
+			children = (
+				4BBED73020262C3200B560F4 /* HealthOptions.xib */,
+				4BBED732202630EB00B560F4 /* HealthOptions.swift */,
+			);
+			path = HealthOptions;
 			sourceTree = "<group>";
 		};
 		4BDF65041F12437D003230A1 /* ApiHelper */ = {
@@ -358,6 +372,7 @@
 				4B2BB271200D1DC000ED482E /* WatchView.xib in Resources */,
 				4BA6EE871EE87D8E0098C4DA /* LaunchScreen.storyboard in Resources */,
 				0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */,
+				4BBED73120262C3200B560F4 /* HealthOptions.xib in Resources */,
 				4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
 			);
@@ -455,7 +470,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BF01A5F1FCD56FD009B1262 /* Device+Extension.swift in Sources */,
 				4B2BB277200FBCF000ED482E /* RoundView.swift in Sources */,
 				4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */,
 				4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */,
@@ -471,9 +485,11 @@
 				4B2BB28820112BB500ED482E /* WatchFace.swift in Sources */,
 				4B61EA151FDC6549001FA30F /* TabController.swift in Sources */,
 				4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */,
+				4BBED733202630EB00B560F4 /* HealthOptions.swift in Sources */,
 				4B32BADF1FD30EF700EFC3E4 /* SettingController.swift in Sources */,
 				4B2BB26E200B767A00ED482E /* SBManager+watch.swift in Sources */,
 				4B2BB275200FBC2900ED482E /* DesignableView.swift in Sources */,
+				0A27F68F202946A600BAA063 /* Step+Extension.swift in Sources */,
 				4B2BB273200D22A900ED482E /* WatchView.swift in Sources */,
 				4B2BB27D200FC94400ED482E /* TitleView.swift in Sources */,
 				4B48DA382018F9C60067ECA0 /* TimeZoneController.swift in Sources */,

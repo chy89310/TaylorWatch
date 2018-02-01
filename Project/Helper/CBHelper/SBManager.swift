@@ -130,12 +130,13 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
         if let array: [CBPeripheral] = dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral] {
             for peripheral in array {
-                switch peripheral.state {
-                case .connected:
-                    peripherals.append(peripheral)
-                default:
-                    log.debug("Restore peripheral didn't connected, do nothing, maybe?")
-                }
+                peripherals.append(peripheral)
+//                switch peripheral.state {
+//                case .connected:
+//                    peripherals.append(peripheral)
+//                default:
+//                    log.debug("Restore peripheral didn't connected, do nothing, maybe?")
+//                }
             }
         }
         if let array: [CBUUID] = dict[CBCentralManagerRestoredStateScanServicesKey] as? [CBUUID] {
@@ -152,6 +153,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             if peripherals.count > 0 {
                 centralManager.stopScan()
                 for peripheral in peripherals {
+                    central.connect(peripheral, options: nil)
                     peripheral.delegate = self
                     peripheral.discoverServices(nil)
                     let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
