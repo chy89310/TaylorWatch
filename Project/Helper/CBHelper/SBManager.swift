@@ -111,6 +111,11 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         peripheral(selectedPeripheral, write: data)
     }
     
+    func findWatch() {
+        let data = Data.init(bytes: [CMD.find_watch.rawValue])
+        peripheral(selectedPeripheral, write: data)
+    }
+    
     func setMessageEnabled(with types:[MESSAGE_TYPE]) {
         var flag = 0;
         for type in types {

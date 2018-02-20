@@ -301,7 +301,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IV4-Mi-rsl">
-                                <rect key="frame" x="0.0" y="72" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QkD-br-LOi">
                                         <rect key="frame" x="111" y="0.0" width="153.5" height="30"/>
@@ -310,7 +310,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
                                                 <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                 <state key="normal" title="Week">
-                                                    <color key="titleColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="didButtonClick:" destination="BfS-jE-tNR" eventType="touchUpInside" id="QDl-rw-QPb"/>
@@ -326,7 +326,7 @@
                                                 <rect key="frame" x="89.5" y="0.0" width="64" height="30"/>
                                                 <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                                 <state key="normal" title="Month">
-                                                    <color key="titleColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="didButtonClick:" destination="BfS-jE-tNR" eventType="touchUpInside" id="AwU-Zt-Dd4"/>
@@ -339,7 +339,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFG-iT-Dka" customClass="LineChartView" customModule="Charts">
-                                        <rect key="frame" x="8" y="76" width="359" height="249.5"/>
+                                        <rect key="frame" x="20" y="38" width="335" height="242"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
@@ -354,7 +354,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoC-1m-fMO" customClass="HealthOptions" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="405.5" width="375" height="212.5"/>
+                                <rect key="frame" x="0.0" y="372" width="375" height="246"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -374,7 +374,7 @@
                     <connections>
                         <outlet property="chartView" destination="TFG-iT-Dka" id="AQY-5g-2xv"/>
                         <outlet property="monthButton" destination="Nsb-f3-thz" id="0ic-6D-Q2O"/>
-                        <outlet property="optionView" destination="YoC-1m-fMO" id="Fdo-ZP-GQv"/>
+                        <outlet property="optionView" destination="YoC-1m-fMO" id="HhZ-mJ-dZF"/>
                         <outlet property="weekButton" destination="mQj-1v-Rxf" id="RTq-wg-zbK"/>
                     </connections>
                 </viewController>
@@ -540,8 +540,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="HOME" id="h7d-a2-p3j"/>
                     <connections>
+                        <outlet property="caloriesLabel" destination="lNc-l6-QzC" id="859-Sm-CPm"/>
+                        <outlet property="dateLabel" destination="JUj-31-luv" id="sa2-di-m7y"/>
                         <outlet property="stepLabel" destination="BW9-rS-e7P" id="qaa-fX-PjD"/>
                         <outlet property="watchView" destination="svq-oF-8SK" id="ILC-w0-z7j"/>
+                        <outlet property="weekDayLabel" destination="8bx-Dx-q5v" id="Vst-do-QtM"/>
+                        <outlet property="yearLabel" destination="9hL-3e-GdG" id="6Pb-xh-beG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Uf-R3-t5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1055,6 +1059,9 @@
                                 <state key="normal" title="Find my Watch">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didFindWatchClick:" destination="sw7-3r-MFS" eventType="touchUpInside" id="afF-Pq-F9Q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -55,6 +55,14 @@ extension UserDefaults {
         return standard.integer(forKey: key.rawValue)
     }
     
+    class func float(of key: UserDefaultKeys) -> Float {
+        return standard.float(forKey: key.rawValue)
+    }
+    
+    class func double(of key: UserDefaultKeys) -> Double {
+        return standard.double(forKey: key.rawValue)
+    }
+    
     class func bool(of key: UserDefaultKeys) -> Bool {
         return standard.bool(forKey: key.rawValue)
     }

@@ -79,6 +79,9 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
         }
     }
     
+    @IBAction func didFindWatchClick(_ sender: UIButton) {
+        SBManager.share.findWatch()
+    }
     // Mark: - UICollectionView datasource and delegate
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -19,6 +19,7 @@ class HealthController: BaseViewController {
     @IBOutlet weak var optionView: HealthOptions!
     
     let daySeconds: Double = 60*60*24
+    var showWeek = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,10 +61,11 @@ class HealthController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setMonthStep(orWeek: false)
+        setMonthStep(orWeek: showWeek)
     }
     
     func setMonthStep(orWeek isWeek: Bool) {
+        showWeek = isWeek
         optionView.setupMonth(OrWeek: isWeek)
         let steps = Step.getSet(ofWeek: isWeek)
         let values = steps.sorted { (step1, step2) -> Bool in

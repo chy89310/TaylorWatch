@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HealthOptions: DesignableView, UIPickerViewDataSource, UIPickerViewDelegate {
+class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     enum DisplayOption {
         case day
@@ -41,14 +41,23 @@ class HealthOptions: DesignableView, UIPickerViewDataSource, UIPickerViewDelegat
     var lastOption = DisplayOption.month
     var currentOption = DisplayOption.month
     
-    override func setup() {
-        super.setup()
-        
-        setupMonth(OrWeek: false)
-        setupGoal(isWrite: false)
-        setupMeasurements(isWrite: false)
-        
-        display(currentOption)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        // Load view
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
+        if (nib.instantiate(withOwner: self, options: nil).count > 0) {
+            let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+            view.frame = bounds
+            view.autoresizingMask = [UIViewAutoresizing.flexibleWidth,
+                                     UIViewAutoresizing.flexibleHeight]
+            addSubview(view)
+            setupMonth(OrWeek: false)
+            setupGoal(isWrite: false)
+            setupMeasurements(isWrite: false)
+            
+            display(currentOption)
+        }
     }
     
     func setupMonth(OrWeek isWeek: Bool) {
@@ -68,7 +77,9 @@ class HealthOptions: DesignableView, UIPickerViewDataSource, UIPickerViewDelegat
         }
         let average = dataSet.values.count > 0 ? total/validCount : 0
         totalSteps.text = "\(total) \(NSLocalizedString("steps", comment: ""))"
+        totalCals.text = "\(Int(CBUtils.caloriesFrom(step: total))) \(NSLocalizedString("cals", comment: ""))"
         averageSteps.text = "\(average) \(NSLocalizedString("steps", comment: ""))"
+        averageCals.text = "\(Int(CBUtils.caloriesFrom(step: average))) \(NSLocalizedString("cals", comment: ""))"
     }
     
     func setupGoal(isWrite: Bool) {
