@@ -38,7 +38,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         for device in Device.mr_findAll()! as! [Device] {
             log.debug("\(device.name) \(device.uuid) \(device.passcode)")
         }
-        SBManager.share.connectAction()
+        SBManager.share.scanAction()
         SBManager.share.didFindDevice = { (peripheral) in
             log.debug("Find device: \(peripheral)")
             self._collectionView.reloadData()
@@ -156,7 +156,17 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             }
         } else {
             log.debug("New device!")
+            SBManager.share.didFindCharacter = { (characteristic) in
+                if characteristic.properties.rawValue == 4 {
+                    // subscribe to ancs
+                    SBManager.share.peripheral(
+                        peripheral,
+                        write: Data.init(bytes: [0x0d,0xaa]))
+                }
+            }
             SBManager.share.didUpdateValue = { (character) in
+                // reset notification
+                SBManager.share.setMessageEnabled(with: [])
                 SBManager.share.didUpdateValue = nil
                 let alertController = UIAlertController(
                     title: NSLocalizedString("Please enter the number that hour hand and minute hand indicate separately", comment: ""),

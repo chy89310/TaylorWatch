@@ -9,6 +9,7 @@
 import MagicalRecord
 import UIKit
 import CoreBluetooth
+import SwiftyJSON
 
 class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
@@ -18,13 +19,11 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     static let restoreID = "tayler.central.id"
     var centralManager = CBCentralManager.init(delegate: nil, queue: nil)
     var peripherals = [CBPeripheral]()
-    var restoreServices = [CBUUID]()
     var selectedPeripheral: CBPeripheral?
     var serviceID: CBUUID?
     let notiID = CBUUID.init(string: "0001")
     var deviceInfo = [String: String]()
     var writeCharacteristic: CBCharacteristic?
-    var readyToScan = false
     
     // MARK: - Callback methods
     
@@ -41,13 +40,32 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     override init() {
         super.init()
-//        centralManager = CBCentralManager.init(delegate: self, queue: nil)
         centralManager = CBCentralManager.init(delegate: self, queue: nil, options: [CBCentralManagerOptionRestoreIdentifierKey: SBManager.restoreID])
+        // init SBServices entities
+        let json = Helper.readPlist("SBServices")
+        MagicalRecord.save(blockAndWait: { (localContext) in
+            SBService.mr_truncateAll(in: localContext)
+            for (name, sbservice) in json {
+                let entity = SBService.mr_createEntity(in: localContext)
+                entity?.name = name
+                for (key, value) in sbservice.dictionaryValue {
+                    if key == "name" {
+                        entity?.name = value.stringValue
+                    } else if key == "service" {
+                        entity?.service = value.stringValue
+                    } else if key == "sender" {
+                        entity?.sender = value.stringValue
+                    } else if key == "receiver" {
+                        entity?.receiver = value.stringValue
+                    }
+                }
+            }
+        })
     }
     
     func reset() {
         centralManager.stopScan()
-        if let peripheral = selectedPeripheral, peripheral.state == .connected {
+        if let peripheral = selectedPeripheral {
             centralManager.cancelPeripheralConnection(peripheral)
         }
         selectedPeripheral = nil
@@ -63,29 +81,20 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     // MARK: - Manager action
     
-    func connectAction() {
+    func scanAction() {
         if (centralManager.state == .poweredOn) {
             centralManager.stopScan()
             log.debug("begin to scan")
-            //        centralManager.scanForPeripherals(withServices: nil, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
-            let services = restoreServices.count > 0 ? restoreServices : [CBUUID.init(string: "F638751C-E6D6-4F18-8316-35FFFA696365"),CBUUID.init(string: "BCEB338A-E422-93D9-BA1D-8B50DEF2CF7B")]
+            let services = SBService.serviceArray()
             centralManager.scanForPeripherals(withServices: services, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
-        } else {
-            readyToScan = true
         }
     }
-    
-    
     
     func peripheral(_ peripheral: CBPeripheral?, write value: Data) {
         log.info("Writing value: \(value.map { String(format: "%02x", $0) }.joined())")
         
         if let writeCharact = writeCharacteristic {
-//            if writeCharact.properties.contains(.write) {
-//                peripheral?.writeValue(value, for: writeCharact, type: .withResponse)
-//            } else {
-                peripheral?.writeValue(value, for: writeCharact, type: .withoutResponse)
-//            }
+            peripheral?.writeValue(value, for: writeCharact, type: .withoutResponse)
         }
     }
     
@@ -136,18 +145,8 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         if let array: [CBPeripheral] = dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral] {
             for peripheral in array {
                 peripherals.append(peripheral)
-//                switch peripheral.state {
-//                case .connected:
-//                    peripherals.append(peripheral)
-//                default:
-//                    log.debug("Restore peripheral didn't connected, do nothing, maybe?")
-//                }
             }
         }
-        if let array: [CBUUID] = dict[CBCentralManagerRestoredStateScanServicesKey] as? [CBUUID] {
-            restoreServices = array
-        }
-        log.debug("Restore central manger: \(central)")
         log.debug("Restore state: \(dict)")
     }
     
@@ -225,10 +224,10 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                         }
                     }
                 } else {
-                    connectAction()
+                    scanAction()
                 }
             } else {
-                connectAction()
+                scanAction()
             }
         case .poweredOff:
             log.debug("Power off")
@@ -252,6 +251,12 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     device?.name = advertisementData[CBAdvertisementDataLocalNameKey] as? String
                     device?.uuid = peripheral.identifier.uuidString
                     device?.notification = Notification.mr_createEntity(in: localContext)
+                    if let serviceUUID = advertisementData[CBAdvertisementDataServiceUUIDsKey] as? String {
+                        let serviceName = SBService.mr_findFirst(byAttribute: "service", withValue: serviceUUID)?.name
+                        device?.serviceName = serviceName
+                    } else {
+                        device?.serviceName = "universal"
+                    }
                 } else {
                     if device!.passcode != 0xffff {
                         self.centralManager.stopScan()
@@ -345,6 +350,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
+        let sb = SBService.mr_findFirst(byAttribute: "service", withValue: service.uuid.uuidString)
         for character: CBCharacteristic in service.characteristics! {
             log.debug("\nCharacteristic: \(character.uuid.uuidString) property: \(character.properties)")
             switch character.uuid.uuidString {
@@ -366,18 +372,13 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             default:
                 log.debug("Unread character")
             }
-            
-            if character.properties.contains(.read) {
-//                peripheral.readValue(for: character)
-                
-            }
-            
-            if character.properties.rawValue == 4 {
-                log.debug("\nWrite characteristic: \(character.uuid.uuidString)")
-                writeCharacteristic = character
-            }
-            if character.properties.rawValue == 16 {
+            // Sender
+            if character.uuid.uuidString == sb?.sender {
                 peripheral.setNotifyValue(true, for: character)
+            }
+            // Receiver
+            if character.uuid.uuidString == sb?.receiver {
+                writeCharacteristic = character
             }
             didFindCharacter?(character)
         }

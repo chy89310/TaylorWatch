@@ -13,6 +13,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="passcode" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="serial" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="system" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="notification" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notification" inverseName="device" inverseEntity="Notification" syncable="YES"/>
@@ -35,6 +36,12 @@
         <attribute name="isWhatsappOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="notification" inverseEntity="Device" syncable="YES"/>
     </entity>
+    <entity name="SBService" representedClassName="SBService" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="receiver" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="service" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Step" representedClassName="Step" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -45,8 +52,9 @@
     </entity>
     <elements>
         <element name="Api" positionX="-45" positionY="0" width="128" height="90"/>
-        <element name="Device" positionX="-9" positionY="0" width="128" height="210"/>
+        <element name="Device" positionX="-9" positionY="0" width="128" height="225"/>
         <element name="Notification" positionX="-27" positionY="81" width="128" height="270"/>
         <element name="Step" positionX="-27" positionY="63" width="128" height="135"/>
+        <element name="SBService" positionX="-27" positionY="153" width="128" height="105"/>
     </elements>
 </model>

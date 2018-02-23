@@ -399,10 +399,10 @@
             </objects>
             <point key="canvasLocation" x="2662" y="139"/>
         </scene>
-        <!--Tab Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="LKF-Ws-Ptc">
             <objects>
-                <tabBarController storyboardIdentifier="TabController" id="cXX-Vb-rmb" customClass="TabController" customModule="Taylor" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabController" id="cXX-Vb-rmb" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="OlM-IM-cCT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -32,8 +32,9 @@
 		4B48DA382018F9C60067ECA0 /* TimeZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */; };
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
 		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
-		4B61EA151FDC6549001FA30F /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA141FDC6549001FA30F /* TabController.swift */; };
 		4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
+		4B6691B7203C118E001421CB /* SBServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B6691B6203C118E001421CB /* SBServices.plist */; };
+		4B6691B9203C20E6001421CB /* SBService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6691B8203C20E6001421CB /* SBService+Extension.swift */; };
 		4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7277981F12A021009AC306 /* BaseViewController.swift */; };
 		4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */; };
 		4B8EAB29201F83EC00B2A9C6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */; };
@@ -82,8 +83,9 @@
 		4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneController.swift; sourceTree = "<group>"; };
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
-		4B61EA141FDC6549001FA30F /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
+		4B6691B6203C118E001421CB /* SBServices.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SBServices.plist; sourceTree = "<group>"; };
+		4B6691B8203C20E6001421CB /* SBService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBService+Extension.swift"; sourceTree = "<group>"; };
 		4B7277981F12A021009AC306 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPeripheral.swift; sourceTree = "<group>"; };
 		4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -201,7 +203,6 @@
 				4B167EC020166C82009DCD4D /* BaseNavigationController.swift */,
 				4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */,
 				0A0B53141FC6C53100CC094D /* ScanViewController.swift */,
-				4B61EA141FDC6549001FA30F /* TabController.swift */,
 				4BF01A601FCD6686009B1262 /* TabController */,
 			);
 			path = Controller;
@@ -222,7 +223,9 @@
 			isa = PBXGroup;
 			children = (
 				4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */,
+				4B6691B6203C118E001421CB /* SBServices.plist */,
 				4B61EA121FDC6263001FA30F /* Notification+Extension.swift */,
+				4B6691B8203C20E6001421CB /* SBService+Extension.swift */,
 				0A27F68E202946A600BAA063 /* Step+Extension.swift */,
 			);
 			path = Model;
@@ -378,6 +381,7 @@
 				4BBED73120262C3200B560F4 /* HealthOptions.xib in Resources */,
 				4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
+				4B6691B7203C118E001421CB /* SBServices.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +490,6 @@
 				4BA6EE0D1EE87B7B0098C4DA /* AppDelegate.swift in Sources */,
 				4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */,
 				4B2BB28820112BB500ED482E /* WatchFace.swift in Sources */,
-				4B61EA151FDC6549001FA30F /* TabController.swift in Sources */,
 				4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */,
 				4BBED733202630EB00B560F4 /* HealthOptions.swift in Sources */,
 				4B32BADF1FD30EF700EFC3E4 /* SettingController.swift in Sources */,
@@ -503,6 +506,7 @@
 				4B2BB2832011182300ED482E /* HomeController.swift in Sources */,
 				4B3BD6B92030527500B7A3BD /* CBUtils.swift in Sources */,
 				4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */,
+				4B6691B9203C20E6001421CB /* SBService+Extension.swift in Sources */,
 				4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */,
 				4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */,
 				4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */,
