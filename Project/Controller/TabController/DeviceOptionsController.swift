@@ -86,7 +86,7 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
                 cell.backgroundColor = UIColor("#9b9b9b")
             }
             let device = Device.mr_findAll()?[indexPath.row] as? Device ?? Device()
-            cell.titleLabel.text = device.name
+            cell.titleLabel.text = device.nickName
             UIView.animate(withDuration: 0.2, animations: {
                 cell.detailLabel.alpha = self.deleteState ? 0.0 : 1.0
                 cell.detailLabel.isHidden = self.deleteState

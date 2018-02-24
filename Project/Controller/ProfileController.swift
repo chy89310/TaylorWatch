@@ -6,6 +6,7 @@
 //  Copyright © 2018 KevinSum. All rights reserved.
 //
 
+import MagicalRecord
 import MessageUI
 import IQKeyboardManagerSwift
 import UIKit
@@ -28,6 +29,7 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "PROFILE SETTINGS"
+        _deviceText.text = SBManager.share.selectedDevice(in: .mr_default())?.nickName
         _birthDayText.inputView = _datePicker
         // Fix IQKeyboardManager bug
         _datePicker.translatesAutoresizingMaskIntoConstraints = false
@@ -35,8 +37,8 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
     
     func validate() -> Bool{
         var validate = true
-        for label in [_emailLabel, _deviceLabel, _birthDayLabel, _weightLabel, _heightLabel] {
-            if label?.text == "" {
+        for text in [_emailText, _deviceText, _birthDayText, _weightText, _heightText] {
+            if text?.text == "" {
                 validate = false
                 break
             }
@@ -58,6 +60,11 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
             UserDefaults.set(Int(heightStr), forKey: .height)
         }
         UserDefaults.set(_genderButton.title(for: .normal) == "Male", forKey: .isMale)
+        MagicalRecord.save(blockAndWait: { (localContext) in
+            if let device = SBManager.share.selectedDevice(in: localContext) {
+                device.name = self._deviceText.text
+            }
+        })
         return validate
     }
 
@@ -75,17 +82,29 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
         }
     }
     
+    @IBAction func didSkipClick(_ sender: UIButton) {
+        performSegue(withIdentifier: "showWatch", sender: nil)
+    }
+    
     @IBAction func didSaveClick(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail(), validate() {
+            let device = SBManager.share.selectedDevice(in: .mr_default())
+            let name = device?.name ?? "TAYLOR"
+            let nickName = _deviceText.text ?? name
+            let serial = device?.serial ?? name
+            let bluetooth = device?.system ?? "00:00:00:00:00:00"
             let gender = _genderButton.title(for: .normal) ?? "Male"
             let birthday = _birthDayText.text ?? "2000-01-01"
             let composeVC = MFMailComposeViewController()
-            let serialNum = "20:00:5b:8f:12:10"
+            if device?.name == "TAYLOR" {
+                composeVC.setToRecipients(["register@taylor-watch.com"])
+            } else {
+                composeVC.setToRecipients(["newform@foxterwatches.com"])
+            }
             composeVC.mailComposeDelegate = self
-            composeVC.setToRecipients(["newform@foxterwatches.com"])
-            composeVC.setSubject("FOXTER join")
-            composeVC.setMessageBody("Please send out information to complete the product registration so as to ensure your warranty right and get the lastest product update notification -Gender \(gender)- -Birthdat \(birthday)- Serial number Bluetooth \(serialNum)", isHTML: false)
-            navigationController?.present(composeVC, animated: true, completion: nil)
+            composeVC.setSubject("Registration for \(name)")
+            composeVC.setMessageBody("Please send out below information to complete the product registration so as to ensure your warranty right and get the lastest product update notification. \n\nDevice Name: \(name) \nDevice Nickname: \(nickName) \nBirthday: \(birthday) \nGender: \(gender) \nSerial: \(serial) \nBluetooth Address: \(bluetooth)", isHTML: false)
+            (navigationController ?? self).present(composeVC, animated: true, completion: nil)
         } else if validate() {
             log.info("Not support send mail")
             performSegue(withIdentifier: "showWatch", sender: nil)

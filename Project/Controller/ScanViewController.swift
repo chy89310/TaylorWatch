@@ -90,7 +90,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
                         MagicalRecord.save({ (localContext) in
                             SBManager.share.selectedDevice(in: localContext)?.passcode = Int32(passInt)
                         })
-                        self.performSegue(withIdentifier: "showWatch", sender: nil)
+                        self.performSegue(withIdentifier: "showProfile", sender: nil)
                     } else {
                         log.error(info)
                         SBManager.share.didUpdateValue = nil
@@ -226,6 +226,10 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         return 12
     }
     
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        return NSAttributedString(string: titleForRow(row: row, forComponent: component),
+                                  attributes: [NSForegroundColorAttributeName: UIColor("#FDDFC0")])
+    }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return titleForRow(row: row, forComponent: component)
     }

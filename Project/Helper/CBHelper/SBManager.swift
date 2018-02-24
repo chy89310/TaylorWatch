@@ -249,13 +249,14 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     device = Device.mr_createEntity(in: localContext)
                     device?.passcode = 0xffff
                     device?.name = advertisementData[CBAdvertisementDataLocalNameKey] as? String
+                    device?.nickName = advertisementData[CBAdvertisementDataLocalNameKey] as? String
                     device?.uuid = peripheral.identifier.uuidString
                     device?.notification = Notification.mr_createEntity(in: localContext)
-                    if let serviceUUID = advertisementData[CBAdvertisementDataServiceUUIDsKey] as? String {
-                        let serviceName = SBService.mr_findFirst(byAttribute: "service", withValue: serviceUUID)?.name
+                    if let serviceUUIDs = advertisementData[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] {
+                        let serviceName = SBService.mr_findFirst(byAttribute: "service", withValue: serviceUUIDs[0].uuidString)?.name
                         device?.serviceName = serviceName
                     } else {
-                        device?.serviceName = "universal"
+                        device?.serviceName = "TAYLOR"
                     }
                 } else {
                     if device!.passcode != 0xffff {

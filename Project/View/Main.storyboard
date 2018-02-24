@@ -209,6 +209,9 @@
                                         <state key="normal" title="Skip">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didSkipClick:" destination="Hz7-CI-wlD" eventType="touchUpInside" id="vXm-BA-0ss"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmd-P2-of7">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="40"/>
@@ -1325,6 +1328,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2tG-Sb-2bl"/>
-        <segue reference="5iC-Gy-PTa"/>
+        <segue reference="tiF-sG-S9t"/>
     </inferredMetricsTieBreakers>
 </document>

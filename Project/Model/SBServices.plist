@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>foxter</key>
+	<key>FOXTER</key>
 	<dict>
 		<key>service</key>
 		<string>F638751C-E6D6-4F18-8316-35FFFA696365</string>
@@ -11,7 +11,7 @@
 		<key>receiver</key>
 		<string>F638751E-E6D6-4F18-8316-35FFFA696365</string>
 	</dict>
-	<key>seagull</key>
+	<key>SEAGULL</key>
 	<dict>
 		<key>service</key>
 		<string>55994E2D-A09E-4F52-BD77-BDEA1D176DCE</string>
@@ -20,7 +20,7 @@
 		<key>receiver</key>
 		<string>55994E2F-A09E-4F52-BD77-BDEA1D176DCE</string>
 	</dict>
-	<key>universal</key>
+	<key>TAYLOR</key>
 	<dict>
 		<key>service</key>
 		<string>CDF98BD6-DD14-4B74-9AC2-4F686A3C60A8</string>
