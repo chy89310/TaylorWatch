@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="527" height="329"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watch_body" translatesAutoresizingMaskIntoConstraints="NO" id="sCH-dX-Luc">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="601_taylor_belt" translatesAutoresizingMaskIntoConstraints="NO" id="sCH-dX-Luc">
                     <rect key="frame" x="0.0" y="0.0" width="527" height="329"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bq3-2u-o9U" customClass="WatchFace" customModule="Taylor" customModuleProvider="target">
@@ -49,6 +49,6 @@
         </view>
     </objects>
     <resources>
-        <image name="watch_body" width="188" height="308"/>
+        <image name="601_taylor_belt" width="175" height="290"/>
     </resources>
 </document>

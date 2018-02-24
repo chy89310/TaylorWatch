@@ -719,7 +719,7 @@
                                 <rect key="frame" x="16" y="72" width="343" height="267"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="background" value="watch_foxter"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="background" value="601_taylor_dial"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -1318,13 +1318,13 @@
     </scenes>
     <resources>
         <image name="0" width="476" height="317"/>
+        <image name="601_taylor_dial" width="270" height="270"/>
         <image name="Set" width="16" height="16"/>
         <image name="nav_dash" width="24" height="24"/>
         <image name="nav_health" width="31" height="27"/>
         <image name="nav_info" width="27" height="28"/>
         <image name="nav_setting" width="23" height="21"/>
         <image name="nav_time" width="26" height="27"/>
-        <image name="watch_foxter" width="270" height="270"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2tG-Sb-2bl"/>
