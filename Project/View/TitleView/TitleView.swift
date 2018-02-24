@@ -13,5 +13,10 @@ class TitleView: DesignableView {
     
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBInspectable var title: String?
+    @IBOutlet weak var logoImage: UIImageView!
+    
+    func updateLogo() {
+        logoImage.image = SBManager.share.getAsset(.logo)
+    }
     
 }

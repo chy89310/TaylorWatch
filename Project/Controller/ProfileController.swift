@@ -28,6 +28,8 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let textAttributes = [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = "PROFILE SETTINGS"
         _deviceText.text = SBManager.share.selectedDevice(in: .mr_default())?.nickName
         _birthDayText.inputView = _datePicker

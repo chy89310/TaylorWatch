@@ -17,7 +17,7 @@ class TimeController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        watchFace.updateAsset(withDial: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitleView" customModule="Taylor" customModuleProvider="target">
             <connections>
+                <outlet property="logoImage" destination="6oo-po-gES" id="BAa-9P-Fd4"/>
                 <outlet property="topConstraint" destination="hJc-Ji-bps" id="zfB-Jo-Vcm"/>
             </connections>
         </placeholder>

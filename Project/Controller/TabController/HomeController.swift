@@ -21,6 +21,7 @@ class HomeController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        watchView.updateAsset(withDial: false)
         SBManager.share.didUpdateStep = {
             self.updateView()
         }

@@ -18,6 +18,8 @@ class WatchFace: DesignableView {
     @IBOutlet weak var hourHand: WatchHand!
     @IBOutlet var minuteRecognizer: UIPanGestureRecognizer!
     @IBOutlet var hourRecognizer: UIPanGestureRecognizer!
+    @IBOutlet weak var handMinuteImage: UIImageView!
+    @IBOutlet weak var handHourImage: UIImageView!
     
     @IBInspectable var background: UIImage?
     @IBInspectable var interactable: Bool {
@@ -53,6 +55,14 @@ class WatchFace: DesignableView {
         let (hourPoint, minutePoint) = updateTransform()
         beginPoints = [minuteHand: minutePoint,
                        hourHand: hourPoint]
+    }
+    
+    func updateAsset(withDial: Bool) {
+        if withDial {
+            background = SBManager.share.getAsset(.dial)
+        }
+        handHourImage.image = SBManager.share.getAsset(.hand_hour)
+        handMinuteImage.image = SBManager.share.getAsset(.hand_minute)
     }
     
     func updateTransform() -> (CGPoint, CGPoint) {

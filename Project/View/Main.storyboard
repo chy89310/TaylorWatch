@@ -1171,10 +1171,10 @@
             </objects>
             <point key="canvasLocation" x="3601" y="1710"/>
         </scene>
-        <!--Base Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="fx3-LV-l2H">
             <objects>
-                <navigationController id="Zvv-gg-z90" customClass="BaseNavigationController" customModule="Taylor" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="Zvv-gg-z90" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t04-j3-bRm" customClass="BaseNavigationBar" customModule="Taylor" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1328,6 +1328,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2tG-Sb-2bl"/>
-        <segue reference="tiF-sG-S9t"/>
+        <segue reference="5iC-Gy-PTa"/>
     </inferredMetricsTieBreakers>
 </document>

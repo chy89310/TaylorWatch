@@ -16,6 +16,7 @@ class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleView.frame = navigationBar.bounds
+        titleView.updateLogo()
         navigationBar.addSubview(titleView)
         
         navigationBar.setTitleVerticalPositionAdjustment(titleView.topConstraint.constant, for: .default)

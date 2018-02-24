@@ -14,6 +14,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WatchFace" customModule="Taylor" customModuleProvider="target">
             <connections>
                 <outlet property="bgImageView" destination="vhb-Fc-wcg" id="Ick-hf-e7j"/>
+                <outlet property="handHourImage" destination="ASj-gn-NRf" id="Ug6-0S-efQ"/>
+                <outlet property="handMinuteImage" destination="dIa-hY-lBY" id="4QL-bc-SRx"/>
                 <outlet property="hourHand" destination="Pn6-8S-j79" id="Wj8-BV-pdJ"/>
                 <outlet property="hourRecognizer" destination="YIl-lw-nTS" id="LcW-cE-PnR"/>
                 <outlet property="hourView" destination="Xhe-9a-rAA" id="EpQ-Co-bC0"/>
@@ -30,6 +32,33 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vhb-Fc-wcg">
                     <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-9a-rAA">
+                    <rect key="frame" x="112" y="45" width="25" height="160"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="601_taylor_hand_hour" translatesAutoresizingMaskIntoConstraints="NO" id="ASj-gn-NRf">
+                            <rect key="frame" x="-0.5" y="0.0" width="26" height="160"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pn6-8S-j79" customClass="WatchHand" customModule="Taylor" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="25" height="80"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="YIl-lw-nTS" appends="YES" id="dMe-Wt-2oB"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ASj-gn-NRf" secondAttribute="trailing" id="9k4-VF-Gn7"/>
+                        <constraint firstItem="ASj-gn-NRf" firstAttribute="leading" secondItem="Xhe-9a-rAA" secondAttribute="leading" id="NIS-Xw-s3s"/>
+                        <constraint firstItem="ASj-gn-NRf" firstAttribute="top" secondItem="Xhe-9a-rAA" secondAttribute="top" id="SJn-1G-Dq5"/>
+                        <constraint firstItem="Pn6-8S-j79" firstAttribute="top" secondItem="Xhe-9a-rAA" secondAttribute="top" id="Uzg-th-Oep"/>
+                        <constraint firstItem="Pn6-8S-j79" firstAttribute="height" secondItem="Xhe-9a-rAA" secondAttribute="height" multiplier="0.5" id="bDJ-J8-6SB"/>
+                        <constraint firstAttribute="bottom" secondItem="ASj-gn-NRf" secondAttribute="bottom" id="ez0-hf-6uN"/>
+                        <constraint firstAttribute="trailing" secondItem="Pn6-8S-j79" secondAttribute="trailing" id="jVY-X0-f8r"/>
+                        <constraint firstAttribute="width" constant="25" id="jby-Mf-ls5"/>
+                        <constraint firstItem="Pn6-8S-j79" firstAttribute="leading" secondItem="Xhe-9a-rAA" secondAttribute="leading" id="w08-Mu-c71"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTE-0K-VJp">
                     <rect key="frame" x="110" y="19" width="30" height="212.5"/>
                     <subviews>
@@ -55,33 +84,6 @@
                         <constraint firstAttribute="width" constant="30" id="kNJ-88-SIl"/>
                         <constraint firstAttribute="bottom" secondItem="dIa-hY-lBY" secondAttribute="bottom" id="kon-hr-BZk"/>
                         <constraint firstAttribute="trailing" secondItem="dIa-hY-lBY" secondAttribute="trailing" id="syT-CA-8Kz"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-9a-rAA">
-                    <rect key="frame" x="112.5" y="45" width="25" height="160"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="601_taylor_hand_hour" translatesAutoresizingMaskIntoConstraints="NO" id="ASj-gn-NRf">
-                            <rect key="frame" x="-0.5" y="0.0" width="26" height="160"/>
-                        </imageView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pn6-8S-j79" customClass="WatchHand" customModule="Taylor" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="25" height="80"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="YIl-lw-nTS" appends="YES" id="dMe-Wt-2oB"/>
-                            </connections>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="ASj-gn-NRf" secondAttribute="trailing" id="9k4-VF-Gn7"/>
-                        <constraint firstItem="ASj-gn-NRf" firstAttribute="leading" secondItem="Xhe-9a-rAA" secondAttribute="leading" id="NIS-Xw-s3s"/>
-                        <constraint firstItem="ASj-gn-NRf" firstAttribute="top" secondItem="Xhe-9a-rAA" secondAttribute="top" id="SJn-1G-Dq5"/>
-                        <constraint firstItem="Pn6-8S-j79" firstAttribute="top" secondItem="Xhe-9a-rAA" secondAttribute="top" id="Uzg-th-Oep"/>
-                        <constraint firstItem="Pn6-8S-j79" firstAttribute="height" secondItem="Xhe-9a-rAA" secondAttribute="height" multiplier="0.5" id="bDJ-J8-6SB"/>
-                        <constraint firstAttribute="bottom" secondItem="ASj-gn-NRf" secondAttribute="bottom" id="ez0-hf-6uN"/>
-                        <constraint firstAttribute="trailing" secondItem="Pn6-8S-j79" secondAttribute="trailing" id="jVY-X0-f8r"/>
-                        <constraint firstAttribute="width" constant="25" id="jby-Mf-ls5"/>
-                        <constraint firstItem="Pn6-8S-j79" firstAttribute="leading" secondItem="Xhe-9a-rAA" secondAttribute="leading" id="w08-Mu-c71"/>
                     </constraints>
                 </view>
             </subviews>
