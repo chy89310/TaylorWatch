@@ -20,6 +20,12 @@ class WatchFace: DesignableView {
     @IBOutlet var hourRecognizer: UIPanGestureRecognizer!
     @IBOutlet weak var handMinuteImage: UIImageView!
     @IBOutlet weak var handHourImage: UIImageView!
+    @IBOutlet weak var handHourCenterX: NSLayoutConstraint!
+    @IBOutlet weak var handHourCenterY: NSLayoutConstraint!
+    @IBOutlet weak var handMinuteCenterX: NSLayoutConstraint!
+    @IBOutlet weak var handMinuteCenterY: NSLayoutConstraint!
+    @IBOutlet weak var handHourHeight: NSLayoutConstraint!
+    @IBOutlet weak var handMinuteHeight: NSLayoutConstraint!
     
     @IBInspectable var background: UIImage?
     @IBInspectable var interactable: Bool {
@@ -63,6 +69,21 @@ class WatchFace: DesignableView {
         }
         handHourImage.image = SBManager.share.getAsset(.hand_hour)
         handMinuteImage.image = SBManager.share.getAsset(.hand_minute)
+        if SBManager.share.getWatchSerial() == "401" {
+            handHourCenterX = handHourCenterX.setMultiplier(multiplier: 0.9)
+            handMinuteCenterX = handMinuteCenterX.setMultiplier(multiplier: 0.9)
+            handHourCenterY = handHourCenterY.setMultiplier(multiplier: 1.2)
+            handMinuteCenterY = handMinuteCenterY.setMultiplier(multiplier: 1.2)
+            handHourHeight = handHourHeight.setMultiplier(multiplier: 0.34)
+            handMinuteHeight = handMinuteHeight.setMultiplier(multiplier: 0.45)
+        } else {
+            handHourCenterX = handHourCenterX.setMultiplier(multiplier: 1.0)
+            handMinuteCenterX = handMinuteCenterX.setMultiplier(multiplier: 1.0)
+            handHourCenterY = handHourCenterY.setMultiplier(multiplier: 1.0)
+            handMinuteCenterY = handMinuteCenterY.setMultiplier(multiplier: 1.0)
+            handHourHeight = handHourHeight.setMultiplier(multiplier: 0.64)
+            handMinuteHeight = handMinuteHeight.setMultiplier(multiplier: 0.85)
+        }
     }
     
     func updateTransform() -> (CGPoint, CGPoint) {
