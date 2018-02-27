@@ -339,13 +339,13 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         log.error("central did fail to connect to peripheral: \(peripheral)")
         reset()
-//        connectAction()
     }
     
     // MARK: - CBPeripheralDelegate methods
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         for service: CBService in peripheral.services! {
+            log.debug("Discover service: \(service)")
             peripheral.discoverCharacteristics(nil, for: service)
         }
     }
@@ -353,28 +353,10 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         let sb = SBService.mr_findFirst(byAttribute: "service", withValue: service.uuid.uuidString)
         for character: CBCharacteristic in service.characteristics! {
-            log.debug("\nCharacteristic: \(character.uuid.uuidString) property: \(character.properties)")
-            switch character.uuid.uuidString {
-            case "2A25":
-                log.debug("DEVICE_INFO_SERIAL_NUMBER")
+            if character.properties.contains(.read) {
                 peripheral.readValue(for: character)
-            case "2A26":
-                log.debug("DEVICE_INFO_FIRMWARE_REVISION")
-                peripheral.readValue(for: character)
-            case "2A29":
-                log.debug("DEVICE_INFO_MANUFACTURER_NAME")
-                peripheral.readValue(for: character)
-            case "2A19":
-                log.debug("BATTERY_SERVICE")
-                peripheral.readValue(for: character)
-            case "2A23":
-                log.debug("DEVICE_INFO_SYSTEM")
-                peripheral.readValue(for: character)
-            default:
-                log.debug("Unread character")
             }
-            // Sender
-            if character.uuid.uuidString == sb?.sender {
+            if character.properties.contains(.notify) {
                 peripheral.setNotifyValue(true, for: character)
             }
             // Receiver
@@ -387,21 +369,28 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let value = characteristic.value {
+            log.debug("\nCharacteristic: \(characteristic.uuid.uuidString) service: \(characteristic.service)")
             MagicalRecord.save({ (localContext) in
                 let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
                 let valueStr = String.init(data: value, encoding: .utf8) ?? "N/A"
                 switch characteristic.uuid.uuidString {
                 case "2A25":
+                    log.debug("DEVICE_INFO_SERIAL_NUMBER: \(valueStr)")
                     device?.serial = valueStr
                 case "2A26":
+                    log.debug("DEVICE_INFO_FIRMWARE_REVISION: \(valueStr)")
                     device?.firmware = valueStr
                 case "2A29":
+                    log.debug("DEVICE_INFO_MANUFACTURER_NAME: \(valueStr)")
                     device?.manufacturer = valueStr
                 case "2A19":
+                    log.debug("BATTERY_SERVICE: \(Int16(value.toUInt8(from: 0)))")
                     device?.battery = Int16(value.toUInt8(from: 0))
                 case "2A23":
+                    log.debug("DEVICE_INFO_SYSTEM: \(value.map { String(format: "%02x", $0) }.joined())")
                     device?.system = value.map { String(format: "%02x", $0) }.joined()
                 default:
+                    log.debug("Unknown character: \(valueStr)")
                     break
                 }
             }, completion: nil)

@@ -23,14 +23,22 @@ extension Collection {
 extension Data {
     // Get int value from data with a specific offset
     func toUInt8(from offset: Data.Index) -> UInt8 {
-        return self[offset...offset].withUnsafeBytes({ (pointer: UnsafePointer<UInt8>) -> UInt8 in
-            return pointer[0]
-        })
+        if endIndex > startIndex {
+            return self[offset...offset].withUnsafeBytes({ (pointer: UnsafePointer<UInt8>) -> UInt8 in
+                return pointer[0]
+            })
+        } else {
+            return 0
+        }
     }
     
     func toUInt16(from offset: Data.Index) -> UInt16 {
-        return self[offset...offset+1].withUnsafeBytes { (pointer: UnsafePointer<UInt16>) -> UInt16 in
-            return pointer[0]
+        if endIndex > startIndex {
+            return self[offset...offset+1].withUnsafeBytes { (pointer: UnsafePointer<UInt16>) -> UInt16 in
+                return pointer[0]
+            }
+        } else {
+            return 0
         }
     }
     

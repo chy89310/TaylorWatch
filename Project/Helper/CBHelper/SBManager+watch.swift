@@ -24,11 +24,35 @@ extension SBManager {
     }
     
     func getWatchSerial() -> String {
-        return "602"
+        let watchModel = selectedDevice(in: .mr_default())?.name?.uppercased() ?? ""
+        if watchModel.contains("TAYLOR") {
+            if watchModel.contains("SW301A") {
+                return "301a"
+            } else if watchModel.contains("SW301B") {
+                return "301b"
+            } else if watchModel.contains("SW302") {
+                return "302"
+            } else if watchModel.contains("SW401") {
+                return "401"
+            } else if watchModel.contains("SW501") {
+                return "501"
+            } else if watchModel.contains("SW602") {
+                return "602"
+            } else {
+                return "601_taylor"
+            }
+        } else if watchModel.contains("FOXTER") {
+            return "601_foxter"
+        } else if watchModel.contains("SEA-GULL") {
+            return "301"
+        } else {
+            // Defaul model
+            return "601_taylor"
+        }
     }
     
     func getWatchService() -> String {
-        return "TAYLOR"
+        return selectedDevice(in: .mr_default())?.serviceName ?? "TAYLOR"
     }
     
     func getAsset(_ asset: WatchAsset) -> UIImage {
