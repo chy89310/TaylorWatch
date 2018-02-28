@@ -102,6 +102,10 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         }
     }
     
+    func backAction() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     // Mark: - UICollectionView datasource and delegate
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

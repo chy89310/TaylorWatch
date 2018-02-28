@@ -106,6 +106,15 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
             return DeviceOptionsCell()
         }
     }    
+    
+    // Mark: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showScan", let scanController = segue.destination as? ScanViewController {
+            let backItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: scanController, action: #selector(ScanViewController.backAction))
+            backItem.tintColor = .white
+            scanController.navigationItem.leftBarButtonItem = backItem
+        }
+    }
 
 }
 

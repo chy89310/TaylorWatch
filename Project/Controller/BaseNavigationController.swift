@@ -17,7 +17,7 @@ class BaseNavigationController: UINavigationController {
         super.viewDidLoad()
         titleView.frame = navigationBar.bounds
         titleView.updateLogo()
-        navigationBar.addSubview(titleView)
+        navigationBar.insertSubview(titleView, at: 0)
         
         navigationBar.setTitleVerticalPositionAdjustment(titleView.topConstraint.constant, for: .default)
         let textAttributes = [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white]
