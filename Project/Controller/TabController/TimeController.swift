@@ -15,13 +15,10 @@ class TimeController: BaseViewController {
     @IBOutlet weak var manSyncBtn: RoundButton!
     @IBOutlet weak var timeZoneBtn: RoundButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        watchFace.updateAsset(withDial: true)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        watchFace.updateAsset(withDial: true)
         
         var highlight = phoneSyncBtn
         if UserDefaults.string(of: .timezone) != nil {

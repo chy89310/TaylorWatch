@@ -48,6 +48,7 @@ extension UserDefaults {
     
     enum UserDefaultKeys: String {
         case birthday
+        case email
         case goal
         case height
         case isMale

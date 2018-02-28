@@ -151,7 +151,7 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 11
+        return 80
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
@@ -160,12 +160,12 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func goalForRow(_ row: Int) -> Int {
-        return 5000 + 1000 * row
+        return 1000 + 1000 * row
     }
     
     func rowForGoal(_ goal: Int) -> Int {
-        if goal >= 5000 && goal <= 15000 {
-            return (goal - 5000)/1000
+        if goal >= 1000 && goal <= 80000 {
+            return (goal - 1000)/1000
         }
         return 0
     }

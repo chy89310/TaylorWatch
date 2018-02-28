@@ -21,7 +21,6 @@ class HomeController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        watchView.updateAsset(withDial: false)
         SBManager.share.didUpdateStep = {
             self.updateView()
         }
@@ -33,6 +32,8 @@ class HomeController: BaseViewController {
     }
     
     func updateView() {
+        watchView.updateAsset(withDial: false)
+        
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"

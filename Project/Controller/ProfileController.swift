@@ -31,10 +31,22 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
         let textAttributes = [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         title = "PROFILE SETTINGS"
-        _deviceText.text = SBManager.share.selectedDevice(in: .mr_default())?.nickName
         _birthDayText.inputView = _datePicker
         // Fix IQKeyboardManager bug
         _datePicker.translatesAutoresizingMaskIntoConstraints = false
+        // Initial Info
+        _emailText.text = UserDefaults.string(of: .email)
+        _deviceText.text = SBManager.share.selectedDevice(in: .mr_default())?.nickName
+        _birthDayText.text = UserDefaults.string(of: .birthday)
+        let weight = UserDefaults.int(of: .weight)
+        _weightText.text = weight > 0 ? String(weight) : ""
+        let height = UserDefaults.int(of: .height)
+        _heightText.text = height > 0 ? String(height) : ""
+        if UserDefaults.bool(of: .isMale) {
+            _genderButton.setTitle(NSLocalizedString("Male", comment: ""), for: .normal)
+        } else {
+            _genderButton.setTitle(NSLocalizedString("Female", comment: ""), for: .normal)
+        }
     }
     
     func validate() -> Bool{
@@ -54,6 +66,12 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
             UserDefaults.set(formatter.date(from: birthDayStr)?.timeIntervalSince1970, forKey: .birthday)
+        }
+        if let emailStr = _emailText.text {
+            UserDefaults.set(emailStr, forKey: .email)
+        }
+        if let birthdayStr = _birthDayText.text {
+            UserDefaults.set(birthdayStr, forKey: .birthday)
         }
         if let weightStr = _weightText.text {
             UserDefaults.set(Int(weightStr), forKey: .weight)

@@ -13,11 +13,31 @@ import SwiftIconFont
 
 class InfoController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var _tableView: UITableView!
     let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) ?? Device.mr_createEntity()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    func updateAppAction() {
+        let alert = UIAlertController(title: "Update Device Model", message: "Please selecte a model", preferredStyle: .alert)
+        let models = ["TAYLOR","TAYLOR SW301A","TAYLOR SW301B","TAYLOR SW302","TAYLOR SW401","TAYLOR SW501","TAYLOR SW602","FOXTER","SEA-GULL"]
+        for model in models {
+            alert.addAction(
+                UIAlertAction(title: model, style: .default, handler: { (action) in
+                    MagicalRecord.save(blockAndWait: { (localContext) in
+                        let device = SBManager.share.selectedDevice(in: localContext)
+                        device?.name = model
+                    })
+                    let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) ?? Device.mr_createEntity()
+                    self._tableView.reloadData()
+                })
+            )
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Table view datasource
@@ -70,7 +90,7 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
             case 5:
                 cell.textLabel?.text = NSLocalizedString("App Version", comment: "")
                 #if DEBUG
-                    cell.detailTextLabel?.text = "\(Bundle.main.infoDictionary!["CFBundleShortVersionString"] ?? "1.0")(\(Bundle.main.infoDictionary!["CFBundleVersion"] ?? "1"))"
+                    cell.detailTextLabel?.text = "\(Bundle.main.infoDictionary!["CFBundleShortVersionString"] ?? "1.0.0")"
                 #else
                     cell.detailTextLabel?.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
                     
@@ -83,12 +103,19 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
             let cell = tableView.dequeueReusableCell(withIdentifier: "updateCell", for: indexPath)
             switch indexPath.row {
             case 6:
-                cell.textLabel?.text = NSLocalizedString("Update APP", comment: "")
+                cell.textLabel?.text = NSLocalizedString("Update Model (\(device?.name ?? ""))", comment: "")
                 cell.textLabel?.textColor = .black
             default:
                 break
             }
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.row == 6 {
+            updateAppAction()
         }
     }
 

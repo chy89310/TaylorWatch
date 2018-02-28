@@ -105,7 +105,38 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
         } else {
             return DeviceOptionsCell()
         }
-    }    
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let action = UITableViewRowAction(style: .default, title: NSLocalizedString("Edit", comment: "")) { (action, indexPath) in
+            let alert = UIAlertController(title: NSLocalizedString("Edit Nick Name", comment: ""), message: "", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: { (textField) in
+                let device = Device.mr_findAll()?[indexPath.row] as? Device ?? Device()
+                textField.text = device.nickName
+            })
+            alert.addAction(
+                UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+            )
+            alert.addAction(
+                UIAlertAction(title: NSLocalizedString("Edit", comment: ""), style: .default, handler: { (action) in
+                    if let nickName = alert.textFields?.first?.text {
+                        MagicalRecord.save(blockAndWait: { (localContext) in
+                            let device = Device.mr_findAll(in: localContext)?[indexPath.row] as? Device
+                            device?.nickName = nickName
+                        })
+                        tableView.reloadData()
+                    }
+                })
+            )
+            self.present(alert, animated: true, completion: nil)
+        }
+        action.backgroundColor = UIColor("#FDDFC0")
+        return [action]
+    }
     
     // Mark: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
