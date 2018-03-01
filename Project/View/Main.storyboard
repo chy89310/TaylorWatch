@@ -82,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-Z7-0e5" customClass="SwiftIconButton" customModule="SwiftIconFont">
-                                <rect key="frame" x="-189.5" y="237.5" width="753" height="192"/>
+                                <rect key="frame" x="123" y="252.5" width="129" height="162"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="150"/>
                                 <state key="normal" title="fa:bluetooth">
                                     <color key="titleColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -475,7 +475,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svq-oF-8SK" customClass="WatchView" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="16" y="72" width="343" height="350"/>
+                                <rect key="frame" x="16" y="72" width="343" height="334.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
@@ -499,25 +499,25 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ks4-GO-ybz" customClass="RoundView" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="135" y="430" width="105" height="105"/>
+                                <rect key="frame" x="132" y="414.5" width="111" height="110.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-3t-Ipc">
-                                        <rect key="frame" x="1" y="22.5" width="104.5" height="61.5"/>
+                                        <rect key="frame" x="0.5" y="24.5" width="111" height="61.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hL-3e-GdG">
-                                                <rect key="frame" x="0.0" y="0.0" width="104.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APRIL 04" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUj-31-luv">
-                                                <rect key="frame" x="0.0" y="20.5" width="104.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="20.5" width="111" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TUESDAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bx-Dx-q5v">
-                                                <rect key="frame" x="0.0" y="41" width="104.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="41" width="111" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -533,20 +533,20 @@
                                     <constraint firstItem="h9c-3t-Ipc" firstAttribute="centerX" secondItem="ks4-GO-ybz" secondAttribute="centerX" id="vBA-mA-Kyy"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiS-vP-qkg" customClass="RoundView" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="112.5" y="543" width="150" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiS-vP-qkg" customClass="StepPercentView" customModule="Taylor" customModuleProvider="target">
+                                <rect key="frame" x="102.5" y="533" width="170" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="viw-Rs-Oij">
-                                        <rect key="frame" x="0.0" y="23" width="150" height="43"/>
+                                        <rect key="frame" x="0.0" y="33" width="170" height="43"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,000 STEPS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BW9-rS-e7P">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 CALS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNc-l6-QzC">
-                                                <rect key="frame" x="0.0" y="21.5" width="150" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="21.5" width="170" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -556,12 +556,17 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="0id-ru-j3S"/>
+                                    <constraint firstAttribute="width" constant="170" id="0id-ru-j3S"/>
                                     <constraint firstItem="viw-Rs-Oij" firstAttribute="width" secondItem="tiS-vP-qkg" secondAttribute="width" id="Bsh-xW-JVf"/>
                                     <constraint firstAttribute="width" secondItem="tiS-vP-qkg" secondAttribute="height" id="GTb-hJ-8UO"/>
                                     <constraint firstItem="viw-Rs-Oij" firstAttribute="centerX" secondItem="tiS-vP-qkg" secondAttribute="centerX" id="ebX-xH-DXW"/>
                                     <constraint firstAttribute="centerY" secondItem="viw-Rs-Oij" secondAttribute="bottom" constant="9" id="oaH-Oq-iz9"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="percent">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -571,7 +576,7 @@
                             <constraint firstItem="svq-oF-8SK" firstAttribute="top" secondItem="BFo-OD-v0S" secondAttribute="bottom" constant="8" symbolic="YES" id="KUC-DG-KZz"/>
                             <constraint firstAttribute="centerX" secondItem="qey-wV-P4e" secondAttribute="centerX" multiplier="0.6" id="N16-A2-0uy"/>
                             <constraint firstItem="tiS-vP-qkg" firstAttribute="top" secondItem="ks4-GO-ybz" secondAttribute="bottom" constant="8" symbolic="YES" id="OvS-Wo-rTy"/>
-                            <constraint firstItem="ks4-GO-ybz" firstAttribute="width" secondItem="tiS-vP-qkg" secondAttribute="width" multiplier="0.7" id="YhD-BZ-eqf"/>
+                            <constraint firstItem="ks4-GO-ybz" firstAttribute="width" secondItem="tiS-vP-qkg" secondAttribute="width" multiplier="0.65" id="YhD-BZ-eqf"/>
                             <constraint firstItem="ks4-GO-ybz" firstAttribute="top" secondItem="svq-oF-8SK" secondAttribute="bottom" constant="8" symbolic="YES" id="ZPV-yi-dcd"/>
                             <constraint firstItem="tiS-vP-qkg" firstAttribute="centerX" secondItem="BLL-Fd-qf2" secondAttribute="centerX" id="owZ-4i-Ic6"/>
                             <constraint firstItem="ks4-GO-ybz" firstAttribute="centerX" secondItem="BLL-Fd-qf2" secondAttribute="centerX" id="qJl-vF-kkp"/>
@@ -584,6 +589,7 @@
                         <outlet property="caloriesLabel" destination="lNc-l6-QzC" id="859-Sm-CPm"/>
                         <outlet property="dateLabel" destination="JUj-31-luv" id="sa2-di-m7y"/>
                         <outlet property="stepLabel" destination="BW9-rS-e7P" id="qaa-fX-PjD"/>
+                        <outlet property="stepView" destination="tiS-vP-qkg" id="Znu-S7-fKQ"/>
                         <outlet property="watchView" destination="svq-oF-8SK" id="ILC-w0-z7j"/>
                         <outlet property="weekDayLabel" destination="8bx-Dx-q5v" id="Vst-do-QtM"/>
                         <outlet property="yearLabel" destination="9hL-3e-GdG" id="6Pb-xh-beG"/>

@@ -34,14 +34,15 @@ extension Step {
         for index in range {
             if let date = calendar.date(byAdding: .day, value: index-1, to: firstDay) {
                 //Get last step of each date
+                let twelvehours: Double = 60*60*24
                 let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:
                     [NSPredicate.init(format: "year = %d", calendar.component(.year, from: date)),
                      NSPredicate.init(format: "month = %d", calendar.component(.month, from: date)),
                      NSPredicate.init(format: "day = %d", calendar.component(.day, from: date))])
                 if let step = Step.mr_findFirst(with: predicate, sortedBy: "date", ascending: false) {
-                    set[date.timeIntervalSince1970] = step.steps
+                    set[date.timeIntervalSince1970+twelvehours] = step.steps
                 } else {
-                    set[date.timeIntervalSince1970] = 0
+                    set[date.timeIntervalSince1970+twelvehours] = 0
                 }
             }
         }
