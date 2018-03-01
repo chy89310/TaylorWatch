@@ -11,6 +11,7 @@
 		0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B53181FC7CA3F00CC094D /* WatchApi.plist */; };
 		0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
 		0A27F68F202946A600BAA063 /* Step+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27F68E202946A600BAA063 /* Step+Extension.swift */; };
+		0A32C5582047AA9600BD6A5B /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A32C5572047AA9600BD6A5B /* BluetoothController.swift */; };
 		4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
 		4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
 		4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EBE20166900009DCD4D /* NavigationBar.swift */; };
@@ -61,6 +62,7 @@
 		0A0B53181FC7CA3F00CC094D /* WatchApi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WatchApi.plist; sourceTree = "<group>"; };
 		0A1A85261FC595FF00EEA718 /* SBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBManager.swift; sourceTree = "<group>"; };
 		0A27F68E202946A600BAA063 /* Step+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step+Extension.swift"; sourceTree = "<group>"; };
+		0A32C5572047AA9600BD6A5B /* BluetoothController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
 		1009943C883916D85DE4D806 /* Pods-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B1363931FD25D8000AAE628 /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOptionsController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				4B7277981F12A021009AC306 /* BaseViewController.swift */,
 				4B167EC020166C82009DCD4D /* BaseNavigationController.swift */,
+				0A32C5572047AA9600BD6A5B /* BluetoothController.swift */,
 				4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */,
 				0A0B53141FC6C53100CC094D /* ScanViewController.swift */,
 				4BF01A601FCD6686009B1262 /* TabController */,
@@ -479,6 +482,7 @@
 			files = (
 				4B2BB277200FBCF000ED482E /* RoundView.swift in Sources */,
 				4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */,
+				0A32C5582047AA9600BD6A5B /* BluetoothController.swift in Sources */,
 				4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */,
 				4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */,
 				4B167EC120166C82009DCD4D /* BaseNavigationController.swift in Sources */,

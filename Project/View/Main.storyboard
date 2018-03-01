@@ -69,6 +69,43 @@
             </objects>
             <point key="canvasLocation" x="2662" y="-1370"/>
         </scene>
+        <!--Bluetooth Controller-->
+        <scene sceneID="haW-RU-aYm">
+            <objects>
+                <viewController id="6el-qi-hCG" customClass="BluetoothController" customModule="Taylor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3mn-QA-iLm"/>
+                        <viewControllerLayoutGuide type="bottom" id="gmY-jD-ErE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ngr-VK-ZnY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-Z7-0e5" customClass="SwiftIconButton" customModule="SwiftIconFont">
+                                <rect key="frame" x="-189.5" y="237.5" width="753" height="192"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="150"/>
+                                <state key="normal" title="fa:bluetooth">
+                                    <color key="titleColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:bluetooth"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dIh-Z7-0e5" firstAttribute="centerX" secondItem="ngr-VK-ZnY" secondAttribute="centerX" id="D07-3h-hjm"/>
+                            <constraint firstItem="dIh-Z7-0e5" firstAttribute="centerY" secondItem="ngr-VK-ZnY" secondAttribute="centerY" id="UL4-pC-gtB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bluetoothButton" destination="dIh-Z7-0e5" id="snO-En-y1N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K7K-8U-eFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="-618"/>
+        </scene>
         <!--Profile Controller-->
         <scene sceneID="H6h-pe-R56">
             <objects>
@@ -197,7 +234,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rzd-bi-5be">
-                                <rect key="frame" x="0.0" y="534" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="583" width="375" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51G-2t-4z2">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
@@ -1214,7 +1251,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pU7-WS-7ZJ">
-                                <rect key="frame" x="20" y="380" width="335" height="186"/>
+                                <rect key="frame" x="20" y="380" width="335" height="279"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="huw-n3-iq3">
                                     <size key="itemSize" width="70" height="70"/>
@@ -1331,7 +1368,7 @@
         <image name="nav_time" width="26" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kr1-f6-mcv"/>
-        <segue reference="5iC-Gy-PTa"/>
+        <segue reference="2tG-Sb-2bl"/>
+        <segue reference="tiF-sG-S9t"/>
     </inferredMetricsTieBreakers>
 </document>
