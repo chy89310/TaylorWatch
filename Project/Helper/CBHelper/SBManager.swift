@@ -120,6 +120,16 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         peripheral(selectedPeripheral, write: data)
     }
     
+    func setTargetSteps(steps: Int) {
+        let data = Data.init(bytes:
+            [CMD.set_target_steps.rawValue,
+             UInt8(steps & 0xff),
+             UInt8(steps >> 8 & 0xff),
+             UInt8(steps >> 16 & 0xff),
+             UInt8(steps >> 24 & 0xff)])
+        peripheral(selectedPeripheral, write: data)
+    }
+    
     func findWatch() {
         let data = Data.init(bytes: [CMD.find_watch.rawValue])
         peripheral(selectedPeripheral, write: data)

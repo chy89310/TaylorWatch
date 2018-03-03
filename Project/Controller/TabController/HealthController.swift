@@ -23,10 +23,10 @@ class HealthController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chartView.dragEnabled = true
-        chartView.setScaleEnabled(true)
+        chartView.dragEnabled = false
+        chartView.setScaleEnabled(false)
         chartView.pinchZoomEnabled = false
-        chartView.highlightPerDragEnabled = true
+        chartView.highlightPerDragEnabled = false
         chartView.chartDescription?.enabled = false
 //        chartView.backgroundColor = .white
         
@@ -37,26 +37,31 @@ class HealthController: BaseViewController {
 //        xAxis.labelFont = .systemFont(ofSize: 10, weight: .light)
         xAxis.labelTextColor = .white
         xAxis.drawAxisLineEnabled = false
-        xAxis.drawGridLinesEnabled = true
+        xAxis.drawGridLinesEnabled = false
         xAxis.centerAxisLabelsEnabled = true
         xAxis.granularity = daySeconds
-        xAxis.valueFormatter = XAxisDateFormatter()
         
         let leftAxis = chartView.leftAxis
         leftAxis.labelPosition = .outsideChart
 //        leftAxis.labelFont = .systemFont(ofSize: 12, weight: .light)
         leftAxis.drawGridLinesEnabled = true
         leftAxis.granularityEnabled = true
-//        leftAxis.axisMinimum = 0
+        leftAxis.axisMinimum = 0
 //        leftAxis.axisMaximum = 170
         leftAxis.yOffset = -9
 //        leftAxis.xOffset = -10
         leftAxis.labelTextColor = .white
         
-        
         chartView.rightAxis.enabled = false
-        
         chartView.legend.form = .line
+        
+        let marker = BalloonMarker(color: UIColor(white: 180/255, alpha: 1),
+                                   font: .systemFont(ofSize: 12),
+                                   textColor: .white,
+                                   insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
+        marker.chartView = chartView
+        marker.minimumSize = CGSize(width: 80, height: 40)
+        chartView.marker = marker
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,13 +90,14 @@ class HealthController: BaseViewController {
         set.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
         set.drawCircleHoleEnabled = false
         set.mode = .horizontalBezier
-
+        
         let data = LineChartData(dataSet: set)
         data.setValueTextColor(.white)
-        data.highlightEnabled = false
-        //        data.setValueFont(.systemFont(ofSize: 9, weight: .light))
+        data.highlightEnabled = true
+        data.setValueFont(UIFont.systemFont(ofSize: 9))
 
         chartView.data = data
+        chartView.xAxis.valueFormatter = XAxisDateFormatter(isWeek: isWeek)
         chartView.animate(xAxisDuration: 1)
     }
     
@@ -109,12 +115,21 @@ class HealthController: BaseViewController {
 }
 
 class XAxisDateFormatter: NSObject, IAxisValueFormatter {
+    
     private let hourFormat = DateFormatter()
     private let dayFormat = DateFormatter()
     
     override init() {
         super.init()
-        dayFormat.dateFormat = "dd"
+    }
+    
+    convenience init(isWeek: Bool) {
+        self.init()
+        if isWeek {
+            dayFormat.dateFormat = "E"
+        } else {
+            dayFormat.dateFormat = "dd"
+        }
     }
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {

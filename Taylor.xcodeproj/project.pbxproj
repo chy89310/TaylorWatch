@@ -36,6 +36,7 @@
 		4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
 		4B6691B7203C118E001421CB /* SBServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B6691B6203C118E001421CB /* SBServices.plist */; };
 		4B6691B9203C20E6001421CB /* SBService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6691B8203C20E6001421CB /* SBService+Extension.swift */; };
+		4B6DB859204AEC5F0029A10E /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */; };
 		4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7277981F12A021009AC306 /* BaseViewController.swift */; };
 		4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */; };
 		4B8EAB29201F83EC00B2A9C6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */; };
@@ -88,6 +89,7 @@
 		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		4B6691B6203C118E001421CB /* SBServices.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SBServices.plist; sourceTree = "<group>"; };
 		4B6691B8203C20E6001421CB /* SBService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBService+Extension.swift"; sourceTree = "<group>"; };
+		4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		4B7277981F12A021009AC306 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBPeripheral.swift; sourceTree = "<group>"; };
 		4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				4B2BB27F200FD36500ED482E /* TitleView */,
 				4B2BB28420112B8700ED482E /* WatchFace */,
 				4B2BB27E200FD35500ED482E /* WatchView */,
+				4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */,
 				4B2BB274200FBC2900ED482E /* DesignableView.swift */,
 				4B2BB29020113EBF00ED482E /* RoundButton.swift */,
 				4B2BB276200FBCF000ED482E /* RoundView.swift */,
@@ -514,6 +517,7 @@
 				4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */,
 				4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */,
 				4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */,
+				4B6DB859204AEC5F0029A10E /* BalloonMarker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

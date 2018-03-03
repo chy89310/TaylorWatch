@@ -58,8 +58,8 @@ extension SBManager {
     func getAsset(_ asset: WatchAsset) -> UIImage {
         var name = "", defaultName = ""
         if asset == .logo {
-            name = "\(getWatchService())_logo"
-            defaultName = "TAYLOR_logo"
+            name = "\(getWatchService())_word"
+            defaultName = "TAYLOR_word"
         } else {
             name = "\(getWatchSerial())_\(asset.rawValue)"
             defaultName = "601_taylor_\(asset.rawValue)"

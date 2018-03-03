@@ -84,7 +84,9 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     func setupGoal(isWrite: Bool) {
         if isWrite {
-            UserDefaults.set(goalForRow(goalPicker.selectedRow(inComponent: 0)), forKey: .goal)
+            let steps = goalForRow(goalPicker.selectedRow(inComponent: 0))
+            UserDefaults.set(steps, forKey: .goal)
+            SBManager.share.setTargetSteps(steps: steps)
         } else {
             goalPicker.selectRow(rowForGoal(UserDefaults.int(of: .goal)), inComponent: 0, animated: false)
         }

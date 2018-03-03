@@ -475,14 +475,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svq-oF-8SK" customClass="WatchView" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="16" y="72" width="343" height="334.5"/>
+                                <rect key="frame" x="16" y="72" width="343" height="313.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qey-wV-P4e" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="272.5" y="293.5" width="80" height="80"/>
+                                <rect key="frame" x="272.5" y="305.5" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qey-wV-P4e" secondAttribute="height" id="42u-zp-QEw"/>
@@ -499,7 +499,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ks4-GO-ybz" customClass="RoundView" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="132" y="414.5" width="111" height="110.5"/>
+                                <rect key="frame" x="132" y="393.5" width="111" height="110.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-3t-Ipc">
                                         <rect key="frame" x="0.5" y="24.5" width="111" height="61.5"/>
@@ -534,7 +534,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiS-vP-qkg" customClass="StepPercentView" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="102.5" y="533" width="170" height="170"/>
+                                <rect key="frame" x="102.5" y="512" width="170" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="viw-Rs-Oij">
                                         <rect key="frame" x="0.0" y="33" width="170" height="43"/>
@@ -572,6 +572,7 @@
                         <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="svq-oF-8SK" firstAttribute="trailing" secondItem="BLL-Fd-qf2" secondAttribute="trailingMargin" id="1uo-dw-gG7"/>
+                            <constraint firstItem="qey-wV-P4e" firstAttribute="bottom" secondItem="svq-oF-8SK" secondAttribute="bottom" id="7Ao-0b-Mcj"/>
                             <constraint firstItem="Q9u-KC-3dg" firstAttribute="top" secondItem="tiS-vP-qkg" secondAttribute="centerY" id="HlX-BM-hii"/>
                             <constraint firstItem="svq-oF-8SK" firstAttribute="top" secondItem="BFo-OD-v0S" secondAttribute="bottom" constant="8" symbolic="YES" id="KUC-DG-KZz"/>
                             <constraint firstAttribute="centerX" secondItem="qey-wV-P4e" secondAttribute="centerX" multiplier="0.6" id="N16-A2-0uy"/>
@@ -580,7 +581,6 @@
                             <constraint firstItem="ks4-GO-ybz" firstAttribute="top" secondItem="svq-oF-8SK" secondAttribute="bottom" constant="8" symbolic="YES" id="ZPV-yi-dcd"/>
                             <constraint firstItem="tiS-vP-qkg" firstAttribute="centerX" secondItem="BLL-Fd-qf2" secondAttribute="centerX" id="owZ-4i-Ic6"/>
                             <constraint firstItem="ks4-GO-ybz" firstAttribute="centerX" secondItem="BLL-Fd-qf2" secondAttribute="centerX" id="qJl-vF-kkp"/>
-                            <constraint firstItem="qey-wV-P4e" firstAttribute="centerY" secondItem="BLL-Fd-qf2" secondAttribute="centerY" id="uW6-jR-9RH"/>
                             <constraint firstItem="svq-oF-8SK" firstAttribute="leading" secondItem="BLL-Fd-qf2" secondAttribute="leadingMargin" id="wNu-8Z-smE"/>
                         </constraints>
                     </view>
@@ -612,7 +612,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TmM-zH-kS5">
-                                <rect key="frame" x="0.0" y="72" width="375" height="423"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="402"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="deviceCell" id="Xfl-vJ-zKr" customClass="DeviceOptionsCell" customModule="Taylor" customModuleProvider="target">
@@ -676,7 +676,7 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z51-X5-7RW">
-                                <rect key="frame" x="0.0" y="494" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="473" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS7-tW-Qfs">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -760,75 +760,92 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="16" y="160" width="343" height="267"/>
+                                <rect key="frame" x="16" y="121.5" width="343" height="257.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="background" value="601_taylor_dial"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
-                                <rect key="frame" x="28" y="477" width="319" height="91"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
+                                <rect key="frame" x="0.0" y="379" width="375" height="218"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
-                                        <color key="backgroundColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
+                                        <rect key="frame" x="28" y="63.5" width="319" height="91"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="hLJ-E6-E3B" secondAttribute="height" id="E7y-P7-DDQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal">
+                                                    <string key="title">Phone
+Time</string>
+                                                    <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="52X-e5-6Td"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
+                                                <rect key="frame" x="114" y="0.0" width="91" height="91"/>
+                                                <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="gAr-3W-68s" secondAttribute="height" id="pSt-A4-lQk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal">
+                                                    <string key="title">Manual
+Sync</string>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="BTh-rw-Umy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
+                                                <rect key="frame" x="228" y="0.0" width="91" height="91"/>
+                                                <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="KQY-47-fBN" secondAttribute="height" id="aoM-nD-Jye"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <state key="normal">
+                                                    <string key="title">Change
+Time Zone</string>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="gaK-9s-H7O"/>
+                                                    <segue destination="U3J-6o-nqJ" kind="show" id="qYi-TJ-cG2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="hLJ-E6-E3B" secondAttribute="height" id="E7y-P7-DDQ"/>
+                                            <constraint firstItem="KQY-47-fBN" firstAttribute="width" secondItem="KQY-47-fBN" secondAttribute="height" id="JUT-2b-1rI"/>
+                                            <constraint firstItem="gAr-3W-68s" firstAttribute="width" secondItem="gAr-3W-68s" secondAttribute="height" id="qqB-Ce-CjI"/>
+                                            <constraint firstAttribute="width" secondItem="Rf0-Uv-n4a" secondAttribute="height" multiplier="3.5:1" id="uYr-up-eXI"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Phone Time">
-                                            <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="52X-e5-6Td"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
-                                        <rect key="frame" x="114" y="0.0" width="91" height="91"/>
-                                        <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="gAr-3W-68s" secondAttribute="height" id="pSt-A4-lQk"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Manual Sync">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="BTh-rw-Umy"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
-                                        <rect key="frame" x="228" y="0.0" width="91" height="91"/>
-                                        <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="KQY-47-fBN" secondAttribute="height" id="aoM-nD-Jye"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Change Time Zone">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="gaK-9s-H7O"/>
-                                            <segue destination="U3J-6o-nqJ" kind="show" id="qYi-TJ-cG2"/>
-                                        </connections>
-                                    </button>
+                                    </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="KQY-47-fBN" firstAttribute="width" secondItem="KQY-47-fBN" secondAttribute="height" id="JUT-2b-1rI"/>
-                                    <constraint firstItem="gAr-3W-68s" firstAttribute="width" secondItem="gAr-3W-68s" secondAttribute="height" id="qqB-Ce-CjI"/>
-                                    <constraint firstAttribute="width" secondItem="Rf0-Uv-n4a" secondAttribute="height" multiplier="3.5:1" id="uYr-up-eXI"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rf0-Uv-n4a" secondAttribute="trailing" constant="28" id="Nfz-VE-3NX"/>
+                                    <constraint firstItem="Rf0-Uv-n4a" firstAttribute="centerY" secondItem="281-x8-ibM" secondAttribute="centerY" id="RtM-eS-x9r"/>
+                                    <constraint firstItem="Rf0-Uv-n4a" firstAttribute="leading" secondItem="281-x8-ibM" secondAttribute="leading" constant="28" id="TjR-YB-chE"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Rf0-Uv-n4a" firstAttribute="top" secondItem="2Ra-rx-Kmk" secondAttribute="bottom" constant="50" id="37e-PW-dON"/>
-                            <constraint firstItem="Rf0-Uv-n4a" firstAttribute="leading" secondItem="3MV-dZ-RhB" secondAttribute="leading" constant="28" id="5Yj-FQ-h4X"/>
-                            <constraint firstAttribute="trailing" secondItem="Rf0-Uv-n4a" secondAttribute="trailing" constant="28" id="9IL-YY-V6i"/>
+                            <constraint firstItem="2Ra-rx-Kmk" firstAttribute="centerY" secondItem="3MV-dZ-RhB" secondAttribute="centerY" multiplier="0.75" id="0ti-fo-Kuu"/>
+                            <constraint firstAttribute="trailing" secondItem="281-x8-ibM" secondAttribute="trailing" id="BbQ-BL-hDp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Ra-rx-Kmk" secondAttribute="trailing" id="Idd-Y4-dZN"/>
-                            <constraint firstItem="2Ra-rx-Kmk" firstAttribute="height" secondItem="3MV-dZ-RhB" secondAttribute="height" multiplier="0.4" id="gi7-HH-bhT"/>
-                            <constraint firstItem="AwT-uA-ANe" firstAttribute="top" secondItem="Rf0-Uv-n4a" secondAttribute="bottom" constant="50" id="qFp-1e-X3e"/>
+                            <constraint firstItem="AwT-uA-ANe" firstAttribute="top" secondItem="281-x8-ibM" secondAttribute="bottom" id="Ngl-Lc-hIh"/>
+                            <constraint firstItem="281-x8-ibM" firstAttribute="leading" secondItem="3MV-dZ-RhB" secondAttribute="leading" id="VeQ-Ff-Ik3"/>
+                            <constraint firstItem="281-x8-ibM" firstAttribute="top" secondItem="2Ra-rx-Kmk" secondAttribute="bottom" id="qjQ-zU-J4J"/>
                             <constraint firstItem="2Ra-rx-Kmk" firstAttribute="leading" secondItem="3MV-dZ-RhB" secondAttribute="leadingMargin" id="vx8-cl-aAn"/>
                         </constraints>
                     </view>
@@ -857,7 +874,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QJl-Y0-yOb">
-                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="525"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="nbf-uE-sdw">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="248.5"/>
@@ -889,7 +906,7 @@
                                         </connections>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZM-B5-XXb">
-                                        <rect key="frame" x="0.0" y="336.5" width="375" height="169.5"/>
+                                        <rect key="frame" x="0.0" y="336.5" width="375" height="148.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -927,7 +944,7 @@
                                         </connections>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QRe-cC-xc9">
-                                        <rect key="frame" x="0.0" y="506" width="375" height="40"/>
+                                        <rect key="frame" x="0.0" y="485" width="375" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5na-yW-3n1">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
@@ -1034,7 +1051,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-LR-ou7">
-                                <rect key="frame" x="16" y="115" width="343" height="455"/>
+                                <rect key="frame" x="16" y="115" width="343" height="434"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="TaT-LB-iGG">
                                     <size key="itemSize" width="70" height="70"/>
@@ -1097,7 +1114,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6io-s7-WXF">
-                                <rect key="frame" x="0.0" y="578" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="557" width="375" height="40"/>
                                 <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6W9-eL-hHA"/>
@@ -1148,7 +1165,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soj-Gp-YoA">
-                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="525"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="infoCell" textLabel="Ixv-vj-YCD" detailTextLabel="EJz-IU-YMC" style="IBUITableViewCellStyleValue1" id="7iJ-UA-oi9">
@@ -1368,10 +1385,10 @@
         <image name="601_taylor_dial" width="270" height="270"/>
         <image name="Set" width="16" height="16"/>
         <image name="nav_dash" width="24" height="24"/>
-        <image name="nav_health" width="31" height="27"/>
-        <image name="nav_info" width="27" height="28"/>
-        <image name="nav_setting" width="23" height="21"/>
-        <image name="nav_time" width="26" height="27"/>
+        <image name="nav_health" width="33" height="27"/>
+        <image name="nav_info" width="28" height="28"/>
+        <image name="nav_setting" width="24" height="21"/>
+        <image name="nav_time" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2tG-Sb-2bl"/>

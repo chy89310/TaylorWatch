@@ -75,6 +75,11 @@ class StepPercentView: RoundView {
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        if (percent < 0) {
+            percent = 0
+        } else if (percent > 1) {
+            percent = 1
+        }
         UIColor("#FDDFC0")?.set()
         let center = CGPoint(x: rect.size.width/2, y: rect.size.height/2)
         let path = UIBezierPath(arcCenter: center, radius: rect.size.width/2-5, startAngle: 0, endAngle: -CGFloat.pi*percent, clockwise: false)

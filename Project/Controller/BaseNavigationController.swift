@@ -13,6 +13,12 @@ class BaseNavigationController: UINavigationController {
 
     var titleView = TitleView(frame: .zero)
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        tabBarItem.setTitleTextAttributes([NSFontAttributeName: UIFont.systemFont(ofSize: 14)], for: .normal)
+        tabBarItem.titlePositionAdjustment = UIOffsetMake(0, -8)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleView.frame = navigationBar.bounds

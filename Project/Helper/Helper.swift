@@ -106,6 +106,16 @@ extension NSLayoutConstraint {
     
 }
 
+extension UITabBar {
+    
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+        var newSize = super.sizeThatFits(size)
+        newSize.height = 70
+        return newSize
+    }
+    
+}
+
 class Helper: Any {
     
     class var documentDirectory: URL {
