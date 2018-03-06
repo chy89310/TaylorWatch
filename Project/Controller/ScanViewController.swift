@@ -29,6 +29,14 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             isSimulator = true
         #endif
         
+        // Remove all not paired device
+        MagicalRecord.save(blockAndWait: { (localContext) in
+            let predicate = NSPredicate(format: "passcode == %d", 0xffff)
+            for device in Device.mr_findAll(with: predicate, in: localContext) as! [Device] {
+                device.mr_deleteEntity(in: localContext)
+            }
+        })
+        
         // Easter egg
         let volumeView = MPVolumeView(frame: CGRect(x: -CGFloat.greatestFiniteMagnitude, y: 0, width: 0, height: 0))
         self.view.addSubview(volumeView)
@@ -85,11 +93,14 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
                 peripheral: peripheral,
                 complete: { (success, info) in
                     if success {
-                        SBManager.share.selectedPeripheral = peripheral
+                        SBManager.share.updateSelected(peripheral: peripheral)
+                        SBManager.share.subscribeToANCS(true)
                         // Save current device
                         MagicalRecord.save({ (localContext) in
                             SBManager.share.selectedDevice(in: localContext)?.passcode = Int32(passInt)
                         })
+                        // reset notification
+                        SBManager.share.setMessageEnabled(with: [])
                         self.performSegue(withIdentifier: "showProfile", sender: nil)
                     } else {
                         log.error(info)
@@ -127,6 +138,11 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             let peripheral = SBManager.share.peripherals[indexPath.row]
             let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
             cell.titleLabel.text = device?.name ?? "N/A"
+            if peripheral == SBManager.share.selectedPeripheral {
+                cell.titleLabel.textColor = UIColor("#323232")
+            } else {
+                cell.titleLabel.textColor = UIColor("#FDDFC0")
+            }
             return cell
         } else {
             return UICollectionViewCell()
@@ -139,6 +155,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             return
         }
         let peripheral = SBManager.share.peripherals[indexPath.row]
+        if peripheral != SBManager.share.selectedPeripheral {
         SBManager.share.centralManager.stopScan()
         SBManager.share.centralManager.connect(peripheral, options: nil)
         if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString), device.passcode != 0xffff {
@@ -160,17 +177,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             }
         } else {
             log.debug("New device!")
-            SBManager.share.didFindCharacter = { (characteristic) in
-                if characteristic.properties.rawValue == 4 {
-                    // subscribe to ancs
-                    SBManager.share.peripheral(
-                        peripheral,
-                        write: Data.init(bytes: [0x0d,0xaa]))
-                }
-            }
             SBManager.share.didUpdateValue = { (character) in
-                // reset notification
-                SBManager.share.setMessageEnabled(with: [])
                 SBManager.share.didUpdateValue = nil
                 let alertController = UIAlertController(
                     title: NSLocalizedString("Please enter the number that hour hand and minute hand indicate separately", comment: ""),
@@ -196,11 +203,9 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
                         self.textField = nil
                 }))
                 self.present(alertController, animated: true, completion: nil)
-//                self._textField.isEnabled = true
-//                self._textField.inputView = self._pickerView
-//                self._textField.becomeFirstResponder()
                 SBManager.share.peripheral(peripheral, write: Data.init(bytes: Helper.stringToBytes("00ffff")))
             }
+        }
         }
     }
     

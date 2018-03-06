@@ -17,7 +17,6 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
     @IBOutlet weak var _collectionView: UICollectionView!
     var messageIcon: [UISwitch:String] = [:]
     var swtichArray: [UISwitch] = []
-    var messageMap: [(type: SBManager.MESSAGE_TYPE, code: Any)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,35 +25,20 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
         _notificationSwitch.tintColor = UIColor("#4a4a4a")
         _notificationSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         
-        messageMap = [
-            (.email, "fa:envelope"),
-            (.facebook, "fa:facebook"),
-            (.messenger, #imageLiteral(resourceName: "messenger")),
-            (.linkedin, "fa:linkedin"),
-            (.call, "fa:phone"),
-            (.twitter, "fa:twitter"),
-            (.line, #imageLiteral(resourceName: "line")),
-            (.wechat, "fa:weixin"),
-            (.sms, #imageLiteral(resourceName: "text")),
-            (.qq, "fa:qq"),
-            (.skype, "fa:skype"),
-            (.whatsapp, "fa:whatsapp"),
-//            (.calendar, "calendar"),
-        ]
         updateSwitch()
     }
     
     func updateSwitch() {
-        var enabledTypes: [SBManager.MESSAGE_TYPE] = []
+//        var enabledTypes: [SBManager.MESSAGE_TYPE] = []
         if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
             _notificationSwitch.isOn = device.notification?.isOn ?? true
-            for (type, _) in messageMap {
-                if device.notification?.isTypeOn(type) ?? false {
-                    enabledTypes.append(type)
-                }
-            }
+//            for (type, _) in SBManager.share.messageMap {
+//                if device.notification?.isTypeOn(type) ?? false {
+//                    enabledTypes.append(type)
+//                }
+//            }
         }
-        SBManager.share.setMessageEnabled(with: _notificationSwitch.isOn ? enabledTypes : [])
+//        SBManager.share.setMessageEnabled(with: _notificationSwitch.isOn ? enabledTypes : [])
         UIView.animate(withDuration: 0.2) {
             self._collectionView.alpha = self._notificationSwitch.isOn ? 1.0 : 0.0
             self._collectionView.isHidden = !self._notificationSwitch.isOn
@@ -89,24 +73,24 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messageMap.count
+        return SBManager.share.messageMap.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let messageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "messageCell", for: indexPath) as? MessageCell {
             // Status
             if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
-                messageCell.isOn = device.notification?.isTypeOn(messageMap[indexPath.row].type) ?? false
+                messageCell.isOn = device.notification?.isTypeOn(SBManager.share.messageMap[indexPath.row].type) ?? false
             }
             // Icon image
-            if let code = messageMap[indexPath.row].code as? String {
+            if let code = SBManager.share.messageMap[indexPath.row].code as? String {
 //                let image = UIImage.icon(from: .FontAwesome,  iconColor: .white, code: code, imageSize: CGSize(width: 30, height: 30), ofSize: 30)
 //                messageCell.iconImage.image = image
                 messageCell.iconLabel.text = code
                 messageCell.iconLabel.parseIcon()
                 messageCell.iconImage.isHidden = true
                 messageCell.iconLabel.isHidden = false
-            } else if let image = messageMap[indexPath.row].code as? UIImage {
+            } else if let image = SBManager.share.messageMap[indexPath.row].code as? UIImage {
                 messageCell.iconImage.image = image
                 messageCell.iconImage.isHidden = false
                 messageCell.iconLabel.isHidden = true
@@ -126,7 +110,7 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
                     if notification == nil {
                         notification = Notification.mr_createEntity(in: localContext)
                     }
-                    notification?.updateStatus(type: self.messageMap[indexPath.row].type, isOn: isOn)
+                    notification?.updateStatus(type: SBManager.share.messageMap[indexPath.row].type, isOn: isOn)
                     notification?.device = device
                 }
             }) { (finish, error) in

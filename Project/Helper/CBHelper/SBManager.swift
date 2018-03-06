@@ -23,7 +23,22 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var serviceID: CBUUID?
     let notiID = CBUUID.init(string: "0001")
     var deviceInfo = [String: String]()
-    var writeCharacteristic: CBCharacteristic?
+    var writeCharacteristic = [CBPeripheral:CBCharacteristic]()
+    let messageMap: [(type: SBManager.MESSAGE_TYPE, code: Any)] = [
+        (.email, "fa:envelope"),
+        (.facebook, "fa:facebook"),
+        (.messenger, #imageLiteral(resourceName: "messenger")),
+        (.linkedin, "fa:linkedin"),
+        (.call, "fa:phone"),
+        (.twitter, "fa:twitter"),
+        (.line, #imageLiteral(resourceName: "line")),
+        (.wechat, "fa:weixin"),
+        (.sms, #imageLiteral(resourceName: "text")),
+        (.qq, "fa:qq"),
+        (.skype, "fa:skype"),
+        (.whatsapp, "fa:whatsapp"),
+        //            (.calendar, "calendar"),
+    ]
     
     // MARK: - Callback methods
     
@@ -81,6 +96,13 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     // MARK: - Manager action
     
+    func updateSelected(peripheral: CBPeripheral) {
+        if let currentPeripheral = selectedPeripheral {
+            setMessageEnabled(with: [])
+        }
+        selectedPeripheral = peripheral
+    }
+    
     func scanAction() {
         if (centralManager.state == .poweredOn) {
             centralManager.stopScan()
@@ -92,9 +114,8 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral?, write value: Data) {
         log.info("Writing value: \(value.map { String(format: "%02x", $0) }.joined())")
-        
-        if let writeCharact = writeCharacteristic {
-            peripheral?.writeValue(value, for: writeCharact, type: .withoutResponse)
+        if let p = peripheral, let write = writeCharacteristic[p] {
+            p.writeValue(value, for: write, type: .withoutResponse)
         }
     }
     
@@ -118,6 +139,13 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
              UInt8(second),
              UInt8(weekday)])
         peripheral(selectedPeripheral, write: data)
+    }
+    
+    func subscribeToANCS(_ subscribe: Bool) {
+        if subscribe {
+            peripheral(selectedPeripheral,
+                       write: Data.init(bytes: [0x0d, 0xaa]))
+        }
     }
     
     func setTargetSteps(steps: Int) {
@@ -154,7 +182,9 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
         if let array: [CBPeripheral] = dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral] {
             for peripheral in array {
-                peripherals.append(peripheral)
+                if peripheral.state == .connected {
+                    peripherals.append(peripheral)
+                }
             }
         }
         log.debug("Restore state: \(dict)")
@@ -167,19 +197,25 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             if peripherals.count > 0 {
                 centralManager.stopScan()
                 for peripheral in peripherals {
+                    central.connect(peripheral, options: [
+                        CBConnectPeripheralOptionNotifyOnConnectionKey:true,
+                        CBConnectPeripheralOptionNotifyOnNotificationKey:true,
+                        CBConnectPeripheralOptionNotifyOnDisconnectionKey:true
+                        ])
                     central.connect(peripheral, options: nil)
                     peripheral.delegate = self
                     peripheral.discoverServices(nil)
                     let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
                     if device != nil && device!.passcode != 0xffff {
                         self.didFindCharacter = { (characteristic) in
-                            if characteristic.properties.rawValue == 4 {
+                            if self.writeCharacteristic != nil {
+                            //if characteristic.properties.rawValue == 4 {
                                 self.pairing(
                                     passkey: Int(device!.passcode),
                                     peripheral: peripheral,
                                     complete: { (success, info) in
                                         if success {
-                                            log.debug("Make root view with tab controller")
+                                            log.debug("Make root view with tab controller when power on")
                                             SBManager.share.selectedPeripheral = peripheral
                                             let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
                                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -218,7 +254,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                                             peripheral: peripheral,
                                             complete: { (success, info) in
                                                 if success {
-                                                    log.debug("Make root view with tab controller")
+                                                    log.debug("Make root view with tab controller when power on")
                                                     SBManager.share.didUpdateEvent = nil
                                                     SBManager.share.selectedPeripheral = peripheral
                                                     let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
@@ -274,13 +310,14 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                         self.centralManager.connect(peripheral, options: nil)
                         log.debug("Remember device with passcode: \(device!.passcode)")
                         self.didFindCharacter = { (characteristic) in
-                            if characteristic.properties.rawValue == 4 {
+                            if self.writeCharacteristic != nil {
+                            //if characteristic.properties.rawValue == 4 {
                                 self.pairing(
                                     passkey: Int(device!.passcode),
                                     peripheral: peripheral,
                                     complete: { (success, info) in
                                         if success {
-                                            log.debug("Make root view with tab controller")
+                                            log.debug("Make root view with tab controller when discover peripheral")
                                             SBManager.share.selectedPeripheral = peripheral
                                             let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
                                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -322,13 +359,13 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 if device!.passcode != 0xffff {
                     self.centralManager.connect(peripheral, options: nil)
                     SBManager.share.didFindCharacter = { (characteristic) in
-                        if characteristic.properties.rawValue == 4 {
+                        if SBManager.share.writeCharacteristic != nil {
                             self.pairing(
                                 passkey: Int(device!.passcode),
                                 peripheral: peripheral,
                                 complete: { (success, info) in
                                     if success {
-                                        log.debug("Make root view with tab controller")
+                                        log.debug("Make root view with tab controller when reconnect")
                                         SBManager.share.selectedPeripheral = peripheral
                                         let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
                                         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -371,7 +408,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             }
             // Receiver
             if character.uuid.uuidString == sb?.receiver {
-                writeCharacteristic = character
+                writeCharacteristic[peripheral] = character
             }
             didFindCharacter?(character)
         }

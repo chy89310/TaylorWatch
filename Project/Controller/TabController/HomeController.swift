@@ -23,6 +23,18 @@ class HomeController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Update ANCS notification
+        var enabledTypes: [SBManager.MESSAGE_TYPE] = []
+        if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
+            for (type, _) in SBManager.share.messageMap {
+                if device.notification?.isTypeOn(type) ?? false {
+                    enabledTypes.append(type)
+                }
+            }
+            SBManager.share.setMessageEnabled(with: (device.notification?.isOn ?? true) ? enabledTypes : [])
+        }
+        
+        
         SBManager.share.didUpdateStep = {
             self.updateView()
         }
