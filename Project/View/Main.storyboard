@@ -475,14 +475,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="svq-oF-8SK" customClass="WatchView" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="16" y="72" width="343" height="334.5"/>
+                                <rect key="frame" x="16" y="72" width="343" height="313.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qey-wV-P4e" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="272.5" y="326.5" width="80" height="80"/>
+                                <rect key="frame" x="272.5" y="305.5" width="80" height="80"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qey-wV-P4e" secondAttribute="height" id="42u-zp-QEw"/>
@@ -499,7 +499,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ks4-GO-ybz" customClass="RoundView" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="132" y="414.5" width="111" height="110.5"/>
+                                <rect key="frame" x="132" y="393.5" width="111" height="110.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-3t-Ipc">
                                         <rect key="frame" x="0.5" y="24.5" width="111" height="61.5"/>
@@ -534,7 +534,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiS-vP-qkg" customClass="StepPercentView" customModule="Taylor" customModuleProvider="target">
-                                <rect key="frame" x="102.5" y="533" width="170" height="170"/>
+                                <rect key="frame" x="102.5" y="512" width="170" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="viw-Rs-Oij">
                                         <rect key="frame" x="0.0" y="33" width="170" height="43"/>
@@ -612,7 +612,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TmM-zH-kS5">
-                                <rect key="frame" x="0.0" y="72" width="375" height="423"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="402"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="deviceCell" id="Xfl-vJ-zKr" customClass="DeviceOptionsCell" customModule="Taylor" customModuleProvider="target">
@@ -676,7 +676,7 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z51-X5-7RW">
-                                <rect key="frame" x="0.0" y="494" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="473" width="375" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LS7-tW-Qfs">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
@@ -759,7 +759,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="Taylor" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="Taylor" customModuleProvider="target">
                                 <rect key="frame" x="16" y="121.5" width="343" height="257.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -767,13 +767,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
                                 <rect key="frame" x="0.0" y="379" width="375" height="218"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
                                         <rect key="frame" x="28" y="63.5" width="319" height="91"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -789,7 +789,7 @@ Time</string>
                                                     <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="52X-e5-6Td"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
                                                 <rect key="frame" x="114" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -805,7 +805,7 @@ Sync</string>
                                                     <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="BTh-rw-Umy"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="Taylor" customModuleProvider="target">
                                                 <rect key="frame" x="228" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -874,7 +874,7 @@ Time Zone</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QJl-Y0-yOb">
-                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="525"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="nbf-uE-sdw">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="248.5"/>
@@ -906,7 +906,7 @@ Time Zone</string>
                                         </connections>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZM-B5-XXb">
-                                        <rect key="frame" x="0.0" y="336.5" width="375" height="169.5"/>
+                                        <rect key="frame" x="0.0" y="336.5" width="375" height="148.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -944,7 +944,7 @@ Time Zone</string>
                                         </connections>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QRe-cC-xc9">
-                                        <rect key="frame" x="0.0" y="506" width="375" height="40"/>
+                                        <rect key="frame" x="0.0" y="485" width="375" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5na-yW-3n1">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
@@ -1051,7 +1051,7 @@ Time Zone</string>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-LR-ou7">
-                                <rect key="frame" x="16" y="115" width="343" height="455"/>
+                                <rect key="frame" x="16" y="115" width="343" height="434"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="TaT-LB-iGG">
                                     <size key="itemSize" width="70" height="70"/>
@@ -1114,7 +1114,7 @@ Time Zone</string>
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6io-s7-WXF">
-                                <rect key="frame" x="0.0" y="578" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="557" width="375" height="40"/>
                                 <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6W9-eL-hHA"/>
@@ -1165,7 +1165,7 @@ Time Zone</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soj-Gp-YoA">
-                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="525"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="infoCell" textLabel="Ixv-vj-YCD" detailTextLabel="EJz-IU-YMC" style="IBUITableViewCellStyleValue1" id="7iJ-UA-oi9">

@@ -20,6 +20,11 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateConnectedPeripheral()
+        _tableView.reloadData()
+    }
+    
+    func updateConnectedPeripheral() {
         connectedPeripheral = SBManager.share.peripherals.filter({ (peripheral) -> Bool in
             if peripheral.state == CBPeripheralState.connected {
                 return true
@@ -27,7 +32,31 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
                 return false
             }
         })
-        _tableView.reloadData()
+    }
+    
+    func connectTo(peripheral: CBPeripheral) {
+        if peripheral != SBManager.share.selectedPeripheral,
+            peripheral.state == .connected,
+            let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString),
+            device.passcode != 0xffff {
+            SBManager.share.updateSelected(peripheral: peripheral)
+            SBManager.share.pairing(
+                passkey: Int(device.passcode),
+                peripheral: peripheral,
+                complete: { (success, info) in
+                    if success {
+                        SBManager.share.updateSelected(peripheral: peripheral)
+                        SBManager.share.subscribeToANCS(true)
+                        log.debug("Make root view with tab controller when switch watch")
+                        SBManager.share.selectedPeripheral = peripheral
+                        let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.window?.rootViewController = tabController
+                    } else {
+                        log.error("Switch watch fail: \(info)")
+                    }
+            })
+        }
     }
 
     @IBAction func didCancelClick(_ sender: UIButton) {
@@ -43,32 +72,40 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
         _tableView.reloadData()
     }
     
-    func deleteAt(index: Int) {
-        if let peripheral = SBManager.share.selectedPeripheral {
-            if let url = URL.init(string: "App-Prefs:root=Bluetooth"), UIApplication.shared.canOpenURL(url) {
-                let alert = UIAlertController(
-                    title: NSLocalizedString("Please note that all the history data including pairing code and health management will be cleared", comment: ""),
-                    message: NSLocalizedString("Please turn off your smart watch connection in Apple Notification Center Service (ANCS) in the Settings, and get back to app.", comment: ""),
-                    preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { (action) in
-                    UIApplication.shared.open(url, options: [:], completionHandler: { (finish) in
-                        SBManager.share.didDisconnect = {
-                            MagicalRecord.save({ (localContext) in
-                                let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
-                                device?.mr_deleteEntity(in: localContext)
-                            }, completion: { (finish, error) in
+    func deleteAt(indexPath: IndexPath) {
+        let peripheral = connectedPeripheral[indexPath.row]
+        if let url = URL.init(string: "App-Prefs:root=Bluetooth"), UIApplication.shared.canOpenURL(url) {
+            let alert = UIAlertController(
+                title: NSLocalizedString("Please note that all the history data including pairing code and health management will be cleared", comment: ""),
+                message: NSLocalizedString("Please turn off your smart watch connection in Apple Notification Center Service (ANCS) in the Settings, and get back to app.", comment: ""),
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { (action) in
+                UIApplication.shared.open(url, options: [:], completionHandler: { (finish) in
+                    SBManager.share.didDisconnect = {
+                        MagicalRecord.save({ (localContext) in
+                            let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
+                            device?.mr_deleteEntity(in: localContext)
+                        }, completion: { (finish, error) in
+                            if let index = SBManager.share.peripherals.index(of: peripheral) {
+                                SBManager.share.peripherals.remove(at: index)
+                            }
+                            self.updateConnectedPeripheral()
+                            self._tableView.deleteRows(at: [indexPath], with: .automatic)
+                            if self.connectedPeripheral.count == 0 {
                                 SBManager.share.reset()
                                 log.debug("Make root view with scan controller")
                                 let scanController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController")
                                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                                 appDelegate.window?.rootViewController = scanController
-                            })
-                        }
-                    })
-                }))
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
-                present(alert, animated: true, completion: nil)
-            }
+                            } else if peripheral == SBManager.share.selectedPeripheral {
+                                self.connectTo(peripheral: self.connectedPeripheral[0])
+                            }
+                        })
+                    }
+                })
+            }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
     }
     
@@ -108,7 +145,7 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
             let date = (device?.addDate ?? NSDate()) as Date
             cell.detailLabel.text = formatter.string(from: date)
             cell.didDelete = {
-                self.deleteAt(index: indexPath.row)
+                self.deleteAt(indexPath: indexPath)
             }
 
             return cell
@@ -149,36 +186,10 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let peripheral = connectedPeripheral[indexPath.row]
-        if peripheral != SBManager.share.selectedPeripheral,
-            peripheral.state == .connected,
-            let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString),
-            device.passcode != 0xffff {
-            SBManager.share.updateSelected(peripheral: peripheral)
-            SBManager.share.pairing(
-                passkey: Int(device.passcode),
-                peripheral: peripheral,
-                complete: { (success, info) in
-                    if success {
-                        SBManager.share.updateSelected(peripheral: peripheral)
-                        SBManager.share.subscribeToANCS(true)
-                        // Set notification
-//                        var enabledTypes: [SBManager.MESSAGE_TYPE] = []
-//                        for (type, _) in SBManager.share.messageMap {
-//                            if device.notification?.isTypeOn(type) ?? false {
-//                                enabledTypes.append(type)
-//                            }
-//                        }
-//                        SBManager.share.setMessageEnabled(with: enabledTypes)
-                        log.debug("Make root view with tab controller when switch watch")
-                        SBManager.share.selectedPeripheral = peripheral
-                        let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.window?.rootViewController = tabController
-                    } else {
-                        log.error("Switch watch fail: \(info)")
-                    }
-            })
+        if deleteState {
+            deleteAt(indexPath: indexPath)
+        } else {
+            connectTo(peripheral: connectedPeripheral[indexPath.row])
         }
     }
     
@@ -206,12 +217,15 @@ class DeviceOptionsCell: UITableViewCell {
     }
     
     func setCurrent(_ isCurrent: Bool) {
+        var color: UIColor? = UIColor.white
+        var font = UIFont.systemFont(ofSize: 18)
         if isCurrent {
-            titleLabel.textColor = UIColor("#FDDFC0")
-            detailLabel.textColor = UIColor("#FDDFC0")
-        } else {
-            titleLabel.textColor = .white
-            detailLabel.textColor = .white
+            color = UIColor("#FDDFC0")
+            font = .boldSystemFont(ofSize: 18)
         }
+        titleLabel.textColor = color
+        titleLabel.font = font
+        detailLabel.textColor = color
+        detailLabel.font = font
     }
 }

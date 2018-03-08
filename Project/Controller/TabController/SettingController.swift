@@ -29,16 +29,9 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
     }
     
     func updateSwitch() {
-//        var enabledTypes: [SBManager.MESSAGE_TYPE] = []
         if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
             _notificationSwitch.isOn = device.notification?.isOn ?? true
-//            for (type, _) in SBManager.share.messageMap {
-//                if device.notification?.isTypeOn(type) ?? false {
-//                    enabledTypes.append(type)
-//                }
-//            }
         }
-//        SBManager.share.setMessageEnabled(with: _notificationSwitch.isOn ? enabledTypes : [])
         UIView.animate(withDuration: 0.2) {
             self._collectionView.alpha = self._notificationSwitch.isOn ? 1.0 : 0.0
             self._collectionView.isHidden = !self._notificationSwitch.isOn
