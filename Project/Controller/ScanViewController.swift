@@ -29,14 +29,6 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             isSimulator = true
         #endif
         
-        // Remove all not paired device
-        MagicalRecord.save(blockAndWait: { (localContext) in
-            let predicate = NSPredicate(format: "passcode == %d", 0xffff)
-            for device in Device.mr_findAll(with: predicate, in: localContext) as! [Device] {
-                device.mr_deleteEntity(in: localContext)
-            }
-        })
-        
         // Easter egg
         let volumeView = MPVolumeView(frame: CGRect(x: -CGFloat.greatestFiniteMagnitude, y: 0, width: 0, height: 0))
         self.view.addSubview(volumeView)
@@ -64,6 +56,12 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         _watchView.watchFace.animate(false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        log.debug("Stop scanning")
+        SBManager.share.centralManager.stopScan()
     }
     
     func volumeChanged(notification: NSNotification) {
@@ -138,7 +136,8 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             let peripheral = SBManager.share.peripherals[indexPath.row]
             let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
             cell.titleLabel.text = device?.name ?? "N/A"
-            if peripheral == SBManager.share.selectedPeripheral {
+//            if peripheral == SBManager.share.selectedPeripheral {
+            if peripheral.state == .connected {
                 cell.titleLabel.textColor = UIColor("#323232")
             } else {
                 cell.titleLabel.textColor = UIColor("#FDDFC0")

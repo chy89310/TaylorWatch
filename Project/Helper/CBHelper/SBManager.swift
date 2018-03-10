@@ -182,7 +182,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
         if let array: [CBPeripheral] = dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral] {
             for peripheral in array {
-                if peripheral.state == .connected {
+                if peripheral.state == .connected, !peripherals.contains(peripheral) {
                     peripherals.append(peripheral)
                 }
             }
@@ -194,19 +194,29 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         switch central.state {
         case .poweredOn:
             log.debug("Power on")
+            // Try to retrieve peripheral from core data
+            if let devices = Device.mr_findAll() as? [Device], devices.count > 0 {
+                var identifiers = [UUID]()
+                for device in devices {
+                    if let uuidStr = device.uuid, let uuid = UUID.init(uuidString: uuidStr) {
+                        identifiers.append(uuid)
+                    }
+                }
+                let retrieveArray = centralManager.retrievePeripherals(withIdentifiers: identifiers)
+                for retrieveP in retrieveArray {
+                    if !peripherals.contains(retrieveP) {
+                        peripherals.append(retrieveP)
+                    }
+                }
+            }
+            // Try to connect to peripherals in background
             if peripherals.count > 0 {
-                centralManager.stopScan()
                 for peripheral in peripherals {
-//                    central.connect(peripheral, options: [
-//                        CBConnectPeripheralOptionNotifyOnConnectionKey:true,
-//                        CBConnectPeripheralOptionNotifyOnNotificationKey:true,
-//                        CBConnectPeripheralOptionNotifyOnDisconnectionKey:true
-//                        ])
-                    central.connect(peripheral, options: nil)
-                    peripheral.delegate = self
-                    peripheral.discoverServices(nil)
                     let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
                     if device != nil && device!.passcode != 0xffff {
+                        central.connect(peripheral, options: nil)
+                        peripheral.delegate = self
+                        peripheral.discoverServices(nil)
                         self.didFindCharacter = { (characteristic) in
                             if self.writeCharacteristic[peripheral] != nil {
                                 self.pairing(
@@ -221,62 +231,21 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                                                 let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
                                                 appDelegate.window?.rootViewController = tabController
                                             }
+                                        } else {
+                                            log.error(info)
                                         }
                                 })
                             }
                         }
-                    }
-                }
-            } else if let devices = Device.mr_findAll() as? [Device], devices.count > 0 {
-                var identifiers = [UUID]()
-                for device in devices {
-                    if let uuidStr = device.uuid, let uuid = UUID.init(uuidString: uuidStr) {
-                        identifiers.append(uuid)
-                    }
-                }
-                let retrieveArray = centralManager.retrievePeripherals(withIdentifiers: identifiers)
-                if retrieveArray.count > 0 {
-                    log.debug("Retrive peripherals: \(retrieveArray)")
-                    centralManager.stopScan()
-                    for peripheral in retrieveArray {
-                        peripherals.append(peripheral)
-                        if Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)?.passcode == 0xffff {
-                            didFindDevice?(peripheral)
-                        } else {
-                            peripheral.delegate = self
-                            peripheral.discoverServices(nil)
-                            centralManager.connect(peripheral, options: nil)
-                            let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
-                            if device != nil && device!.passcode != 0xffff {
-                                self.didFindCharacter = { (characteristic) in
-                                    if self.writeCharacteristic[peripheral] != nil {
-                                        self.pairing(
-                                            passkey: Int(device!.passcode),
-                                            peripheral: peripheral,
-                                            complete: { (success, info) in
-                                                if success {
-                                                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                                    if appDelegate.window?.rootViewController?.isKind(of: UINavigationController.self) ?? true {
-                                                        log.debug("Make root view with tab controller when power on")
-                                                        SBManager.share.updateSelected(peripheral: peripheral)
-                                                        let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                                                        appDelegate.window?.rootViewController = tabController
-                                                    }
-                                                } else {
-                                                    log.error(info)
-                                                }
-                                        })
-                                    }
-                                }
-                            }
+                    } else {
+                        // Remove not paired device
+                        if let index = peripherals.index(of: peripheral) {
+                            peripherals.remove(at: index)
                         }
                     }
-                } else {
-                    scanAction()
                 }
-            } else {
-                scanAction()
             }
+            scanAction()
         case .poweredOff:
             log.debug("Power off")
             didPowerOff?()
@@ -438,7 +407,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let value = characteristic.value {
-            log.debug("\nCharacteristic: \(characteristic.uuid.uuidString) service: \(characteristic.service)")
             MagicalRecord.save({ (localContext) in
                 let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
                 let valueStr = String.init(data: value, encoding: .utf8) ?? "N/A"
@@ -468,9 +436,9 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 if let value = characteristic.value, let evt = EVT(rawValue: value.toUInt8(from: OFFSET.EVT.EVENT.rawValue)) {
                     switch evt {
                     case .response:
-                        log.debug("Response:\(characteristic)")
+                        log.debug("Response:\(value.map { String(format: "%02x", $0) }.joined())")
                     case .notify:
-                        log.debug("Notify: \(value.map { String(format: "%02x", $0) }.joined()) \(characteristic))")
+                        log.debug("Notify: \(value.map { String(format: "%02x", $0) }.joined())")
                         let type = value.toUInt8(from: OFFSET.NTF.DATA.type.rawValue)
                         if (type == 0) {
                             let year = value.toUInt16(from: OFFSET.NTF.DATA.year.rawValue)
@@ -494,14 +462,14 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                             })
                             
                         } else {
-                            log.error("Unhandle notify!")
+                            log.error("Unhandle notify!\(value.map { String(format: "%02x", $0) }.joined())")
                         }
                     case .find_phone:
-                        log.debug("Find phone:")
+                        log.debug("Find phone:\(value.map { String(format: "%02x", $0) }.joined())")
                     case .emergency:
-                        log.debug("Emergency:")
+                        log.debug("Emergency:\(value.map { String(format: "%02x", $0) }.joined())")
                     case .unknown:
-                        log.error("Unknown:")
+                        log.error("Unknown:\(value.map { String(format: "%02x", $0) }.joined())")
                     }
                     didUpdateEvent?(evt, value)
                 }

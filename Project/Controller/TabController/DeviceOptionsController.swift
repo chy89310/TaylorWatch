@@ -26,11 +26,9 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
     
     func updateConnectedPeripheral() {
         connectedPeripheral = SBManager.share.peripherals.filter({ (peripheral) -> Bool in
-            if peripheral.state == CBPeripheralState.connected {
-                return true
-            } else {
-                return false
-            }
+            return peripheral.state == .connected
+        }).sorted(by: { (p1, p2) -> Bool in
+            p1.identifier.uuidString < p2.identifier.uuidString
         })
     }
     
@@ -91,6 +89,7 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
                             }
                             self.updateConnectedPeripheral()
                             self._tableView.deleteRows(at: [indexPath], with: .automatic)
+                            self._tableView.reloadData()
                             if self.connectedPeripheral.count == 0 {
                                 SBManager.share.reset()
                                 log.debug("Make root view with scan controller")
@@ -125,11 +124,6 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath) as? DeviceOptionsCell {
-            if indexPath.row%2 == 0 {
-                cell.backgroundColor = UIColor("#4a4a4a")
-            } else {
-                cell.backgroundColor = UIColor("#9b9b9b")
-            }
             let peripheral = connectedPeripheral[indexPath.row]
             let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
             cell.titleLabel.text = device?.nickName ?? "N/A"
@@ -188,8 +182,11 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if deleteState {
             deleteAt(indexPath: indexPath)
-        } else {
+        } else if connectedPeripheral[indexPath.row] != SBManager.share.selectedPeripheral {
             connectTo(peripheral: connectedPeripheral[indexPath.row])
+        } else {
+            // do nothing
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
@@ -217,15 +214,15 @@ class DeviceOptionsCell: UITableViewCell {
     }
     
     func setCurrent(_ isCurrent: Bool) {
-        var color: UIColor? = UIColor.white
-        var font = UIFont.systemFont(ofSize: 18)
+        var color: UIColor? = UIColor.clear
+        var fontColor: UIColor? = .white
         if isCurrent {
             color = UIColor("#FDDFC0")
-            font = .boldSystemFont(ofSize: 18)
+            fontColor = UIColor("4a4a4a")
         }
-        titleLabel.textColor = color
-        titleLabel.font = font
-        detailLabel.textColor = color
-        detailLabel.font = font
+        backgroundColor = color
+        titleLabel.textColor = fontColor
+        detailLabel.textColor = fontColor
+        trashButton.setTitleColor(fontColor, for: .normal)
     }
 }
