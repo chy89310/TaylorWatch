@@ -38,7 +38,8 @@ extension Step {
                 let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:
                     [NSPredicate.init(format: "year = %d", calendar.component(.year, from: date)),
                      NSPredicate.init(format: "month = %d", calendar.component(.month, from: date)),
-                     NSPredicate.init(format: "day = %d", calendar.component(.day, from: date))])
+                     NSPredicate.init(format: "day = %d", calendar.component(.day, from: date)),
+                     NSPredicate.init(format: "device.uuid = %@", SBManager.share.selectedPeripheral?.identifier.uuidString ?? "")])
                 if let step = Step.mr_findFirst(with: predicate, sortedBy: "date", ascending: false) {
                     set[date.timeIntervalSince1970+twelvehours] = step.steps
                 } else {

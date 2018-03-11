@@ -78,11 +78,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
         // Disable the message notification
-        SBManager.share.reset()
-        SBManager.share.peripheral(
-            SBManager.share.selectedPeripheral,
-            write: Data.init(bytes: [0x0d,0x00]))
-        SBPeripheral.share.stop()
+        //SBManager.share.reset()
+        //SBManager.share.peripheral(
+        //    SBManager.share.selectedPeripheral,
+        //    write: Data.init(bytes: [0x0d,0x00]))
+        //SBPeripheral.share.stop()
     }
 
     // MARK: - Core Data stack

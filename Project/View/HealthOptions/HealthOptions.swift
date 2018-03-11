@@ -68,14 +68,15 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         let dataSet = Step.getSet(ofWeek: isWeek)
         let total = Int(dataSet.values.reduce(0, +))
         // Only count time stamp before now for average data
+        let twelvehours: Double = 60*60*24
         let validCount = dataSet.keys.reduce(0) { (result, timestamp) -> Int in
-            if timestamp < Date().timeIntervalSince1970 {
+            if timestamp-twelvehours < Date().timeIntervalSince1970 {
                 return result+1
             } else {
                 return result
             }
         }
-        let average = dataSet.values.count > 0 ? total/validCount : 0
+        let average = validCount > 0 ? total/validCount : 0
         totalSteps.text = "\(total) \(NSLocalizedString("steps", comment: ""))"
         totalCals.text = "\(Int(CBUtils.caloriesFrom(step: total))) \(NSLocalizedString("cals", comment: ""))"
         averageSteps.text = "\(average) \(NSLocalizedString("steps", comment: ""))"
