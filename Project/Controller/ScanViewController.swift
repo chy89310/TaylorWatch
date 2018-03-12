@@ -159,8 +159,8 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         SBManager.share.centralManager.connect(peripheral, options: nil)
         if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString), device.passcode != 0xffff {
             log.debug("Remember device with passcode: \(device.passcode)")
-            SBManager.share.didFindCharacter = { (characteristic) in
-                if characteristic.properties.rawValue == 4 {
+            SBManager.share.didFindCharacter = { (peripheral, characteristic) in
+                if SBManager.share.writeCharacteristic[peripheral] != nil {
                     SBManager.share.pairing(
                         passkey: Int(device.passcode),
                         peripheral: peripheral,
