@@ -34,6 +34,10 @@
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
 		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
 		4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
+		4B6644302058579100C70428 /* NOTIFY.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4B66442F2058579000C70428 /* NOTIFY.m4a */; };
+		4B6644382058672500C70428 /* NOTIFY_TAYLOR.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B6644352058672500C70428 /* NOTIFY_TAYLOR.png */; };
+		4B6644392058672500C70428 /* NOTIFY_FOXTER.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B6644362058672500C70428 /* NOTIFY_FOXTER.png */; };
+		4B66443A2058672500C70428 /* NOTIFY_SEAGULL.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B6644372058672500C70428 /* NOTIFY_SEAGULL.png */; };
 		4B6691B7203C118E001421CB /* SBServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B6691B6203C118E001421CB /* SBServices.plist */; };
 		4B6691B9203C20E6001421CB /* SBService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6691B8203C20E6001421CB /* SBService+Extension.swift */; };
 		4B6DB859204AEC5F0029A10E /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */; };
@@ -87,6 +91,10 @@
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
+		4B66442F2058579000C70428 /* NOTIFY.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = NOTIFY.m4a; sourceTree = "<group>"; };
+		4B6644352058672500C70428 /* NOTIFY_TAYLOR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTIFY_TAYLOR.png; sourceTree = "<group>"; };
+		4B6644362058672500C70428 /* NOTIFY_FOXTER.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTIFY_FOXTER.png; sourceTree = "<group>"; };
+		4B6644372058672500C70428 /* NOTIFY_SEAGULL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTIFY_SEAGULL.png; sourceTree = "<group>"; };
 		4B6691B6203C118E001421CB /* SBServices.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SBServices.plist; sourceTree = "<group>"; };
 		4B6691B8203C20E6001421CB /* SBService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBService+Extension.swift"; sourceTree = "<group>"; };
 		4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
@@ -192,6 +200,10 @@
 				4BA6EE0C1EE87B7B0098C4DA /* AppDelegate.swift */,
 				4BA6EE1B1EE87B7B0098C4DA /* Info.plist */,
 				4BA6EE161EE87B7B0098C4DA /* Assets.xcassets */,
+				4B66442F2058579000C70428 /* NOTIFY.m4a */,
+				4B6644362058672500C70428 /* NOTIFY_FOXTER.png */,
+				4B6644372058672500C70428 /* NOTIFY_SEAGULL.png */,
+				4B6644352058672500C70428 /* NOTIFY_TAYLOR.png */,
 				4BA6EE7F1EE87D660098C4DA /* Helper */,
 				4BA6EE801EE87D730098C4DA /* Model */,
 				4BA6EE841EE87D8E0098C4DA /* View */,
@@ -382,10 +394,14 @@
 				4BDF650E1F124559003230A1 /* Api.plist in Resources */,
 				4B2BB27B200FC7C000ED482E /* TitleView.xib in Resources */,
 				4B2BB271200D1DC000ED482E /* WatchView.xib in Resources */,
+				4B6644392058672500C70428 /* NOTIFY_FOXTER.png in Resources */,
+				4B6644302058579100C70428 /* NOTIFY.m4a in Resources */,
 				4BA6EE871EE87D8E0098C4DA /* LaunchScreen.storyboard in Resources */,
+				4B6644382058672500C70428 /* NOTIFY_TAYLOR.png in Resources */,
 				0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */,
 				4BBED73120262C3200B560F4 /* HealthOptions.xib in Resources */,
 				4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */,
+				4B66443A2058672500C70428 /* NOTIFY_SEAGULL.png in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
 				4B6691B7203C118E001421CB /* SBServices.plist in Resources */,
 			);

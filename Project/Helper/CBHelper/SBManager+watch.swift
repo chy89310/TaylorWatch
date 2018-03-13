@@ -6,8 +6,11 @@
 //  Copyright © 2017 KevinSum. All rights reserved.
 //
 
+import AVFoundation
 import CoreBluetooth
+import MagicalRecord
 import UIKit
+import UserNotifications
 
 extension SBManager {
     
@@ -85,6 +88,68 @@ extension SBManager {
             }
         }
         SBManager.share.peripheral(peripheral, write: data)
+    }
+    
+    func findPhone() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (granted, error) in
+            if granted {
+                // Local notification
+                let content = UNMutableNotificationContent()
+                content.title = NSLocalizedString("Hello I'm here", comment: "")
+                let nickName = SBManager.share.selectedDevice(in: .mr_default())?.nickName ?? "TAYLOR"
+                content.subtitle = "\(NSLocalizedString("from", comment: "")) \(nickName)"
+                content.body = NSLocalizedString("Notification triggered", comment: "")
+                let serviceName = SBManager.share.selectedDevice(in: .mr_default())?.serviceName ?? "TAYLOR"
+                if let imageURL = Bundle.main.url(forResource: "NOTIFY_\(serviceName)", withExtension: "png") {
+                    do {
+                        try content.attachments = [UNNotificationAttachment.init(identifier: "image", url: imageURL, options: nil)]
+                    } catch let error {
+                        log.error(error.localizedDescription)
+                    }
+                }
+                content.sound = UNNotificationSound.default()
+                
+                let request = UNNotificationRequest(identifier: "notification", content: content, trigger: nil)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: {error in
+                    if let e = error {
+                        log.error(e)
+                    }
+                })
+            } else {
+                // Ask for permission
+                let alert = UIAlertController(title: NSLocalizedString("Turn on notification", comment: ""),
+                                              message: NSLocalizedString("Please turn on the notification for finding your phone", comment: ""),
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Setting", comment: ""),
+                                              style: .default,
+                                              handler: { (action) in
+                                                if let settingUrl = URL(string: UIApplicationOpenSettingsURLString),
+                                                    UIApplication.shared.canOpenURL(settingUrl) {
+                                                    UIApplication.shared.open(settingUrl, options: [:], completionHandler: nil)
+                                                }
+                }))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                                              style: .cancel,
+                                              handler: nil))
+                let appDele = UIApplication.shared.delegate as! AppDelegate
+                appDele.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
+        })
+        
+        guard let url = Bundle.main.url(forResource: "NOTIFY", withExtension: "m4a") else { return }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [.mixWithOthers, .duckOthers])
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error {
+            log.error(error.localizedDescription)
+        }
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let player = player else { return }
+            player.play()
+        } catch let error {
+            log.error(error.localizedDescription)
+        }
     }
     
 }

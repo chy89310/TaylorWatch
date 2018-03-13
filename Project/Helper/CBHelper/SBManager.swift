@@ -6,6 +6,7 @@
 //  Copyright © 2017 KevinSum. All rights reserved.
 //
 
+import AVFoundation
 import MagicalRecord
 import UIKit
 import CoreBluetooth
@@ -23,6 +24,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var serviceID: CBUUID?
     let notiID = CBUUID.init(string: "0001")
     var deviceInfo = [String: String]()
+    var player: AVAudioPlayer?
     var writeCharacteristic = [CBPeripheral:CBCharacteristic]()
     let messageMap: [(type: SBManager.MESSAGE_TYPE, code: Any)] = [
         (.email, "fa:envelope"),
@@ -469,6 +471,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                         }
                     case .find_phone:
                         log.debug("Find phone:\(value.map { String(format: "%02x", $0) }.joined())")
+                        findPhone()
                     case .emergency:
                         log.debug("Emergency:\(value.map { String(format: "%02x", $0) }.joined())")
                     case .unknown:

@@ -6,6 +6,7 @@
 //  Copyright © 2017 Kevin Sum. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 import CoreData
 import CoreBluetooth
@@ -13,6 +14,7 @@ import IQKeyboardManagerSwift
 import Siren
 import SwiftyBeaver
 import MagicalRecord
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -45,6 +47,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSTimeZone.default = timezone
         }
         
+        // Local Notification
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (granted, error) in })
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error {
+            log.error(error.localizedDescription)
+        }
         log.info(launchOptions)
         
         return true
