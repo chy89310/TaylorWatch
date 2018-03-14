@@ -57,15 +57,11 @@ class HomeController: BaseViewController {
         formatter.dateFormat = "EE"
         weekDayLabel.text = formatter.string(from: date)
         watchView.watchFace.setTime(Date())
-        if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
-            let step = device.steps?.sortedArray(using: [NSSortDescriptor.init(key: "date", ascending: false)])[0] as? Step ?? Step()
-            drawStepPercent(step: step.steps)
-            self.stepLabel.text = "\(step.steps) \(NSLocalizedString("STEPS", comment: ""))"
-            let cals = Int(CBUtils.caloriesFrom(step: Int(step.steps)))
-            self.caloriesLabel.text = "\(cals) \(NSLocalizedString("CALS", comment: ""))"
-        } else {
-            drawStepPercent(step: 0)
-        }
+        let step = Step.step(for: Date())
+        drawStepPercent(step: step)
+        self.stepLabel.text = "\(step) \(NSLocalizedString("STEPS", comment: ""))"
+        let cals = Int(CBUtils.caloriesFrom(step: Int(step)))
+        self.caloriesLabel.text = "\(cals) \(NSLocalizedString("CALS", comment: ""))"
     }
     
     func drawStepPercent(step: Int32) {

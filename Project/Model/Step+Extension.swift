@@ -35,20 +35,27 @@ extension Step {
             if let date = calendar.date(byAdding: .day, value: index-1, to: firstDay) {
                 //Get last step of each date
                 let twelvehours: Double = 60*60*24
-                let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:
-                    [NSPredicate.init(format: "year = %d", calendar.component(.year, from: date)),
-                     NSPredicate.init(format: "month = %d", calendar.component(.month, from: date)),
-                     NSPredicate.init(format: "day = %d", calendar.component(.day, from: date)),
-                     NSPredicate.init(format: "device.uuid = %@", SBManager.share.selectedPeripheral?.identifier.uuidString ?? "")])
-                if let step = Step.mr_findFirst(with: predicate, sortedBy: "date", ascending: false) {
-                    set[date.timeIntervalSince1970+twelvehours] = step.steps
-                } else {
-                    set[date.timeIntervalSince1970+twelvehours] = 0
-                }
+                set[date.timeIntervalSince1970+twelvehours] = step(for: date)
             }
         }
         log.debug(set)
         return set
+    }
+    
+    class func step(for date: Date) -> Int32 {
+        let calendar = Calendar.current
+        return SBManager.share.peripherals.filter({ (p) -> Bool in
+            return p.state == .connected
+        }).map({ (p) -> Int32 in
+            let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:
+                [NSPredicate(format: "year = %d", calendar.component(.year, from: date)),
+                 NSPredicate(format: "month = %d", calendar.component(.month, from: date)),
+                 NSPredicate(format: "day = %d", calendar.component(.day, from: date)),
+                 NSPredicate(format: "device.uuid = %@", p.identifier.uuidString)])
+            return Step.mr_findFirst(with: predicate, sortedBy: "date", ascending: false)?.steps ?? 0
+        }).reduce(0, { (result, step) -> Int32 in
+            return result + step
+        })
     }
     
 }
