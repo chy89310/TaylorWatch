@@ -19,6 +19,7 @@ class HomeController: BaseViewController {
     @IBOutlet weak var weekDayLabel: UILabel!
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var caloriesLabel: UILabel!
+    var interval: TimeInterval = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,8 @@ class HomeController: BaseViewController {
             SBManager.share.setMessageEnabled(with: (device.notification?.isOn ?? true) ? enabledTypes : [])
         }
         
+        // Get target steps
+        SBManager.share.getTargetSteps()
         
         SBManager.share.didUpdateStep = {
             self.updateView()
@@ -42,13 +45,17 @@ class HomeController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateView()
+        // Get watch time
+        SBManager.share.getTime { (date) in
+            self.interval = date.timeIntervalSinceNow
+            self.updateView()
+        }
     }
     
     func updateView() {
         watchView.updateAsset(withDial: false)
         
-        let date = Date()
+        let date = Date(timeIntervalSinceNow: interval)
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         yearLabel.text = formatter.string(from: date)
@@ -56,7 +63,7 @@ class HomeController: BaseViewController {
         dateLabel.text = formatter.string(from: date)
         formatter.dateFormat = "EE"
         weekDayLabel.text = formatter.string(from: date)
-        watchView.watchFace.setTime(Date())
+        watchView.watchFace.setTime(date)
         let step = Step.step(for: Date())
         drawStepPercent(step: step)
         self.stepLabel.text = "\(step) \(NSLocalizedString("STEPS", comment: ""))"

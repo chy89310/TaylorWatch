@@ -22,22 +22,7 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
     }
     
     func updateAppAction() {
-        let alert = UIAlertController(title: "Update Device Model", message: "Please selecte a model", preferredStyle: .alert)
-        let models = ["TAYLOR","TAYLOR SW301A","TAYLOR SW301B","TAYLOR SW302","TAYLOR SW401","TAYLOR SW501","TAYLOR SW602","FOXTER","SEA-GULL"]
-        for model in models {
-            alert.addAction(
-                UIAlertAction(title: model, style: .default, handler: { (action) in
-                    MagicalRecord.save(blockAndWait: { (localContext) in
-                        let device = SBManager.share.selectedDevice(in: localContext)
-                        device?.name = model
-                    })
-                    let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) ?? Device.mr_createEntity()
-                    self._tableView.reloadData()
-                })
-            )
-        }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
+        // ToDo: Implement update watch app
     }
     
     // MARK: - Table view datasource
@@ -47,7 +32,7 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,7 +78,6 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
                     cell.detailTextLabel?.text = "\(Bundle.main.infoDictionary!["CFBundleShortVersionString"] ?? "1.0.0")"
                 #else
                     cell.detailTextLabel?.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-                    
                 #endif
             default:
                 break
@@ -101,13 +85,6 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "updateCell", for: indexPath)
-            switch indexPath.row {
-            case 6:
-                cell.textLabel?.text = NSLocalizedString("Update Model (\(device?.name ?? ""))", comment: "")
-                cell.textLabel?.textColor = .black
-            default:
-                break
-            }
             return cell
         }
     }

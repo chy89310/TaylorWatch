@@ -33,6 +33,16 @@ extension SBManager {
         case unknown
     }
     
+    enum STATUS: UInt8 {
+        case success = 0x00
+        case fail
+    }
+    
+    enum TYPE: UInt8 {
+        case time = 0x00
+        case steps = 0x01
+    }
+    
     enum EVT: UInt8 {
         case response = 0x00
         case notify = 0x01
@@ -44,6 +54,19 @@ extension SBManager {
     enum OFFSET {
         enum EVT: Int {
             case EVENT = 0
+            case COMMAND = 1
+            case STATUS = 2
+            case TYPE = 3
+            case TARGET_STEPS = 4
+            enum TIME: Int {
+                case year = 4
+                case month = 6
+                case date = 7
+                case hour = 8
+                case minute = 9
+                case second = 10
+                case week = 11
+            }
         }
         enum NTF: Int {
             case RESPONSE = 1

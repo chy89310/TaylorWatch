@@ -82,7 +82,7 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
         UserDefaults.set(_genderButton.title(for: .normal) == "Male", forKey: .isMale)
         MagicalRecord.save(blockAndWait: { (localContext) in
             if let device = SBManager.share.selectedDevice(in: localContext) {
-                device.name = self._deviceText.text
+                device.nickName = self._deviceText.text
             }
         })
         return validate

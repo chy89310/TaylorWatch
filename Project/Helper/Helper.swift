@@ -42,6 +42,16 @@ extension Data {
         }
     }
     
+    func toUInt32(from offset: Data.Index) -> UInt32 {
+        if endIndex > startIndex {
+            return self[offset...offset+1].withUnsafeBytes { (pointer: UnsafePointer<UInt32>) -> UInt32 in
+                return pointer[0]
+            }
+        } else {
+            return 0
+        }
+    }
+    
 }
 
 extension UserDefaults {

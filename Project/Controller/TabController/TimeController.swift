@@ -20,13 +20,14 @@ class TimeController: BaseViewController {
         
         watchFace.updateAsset(withDial: true)
         
-        var highlight = phoneSyncBtn
+        var highlight: RoundButton?
         if UserDefaults.string(of: .timezone) != nil {
             highlight = timeZoneBtn
         }
         highLightButton(highlight)
-        watchFace.setTime(Date())
-        doPhoneSync(hour: -1, minute: -1)
+        SBManager.share.getTime { (date) in
+            self.watchFace.setTime(date)
+        }
     }
     
     func highLightButton(_ sender: RoundButton?) {
@@ -79,6 +80,14 @@ class TimeController: BaseViewController {
             minute: component.minute ?? 0,
             second: component.second ?? 0,
             weekday: component.weekday ?? 0)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTimeZone", let timezone = segue.destination as? TimeZoneController {
+            timezone.timeController = self
+        }
     }
     
 }

@@ -16,6 +16,7 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var _toggleButton: UIButton!
     @IBOutlet weak var _searchBar: UISearchBar!
     @IBOutlet weak var _toolBar: UIToolbar!
+    var timeController: TimeController?
     
     let timeZoneMap:[String:String] = ["Asia/Calcutta"      : "5-3",
                                        "Asia/Colombo"       : "5-3",
@@ -84,6 +85,7 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
     @IBAction func didApplyClick(_ sender: Any) {
         NSTimeZone.default = selectedTimeZone
         UserDefaults.set(selectedTimeZone.identifier, forKey: .timezone)
+        timeController?.doPhoneSync(hour: -1, minute: -1)
         didCancelClick(sender)
     }
     

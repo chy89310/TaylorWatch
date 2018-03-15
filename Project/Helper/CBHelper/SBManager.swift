@@ -52,6 +52,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var didUpdateEvent: ((EVT, Data) -> ())?
     var didUpdateStep: (() -> ())?
     var didDisconnect: (() -> ())?
+    var didGetTime: ((Date) -> ())?
     
     // MARK: - Initialization
     
@@ -98,7 +99,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     // MARK: - Manager action
     
     func updateSelected(peripheral: CBPeripheral) {
-        if let currentPeripheral = selectedPeripheral {
+        if selectedPeripheral != nil {
             setMessageEnabled(with: [])
         }
         selectedPeripheral = peripheral
@@ -126,56 +127,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         } else {
             return nil
         }
-    }
-    
-    func setTime(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int, weekday: Int) {
-        let data = Data.init(bytes:
-            [CMD.set_time.rawValue,
-             UInt8(year & 0xff),
-             UInt8(year >> 8 & 0xff),
-             UInt8(month),
-             UInt8(day),
-             UInt8(hour),
-             UInt8(minute),
-             UInt8(second),
-             UInt8(weekday)])
-        peripheral(selectedPeripheral, write: data)
-    }
-    
-    func subscribeToANCS(_ subscribe: Bool) {
-        if subscribe {
-            peripheral(selectedPeripheral,
-                       write: Data.init(bytes: [0x0d, 0xaa]))
-        }
-    }
-    
-    func setTargetSteps(steps: Int) {
-        let data = Data.init(bytes:
-            [CMD.set_target_steps.rawValue,
-             UInt8(steps & 0xff),
-             UInt8(steps >> 8 & 0xff),
-             UInt8(steps >> 16 & 0xff),
-             UInt8(steps >> 24 & 0xff)])
-        peripheral(selectedPeripheral, write: data)
-    }
-    
-    func findWatch() {
-        let data = Data.init(bytes: [CMD.find_watch.rawValue])
-        peripheral(selectedPeripheral, write: data)
-    }
-    
-    func setMessageEnabled(with types:[MESSAGE_TYPE]) {
-        var flag = 0;
-        for type in types {
-            flag |= 1 << type.rawValue
-        }
-        let data = Data.init(bytes:
-            [CMD.set_message_format.rawValue,
-             UInt8(flag & 0x00ff),
-             UInt8((flag >> 8) & 0x00ff),
-             UInt8((flag >> 16) & 0x00ff),
-             UInt8((flag >> 24) & 0x00ff)])
-        peripheral(selectedPeripheral, write: data)
     }
     
     //MARK: - CBCentralManagerDelegate methods
@@ -405,7 +356,36 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     let evt = EVT(rawValue: value.toUInt8(from: OFFSET.EVT.EVENT.rawValue)) {
                     switch evt {
                     case .response:
-                        log.debug("Response:\(value.map { String(format: "%02x", $0) }.joined())")
+                        if let cmd = CMD(rawValue: value.toUInt8(from: OFFSET.EVT.COMMAND.rawValue)),
+                            let status = STATUS(rawValue: value.toUInt8(from: OFFSET.EVT.STATUS.rawValue)) {
+                            log.debug("\(cmd) \(status):\(value.map { String(format: "%02x", $0) }.joined())")
+                            if status == .success {
+                                switch cmd {
+                                case .get_time_or_target_step:
+                                    if let type = TYPE(rawValue: value.toUInt8(from: OFFSET.EVT.TYPE.rawValue)) {
+                                        switch type {
+                                        case .time:
+                                            var components = DateComponents()
+                                            components.year = Int(value.toUInt16(from: OFFSET.EVT.TIME.year.rawValue))
+                                            components.month = Int(value.toUInt8(from: OFFSET.EVT.TIME.month.rawValue))
+                                            components.day = Int(value.toUInt8(from: OFFSET.EVT.TIME.date.rawValue))
+                                            components.hour = Int(value.toUInt8(from: OFFSET.EVT.TIME.hour.rawValue))
+                                            components.minute = Int(value.toUInt8(from: OFFSET.EVT.TIME.minute.rawValue))
+                                            components.second = Int(value.toUInt8(from: OFFSET.EVT.TIME.second.rawValue))
+                                            if let date = Calendar.current.date(from: components) {
+                                                didGetTime?(date)
+                                            }
+                                        case .steps:
+                                            let steps = Int(value.toUInt32(from: OFFSET.EVT.TARGET_STEPS.rawValue));
+                                            log.debug("Goal:\(steps)")
+                                            UserDefaults.set(steps, forKey: .goal)
+                                        }
+                                    }
+                                default:
+                                    break
+                                }
+                            }
+                        }
                     case .notify:
                         log.debug("Notify: \(value.map { String(format: "%02x", $0) }.joined())")
                         let type = value.toUInt8(from: OFFSET.NTF.DATA.type.rawValue)

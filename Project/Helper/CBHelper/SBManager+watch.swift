@@ -22,8 +22,64 @@ extension SBManager {
         case logo
     }
     
-    func connect(device: Device) {
-        
+    func subscribeToANCS(_ subscribe: Bool) {
+        if subscribe {
+            peripheral(selectedPeripheral,
+                       write: Data.init(bytes: [0x0d, 0xaa]))
+        }
+    }
+    
+    func setMessageEnabled(with types:[MESSAGE_TYPE]) {
+        var flag = 0;
+        for type in types {
+            flag |= 1 << type.rawValue
+        }
+        let data = Data.init(bytes:
+            [CMD.set_message_format.rawValue,
+             UInt8(flag & 0x00ff),
+             UInt8((flag >> 8) & 0x00ff),
+             UInt8((flag >> 16) & 0x00ff),
+             UInt8((flag >> 24) & 0x00ff)])
+        peripheral(selectedPeripheral, write: data)
+    }
+    
+    func getTime(complete: @escaping ((Date) -> ())) {
+        peripheral(selectedPeripheral,
+                   write: Data.init(bytes:
+                    [CMD.get_time_or_target_step.rawValue, TYPE.time.rawValue]))
+        didGetTime = { (date) in
+            complete(date)
+        }
+    }
+    
+    func setTime(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int, weekday: Int) {
+        let data = Data.init(bytes:
+            [CMD.set_time.rawValue,
+             UInt8(year & 0xff),
+             UInt8(year >> 8 & 0xff),
+             UInt8(month),
+             UInt8(day),
+             UInt8(hour),
+             UInt8(minute),
+             UInt8(second),
+             UInt8(weekday)])
+        peripheral(selectedPeripheral, write: data)
+    }
+    
+    func getTargetSteps() {
+        peripheral(selectedPeripheral,
+                   write: Data.init(bytes:
+                    [CMD.get_time_or_target_step.rawValue, TYPE.steps.rawValue]))
+    }
+    
+    func setTargetSteps(steps: Int) {
+        let data = Data.init(bytes:
+            [CMD.set_target_steps.rawValue,
+             UInt8(steps & 0xff),
+             UInt8(steps >> 8 & 0xff),
+             UInt8(steps >> 16 & 0xff),
+             UInt8(steps >> 24 & 0xff)])
+        peripheral(selectedPeripheral, write: data)
     }
     
     func getWatchSerial() -> String {
@@ -88,6 +144,11 @@ extension SBManager {
             }
         }
         SBManager.share.peripheral(peripheral, write: data)
+    }
+    
+    func findWatch() {
+        let data = Data.init(bytes: [CMD.find_watch.rawValue])
+        peripheral(selectedPeripheral, write: data)
     }
     
     func findPhone() {
