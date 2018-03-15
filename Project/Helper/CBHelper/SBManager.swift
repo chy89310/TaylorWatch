@@ -45,7 +45,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     // MARK: - Callback methods
     
     var didFindDevice: ((CBPeripheral) -> ())?
-    var didFindCharacter: ((CBPeripheral, CBCharacteristic) -> ())?
     var didPaired: ((CBPeripheral, Bool, String?) -> ())?
     var didPowerOff: (() -> ())?
     var didUpdateValue: ((CBCharacteristic) -> ())?
@@ -89,7 +88,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         selectedPeripheral = nil
         peripherals = [CBPeripheral]()
         didFindDevice = nil
-        didFindCharacter = nil
         didPowerOff = nil
         didUpdateValue = nil
         didUpdateDeviceInfo = nil
@@ -186,7 +184,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         if let array: [CBPeripheral] = dict[CBCentralManagerRestoredStatePeripheralsKey] as? [CBPeripheral] {
             for peripheral in array {
                 if peripheral.state == .connected, !peripherals.contains(peripheral) {
-                    peripheral.delegate = self
                     peripherals.append(peripheral)
                 }
             }
@@ -209,7 +206,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                 let retrieveArray = centralManager.retrievePeripherals(withIdentifiers: identifiers)
                 for retrieveP in retrieveArray {
                     if !peripherals.contains(retrieveP) {
-                        retrieveP.delegate = self
                         peripherals.append(retrieveP)
                     }
                 }
@@ -234,7 +230,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     if device != nil && device!.passcode != 0xffff {
                         peripheral.delegate = self
                         central.connect(peripheral, options: nil)
-                        peripheral.delegate = self
                         //peripheral.discoverServices(nil)
                     } else {
                         // Remove not paired device
@@ -291,7 +286,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                         }
                         peripheral.delegate = self
                         self.centralManager.connect(peripheral, options: nil)
-                        peripheral.delegate = self
                     }
                 }
             }, completion: { (finished, error) in
@@ -305,13 +299,12 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         centralManager.stopScan()
         peripheral.delegate = self
         peripheral.discoverServices(nil)
-        peripheral.delegate = self
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         
         if let e = error {
-            log.error("central did disconnect to peripheral: \(peripheral.name ?? "") \(e.localizedDescription)")
+            log.error("central did disconnect to peripheral: \(peripheral.name ?? "") \(e)")
             if peripheral == selectedPeripheral {
                 log.debug("try to scan again")
                 log.debug("Make root view with scan controller")
@@ -335,7 +328,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                         }
                         peripheral.delegate = self
                         self.centralManager.connect(peripheral, options: nil)
-                        peripheral.delegate = self
                     }
                 }
             } else {
@@ -350,7 +342,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                         }
                         peripheral.delegate = self
                         self.centralManager.connect(peripheral, options: nil)
-                        peripheral.delegate = self
                     }
                 }
             }
@@ -368,64 +359,50 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         for service: CBService in peripheral.services! {
-            log.debug("Discover service: \(service)")
+            log.debug("Discover service: \(service.uuid)")
             peripheral.discoverCharacteristics(nil, for: service)
         }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        let sb = SBService.mr_findFirst(byAttribute: "service", withValue: service.uuid.uuidString)
-        for character: CBCharacteristic in service.characteristics! {
-            if character.properties.contains(.read) {
+        if service.uuid.uuidString == "180A", let characters = service.characteristics {
+            // Device Information
+            for character in characters {
                 peripheral.readValue(for: character)
             }
-            if character.properties.contains(.notify) {
+        } else if service.uuid.uuidString == "180F", let characters = service.characteristics {
+            // Battery
+            for character in characters {
+                peripheral.readValue(for: character)
                 peripheral.setNotifyValue(true, for: character)
             }
-            // Receiver
-            if character.uuid.uuidString == sb?.receiver {
-                writeCharacteristic[peripheral] = character
-                // Try to pair device
-                if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString),
-                    device.passcode != 0xffff {
-                    pairing(passkey: Int(device.passcode), peripheral: peripheral, complete: { (success, info) in
-                        self.didPaired?(peripheral, success, info)
-                    })
+         } else if let sb = SBService.mr_findFirst(byAttribute: "service", withValue: service.uuid.uuidString), let characters = service.characteristics {
+            for character in characters {
+                if character.uuid.uuidString == sb.sender {
+                    // Sender
+                    peripheral.setNotifyValue(true, for: character)
+                } else if character.uuid.uuidString == sb.receiver {
+                    // Receiver
+                    writeCharacteristic[peripheral] = character
+                    // Try to pair device
+                    if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString),
+                        device.passcode != 0xffff {
+                        pairing(passkey: Int(device.passcode), peripheral: peripheral, complete: { (success, info) in
+                            self.didPaired?(peripheral, success, info)
+                        })
+                    }
                 }
             }
-            didFindCharacter?(peripheral, character)
+        } else {
+            log.debug("Ignore service: \(service.uuid)")
         }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         if let value = characteristic.value {
-            MagicalRecord.save({ (localContext) in
-                let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
-                let valueStr = String.init(data: value, encoding: .utf8) ?? "N/A"
-                switch characteristic.uuid.uuidString {
-                case "2A25":
-                    log.debug("DEVICE_INFO_SERIAL_NUMBER: \(valueStr)")
-                    device?.serial = valueStr
-                case "2A26":
-                    log.debug("DEVICE_INFO_FIRMWARE_REVISION: \(valueStr)")
-                    device?.firmware = valueStr
-                case "2A29":
-                    log.debug("DEVICE_INFO_MANUFACTURER_NAME: \(valueStr)")
-                    device?.manufacturer = valueStr
-                case "2A19":
-                    log.debug("BATTERY_SERVICE: \(Int16(value.toUInt8(from: 0)))")
-                    device?.battery = Int16(value.toUInt8(from: 0))
-                case "2A23":
-                    log.debug("DEVICE_INFO_SYSTEM: \(value.map { String(format: "%02x", $0) }.joined())")
-                    device?.system = value.map { String(format: "%02x", $0) }.joined()
-                default:
-                    log.debug("Unknown character: \(valueStr)")
-                    break
-                }
-            }, completion: nil)
-            
-            if characteristic.isNotifying {
-                if let value = characteristic.value, let evt = EVT(rawValue: value.toUInt8(from: OFFSET.EVT.EVENT.rawValue)) {
+            if let sb = SBService.mr_findFirst(byAttribute: "service", withValue: characteristic.service.uuid.uuidString) {
+                if characteristic.uuid.uuidString == sb.sender,
+                    let evt = EVT(rawValue: value.toUInt8(from: OFFSET.EVT.EVENT.rawValue)) {
                     switch evt {
                     case .response:
                         log.debug("Response:\(value.map { String(format: "%02x", $0) }.joined())")
@@ -439,6 +416,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                             let steps = UInt32(value.toUInt8(from: OFFSET.NTF.DATA.step_byte0.rawValue)) |
                                 UInt32(value.toUInt8(from: OFFSET.NTF.DATA.step_byte1.rawValue)) << 8 |
                                 UInt32(value.toUInt8(from: OFFSET.NTF.DATA.step_byte2.rawValue)) << 16
+                            
                             MagicalRecord.save({ (localContext) in
                                 let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
                                 let step = Step.mr_createEntity(in: localContext)
@@ -452,31 +430,61 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                                 self.didUpdateStep?()
                                 log.debug("\(year)/\(month)/\(day):\(steps)")
                             })
-                            
                         } else {
                             log.error("Unhandle notify!\(value.map { String(format: "%02x", $0) }.joined())")
                         }
                     case .find_phone:
                         log.debug("Find phone:\(value.map { String(format: "%02x", $0) }.joined())")
-                        findPhone()
+                        self.findPhone()
                     case .emergency:
                         log.debug("Emergency:\(value.map { String(format: "%02x", $0) }.joined())")
                     case .unknown:
                         log.error("Unknown:\(value.map { String(format: "%02x", $0) }.joined())")
                     }
-                    didUpdateEvent?(evt, value)
+                    self.didUpdateEvent?(evt, value)
                 }
+            } else {
+                MagicalRecord.save({ (localContext) in
+                    let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
+                    if characteristic.service.uuid.uuidString == "180A" {// Device Information
+                        let valueStr = String(data: value, encoding: .utf8) ?? "N/A"
+                        log.debug("\(characteristic.uuid):\(valueStr)")
+                        switch characteristic.uuid.uuidString {
+                        case "2A25":// Serial Number String
+                            device?.serial = valueStr
+                        case "2A26":// Firmware Revision String
+                            device?.firmware = valueStr
+                        case "2A29":// Manufacturer Name String
+                            device?.manufacturer = valueStr
+                        case "2A23":// System ID
+                            // Only use top 4 bytes as system id
+                            device?.system = value.indices.filter { $0 < 4 }.map { String(format: "%02x:", value[$0]) }.joined()
+                        default:
+                            log.debug("Unhandle Device Information")
+                        }
+                    } else if characteristic.service.uuid.uuidString == "180F" {// Battery Service
+                        log.debug("\(characteristic.uuid):\(Int16(value.toUInt8(from: 0)))")
+                        switch characteristic.uuid.uuidString {
+                        case "2A19":// Battery Level
+                            device?.battery = Int16(value.toUInt8(from: 0))
+                        default:
+                            log.debug("Unhandle Battery Service")
+                        }
+                    } else {
+                        let valueStr = String.init(data: value, encoding: .utf8) ?? "N/A"
+                        log.debug("\(characteristic.uuid):\(valueStr)")
+                    }
+                }, completion: nil)
             }
             didUpdateValue?(characteristic)
         }
-        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         if let e = error {
-            log.error("Character: \(characteristic.uuid.description) write value error: \(e.localizedDescription)")
+            log.error("\(characteristic.uuid) write value error: \(e.localizedDescription)")
         } else {
-            log.debug("Character: \(characteristic.uuid.description) write value success!!!")
+            log.debug("\(characteristic.uuid) write value success!!!")
         }
     }
 }
