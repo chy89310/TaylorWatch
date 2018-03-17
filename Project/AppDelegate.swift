@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Local Notification
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: { (granted, error) in })
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: { (granted, error) in })
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
@@ -72,6 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        if SBManager.share.player?.isPlaying ?? false {
+            SBManager.share.player?.stop()
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

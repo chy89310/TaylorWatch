@@ -46,7 +46,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     var didFindDevice: ((CBPeripheral) -> ())?
     var didPaired: ((CBPeripheral, Bool, String?) -> ())?
-    var didPowerOff: (() -> ())?
+    var didPowerOn: (() -> ())?
     var didUpdateValue: ((CBCharacteristic) -> ())?
     var didUpdateDeviceInfo: ((String, String) -> ())?
     var didUpdateEvent: ((EVT, Data) -> ())?
@@ -89,7 +89,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         selectedPeripheral = nil
         peripherals = [CBPeripheral]()
         didFindDevice = nil
-        didPowerOff = nil
+        didPowerOn = nil
         didUpdateValue = nil
         didUpdateDeviceInfo = nil
         didUpdateEvent = nil
@@ -146,6 +146,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         switch central.state {
         case .poweredOn:
             log.debug("Power on")
+            didPowerOn?()
             // Try to retrieve peripheral from core data
             if let devices = Device.mr_findAll() as? [Device], devices.count > 0 {
                 var identifiers = [UUID]()
@@ -193,8 +194,11 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             scanAction()
         case .poweredOff:
             log.debug("Power off")
-            didPowerOff?()
             reset()
+            log.debug("Make root view with bluetooth controller")
+            let bluetooth = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BluetoothController")
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = bluetooth
         default:
             break
         }

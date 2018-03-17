@@ -24,8 +24,9 @@ extension SBManager {
     
     func subscribeToANCS(_ subscribe: Bool) {
         if subscribe {
-            peripheral(selectedPeripheral,
-                       write: Data.init(bytes: [0x0d, 0xaa]))
+            peripheral(selectedPeripheral, write: Data.init(bytes: [0x0d, 0xaa]))
+        } else {
+            peripheral(selectedPeripheral, write: Data.init(bytes: [0x0d, 0x00]))
         }
     }
     

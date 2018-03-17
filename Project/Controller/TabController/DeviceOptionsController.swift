@@ -44,7 +44,6 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
                 complete: { (success, info) in
                     if success {
                         SBManager.share.updateSelected(peripheral: peripheral)
-                        SBManager.share.subscribeToANCS(true)
                         log.debug("Make root view with tab controller when switch watch")
                         SBManager.share.selectedPeripheral = peripheral
                         let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
