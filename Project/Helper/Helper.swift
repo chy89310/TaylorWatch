@@ -181,4 +181,42 @@ class Helper: Any {
         return bytes
     }
     
+    class func makeRootView(controller: UIViewController, complete: (() -> ())?) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        func navigate() -> () {
+            if let root = appDelegate.window?.rootViewController as? UINavigationController {
+                log.debug("/**********************************/")
+                log.debug("/*Navigate to \(controller.self)*/")
+                log.debug("/**********************************/")
+                root.viewControllers = [controller]
+                root.popToRootViewController(animated: true)
+            } else {
+                log.debug("/**********************************/")
+                log.debug("/*Force set root to \(controller.self)*/")
+                log.debug("/**********************************/")
+                appDelegate.window?.rootViewController = controller
+            }
+        }
+        func dismiss(_ controller: UITabBarController, completion: (() -> ())?) -> () {
+            log.debug("/**********************************/")
+            log.debug("/*Dismiss Current TabBarController*/")
+            log.debug("/**********************************/")
+            controller.dismiss(animated: true) {
+                if let parent = controller.presentingViewController as? UITabBarController {
+                    dismiss(parent, completion: completion)
+                }
+            }
+        }
+        if let current = appDelegate.window?.currentViewController() as? UITabBarController {
+            navigate()
+            dismiss(current, completion: complete)
+            current.dismiss(animated: true, completion: {
+                complete?()
+            })
+        } else {
+            navigate()
+            complete?()
+        }
+    }
+    
 }

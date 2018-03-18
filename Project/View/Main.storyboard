@@ -874,7 +874,7 @@ Time Zone</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QJl-Y0-yOb">
-                                <rect key="frame" x="0.0" y="72" width="375" height="525"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="nbf-uE-sdw">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="248.5"/>
@@ -906,7 +906,7 @@ Time Zone</string>
                                         </connections>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kZM-B5-XXb">
-                                        <rect key="frame" x="0.0" y="336.5" width="375" height="148.5"/>
+                                        <rect key="frame" x="0.0" y="336.5" width="375" height="169.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -944,7 +944,7 @@ Time Zone</string>
                                         </connections>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QRe-cC-xc9">
-                                        <rect key="frame" x="0.0" y="485" width="375" height="40"/>
+                                        <rect key="frame" x="0.0" y="506" width="375" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5na-yW-3n1">
                                                 <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
@@ -1051,7 +1051,7 @@ Time Zone</string>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-LR-ou7">
-                                <rect key="frame" x="16" y="115" width="343" height="434"/>
+                                <rect key="frame" x="16" y="115" width="343" height="455"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="TaT-LB-iGG">
                                     <size key="itemSize" width="70" height="70"/>
@@ -1114,7 +1114,7 @@ Time Zone</string>
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6io-s7-WXF">
-                                <rect key="frame" x="0.0" y="557" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="578" width="375" height="40"/>
                                 <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6W9-eL-hHA"/>
@@ -1165,7 +1165,7 @@ Time Zone</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="soj-Gp-YoA">
-                                <rect key="frame" x="0.0" y="72" width="375" height="525"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="546"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="infoCell" textLabel="Ixv-vj-YCD" detailTextLabel="EJz-IU-YMC" style="IBUITableViewCellStyleValue1" id="7iJ-UA-oi9">
@@ -1392,6 +1392,6 @@ Time Zone</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2tG-Sb-2bl"/>
-        <segue reference="tiF-sG-S9t"/>
+        <segue reference="5iC-Gy-PTa"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -44,11 +44,8 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
                 complete: { (success, info) in
                     if success {
                         SBManager.share.updateSelected(peripheral: peripheral)
-                        log.debug("Make root view with tab controller when switch watch")
-                        SBManager.share.selectedPeripheral = peripheral
                         let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.window?.rootViewController = tabController
+                        Helper.makeRootView(controller: tabController, complete: nil)
                     } else {
                         log.error("Switch watch fail: \(info)")
                     }
@@ -91,10 +88,8 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
                             self._tableView.reloadData()
                             if self.connectedPeripheral.count == 0 {
                                 SBManager.share.reset()
-                                log.debug("Make root view with scan controller")
                                 let scanController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController")
-                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                appDelegate.window?.rootViewController = scanController
+                                Helper.makeRootView(controller: scanController, complete: nil)
                             } else if peripheral == SBManager.share.selectedPeripheral {
                                 self.connectTo(peripheral: self.connectedPeripheral[0])
                             }

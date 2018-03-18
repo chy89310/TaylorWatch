@@ -21,9 +21,6 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var centralManager = CBCentralManager.init(delegate: nil, queue: nil)
     var peripherals = [CBPeripheral]()
     var selectedPeripheral: CBPeripheral?
-    var serviceID: CBUUID?
-    let notiID = CBUUID.init(string: "0001")
-    var deviceInfo = [String: String]()
     var player: AVAudioPlayer?
     var writeCharacteristic = [CBPeripheral:CBCharacteristic]()
     let messageMap: [(type: SBManager.MESSAGE_TYPE, code: Any)] = [
@@ -87,13 +84,17 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             centralManager.cancelPeripheralConnection(peripheral)
         }
         selectedPeripheral = nil
-        peripherals = [CBPeripheral]()
+        //peripherals = [CBPeripheral]()
+        writeCharacteristic = [CBPeripheral:CBCharacteristic]()
         didFindDevice = nil
+        didPaired = nil
         didPowerOn = nil
         didUpdateValue = nil
         didUpdateDeviceInfo = nil
         didUpdateEvent = nil
         didUpdateStep = nil
+        didDisconnect = nil
+        didGetTime = nil
     }
     
     // MARK: - Manager action
@@ -166,11 +167,12 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             self.didPaired = { (peripheral, success, info) in
                 if success {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    if appDelegate.window?.rootViewController?.isKind(of: UINavigationController.self) ?? true {
-                        log.debug("Make root view with tab controller when power on")
-                        SBManager.share.updateSelected(peripheral: peripheral)
+                    SBManager.share.updateSelected(peripheral: peripheral)
+                    if let current = appDelegate.window?.currentViewController() as? ScanViewController {
+                        current.performSegue(withIdentifier: "showWatch", sender: nil)
+                    } else {
                         let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                        appDelegate.window?.rootViewController = tabController
+                        Helper.makeRootView(controller: tabController, complete: nil)
                     }
                 } else {
                     log.error(info ?? "")
@@ -195,12 +197,10 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         case .poweredOff:
             log.debug("Power off")
             reset()
-            log.debug("Make root view with bluetooth controller")
             let bluetooth = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BluetoothController")
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = bluetooth
+            Helper.makeRootView(controller: bluetooth, complete: nil)
         default:
-            break
+            log.debug("Unhandle central manager state: \(central.state)")
         }
     }
     
@@ -230,11 +230,14 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                         self.centralManager.stopScan()
                         self.didPaired = { (p, success, info) in
                             if success {
-                                log.debug("Make root view with tab controller when discover peripheral")
-                                SBManager.share.selectedPeripheral = peripheral
-                                let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
                                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                appDelegate.window?.rootViewController = tabController
+                                SBManager.share.updateSelected(peripheral: peripheral)
+                                if let current = appDelegate.window?.currentViewController() as? ScanViewController {
+                                    current.performSegue(withIdentifier: "showWatch", sender: nil)
+                                } else {
+                                    let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
+                                    Helper.makeRootView(controller: tabController, complete: nil)
+                                }
                             } else {
                                 log.error(info ?? "")
                             }
@@ -257,34 +260,29 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
-        
         if let e = error {
             log.error("central did disconnect to peripheral: \(peripheral.name ?? "") \(e)")
             if peripheral == selectedPeripheral {
                 log.debug("try to scan again")
-                log.debug("Make root view with scan controller")
                 let scanController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController")
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.window?.rootViewController = scanController
-                log.debug("Try to reconnet \(peripheral)")
-                let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
-                if device != nil {
-                    if device!.passcode != 0xffff {
-                        self.didPaired = { (p, success, info) in
-                            if success {
-                                log.debug("Make root view with tab controller when reconnect")
-                                SBManager.share.selectedPeripheral = p
-                                let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                appDelegate.window?.rootViewController = tabController
-                            } else {
-                                log.error(info ?? "")
+                Helper.makeRootView(controller: scanController, complete: {
+                    log.debug("Try to reconnet \(peripheral)")
+                    let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
+                    if device != nil {
+                        if device!.passcode != 0xffff {
+                            self.didPaired = { (p, success, info) in
+                                if success {
+                                    SBManager.share.selectedPeripheral = p
+                                    scanController.performSegue(withIdentifier: "showWatch", sender: nil)
+                                } else {
+                                    log.error(info ?? "")
+                                }
                             }
+                            peripheral.delegate = self
+                            self.centralManager.connect(peripheral, options: nil)
                         }
-                        peripheral.delegate = self
-                        self.centralManager.connect(peripheral, options: nil)
                     }
-                }
+                })
             } else {
                 log.debug("try to reconnect silently")
                 let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
@@ -307,7 +305,9 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
         log.error("central did fail to connect to peripheral: \(peripheral)")
-        reset()
+        if let index = peripherals.index(of: peripheral) {
+            peripherals.remove(at: index)
+        }
     }
     
     // MARK: - CBPeripheralDelegate methods
