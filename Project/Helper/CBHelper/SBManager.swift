@@ -222,7 +222,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                         let serviceName = SBService.mr_findFirst(byAttribute: "service", withValue: serviceUUIDs[0].uuidString)?.name
                         device?.serviceName = serviceName
                     } else {
-                        device?.serviceName = "TAYLOR"
+                        device?.serviceName = Helper.targetName
                     }
                 } else {
                     if device!.passcode != 0xffff {

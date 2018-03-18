@@ -112,14 +112,14 @@ extension SBManager {
     }
     
     func getWatchService() -> String {
-        return selectedDevice(in: .mr_default())?.serviceName ?? "TAYLOR"
+        return selectedDevice(in: .mr_default())?.serviceName ?? Helper.targetName
     }
     
     func getAsset(_ asset: WatchAsset) -> UIImage {
         var name = "", defaultName = ""
         if asset == .logo {
             name = "\(getWatchService())_word"
-            defaultName = "TAYLOR_word"
+            defaultName = "\(Helper.targetName)_word"
         } else {
             name = "\(getWatchSerial())_\(asset.rawValue)"
             defaultName = "601_taylor_\(asset.rawValue)"
@@ -158,11 +158,11 @@ extension SBManager {
                 // Local notification
                 let content = UNMutableNotificationContent()
                 content.title = NSLocalizedString("Hello I'm here", comment: "")
-                let nickName = SBManager.share.selectedDevice(in: .mr_default())?.nickName ?? "TAYLOR"
+                let nickName = SBManager.share.selectedDevice(in: .mr_default())?.nickName ?? Helper.targetName
                 content.subtitle = "\(NSLocalizedString("from", comment: "")) \(nickName)"
                 content.body = NSLocalizedString("Notification triggered", comment: "")
-                let serviceName = SBManager.share.selectedDevice(in: .mr_default())?.serviceName ?? "TAYLOR"
-                if let imageURL = Bundle.main.url(forResource: "NOTIFY_\(serviceName)", withExtension: "png") {
+                let serviceName = SBManager.share.selectedDevice(in: .mr_default())?.serviceName ?? Helper.targetName
+                if let imageURL = Bundle.main.url(forResource: "NOTIFY_\(Helper.targetName)", withExtension: "png") {
                     do {
                         try content.attachments = [UNNotificationAttachment.init(identifier: "image", url: imageURL, options: nil)]
                     } catch let error {

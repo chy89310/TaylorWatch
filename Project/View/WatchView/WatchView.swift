@@ -22,6 +22,24 @@ class WatchView: DesignableView {
         }
     }
     
+    override func setup() {
+        super.setup()
+        var belt = "601_taylor_belt"
+        switch Helper.targetName {
+        case "TAYLOR":
+            belt = "601_taylor_belt"
+        case "FOXTER":
+            belt = "601_foxter_belt"
+        case "SEAGULL":
+            belt = "301_belt"
+        default:
+            break;
+        }
+        if let beltImg = UIImage(named: belt) {
+            beltImage.image = beltImg
+        }
+    }
+    
     func updateAsset(withDial: Bool) {
         beltImage.image = SBManager.share.getAsset(.belt)
         watchFace.updateAsset(withDial: withDial)

@@ -109,7 +109,7 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
     @IBAction func didSaveClick(_ sender: UIButton) {
         if MFMailComposeViewController.canSendMail(), validate() {
             let device = SBManager.share.selectedDevice(in: .mr_default())
-            let name = device?.name ?? "TAYLOR"
+            let name = device?.name ?? Helper.targetName
             let nickName = _deviceText.text ?? name
             let serial = device?.serial ?? name
             let bluetooth = device?.system ?? "00:00:00:00:00:00"

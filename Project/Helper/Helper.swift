@@ -128,6 +128,12 @@ extension UITabBar {
 
 class Helper: Any {
     
+    class var targetName: String {
+        get {
+            return Bundle.main.infoDictionary?["TargetName"] as? String ?? "TAYLOR"
+        }
+    }
+    
     class var documentDirectory: URL {
         get {
             let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

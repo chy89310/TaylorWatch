@@ -12,10 +12,10 @@
 		0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
 		0A27F68F202946A600BAA063 /* Step+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27F68E202946A600BAA063 /* Step+Extension.swift */; };
 		0A304E45205B9FAB003DEC0A /* NOTIFY.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E44205B9FAB003DEC0A /* NOTIFY.m4a */; };
-		0A304E4B205BA184003DEC0A /* NOTIFY_FOXTER.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E4A205BA184003DEC0A /* NOTIFY_FOXTER.png */; };
-		0A304E4D205BA18C003DEC0A /* NOTIFY_SEAGULL.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E4C205BA18B003DEC0A /* NOTIFY_SEAGULL.png */; };
 		0A304E51205BB0BB003DEC0A /* NOTIFY_TAYLOR.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E50205BB0BB003DEC0A /* NOTIFY_TAYLOR.png */; };
 		0A32C5582047AA9600BD6A5B /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A32C5572047AA9600BD6A5B /* BluetoothController.swift */; };
+		472269740082FD357C2F3E36 /* Pods_Watch_TAYLOR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1282BDAA315CD31379DC7D33 /* Pods_Watch_TAYLOR.framework */; };
+		491C5C543FF31F54BF07A26D /* Pods_Watch_SEAGULL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450D1568F01D2AEA8221D9C7 /* Pods_Watch_SEAGULL.framework */; };
 		4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
 		4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
 		4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EBE20166900009DCD4D /* NavigationBar.swift */; };
@@ -46,9 +46,103 @@
 		4B8EAB29201F83EC00B2A9C6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */; };
 		4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */; };
 		4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DDB1EEEF932009C13A5 /* Config.swift */; };
+		4BA05965205E55F90047894C /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB276200FBCF000ED482E /* RoundView.swift */; };
+		4BA05966205E55F90047894C /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF65091F124471003230A1 /* ApiHelper.swift */; };
+		4BA05967205E55F90047894C /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A32C5572047AA9600BD6A5B /* BluetoothController.swift */; };
+		4BA05968205E55F90047894C /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
+		4BA05969205E55F90047894C /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
+		4BA0596A205E55F90047894C /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EC020166C82009DCD4D /* BaseNavigationController.swift */; };
+		4BA0596B205E55F90047894C /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */; };
+		4BA0596C205E55F90047894C /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
+		4BA0596D205E55F90047894C /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53141FC6C53100CC094D /* ScanViewController.swift */; };
+		4BA0596E205E55F90047894C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB29020113EBF00ED482E /* RoundButton.swift */; };
+		4BA0596F205E55F90047894C /* HealthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA342017B9450067ECA0 /* HealthController.swift */; };
+		4BA05970205E55F90047894C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6EE0C1EE87B7B0098C4DA /* AppDelegate.swift */; };
+		4BA05971205E55F90047894C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DDB1EEEF932009C13A5 /* Config.swift */; };
+		4BA05972205E55F90047894C /* WatchFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB28720112BB500ED482E /* WatchFace.swift */; };
+		4BA05973205E55F90047894C /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
+		4BA05974205E55F90047894C /* HealthOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBED732202630EB00B560F4 /* HealthOptions.swift */; };
+		4BA05975205E55F90047894C /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */; };
+		4BA05976205E55F90047894C /* SBManager+watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB26D200B767A00ED482E /* SBManager+watch.swift */; };
+		4BA05977205E55F90047894C /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB274200FBC2900ED482E /* DesignableView.swift */; };
+		4BA05978205E55F90047894C /* Step+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27F68E202946A600BAA063 /* Step+Extension.swift */; };
+		4BA05979205E55F90047894C /* WatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB272200D22A900ED482E /* WatchView.swift */; };
+		4BA0597A205E55F90047894C /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB27C200FC94400ED482E /* TitleView.swift */; };
+		4BA0597B205E55F90047894C /* TimeZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */; };
+		4BA0597C205E55F90047894C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7277981F12A021009AC306 /* BaseViewController.swift */; };
+		4BA0597D205E55F90047894C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */; };
+		4BA0597E205E55F90047894C /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
+		4BA0597F205E55F90047894C /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF01A611FCD66A2009B1262 /* InfoController.swift */; };
+		4BA05980205E55F90047894C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB2822011182300ED482E /* HomeController.swift */; };
+		4BA05981205E55F90047894C /* CBUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3BD6B82030527500B7A3BD /* CBUtils.swift */; };
+		4BA05982205E55F90047894C /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EBE20166900009DCD4D /* NavigationBar.swift */; };
+		4BA05983205E55F90047894C /* SBService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6691B8203C20E6001421CB /* SBService+Extension.swift */; };
+		4BA05984205E55F90047894C /* ApiHelper+Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF650B1F124531003230A1 /* ApiHelper+Define.swift */; };
+		4BA05985205E55F90047894C /* SBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */; };
+		4BA05986205E55F90047894C /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
+		4BA05987205E55F90047894C /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */; };
+		4BA0598D205E55F90047894C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE861EE87D8E0098C4DA /* Main.storyboard */; };
+		4BA0598E205E55F90047894C /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BDF650D1F124559003230A1 /* Api.plist */; };
+		4BA0598F205E55F90047894C /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB27A200FC7C000ED482E /* TitleView.xib */; };
+		4BA05990205E55F90047894C /* WatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB270200D1DC000ED482E /* WatchView.xib */; };
+		4BA05992205E55F90047894C /* NOTIFY.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E44205B9FAB003DEC0A /* NOTIFY.m4a */; };
+		4BA05993205E55F90047894C /* NOTIFY_FOXTER.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E4A205BA184003DEC0A /* NOTIFY_FOXTER.png */; };
+		4BA05994205E55F90047894C /* WatchApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B53181FC7CA3F00CC094D /* WatchApi.plist */; };
+		4BA05995205E55F90047894C /* HealthOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED73020262C3200B560F4 /* HealthOptions.xib */; };
+		4BA05996205E55F90047894C /* WatchFace.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB28520112B9F00ED482E /* WatchFace.xib */; };
+		4BA05998205E55F90047894C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE161EE87B7B0098C4DA /* Assets.xcassets */; };
+		4BA05999205E55F90047894C /* SBServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B6691B6203C118E001421CB /* SBServices.plist */; };
+		4BA059A4205E560B0047894C /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB276200FBCF000ED482E /* RoundView.swift */; };
+		4BA059A5205E560B0047894C /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF65091F124471003230A1 /* ApiHelper.swift */; };
+		4BA059A6205E560B0047894C /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A32C5572047AA9600BD6A5B /* BluetoothController.swift */; };
+		4BA059A7205E560B0047894C /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
+		4BA059A8205E560B0047894C /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
+		4BA059A9205E560B0047894C /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EC020166C82009DCD4D /* BaseNavigationController.swift */; };
+		4BA059AA205E560B0047894C /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */; };
+		4BA059AB205E560B0047894C /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
+		4BA059AC205E560B0047894C /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53141FC6C53100CC094D /* ScanViewController.swift */; };
+		4BA059AD205E560B0047894C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB29020113EBF00ED482E /* RoundButton.swift */; };
+		4BA059AE205E560B0047894C /* HealthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA342017B9450067ECA0 /* HealthController.swift */; };
+		4BA059AF205E560B0047894C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6EE0C1EE87B7B0098C4DA /* AppDelegate.swift */; };
+		4BA059B0205E560B0047894C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DDB1EEEF932009C13A5 /* Config.swift */; };
+		4BA059B1205E560B0047894C /* WatchFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB28720112BB500ED482E /* WatchFace.swift */; };
+		4BA059B2205E560B0047894C /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
+		4BA059B3205E560B0047894C /* HealthOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBED732202630EB00B560F4 /* HealthOptions.swift */; };
+		4BA059B4205E560B0047894C /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B32BADE1FD30EF700EFC3E4 /* SettingController.swift */; };
+		4BA059B5205E560B0047894C /* SBManager+watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB26D200B767A00ED482E /* SBManager+watch.swift */; };
+		4BA059B6205E560B0047894C /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB274200FBC2900ED482E /* DesignableView.swift */; };
+		4BA059B7205E560B0047894C /* Step+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27F68E202946A600BAA063 /* Step+Extension.swift */; };
+		4BA059B8205E560B0047894C /* WatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB272200D22A900ED482E /* WatchView.swift */; };
+		4BA059B9205E560B0047894C /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB27C200FC94400ED482E /* TitleView.swift */; };
+		4BA059BA205E560B0047894C /* TimeZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */; };
+		4BA059BB205E560B0047894C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7277981F12A021009AC306 /* BaseViewController.swift */; };
+		4BA059BC205E560B0047894C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */; };
+		4BA059BD205E560B0047894C /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
+		4BA059BE205E560B0047894C /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF01A611FCD66A2009B1262 /* InfoController.swift */; };
+		4BA059BF205E560B0047894C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2BB2822011182300ED482E /* HomeController.swift */; };
+		4BA059C0205E560B0047894C /* CBUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3BD6B82030527500B7A3BD /* CBUtils.swift */; };
+		4BA059C1205E560B0047894C /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EBE20166900009DCD4D /* NavigationBar.swift */; };
+		4BA059C2205E560B0047894C /* SBService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6691B8203C20E6001421CB /* SBService+Extension.swift */; };
+		4BA059C3205E560B0047894C /* ApiHelper+Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF650B1F124531003230A1 /* ApiHelper+Define.swift */; };
+		4BA059C4205E560B0047894C /* SBPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8E585B1FC4A45E00FE7B75 /* SBPeripheral.swift */; };
+		4BA059C5205E560B0047894C /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
+		4BA059C6205E560B0047894C /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */; };
+		4BA059CC205E560B0047894C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE861EE87D8E0098C4DA /* Main.storyboard */; };
+		4BA059CD205E560B0047894C /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BDF650D1F124559003230A1 /* Api.plist */; };
+		4BA059CE205E560B0047894C /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB27A200FC7C000ED482E /* TitleView.xib */; };
+		4BA059CF205E560B0047894C /* WatchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB270200D1DC000ED482E /* WatchView.xib */; };
+		4BA059D1205E560B0047894C /* NOTIFY.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E44205B9FAB003DEC0A /* NOTIFY.m4a */; };
+		4BA059D3205E560B0047894C /* WatchApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B53181FC7CA3F00CC094D /* WatchApi.plist */; };
+		4BA059D4205E560B0047894C /* HealthOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED73020262C3200B560F4 /* HealthOptions.xib */; };
+		4BA059D5205E560B0047894C /* WatchFace.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2BB28520112B9F00ED482E /* WatchFace.xib */; };
+		4BA059D6205E560B0047894C /* NOTIFY_SEAGULL.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E4C205BA18B003DEC0A /* NOTIFY_SEAGULL.png */; };
+		4BA059D7205E560B0047894C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE161EE87B7B0098C4DA /* Assets.xcassets */; };
+		4BA059D8205E560B0047894C /* SBServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B6691B6203C118E001421CB /* SBServices.plist */; };
+		4BA059E5205E622A0047894C /* LaunchFoxter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA059E4205E622A0047894C /* LaunchFoxter.storyboard */; };
+		4BA059E9205E64F80047894C /* LaunchSeagull.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA059E8205E64F80047894C /* LaunchSeagull.storyboard */; };
 		4BA6EE0D1EE87B7B0098C4DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6EE0C1EE87B7B0098C4DA /* AppDelegate.swift */; };
 		4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE161EE87B7B0098C4DA /* Assets.xcassets */; };
-		4BA6EE871EE87D8E0098C4DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */; };
+		4BA6EE871EE87D8E0098C4DA /* LaunchTaylor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE851EE87D8E0098C4DA /* LaunchTaylor.storyboard */; };
 		4BA6EE881EE87D8E0098C4DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA6EE861EE87D8E0098C4DA /* Main.storyboard */; };
 		4BBED73120262C3200B560F4 /* HealthOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BBED73020262C3200B560F4 /* HealthOptions.xib */; };
 		4BBED733202630EB00B560F4 /* HealthOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBED732202630EB00B560F4 /* HealthOptions.swift */; };
@@ -56,13 +150,11 @@
 		4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDF650B1F124531003230A1 /* ApiHelper+Define.swift */; };
 		4BDF650E1F124559003230A1 /* Api.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BDF650D1F124559003230A1 /* Api.plist */; };
 		4BF01A621FCD66A2009B1262 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF01A611FCD66A2009B1262 /* InfoController.swift */; };
-		8743F0EDB32E00BCC092C462 /* Pods_Taylor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EBF0590D14EB0CC646CC5E /* Pods_Taylor.framework */; };
+		ACCDCFD1A170A6DF3A1A0592 /* Pods_Watch_FOXTER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF13DBE2561A4FA45A51256 /* Pods_Watch_FOXTER.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		035D8FECAAA5489CFB508348 /* Pods_ProjectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		045576E0DC50DBB749868C98 /* Pods-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.release.xcconfig"; sourceTree = "<group>"; };
-		07606831C0E45A3D527B3855 /* Pods_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04ACC91F2F4B1854C066D829 /* Pods-Watch-SEAGULL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch-SEAGULL.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL.release.xcconfig"; sourceTree = "<group>"; };
 		0A0B53141FC6C53100CC094D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		0A0B53181FC7CA3F00CC094D /* WatchApi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WatchApi.plist; sourceTree = "<group>"; };
 		0A1A85261FC595FF00EEA718 /* SBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBManager.swift; sourceTree = "<group>"; };
@@ -72,7 +164,10 @@
 		0A304E4C205BA18B003DEC0A /* NOTIFY_SEAGULL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTIFY_SEAGULL.png; sourceTree = "<group>"; };
 		0A304E50205BB0BB003DEC0A /* NOTIFY_TAYLOR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTIFY_TAYLOR.png; sourceTree = "<group>"; };
 		0A32C5572047AA9600BD6A5B /* BluetoothController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
-		1009943C883916D85DE4D806 /* Pods-ProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0E46DD65E142BCC5744063A2 /* Pods-Watch-TAYLOR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch-TAYLOR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR.debug.xcconfig"; sourceTree = "<group>"; };
+		1282BDAA315CD31379DC7D33 /* Pods_Watch_TAYLOR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_TAYLOR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FF13DBE2561A4FA45A51256 /* Pods_Watch_FOXTER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_FOXTER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		450D1568F01D2AEA8221D9C7 /* Pods_Watch_SEAGULL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_SEAGULL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B1363931FD25D8000AAE628 /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOptionsController.swift; sourceTree = "<group>"; };
 		4B167EBE20166900009DCD4D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -103,11 +198,17 @@
 		4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		4B9F7DDB1EEEF932009C13A5 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		4BA6EE091EE87B7B0098C4DA /* Taylor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taylor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA0599F205E55F90047894C /* FOXTER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOXTER.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA059A0205E55FA0047894C /* Info_foxter.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info_foxter.plist; path = /Users/kevinsum/Documents/workspace/TaylorWatch/Project/Info_foxter.plist; sourceTree = "<absolute>"; };
+		4BA059DE205E560B0047894C /* SEAGULL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SEAGULL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA059DF205E560B0047894C /* Info_seagull.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info_seagull.plist; path = /Users/kevinsum/Documents/workspace/TaylorWatch/Project/Info_seagull.plist; sourceTree = "<absolute>"; };
+		4BA059E4205E622A0047894C /* LaunchFoxter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchFoxter.storyboard; sourceTree = "<group>"; };
+		4BA059E8205E64F80047894C /* LaunchSeagull.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchSeagull.storyboard; sourceTree = "<group>"; };
+		4BA6EE091EE87B7B0098C4DA /* TAYLOR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TAYLOR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA6EE0C1EE87B7B0098C4DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BA6EE161EE87B7B0098C4DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4BA6EE1B1EE87B7B0098C4DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4BA6EE1B1EE87B7B0098C4DA /* Info_taylor.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info_taylor.plist; sourceTree = "<group>"; };
+		4BA6EE851EE87D8E0098C4DA /* LaunchTaylor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchTaylor.storyboard; sourceTree = "<group>"; };
 		4BA6EE861EE87D8E0098C4DA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4BBED73020262C3200B560F4 /* HealthOptions.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthOptions.xib; sourceTree = "<group>"; };
 		4BBED732202630EB00B560F4 /* HealthOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthOptions.swift; sourceTree = "<group>"; };
@@ -115,22 +216,34 @@
 		4BDF650B1F124531003230A1 /* ApiHelper+Define.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ApiHelper+Define.swift"; sourceTree = "<group>"; };
 		4BDF650D1F124559003230A1 /* Api.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Api.plist; sourceTree = "<group>"; };
 		4BF01A611FCD66A2009B1262 /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
-		4CFCA356A8701324A1BD2778 /* Pods-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project/Pods-Project.debug.xcconfig"; sourceTree = "<group>"; };
-		528088D7C4C34E67C6C29599 /* Pods-Taylor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taylor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Taylor/Pods-Taylor.release.xcconfig"; sourceTree = "<group>"; };
-		6E047641F8B24AB1302365AC /* Pods_ProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82EBF0590D14EB0CC646CC5E /* Pods_Taylor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Taylor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		92D5C8498458D10B2B69F617 /* Pods-ProjectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectUITests/Pods-ProjectUITests.release.xcconfig"; sourceTree = "<group>"; };
-		97F55CF285ACCB055EECC9C1 /* Pods-Taylor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taylor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Taylor/Pods-Taylor.debug.xcconfig"; sourceTree = "<group>"; };
-		C49E5005AA6843CDAB546CB9 /* Pods-ProjectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectUITests/Pods-ProjectUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F47306F707096B4FD4E0D02A /* Pods-ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectTests/Pods-ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
+		54F53706EDF6FD04E92BA5EC /* Pods-Watch-SEAGULL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch-SEAGULL.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL.debug.xcconfig"; sourceTree = "<group>"; };
+		61FD412B0F7A703DD62F48A2 /* Pods-Watch-TAYLOR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch-TAYLOR.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR.release.xcconfig"; sourceTree = "<group>"; };
+		7C35C5C1FD5EF6362689C060 /* Pods-Watch-FOXTER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch-FOXTER.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER.release.xcconfig"; sourceTree = "<group>"; };
+		943BEF5C5AA563FBDD5CEBB0 /* Pods-Watch-FOXTER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch-FOXTER.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4BA05988205E55F90047894C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACCDCFD1A170A6DF3A1A0592 /* Pods_Watch_FOXTER.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA059C7205E560B0047894C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				491C5C543FF31F54BF07A26D /* Pods_Watch_SEAGULL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BA6EE061EE87B7B0098C4DA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8743F0EDB32E00BCC092C462 /* Pods_Taylor.framework in Frameworks */,
+				472269740082FD357C2F3E36 /* Pods_Watch_TAYLOR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +302,9 @@
 		4BA6EE0A1EE87B7B0098C4DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4BA6EE091EE87B7B0098C4DA /* Taylor.app */,
+				4BA6EE091EE87B7B0098C4DA /* TAYLOR.app */,
+				4BA0599F205E55F90047894C /* FOXTER.app */,
+				4BA059DE205E560B0047894C /* SEAGULL.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,10 +313,12 @@
 			isa = PBXGroup;
 			children = (
 				4BA6EE0C1EE87B7B0098C4DA /* AppDelegate.swift */,
-				4BA6EE1B1EE87B7B0098C4DA /* Info.plist */,
+				4BA6EE1B1EE87B7B0098C4DA /* Info_taylor.plist */,
+				4BA059A0205E55FA0047894C /* Info_foxter.plist */,
+				4BA059DF205E560B0047894C /* Info_seagull.plist */,
 				4BA6EE161EE87B7B0098C4DA /* Assets.xcassets */,
-				0A304E4A205BA184003DEC0A /* NOTIFY_FOXTER.png */,
 				0A304E50205BB0BB003DEC0A /* NOTIFY_TAYLOR.png */,
+				0A304E4A205BA184003DEC0A /* NOTIFY_FOXTER.png */,
 				0A304E4C205BA18B003DEC0A /* NOTIFY_SEAGULL.png */,
 				0A304E44205B9FAB003DEC0A /* NOTIFY.m4a */,
 				4BA6EE7F1EE87D660098C4DA /* Helper */,
@@ -260,7 +377,9 @@
 				4B2BB29020113EBF00ED482E /* RoundButton.swift */,
 				4B2BB276200FBCF000ED482E /* RoundView.swift */,
 				4B167EBE20166900009DCD4D /* NavigationBar.swift */,
-				4BA6EE851EE87D8E0098C4DA /* LaunchScreen.storyboard */,
+				4BA6EE851EE87D8E0098C4DA /* LaunchTaylor.storyboard */,
+				4BA059E4205E622A0047894C /* LaunchFoxter.storyboard */,
+				4BA059E8205E64F80047894C /* LaunchSeagull.storyboard */,
 				4BA6EE861EE87D8E0098C4DA /* Main.storyboard */,
 			);
 			path = View;
@@ -303,14 +422,12 @@
 		6431665D916F6E2DCEE79C1B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4CFCA356A8701324A1BD2778 /* Pods-Project.debug.xcconfig */,
-				045576E0DC50DBB749868C98 /* Pods-Project.release.xcconfig */,
-				1009943C883916D85DE4D806 /* Pods-ProjectTests.debug.xcconfig */,
-				F47306F707096B4FD4E0D02A /* Pods-ProjectTests.release.xcconfig */,
-				C49E5005AA6843CDAB546CB9 /* Pods-ProjectUITests.debug.xcconfig */,
-				92D5C8498458D10B2B69F617 /* Pods-ProjectUITests.release.xcconfig */,
-				97F55CF285ACCB055EECC9C1 /* Pods-Taylor.debug.xcconfig */,
-				528088D7C4C34E67C6C29599 /* Pods-Taylor.release.xcconfig */,
+				943BEF5C5AA563FBDD5CEBB0 /* Pods-Watch-FOXTER.debug.xcconfig */,
+				7C35C5C1FD5EF6362689C060 /* Pods-Watch-FOXTER.release.xcconfig */,
+				54F53706EDF6FD04E92BA5EC /* Pods-Watch-SEAGULL.debug.xcconfig */,
+				04ACC91F2F4B1854C066D829 /* Pods-Watch-SEAGULL.release.xcconfig */,
+				0E46DD65E142BCC5744063A2 /* Pods-Watch-TAYLOR.debug.xcconfig */,
+				61FD412B0F7A703DD62F48A2 /* Pods-Watch-TAYLOR.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -318,10 +435,9 @@
 		920237108FBAB5FC7ADD6D79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				07606831C0E45A3D527B3855 /* Pods_Project.framework */,
-				6E047641F8B24AB1302365AC /* Pods_ProjectTests.framework */,
-				035D8FECAAA5489CFB508348 /* Pods_ProjectUITests.framework */,
-				82EBF0590D14EB0CC646CC5E /* Pods_Taylor.framework */,
+				2FF13DBE2561A4FA45A51256 /* Pods_Watch_FOXTER.framework */,
+				450D1568F01D2AEA8221D9C7 /* Pods_Watch_SEAGULL.framework */,
+				1282BDAA315CD31379DC7D33 /* Pods_Watch_TAYLOR.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -329,9 +445,51 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4BA6EE081EE87B7B0098C4DA /* Taylor */ = {
+		4BA05962205E55F90047894C /* FOXTER */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4BA6EE341EE87B7B0098C4DA /* Build configuration list for PBXNativeTarget "Taylor" */;
+			buildConfigurationList = 4BA0599C205E55F90047894C /* Build configuration list for PBXNativeTarget "FOXTER" */;
+			buildPhases = (
+				4BA05963205E55F90047894C /* [CP] Check Pods Manifest.lock */,
+				4BA05964205E55F90047894C /* Sources */,
+				4BA05988205E55F90047894C /* Frameworks */,
+				4BA0598A205E55F90047894C /* ShellScript */,
+				4BA0598B205E55F90047894C /* Resources */,
+				4BA0599A205E55F90047894C /* [CP] Embed Pods Frameworks */,
+				4BA0599B205E55F90047894C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FOXTER;
+			productName = Project;
+			productReference = 4BA0599F205E55F90047894C /* FOXTER.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4BA059A1205E560B0047894C /* SEAGULL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA059DB205E560B0047894C /* Build configuration list for PBXNativeTarget "SEAGULL" */;
+			buildPhases = (
+				4BA059A2205E560B0047894C /* [CP] Check Pods Manifest.lock */,
+				4BA059A3205E560B0047894C /* Sources */,
+				4BA059C7205E560B0047894C /* Frameworks */,
+				4BA059C9205E560B0047894C /* ShellScript */,
+				4BA059CA205E560B0047894C /* Resources */,
+				4BA059D9205E560B0047894C /* [CP] Embed Pods Frameworks */,
+				4BA059DA205E560B0047894C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SEAGULL;
+			productName = Project;
+			productReference = 4BA059DE205E560B0047894C /* SEAGULL.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4BA6EE081EE87B7B0098C4DA /* TAYLOR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA6EE341EE87B7B0098C4DA /* Build configuration list for PBXNativeTarget "TAYLOR" */;
 			buildPhases = (
 				6D7AA5B64D450DCC6351DA1C /* [CP] Check Pods Manifest.lock */,
 				4BA6EE051EE87B7B0098C4DA /* Sources */,
@@ -345,9 +503,9 @@
 			);
 			dependencies = (
 			);
-			name = Taylor;
+			name = TAYLOR;
 			productName = Project;
-			productReference = 4BA6EE091EE87B7B0098C4DA /* Taylor.app */;
+			productReference = 4BA6EE091EE87B7B0098C4DA /* TAYLOR.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -360,6 +518,12 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = KevinSum;
 				TargetAttributes = {
+					4BA05962205E55F90047894C = {
+						DevelopmentTeam = Q5WH5HB3TQ;
+					};
+					4BA059A1205E560B0047894C = {
+						DevelopmentTeam = Q5WH5HB3TQ;
+					};
 					4BA6EE081EE87B7B0098C4DA = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = Q5WH5HB3TQ;
@@ -380,12 +544,52 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4BA6EE081EE87B7B0098C4DA /* Taylor */,
+				4BA6EE081EE87B7B0098C4DA /* TAYLOR */,
+				4BA05962205E55F90047894C /* FOXTER */,
+				4BA059A1205E560B0047894C /* SEAGULL */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4BA0598B205E55F90047894C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA0598D205E55F90047894C /* Main.storyboard in Resources */,
+				4BA0598E205E55F90047894C /* Api.plist in Resources */,
+				4BA0598F205E55F90047894C /* TitleView.xib in Resources */,
+				4BA05990205E55F90047894C /* WatchView.xib in Resources */,
+				4BA05992205E55F90047894C /* NOTIFY.m4a in Resources */,
+				4BA05993205E55F90047894C /* NOTIFY_FOXTER.png in Resources */,
+				4BA05994205E55F90047894C /* WatchApi.plist in Resources */,
+				4BA05995205E55F90047894C /* HealthOptions.xib in Resources */,
+				4BA05996205E55F90047894C /* WatchFace.xib in Resources */,
+				4BA059E5205E622A0047894C /* LaunchFoxter.storyboard in Resources */,
+				4BA05998205E55F90047894C /* Assets.xcassets in Resources */,
+				4BA05999205E55F90047894C /* SBServices.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA059CA205E560B0047894C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA059CC205E560B0047894C /* Main.storyboard in Resources */,
+				4BA059CD205E560B0047894C /* Api.plist in Resources */,
+				4BA059CE205E560B0047894C /* TitleView.xib in Resources */,
+				4BA059CF205E560B0047894C /* WatchView.xib in Resources */,
+				4BA059D1205E560B0047894C /* NOTIFY.m4a in Resources */,
+				4BA059D3205E560B0047894C /* WatchApi.plist in Resources */,
+				4BA059D4205E560B0047894C /* HealthOptions.xib in Resources */,
+				4BA059D5205E560B0047894C /* WatchFace.xib in Resources */,
+				4BA059D6205E560B0047894C /* NOTIFY_SEAGULL.png in Resources */,
+				4BA059E9205E64F80047894C /* LaunchSeagull.storyboard in Resources */,
+				4BA059D7205E560B0047894C /* Assets.xcassets in Resources */,
+				4BA059D8205E560B0047894C /* SBServices.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BA6EE071EE87B7B0098C4DA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -395,13 +599,11 @@
 				4BDF650E1F124559003230A1 /* Api.plist in Resources */,
 				4B2BB27B200FC7C000ED482E /* TitleView.xib in Resources */,
 				4B2BB271200D1DC000ED482E /* WatchView.xib in Resources */,
-				4BA6EE871EE87D8E0098C4DA /* LaunchScreen.storyboard in Resources */,
+				4BA6EE871EE87D8E0098C4DA /* LaunchTaylor.storyboard in Resources */,
 				0A304E45205B9FAB003DEC0A /* NOTIFY.m4a in Resources */,
-				0A304E4B205BA184003DEC0A /* NOTIFY_FOXTER.png in Resources */,
 				0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */,
 				4BBED73120262C3200B560F4 /* HealthOptions.xib in Resources */,
 				4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */,
-				0A304E4D205BA18C003DEC0A /* NOTIFY_SEAGULL.png in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
 				4B6691B7203C118E001421CB /* SBServices.plist in Resources */,
 			);
@@ -421,15 +623,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment Build Number Bool (Increment ON with true, increment OFF with false)\nshouldIncrement=false\n\n#   App vesion / Build version constants\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\n#   Increment build number\nif [ \"$shouldIncrement\" = true ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"version: $versionNumber\\\"/\" \"$PROJECT_DIR/Project/View/LaunchScreen.storyboard\"";
+			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment Build Number Bool (Increment ON with true, increment OFF with false)\nshouldIncrement=false\n\n#   App vesion / Build version constants\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\n#   Increment build number\nif [ \"$shouldIncrement\" = true ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"version: $versionNumber\\\"/\" \"$PROJECT_DIR/Project/View/LaunchTaylor.storyboard\"";
 		};
-		4FD2103C3723A7F7250F7C80 /* [CP] Embed Pods Frameworks */ = {
+		4BA05963205E55F90047894C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Taylor/Pods-Taylor-frameworks.sh",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Watch-FOXTER-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BA0598A205E55F90047894C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment Build Number Bool (Increment ON with true, increment OFF with false)\nshouldIncrement=false\n\n#   App vesion / Build version constants\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\n#   Increment build number\nif [ \"$shouldIncrement\" = true ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"version: $versionNumber\\\"/\" \"$PROJECT_DIR/Project/View/LaunchFoxter.storyboard\"";
+		};
+		4BA0599A205E55F90047894C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
@@ -456,7 +689,140 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Taylor/Pods-Taylor-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BA0599B205E55F90047894C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BA059A2205E560B0047894C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Watch-SEAGULL-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BA059C9205E560B0047894C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#   ON/OFF Script Toggle (script ON with #, script OFF without #)\n#exit 0\n\n#   Increment Build Number Bool (Increment ON with true, increment OFF with false)\nshouldIncrement=false\n\n#   App vesion / Build version constants\nversionNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\n#   Increment build number\nif [ \"$shouldIncrement\" = true ]; then\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi\n\n#   Output version & build numbers into a label on LaunchScreen.storyboard\nsed -i bak -e \"/userLabel=\\\"APP_VERSION\\\"/s/text=\\\"[^\\\"]*\\\"/text=\\\"version: $versionNumber\\\"/\" \"$PROJECT_DIR/Project/View/LaunchSeagull.storyboard\"";
+		};
+		4BA059D9205E560B0047894C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
+				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyTimer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BA059DA205E560B0047894C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FD2103C3723A7F7250F7C80 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
+				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyTimer.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6D7AA5B64D450DCC6351DA1C /* [CP] Check Pods Manifest.lock */ = {
@@ -470,7 +836,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Taylor-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Watch-TAYLOR-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -489,12 +855,96 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Taylor/Pods-Taylor-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4BA05964205E55F90047894C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA05965205E55F90047894C /* RoundView.swift in Sources */,
+				4BA05966205E55F90047894C /* ApiHelper.swift in Sources */,
+				4BA05967205E55F90047894C /* BluetoothController.swift in Sources */,
+				4BA05968205E55F90047894C /* TimeController.swift in Sources */,
+				4BA05969205E55F90047894C /* DeviceOptionsController.swift in Sources */,
+				4BA0596A205E55F90047894C /* BaseNavigationController.swift in Sources */,
+				4BA0596B205E55F90047894C /* ProfileController.swift in Sources */,
+				4BA0596C205E55F90047894C /* SBManager.swift in Sources */,
+				4BA0596D205E55F90047894C /* ScanViewController.swift in Sources */,
+				4BA0596E205E55F90047894C /* RoundButton.swift in Sources */,
+				4BA0596F205E55F90047894C /* HealthController.swift in Sources */,
+				4BA05970205E55F90047894C /* AppDelegate.swift in Sources */,
+				4BA05971205E55F90047894C /* Config.swift in Sources */,
+				4BA05972205E55F90047894C /* WatchFace.swift in Sources */,
+				4BA05973205E55F90047894C /* Project.xcdatamodel in Sources */,
+				4BA05974205E55F90047894C /* HealthOptions.swift in Sources */,
+				4BA05975205E55F90047894C /* SettingController.swift in Sources */,
+				4BA05976205E55F90047894C /* SBManager+watch.swift in Sources */,
+				4BA05977205E55F90047894C /* DesignableView.swift in Sources */,
+				4BA05978205E55F90047894C /* Step+Extension.swift in Sources */,
+				4BA05979205E55F90047894C /* WatchView.swift in Sources */,
+				4BA0597A205E55F90047894C /* TitleView.swift in Sources */,
+				4BA0597B205E55F90047894C /* TimeZoneController.swift in Sources */,
+				4BA0597C205E55F90047894C /* BaseViewController.swift in Sources */,
+				4BA0597D205E55F90047894C /* Helper.swift in Sources */,
+				4BA0597E205E55F90047894C /* Notification+Extension.swift in Sources */,
+				4BA0597F205E55F90047894C /* InfoController.swift in Sources */,
+				4BA05980205E55F90047894C /* HomeController.swift in Sources */,
+				4BA05981205E55F90047894C /* CBUtils.swift in Sources */,
+				4BA05982205E55F90047894C /* NavigationBar.swift in Sources */,
+				4BA05983205E55F90047894C /* SBService+Extension.swift in Sources */,
+				4BA05984205E55F90047894C /* ApiHelper+Define.swift in Sources */,
+				4BA05985205E55F90047894C /* SBPeripheral.swift in Sources */,
+				4BA05986205E55F90047894C /* SBManager+enum.swift in Sources */,
+				4BA05987205E55F90047894C /* BalloonMarker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA059A3205E560B0047894C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA059A4205E560B0047894C /* RoundView.swift in Sources */,
+				4BA059A5205E560B0047894C /* ApiHelper.swift in Sources */,
+				4BA059A6205E560B0047894C /* BluetoothController.swift in Sources */,
+				4BA059A7205E560B0047894C /* TimeController.swift in Sources */,
+				4BA059A8205E560B0047894C /* DeviceOptionsController.swift in Sources */,
+				4BA059A9205E560B0047894C /* BaseNavigationController.swift in Sources */,
+				4BA059AA205E560B0047894C /* ProfileController.swift in Sources */,
+				4BA059AB205E560B0047894C /* SBManager.swift in Sources */,
+				4BA059AC205E560B0047894C /* ScanViewController.swift in Sources */,
+				4BA059AD205E560B0047894C /* RoundButton.swift in Sources */,
+				4BA059AE205E560B0047894C /* HealthController.swift in Sources */,
+				4BA059AF205E560B0047894C /* AppDelegate.swift in Sources */,
+				4BA059B0205E560B0047894C /* Config.swift in Sources */,
+				4BA059B1205E560B0047894C /* WatchFace.swift in Sources */,
+				4BA059B2205E560B0047894C /* Project.xcdatamodel in Sources */,
+				4BA059B3205E560B0047894C /* HealthOptions.swift in Sources */,
+				4BA059B4205E560B0047894C /* SettingController.swift in Sources */,
+				4BA059B5205E560B0047894C /* SBManager+watch.swift in Sources */,
+				4BA059B6205E560B0047894C /* DesignableView.swift in Sources */,
+				4BA059B7205E560B0047894C /* Step+Extension.swift in Sources */,
+				4BA059B8205E560B0047894C /* WatchView.swift in Sources */,
+				4BA059B9205E560B0047894C /* TitleView.swift in Sources */,
+				4BA059BA205E560B0047894C /* TimeZoneController.swift in Sources */,
+				4BA059BB205E560B0047894C /* BaseViewController.swift in Sources */,
+				4BA059BC205E560B0047894C /* Helper.swift in Sources */,
+				4BA059BD205E560B0047894C /* Notification+Extension.swift in Sources */,
+				4BA059BE205E560B0047894C /* InfoController.swift in Sources */,
+				4BA059BF205E560B0047894C /* HomeController.swift in Sources */,
+				4BA059C0205E560B0047894C /* CBUtils.swift in Sources */,
+				4BA059C1205E560B0047894C /* NavigationBar.swift in Sources */,
+				4BA059C2205E560B0047894C /* SBService+Extension.swift in Sources */,
+				4BA059C3205E560B0047894C /* ApiHelper+Define.swift in Sources */,
+				4BA059C4205E560B0047894C /* SBPeripheral.swift in Sources */,
+				4BA059C5205E560B0047894C /* SBManager+enum.swift in Sources */,
+				4BA059C6205E560B0047894C /* BalloonMarker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BA6EE051EE87B7B0098C4DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -540,6 +990,70 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		4BA0599D205E55F90047894C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 943BEF5C5AA563FBDD5CEBB0 /* Pods-Watch-FOXTER.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = IconFoxter;
+				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
+				INFOPLIST_FILE = Project/Info_foxter.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.foxter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4BA0599E205E55F90047894C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C35C5C1FD5EF6362689C060 /* Pods-Watch-FOXTER.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = IconFoxter;
+				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
+				INFOPLIST_FILE = Project/Info_foxter.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.foxter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4BA059DC205E560B0047894C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54F53706EDF6FD04E92BA5EC /* Pods-Watch-SEAGULL.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = IconSeagull;
+				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
+				INFOPLIST_FILE = Project/Info_seagull.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.seagull;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4BA059DD205E560B0047894C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04ACC91F2F4B1854C066D829 /* Pods-Watch-SEAGULL.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = IconSeagull;
+				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
+				INFOPLIST_FILE = Project/Info_seagull.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.seagull;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		4BA6EE321EE87B7B0098C4DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -639,14 +1153,14 @@
 		};
 		4BA6EE351EE87B7B0098C4DA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97F55CF285ACCB055EECC9C1 /* Pods-Taylor.debug.xcconfig */;
+			baseConfigurationReference = 0E46DD65E142BCC5744063A2 /* Pods-Watch-TAYLOR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconTaylor;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
-				INFOPLIST_FILE = Project/Info.plist;
+				INFOPLIST_FILE = Project/Info_taylor.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.enterprise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.taylor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -655,14 +1169,14 @@
 		};
 		4BA6EE361EE87B7B0098C4DA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 528088D7C4C34E67C6C29599 /* Pods-Taylor.release.xcconfig */;
+			baseConfigurationReference = 61FD412B0F7A703DD62F48A2 /* Pods-Watch-TAYLOR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconTaylor;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
-				INFOPLIST_FILE = Project/Info.plist;
+				INFOPLIST_FILE = Project/Info_taylor.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.enterprise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.taylor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -672,6 +1186,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4BA0599C205E55F90047894C /* Build configuration list for PBXNativeTarget "FOXTER" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA0599D205E55F90047894C /* Debug */,
+				4BA0599E205E55F90047894C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BA059DB205E560B0047894C /* Build configuration list for PBXNativeTarget "SEAGULL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA059DC205E560B0047894C /* Debug */,
+				4BA059DD205E560B0047894C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4BA6EE041EE87B7B0098C4DA /* Build configuration list for PBXProject "Taylor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -681,7 +1213,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4BA6EE341EE87B7B0098C4DA /* Build configuration list for PBXNativeTarget "Taylor" */ = {
+		4BA6EE341EE87B7B0098C4DA /* Build configuration list for PBXNativeTarget "TAYLOR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4BA6EE351EE87B7B0098C4DA /* Debug */,

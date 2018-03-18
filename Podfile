@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '10.0'
 
-target 'Taylor' do
+abstract_target 'Watch' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
@@ -18,5 +18,9 @@ target 'Taylor' do
   pod 'SwiftyBeaver'
   pod 'SwiftyJSON'
   pod 'SwiftyTimer'
+  
+  target 'TAYLOR'
+  target 'FOXTER'
+  target 'SEAGULL'
 
 end
