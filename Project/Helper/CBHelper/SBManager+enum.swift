@@ -83,7 +83,7 @@ extension SBManager {
         }
     }
     
-    enum MESSAGE_TYPE: Int {
+    enum MESSAGE_TYPE: String {
         case call
         case sms
         case email

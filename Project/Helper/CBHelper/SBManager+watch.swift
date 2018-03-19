@@ -33,7 +33,9 @@ extension SBManager {
     func setMessageEnabled(with types:[MESSAGE_TYPE]) {
         var flag = 0;
         for type in types {
-            flag |= 1 << type.rawValue
+            if let offSet = SBManager.share.messageOffset[type] {
+                flag |= 1 << offSet
+            }
         }
         let data = Data.init(bytes:
             [CMD.set_message_format.rawValue,
@@ -198,19 +200,23 @@ extension SBManager {
             }
         })
         
-        guard let url = Bundle.main.url(forResource: "NOTIFY", withExtension: "m4a") else { return }
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [.mixWithOthers, .duckOthers])
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch let error {
-            log.error(error.localizedDescription)
-        }
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            guard let player = player else { return }
-            player.play()
-        } catch let error {
-            log.error(error.localizedDescription)
+        if player?.isPlaying ?? false {
+            player?.stop()
+        } else {
+            guard let url = Bundle.main.url(forResource: "NOTIFY", withExtension: "m4a") else { return }
+            do {
+                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [.mixWithOthers, .duckOthers])
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch let error {
+                log.error(error.localizedDescription)
+            }
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                guard let player = player else { return }
+                player.play()
+            } catch let error {
+                log.error(error.localizedDescription)
+            }
         }
     }
     

@@ -17,6 +17,22 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
     @IBOutlet weak var _collectionView: UICollectionView!
     var messageIcon: [UISwitch:String] = [:]
     var swtichArray: [UISwitch] = []
+    let messageCode: [SBManager.MESSAGE_TYPE:Any] = [
+        .email: "fa:envelope",
+        .facebook: "fa:facebook",
+        .messenger: #imageLiteral(resourceName: "messenger"),
+        .linkedin: "fa:linkedin",
+        .call: "fa:phone",
+        .twitter: "fa:twitter",
+        .line: #imageLiteral(resourceName: "line"),
+        .wechat: "fa:weixin",
+        .sms: #imageLiteral(resourceName: "text"),
+        .qq: "fa:qq",
+        .skype: "fa:skype",
+        .whatsapp: "fa:whatsapp",
+        .calendar: "calendar",
+        ]
+    let messageTypes = Array(SBManager.share.messageOffset.keys)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +48,7 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
         var enabledTypes: [SBManager.MESSAGE_TYPE] = []
         if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
             _notificationSwitch.isOn = device.notification?.isOn ?? true
-            for (type, _) in SBManager.share.messageMap {
+            for (type, _) in SBManager.share.messageOffset {
                 if device.notification?.isTypeOn(type) ?? false {
                     enabledTypes.append(type)
                 }
@@ -73,24 +89,22 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return SBManager.share.messageMap.count
+        return messageTypes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let messageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "messageCell", for: indexPath) as? MessageCell {
             // Status
             if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
-                messageCell.isOn = device.notification?.isTypeOn(SBManager.share.messageMap[indexPath.row].type) ?? false
+                messageCell.isOn = device.notification?.isTypeOn(messageTypes[indexPath.row]) ?? false
             }
             // Icon image
-            if let code = SBManager.share.messageMap[indexPath.row].code as? String {
-//                let image = UIImage.icon(from: .FontAwesome,  iconColor: .white, code: code, imageSize: CGSize(width: 30, height: 30), ofSize: 30)
-//                messageCell.iconImage.image = image
+            if let code = messageCode[messageTypes[indexPath.row]] as? String {
                 messageCell.iconLabel.text = code
                 messageCell.iconLabel.parseIcon()
                 messageCell.iconImage.isHidden = true
                 messageCell.iconLabel.isHidden = false
-            } else if let image = SBManager.share.messageMap[indexPath.row].code as? UIImage {
+            } else if let image = messageCode[messageTypes[indexPath.row]] as? UIImage {
                 messageCell.iconImage.image = image
                 messageCell.iconImage.isHidden = false
                 messageCell.iconLabel.isHidden = true
@@ -110,7 +124,7 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
                     if notification == nil {
                         notification = Notification.mr_createEntity(in: localContext)
                     }
-                    notification?.updateStatus(type: SBManager.share.messageMap[indexPath.row].type, isOn: isOn)
+                    notification?.updateStatus(type: self.messageTypes[indexPath.row], isOn: isOn)
                     notification?.device = device
                 }
             }) { (finish, error) in

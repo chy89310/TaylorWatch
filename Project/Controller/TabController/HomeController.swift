@@ -28,7 +28,7 @@ class HomeController: BaseViewController {
         SBManager.share.subscribeToANCS(true)
         var enabledTypes: [SBManager.MESSAGE_TYPE] = []
         if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
-            for (type, _) in SBManager.share.messageMap {
+            for type in Array(SBManager.share.messageOffset.keys) {
                 if device.notification?.isTypeOn(type) ?? false {
                     enabledTypes.append(type)
                 }

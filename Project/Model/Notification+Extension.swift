@@ -11,22 +11,22 @@ import UIKit
 extension Notification {
     
     func isTypeOn(_ type: SBManager.MESSAGE_TYPE) -> Bool {
-        let flag: [Bool] = [
-            isCallOn,
-            isSmsOn,
-            isEmailOn,
-            isQqOn,
-            isWechatOn,
-            isFacebookOn,
-            isMessengerOn,
-            isLineOn,
-            isSkypeOn,
-            isTwitterOn,
-            isWhatsappOn,
-            isCalendarOn,
-            isLinkedinOn
+        let flag: [SBManager.MESSAGE_TYPE:Bool] = [
+            .call:isCallOn,
+            .sms:isSmsOn,
+            .email:isEmailOn,
+            .qq:isQqOn,
+            .wechat:isWechatOn,
+            .facebook:isFacebookOn,
+            .messenger:isMessengerOn,
+            .line:isLineOn,
+            .skype:isSkypeOn,
+            .twitter:isTwitterOn,
+            .whatsapp:isWhatsappOn,
+            .calendar:isCalendarOn,
+            .linkedin:isLinkedinOn
         ]
-        return flag[type.rawValue]
+        return flag[type] ?? false
     }
     
     func updateStatus(type: SBManager.MESSAGE_TYPE, isOn: Bool) {

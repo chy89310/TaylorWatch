@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // IQKeyboardManager
         IQKeyboardManager.sharedManager().enable = true
         
-        
         // MagicalRecord
         MagicalRecord.setLoggingLevel(.off)
         MagicalRecord.setupAutoMigratingCoreDataStack()

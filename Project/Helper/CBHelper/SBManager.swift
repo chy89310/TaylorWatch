@@ -23,21 +23,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var selectedPeripheral: CBPeripheral?
     var player: AVAudioPlayer?
     var writeCharacteristic = [CBPeripheral:CBCharacteristic]()
-    let messageMap: [(type: SBManager.MESSAGE_TYPE, code: Any)] = [
-        (.email, "fa:envelope"),
-        (.facebook, "fa:facebook"),
-        (.messenger, #imageLiteral(resourceName: "messenger")),
-        (.linkedin, "fa:linkedin"),
-        (.call, "fa:phone"),
-        (.twitter, "fa:twitter"),
-        (.line, #imageLiteral(resourceName: "line")),
-        (.wechat, "fa:weixin"),
-        (.sms, #imageLiteral(resourceName: "text")),
-        (.qq, "fa:qq"),
-        (.skype, "fa:skype"),
-        (.whatsapp, "fa:whatsapp"),
-        //            (.calendar, "calendar"),
-    ]
+    var messageOffset: [SBManager.MESSAGE_TYPE:Int] = [:]
     
     // MARK: - Callback methods
     
@@ -60,20 +46,28 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         let json = Helper.readPlist("SBServices")
         MagicalRecord.save(blockAndWait: { (localContext) in
             SBService.mr_truncateAll(in: localContext)
-            for (name, sbservice) in json {
+            if let service = json.dictionary?[Helper.targetName] {
                 let entity = SBService.mr_createEntity(in: localContext)
-                entity?.name = name
-                for (key, value) in sbservice.dictionaryValue {
-                    if key == "name" {
-                        entity?.name = value.stringValue
-                    } else if key == "service" {
+                entity?.name = Helper.targetName
+                for (key, value) in service.dictionaryValue {
+                    if key == "service" {
                         entity?.service = value.stringValue
                     } else if key == "sender" {
                         entity?.sender = value.stringValue
                     } else if key == "receiver" {
                         entity?.receiver = value.stringValue
+                    } else if key == "message" {
+                        for (type, offset) in value.dictionaryValue {
+                            if let mesageType = MESSAGE_TYPE(rawValue: type) {
+                                self.messageOffset[mesageType] = offset.intValue
+                            } else {
+                                log.error("Unparse dictionary key \(type) in SBServices.plist")
+                            }
+                        }
                     }
                 }
+            } else {
+                fatalError("Please check SBServices.plist, dictionary with key \(Helper.targetName) missing!")
             }
         })
     }

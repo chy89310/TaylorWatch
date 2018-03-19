@@ -112,7 +112,7 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
             let name = device?.name ?? Helper.targetName
             let nickName = _deviceText.text ?? name
             let serial = device?.serial ?? name
-            let bluetooth = device?.system ?? "00:00:00:00:00:00"
+            let bluetooth = device?.system ?? "00:00:00:00:"
             let gender = _genderButton.title(for: .normal) ?? "Male"
             let birthday = _birthDayText.text ?? "2000-01-01"
             let composeVC = MFMailComposeViewController()
@@ -126,8 +126,14 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
             composeVC.setMessageBody("Please send out below information to complete the product registration so as to ensure your warranty right and get the lastest product update notification. \n\nDevice Name: \(name) \nDevice Nickname: \(nickName) \nBirthday: \(birthday) \nGender: \(gender) \nSerial: \(serial) \nBluetooth Address: \(bluetooth)", isHTML: false)
             (navigationController ?? self).present(composeVC, animated: true, completion: nil)
         } else if validate() {
-            log.info("Not support send mail")
-            performSegue(withIdentifier: "showWatch", sender: nil)
+            //performSegue(withIdentifier: "showWatch", sender: nil)
+            let alert = UIAlertController(title: NSLocalizedString("Send mail", comment: ""), message: NSLocalizedString("Please set up your email first.", comment: ""), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Setting", comment: ""), style: .default, handler: { (action) in
+                let email = "mailto:?cc=&subject=&body=".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                UIApplication.shared.open(URL.init(string: email!)!, options: [:], completionHandler: nil)
+            }))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
     }
     
