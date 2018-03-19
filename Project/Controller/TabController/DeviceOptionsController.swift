@@ -47,7 +47,7 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
                         let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
                         Helper.makeRootView(controller: tabController, complete: nil)
                     } else {
-                        log.error("Switch watch fail: \(info)")
+                        log.error("Switch watch fail: \(info ?? "Unknow error")")
                     }
             })
         }
@@ -70,8 +70,8 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
         let peripheral = connectedPeripheral[indexPath.row]
         if let url = URL.init(string: "App-Prefs:root=Bluetooth"), UIApplication.shared.canOpenURL(url) {
             let alert = UIAlertController(
-                title: NSLocalizedString("Please note that all the history data including pairing code and health management will be cleared", comment: ""),
-                message: NSLocalizedString("Please turn off your smart watch connection in Apple Notification Center Service (ANCS) in the Settings, and get back to app.", comment: ""),
+                title: NSLocalizedString("Please note that all the history data will be cleared once the device is forgotten from the \"bluetooth settings\".", comment: ""),
+                message: "",
                 preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { (action) in
                 UIApplication.shared.open(url, options: [:], completionHandler: { (finish) in
