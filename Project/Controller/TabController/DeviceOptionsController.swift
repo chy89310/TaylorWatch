@@ -9,6 +9,7 @@
 import CoreBluetooth
 import HexColors
 import MagicalRecord
+import MBProgressHUD
 import SwiftIconFont
 import UIKit
 
@@ -33,23 +34,38 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
     }
     
     func connectTo(peripheral: CBPeripheral) {
-        if peripheral != SBManager.share.selectedPeripheral,
-            peripheral.state == .connected,
-            let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString),
-            device.passcode != 0xffff {
-            SBManager.share.updateSelected(peripheral: peripheral)
-            SBManager.share.pairing(
-                passkey: Int(device.passcode),
-                peripheral: peripheral,
-                complete: { (success, info) in
-                    if success {
-                        SBManager.share.updateSelected(peripheral: peripheral)
-                        let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
-                        Helper.makeRootView(controller: tabController, complete: nil)
-                    } else {
-                        log.error("Switch watch fail: \(info ?? "Unknow error")")
-                    }
-            })
+        let HUD = MBProgressHUD.showAdded(to: tabBarController?.view ?? view, animated: true)
+        DispatchQueue.global().async {
+            if peripheral != SBManager.share.selectedPeripheral,
+                peripheral.state == .connected,
+                let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString),
+                device.passcode != 0xffff {
+                SBManager.share.updateSelected(peripheral: peripheral)
+                SBManager.share.pairing(
+                    passkey: Int(device.passcode),
+                    peripheral: peripheral,
+                    complete: { (success, info) in
+                        if success {
+                            DispatchQueue.main.async {
+                                HUD.hide(animated: true)
+                            }
+                            SBManager.share.updateSelected(peripheral: peripheral)
+                            let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
+                            Helper.makeRootView(controller: tabController, complete: nil)
+                        } else {
+                            log.error("Switch watch fail: \(info ?? "Unknow error")")
+                            DispatchQueue.main.async {
+                                HUD.label.text = info ?? "Unknow error"
+                                HUD.hide(animated: true, afterDelay: 2.0)
+                            }
+                        }
+                })
+            } else {
+                DispatchQueue.main.async {
+                    HUD.label.text = NSLocalizedString("Not connected!", comment: "")
+                    HUD.hide(animated: true, afterDelay: 2.0)
+                }
+            }
         }
     }
 

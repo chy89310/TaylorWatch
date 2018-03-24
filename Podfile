@@ -11,6 +11,7 @@ abstract_target 'Watch' do
   pod 'Charts', '3.0.3'
   pod 'HexColors'
   pod 'IQKeyboardManagerSwift'
+  pod 'MBProgressHUD'
   pod 'MagicalRecord'
 #  pod 'MZFormSheetController'
   pod 'Siren'

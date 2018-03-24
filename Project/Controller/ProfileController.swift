@@ -49,6 +49,11 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
         }
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     func validate() -> Bool{
         var validate = true
         for text in [_emailText, _deviceText, _birthDayText, _weightText, _heightText] {

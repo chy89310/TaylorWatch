@@ -194,8 +194,13 @@ class Helper: Any {
                 log.debug("/**********************************/")
                 log.debug("/*Navigate to \(controller.self)*/")
                 log.debug("/**********************************/")
-                root.viewControllers = [controller]
-                root.popToRootViewController(animated: true)
+                if let tab = controller as? UITabBarController {
+                    root.popToRootViewController(animated: false)
+                    root.present(tab, animated: true, completion: nil)
+                } else {
+                    root.viewControllers = [controller]
+                    root.popToRootViewController(animated: true)
+                }
             } else {
                 log.debug("/**********************************/")
                 log.debug("/*Force set root to \(controller.self)*/")
@@ -203,20 +208,21 @@ class Helper: Any {
                 appDelegate.window?.rootViewController = controller
             }
         }
-        func dismiss(_ controller: UITabBarController, completion: (() -> ())?) -> () {
+        func dismiss(_ controller: UITabBarController, completion: @escaping (() -> ())) -> () {
             log.debug("/**********************************/")
             log.debug("/*Dismiss Current TabBarController*/")
             log.debug("/**********************************/")
             controller.dismiss(animated: true) {
-                if let parent = controller.presentingViewController as? UITabBarController {
+                if let parent = controller.presentedViewController as? UITabBarController {
                     dismiss(parent, completion: completion)
+                } else {
+                    completion()
                 }
             }
         }
         if let current = appDelegate.window?.currentViewController() as? UITabBarController {
-            navigate()
-            dismiss(current, completion: complete)
-            current.dismiss(animated: true, completion: {
+            dismiss(current, completion: {
+                navigate()
                 complete?()
             })
         } else {
