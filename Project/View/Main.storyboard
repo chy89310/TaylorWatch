@@ -443,7 +443,7 @@
         <scene sceneID="LKF-Ws-Ptc">
             <objects>
                 <tabBarController storyboardIdentifier="TabController" id="cXX-Vb-rmb" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="OlM-IM-cCT">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="OlM-IM-cCT" customClass="ResizedTabBar" customModule="FOXTER" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -16,6 +16,9 @@
 		0A32C5582047AA9600BD6A5B /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A32C5572047AA9600BD6A5B /* BluetoothController.swift */; };
 		472269740082FD357C2F3E36 /* Pods_Watch_TAYLOR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1282BDAA315CD31379DC7D33 /* Pods_Watch_TAYLOR.framework */; };
 		491C5C543FF31F54BF07A26D /* Pods_Watch_SEAGULL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450D1568F01D2AEA8221D9C7 /* Pods_Watch_SEAGULL.framework */; };
+		4B0E24CD2067CD6200B66ACD /* ResizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */; };
+		4B0E24CE2067CD6200B66ACD /* ResizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */; };
+		4B0E24CF2067CD6200B66ACD /* ResizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */; };
 		4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
 		4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
 		4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EBE20166900009DCD4D /* NavigationBar.swift */; };
@@ -169,6 +172,7 @@
 		2FF13DBE2561A4FA45A51256 /* Pods_Watch_FOXTER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_FOXTER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450D1568F01D2AEA8221D9C7 /* Pods_Watch_SEAGULL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_SEAGULL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B0E24C12066373B00B66ACD /* TAYLOR-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TAYLOR-Bridging-Header.h"; sourceTree = "<group>"; };
+		4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedTabBar.swift; sourceTree = "<group>"; };
 		4B1363931FD25D8000AAE628 /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOptionsController.swift; sourceTree = "<group>"; };
 		4B167EBE20166900009DCD4D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -376,6 +380,7 @@
 				4B2BB27E200FD35500ED482E /* WatchView */,
 				4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */,
 				4B2BB274200FBC2900ED482E /* DesignableView.swift */,
+				4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */,
 				4B2BB29020113EBF00ED482E /* RoundButton.swift */,
 				4B2BB276200FBCF000ED482E /* RoundView.swift */,
 				4B167EBE20166900009DCD4D /* NavigationBar.swift */,
@@ -902,6 +907,7 @@
 				4BA0597E205E55F90047894C /* Notification+Extension.swift in Sources */,
 				4BA0597F205E55F90047894C /* InfoController.swift in Sources */,
 				4BA05980205E55F90047894C /* HomeController.swift in Sources */,
+				4B0E24CE2067CD6200B66ACD /* ResizedTabBar.swift in Sources */,
 				4BA05981205E55F90047894C /* CBUtils.swift in Sources */,
 				4BA05982205E55F90047894C /* NavigationBar.swift in Sources */,
 				4BA05983205E55F90047894C /* SBService+Extension.swift in Sources */,
@@ -944,6 +950,7 @@
 				4BA059BD205E560B0047894C /* Notification+Extension.swift in Sources */,
 				4BA059BE205E560B0047894C /* InfoController.swift in Sources */,
 				4BA059BF205E560B0047894C /* HomeController.swift in Sources */,
+				4B0E24CF2067CD6200B66ACD /* ResizedTabBar.swift in Sources */,
 				4BA059C0205E560B0047894C /* CBUtils.swift in Sources */,
 				4BA059C1205E560B0047894C /* NavigationBar.swift in Sources */,
 				4BA059C2205E560B0047894C /* SBService+Extension.swift in Sources */,
@@ -986,6 +993,7 @@
 				4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */,
 				4BF01A621FCD66A2009B1262 /* InfoController.swift in Sources */,
 				4B2BB2832011182300ED482E /* HomeController.swift in Sources */,
+				4B0E24CD2067CD6200B66ACD /* ResizedTabBar.swift in Sources */,
 				4B3BD6B92030527500B7A3BD /* CBUtils.swift in Sources */,
 				4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */,
 				4B6691B9203C20E6001421CB /* SBService+Extension.swift in Sources */,
