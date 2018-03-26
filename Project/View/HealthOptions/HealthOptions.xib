@@ -12,23 +12,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HealthOptions" customModule="Taylor" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HealthOptions" customModule="FOXTER" customModuleProvider="target">
             <connections>
                 <outlet property="averageCals" destination="jwb-V3-CQQ" id="u8V-JK-Rhg"/>
                 <outlet property="averageSteps" destination="GZ8-Zf-WFc" id="4Br-22-SNt"/>
                 <outlet property="averageTitle" destination="aOD-5N-Y2o" id="m5T-b2-hNq"/>
                 <outlet property="averageWalkAndRun" destination="GlG-7E-YvS" id="aDI-US-uZ9"/>
                 <outlet property="dayView" destination="yer-PF-h57" id="ViA-zi-ykR"/>
+                <outlet property="genderLabel" destination="65S-Eb-725" id="2Gs-2p-ejI"/>
                 <outlet property="genderText" destination="tfe-fR-rCp" id="wdq-vo-oq8"/>
+                <outlet property="goalApplyButton" destination="50F-gE-eq2" id="VeR-EO-BKF"/>
+                <outlet property="goalCancelButton" destination="wJg-CJ-7mJ" id="c9w-bp-4j1"/>
+                <outlet property="goalLabel" destination="DSg-1S-pwl" id="Isg-oE-fUx"/>
                 <outlet property="goalPicker" destination="SlB-iR-SUn" id="mIr-yP-00b"/>
                 <outlet property="goalView" destination="TEJ-FQ-JHX" id="yNj-F7-1rM"/>
+                <outlet property="heightLabel" destination="8Ib-a9-IhI" id="OzI-ll-5UI"/>
                 <outlet property="heightText" destination="MND-O3-19z" id="VLK-ZY-9pD"/>
+                <outlet property="measureApplyButton" destination="3hP-3g-mIa" id="mg4-jm-UQP"/>
+                <outlet property="measureCancelButton" destination="y7T-jj-70Y" id="mS3-65-fp2"/>
+                <outlet property="measureLabel" destination="KyP-7y-XUg" id="avx-qy-yzC"/>
                 <outlet property="measurementsView" destination="Tdb-Ct-Ysx" id="CLr-pi-Abh"/>
+                <outlet property="monthOrWeekGoalButton" destination="qZs-bf-nsQ" id="iVr-t4-gFg"/>
+                <outlet property="monthOrWeekMeasureButton" destination="K8N-Qd-zXC" id="rCT-F5-Svp"/>
                 <outlet property="monthOrWeekView" destination="AMp-zg-1ur" id="y3R-RX-DMz"/>
                 <outlet property="totalCals" destination="Xws-98-g5T" id="9Lf-58-1gc"/>
                 <outlet property="totalSteps" destination="Ghd-E6-yGr" id="auz-6s-fMr"/>
                 <outlet property="totalTitle" destination="7Q6-Dc-pGQ" id="Jhg-8a-QAh"/>
                 <outlet property="totalWalkAndRun" destination="zZK-qn-Vtx" id="9c3-IA-DnX"/>
+                <outlet property="weightLabel" destination="rkT-Tu-gaV" id="fLe-TD-SOt"/>
                 <outlet property="weightText" destination="IzL-gQ-tsf" id="4XE-4O-2qb"/>
             </connections>
         </placeholder>
@@ -326,7 +337,7 @@
                                                 <constraint firstAttribute="width" constant="20" id="RtA-rU-Jz1"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7I-u2-I0H" customClass="RoundView" customModule="Taylor" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7I-u2-I0H" customClass="RoundView" customModule="FOXTER" customModuleProvider="target">
                                             <rect key="frame" x="25" y="69.5" width="92" height="92"/>
                                             <color key="backgroundColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -362,7 +373,7 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1s-Fu-A0o" customClass="RoundView" customModule="Taylor" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1s-Fu-A0o" customClass="RoundView" customModule="FOXTER" customModuleProvider="target">
                                             <rect key="frame" x="310.5" y="69.5" width="92" height="92"/>
                                             <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>

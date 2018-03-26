@@ -27,16 +27,27 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var averageCals: UILabel!
     @IBOutlet weak var averageSteps: UILabel!
     @IBOutlet weak var averageWalkAndRun: UILabel!
+    @IBOutlet weak var monthOrWeekGoalButton: UIButton!
+    @IBOutlet weak var monthOrWeekMeasureButton: UIButton!
     
     @IBOutlet weak var dayView: UIStackView!
     
     @IBOutlet weak var goalView: UIStackView!
+    @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var goalPicker: UIPickerView!
+    @IBOutlet weak var goalCancelButton: UIButton!
+    @IBOutlet weak var goalApplyButton: UIButton!
     
     @IBOutlet weak var measurementsView: UIStackView!
+    @IBOutlet weak var measureLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var genderText: UITextField!
+    @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var weightText: UITextField!
+    @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var heightText: UITextField!
+    @IBOutlet weak var measureCancelButton: UIButton!
+    @IBOutlet weak var measureApplyButton: UIButton!
     
     var lastOption = DisplayOption.month
     var currentOption = DisplayOption.month
@@ -61,6 +72,8 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func setupMonth(OrWeek isWeek: Bool) {
+        monthOrWeekGoalButton.setTitle(NSLocalizedString("Set Goals", comment: ""), for: .normal)
+        monthOrWeekMeasureButton.setTitle(NSLocalizedString("Body Measurements", comment: ""), for: .normal)
         totalTitle.text = NSLocalizedString(isWeek ? "Weekly Total" : "Monthly Total", comment: "")
         averageTitle.text = NSLocalizedString(isWeek ? "Weekly Average" : "Monthly Average", comment: "")
         totalWalkAndRun.isHidden = true
@@ -84,6 +97,9 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func setupGoal(isWrite: Bool) {
+        goalLabel.text = NSLocalizedString("Set Goals", comment: "")
+        goalCancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        goalApplyButton.setTitle(NSLocalizedString("Apply", comment: ""), for: .normal)
         if isWrite {
             let steps = goalForRow(goalPicker.selectedRow(inComponent: 0))
             UserDefaults.set(steps, forKey: .goal)
@@ -94,6 +110,12 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func setupMeasurements(isWrite: Bool) {
+        measureLabel.text = NSLocalizedString("Body Measurements", comment: "")
+        genderLabel.text = NSLocalizedString("Gender", comment: "")
+        weightLabel.text = "\(NSLocalizedString("Weight", comment: ""))(kg)"
+        heightLabel.text = "\(NSLocalizedString("Height", comment: ""))(cm)"
+        measureCancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        measureApplyButton.setTitle(NSLocalizedString("Apply", comment: ""), for: .normal)
         if isWrite {
             if let weightStr = weightText.text {
                 UserDefaults.set(Int(weightStr), forKey: .weight)
@@ -102,7 +124,7 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
                 UserDefaults.set(Int(heightStr), forKey: .height)
             }
         } else {
-            genderText.text = UserDefaults.bool(of: .isMale) ? "Male" : "Female"
+            genderText.text = NSLocalizedString(UserDefaults.bool(of: .isMale) ? "Male" : "Female", comment: "") 
             weightText.text = String(UserDefaults.int(of: .weight))
             heightText.text = String(UserDefaults.int(of: .height))
         }

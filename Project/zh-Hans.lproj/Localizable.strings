@@ -1,0 +1,165 @@
+/* 
+  Localizable.strings
+  Taylor
+
+  Created by Kevin Sum on 25/3/2018.
+  Copyright © 2018 KevinSum. All rights reserved.
+*/
+
+// General
+"Setting" =
+"设定";
+"Cancel" =
+"取消";
+"Apply" =
+"应用";
+"OK" =
+"确定";
+"Gender" =
+"性别";
+"Weight" =
+"体重";
+"Height" =
+"身高";
+
+// Notification
+"Hello I'm here" =
+"你好";
+"from" =
+"来自";
+"Notification triggered" =
+"通知触发";
+"Turn on notification" =
+"手机通知";
+"Please turn on the notification for finding your phone" =
+"请设定手机通知以开启寻找手机功能";
+
+// Health
+"HEALTH" =
+"健康";
+"health" =
+"健康";
+"Week" =
+"周";
+"Month" =
+"月";
+"Set Goals" =
+"设定目标";
+"Body Measurements" =
+"个人数据";
+"Weekly Total" =
+"本周总数";
+"Monthly Total" =
+"本月总数";
+"Weekly Average" =
+"本周平均";
+"Monthly Average" =
+"本月平均";
+"steps" =
+"步";
+"cals" =
+"卡";
+
+// Profile
+"PROFILE SETTINGS" =
+"个人资料";
+"Please enter your personal info, the information will be saved on your device." =
+"请输入你的个人数据";
+"Email" =
+"邮箱";
+"Name Device" =
+"设备名称";
+"Birthday" =
+"生日";
+"Skip" =
+"略过";
+"Save" =
+"保存";
+"Male" =
+"男士";
+"Female" =
+"女士";
+"Send mail" =
+"发送邮件";
+"Please set up your email first" =
+"请先设定邮箱";
+
+// Scan
+"Please enter the number that hour hand and minute hand indicate separately" =
+"请分别选择手表时针与分针的数值";
+"This code will be saved in info. It will be needed when you connect to the new mobile and want to log with history data." =
+"配对码将会存储到应用信息中，每次手表时都需要使用该配对码。";
+
+// Device Options
+"CHOOSE A DEVICE" =
+"选择设备";
+"Device Options" =
+"设备选项";
+"Add A Watch" =
+"添加手表";
+"Delete" =
+"删除";
+"Not connected!" =
+"未连接！";
+"Please note that all the history data will be cleared once the device is forgotten from the \"bluetooth settings\"." =
+"请注意，如果在\"蓝芽设定\"中忘记设备，所有历史数据均会清除。";
+"Edit" =
+"编辑";
+"Edit Nick Name" =
+"编辑昵称";
+"Back" =
+"返回";
+
+// Home
+"HOME" =
+"主页";
+"home" =
+"主页";
+"STEPS" =
+"步";
+"CALS" =
+"卡";
+
+// Info
+"INFO" =
+"关于";
+"info" =
+"关于";
+"Watch Bettery" =
+"手表电量";
+"Bluetooth" =
+"蓝牙信息";
+"Model Name" =
+"手表型号";
+"Pairing Code" =
+"配对编码";
+"Frame Number" =
+"框架编号";
+"App Version" =
+"程序版本";
+
+// Setting
+"SETTINGS" =
+"设定";
+"settings" =
+"设定";
+"Social Media Notification" =
+"应用通知";
+"Find my Watch" =
+"寻找手机";
+
+// Time
+"TIME" =
+"时间";
+"time" =
+"时间";
+"Phone\nTime" =
+"手机时间";
+"Manual\nSync" =
+"手动设置";
+"Change\nTime Zone" =
+"改变时区";
+"Choose a time zone" =
+"选择时区";
+"CHANGE TIME ZONE" =
+"改变时区";

@@ -19,6 +19,9 @@
 		4B0E24CD2067CD6200B66ACD /* ResizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */; };
 		4B0E24CE2067CD6200B66ACD /* ResizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */; };
 		4B0E24CF2067CD6200B66ACD /* ResizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */; };
+		4B0E24D42067E70F00B66ACD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B0E24D82067E70F00B66ACD /* Localizable.strings */; };
+		4B0E24D52067E70F00B66ACD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B0E24D82067E70F00B66ACD /* Localizable.strings */; };
+		4B0E24D62067E70F00B66ACD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4B0E24D82067E70F00B66ACD /* Localizable.strings */; };
 		4B1363941FD25D8000AAE628 /* TimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1363931FD25D8000AAE628 /* TimeController.swift */; };
 		4B167E9E2014A31D009DCD4D /* DeviceOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */; };
 		4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B167EBE20166900009DCD4D /* NavigationBar.swift */; };
@@ -173,6 +176,11 @@
 		450D1568F01D2AEA8221D9C7 /* Pods_Watch_SEAGULL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_SEAGULL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B0E24C12066373B00B66ACD /* TAYLOR-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TAYLOR-Bridging-Header.h"; sourceTree = "<group>"; };
 		4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedTabBar.swift; sourceTree = "<group>"; };
+		4B0E24D72067E70F00B66ACD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4B0E24D92067E71B00B66ACD /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4B0E24DA2067E72400B66ACD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4B0E24DB2067E72B00B66ACD /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4B0E24DC2067E89C00B66ACD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B1363931FD25D8000AAE628 /* TimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeController.swift; sourceTree = "<group>"; };
 		4B167E9D2014A31D009DCD4D /* DeviceOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceOptionsController.swift; sourceTree = "<group>"; };
 		4B167EBE20166900009DCD4D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -327,6 +335,7 @@
 				0A304E4C205BA18B003DEC0A /* NOTIFY_SEAGULL.png */,
 				0A304E44205B9FAB003DEC0A /* NOTIFY.m4a */,
 				4B0E24C12066373B00B66ACD /* TAYLOR-Bridging-Header.h */,
+				4B0E24D82067E70F00B66ACD /* Localizable.strings */,
 				4BA6EE7F1EE87D660098C4DA /* Helper */,
 				4BA6EE801EE87D730098C4DA /* Model */,
 				4BA6EE841EE87D8E0098C4DA /* View */,
@@ -395,8 +404,8 @@
 		4BBED72F20262C0A00B560F4 /* HealthOptions */ = {
 			isa = PBXGroup;
 			children = (
-				4BBED73020262C3200B560F4 /* HealthOptions.xib */,
 				4BBED732202630EB00B560F4 /* HealthOptions.swift */,
+				4BBED73020262C3200B560F4 /* HealthOptions.xib */,
 			);
 			path = HealthOptions;
 			sourceTree = "<group>";
@@ -546,6 +555,10 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				"zh-Hans",
+				"zh-Hant",
+				ja,
 			);
 			mainGroup = 4BA6EE001EE87B7B0098C4DA;
 			productRefGroup = 4BA6EE0A1EE87B7B0098C4DA /* Products */;
@@ -573,6 +586,7 @@
 				4BA05994205E55F90047894C /* WatchApi.plist in Resources */,
 				4BA05995205E55F90047894C /* HealthOptions.xib in Resources */,
 				4BA05996205E55F90047894C /* WatchFace.xib in Resources */,
+				4B0E24D52067E70F00B66ACD /* Localizable.strings in Resources */,
 				4BA059E5205E622A0047894C /* LaunchFoxter.storyboard in Resources */,
 				4BA05998205E55F90047894C /* Assets.xcassets in Resources */,
 				4BA05999205E55F90047894C /* SBServices.plist in Resources */,
@@ -592,6 +606,7 @@
 				4BA059D4205E560B0047894C /* HealthOptions.xib in Resources */,
 				4BA059D5205E560B0047894C /* WatchFace.xib in Resources */,
 				4BA059D6205E560B0047894C /* NOTIFY_SEAGULL.png in Resources */,
+				4B0E24D62067E70F00B66ACD /* Localizable.strings in Resources */,
 				4BA059E9205E64F80047894C /* LaunchSeagull.storyboard in Resources */,
 				4BA059D7205E560B0047894C /* Assets.xcassets in Resources */,
 				4BA059D8205E560B0047894C /* SBServices.plist in Resources */,
@@ -611,6 +626,7 @@
 				0A304E45205B9FAB003DEC0A /* NOTIFY.m4a in Resources */,
 				0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */,
 				4BBED73120262C3200B560F4 /* HealthOptions.xib in Resources */,
+				4B0E24D42067E70F00B66ACD /* Localizable.strings in Resources */,
 				4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
 				4B6691B7203C118E001421CB /* SBServices.plist in Resources */,
@@ -1005,6 +1021,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4B0E24D82067E70F00B66ACD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4B0E24D72067E70F00B66ACD /* en */,
+				4B0E24D92067E71B00B66ACD /* fr */,
+				4B0E24DA2067E72400B66ACD /* zh-Hans */,
+				4B0E24DB2067E72B00B66ACD /* zh-Hant */,
+				4B0E24DC2067E89C00B66ACD /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4BA0599D205E55F90047894C /* Debug */ = {

@@ -16,6 +16,9 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var _toggleButton: UIButton!
     @IBOutlet weak var _searchBar: UISearchBar!
     @IBOutlet weak var _toolBar: UIToolbar!
+    @IBOutlet weak var _cancelButton: UIButton!
+    @IBOutlet weak var _applyButton: UIButton!
+    
     var timeController: TimeController?
     
     let timeZoneMap:[String:String] = ["Asia/Calcutta"      : "5-3",
@@ -30,6 +33,12 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Localize
+        title = NSLocalizedString("CHANGE TIME ZONE", comment: "")
+        _toggleButton.setTitle(NSLocalizedString("Choose a time zone", comment: ""), for: .normal)
+        _cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        _applyButton.setTitle(NSLocalizedString("Apply", comment: ""), for: .normal)
+        
         UIBarButtonItem.appearance(whenContainedInInstancesOf:[UISearchBar.self]).tintColor = .white
         
         if let timeZoneName = UserDefaults.string(of: .timezone),
@@ -37,6 +46,11 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
             selectedTimeZone = timezone
         }
         updateMapView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        didToggle(_toggleButton)
     }
     
     func updateMapView() {
@@ -63,9 +77,9 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
     
     @IBAction func didToggle(_ sender: UIButton) {
         if _mapView.isHidden {
-            sender.titleLabel?.text = "Choose a time zone fa:angleup"
+            sender.titleLabel?.text = "\(NSLocalizedString("Choose a time zone", comment: "")) fa:angleup"
         } else {
-            sender.titleLabel?.text = "Choose a time zone fa:angledown"
+            sender.titleLabel?.text = "\(NSLocalizedString("Choose a time zone", comment: "")) fa:angledown"
         }
         sender.parseIcon()
         UIView.animate(withDuration: 0.2) {
@@ -105,7 +119,7 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
         bgView.backgroundColor = UIColor("#FDDFC0")
         cell.selectedBackgroundView = bgView
         let zone = NSTimeZone(name: timeZones[indexPath.row])
-        cell.textLabel?.text = timeZones[indexPath.row]
+        cell.textLabel?.text = zone?.localizedName(.generic, locale: Locale.current)
         cell.detailTextLabel?.text = zone?.abbreviation
         return cell
     }
@@ -129,7 +143,7 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             timeZones = NSTimeZone.knownTimeZoneNames.filter {
-                $0.contains(searchText)
+                $0.contains(searchText) || (NSTimeZone(name: $0)?.localizedName(NSTimeZone.NameStyle.generic, locale: Locale.current)?.contains(searchText) ?? false)
             }
         } else {
             timeZones = NSTimeZone.knownTimeZoneNames

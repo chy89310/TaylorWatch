@@ -23,6 +23,12 @@ class HealthController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Localize
+        title = NSLocalizedString("HEALTH", comment: "")
+        weekButton.setTitle(NSLocalizedString("Week", comment: ""), for: .normal)
+        monthButton.setTitle(NSLocalizedString("Month", comment: ""), for: .normal)
+        
         chartView.dragEnabled = false
         chartView.setScaleEnabled(false)
         chartView.pinchZoomEnabled = false

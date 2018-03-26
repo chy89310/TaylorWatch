@@ -13,8 +13,10 @@ import UIKit
 
 class SettingController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var _descLabel: UILabel!
     @IBOutlet weak var _notificationSwitch: UISwitch!
     @IBOutlet weak var _collectionView: UICollectionView!
+    @IBOutlet weak var _findButton: UIButton!
     var messageIcon: [UISwitch:String] = [:]
     var swtichArray: [UISwitch] = []
     let messageCode: [SBManager.MESSAGE_TYPE:Any] = [
@@ -36,6 +38,11 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Localize
+        title = NSLocalizedString("SETTINGS", comment: "")
+        _descLabel.text = NSLocalizedString("Social Media Notification", comment: "")
+        _findButton.setTitle(NSLocalizedString("Find my Watch", comment: ""), for: .normal)
         
         _notificationSwitch.layer.cornerRadius = 16
         _notificationSwitch.tintColor = UIColor("#4a4a4a")

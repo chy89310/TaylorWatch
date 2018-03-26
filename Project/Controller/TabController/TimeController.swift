@@ -15,6 +15,15 @@ class TimeController: BaseViewController {
     @IBOutlet weak var manSyncBtn: RoundButton!
     @IBOutlet weak var timeZoneBtn: RoundButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Localize
+        title = NSLocalizedString("TIME", comment: "")
+        phoneSyncBtn.setTitle(NSLocalizedString("Phone\nTime", comment: ""), for: .normal)
+        manSyncBtn.setTitle(NSLocalizedString("Manual\nSync", comment: ""), for: .normal)
+        timeZoneBtn.setTitle(NSLocalizedString("Change\nTime Zone", comment: ""), for: .normal)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

@@ -19,6 +19,8 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Localize
+        title = NSLocalizedString("INFO", comment: "")
     }
     
     func updateAppAction() {

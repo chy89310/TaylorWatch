@@ -283,13 +283,17 @@
                         <outlet property="_birthDayLabel" destination="HGT-Xf-dKP" id="V1J-vd-oCa"/>
                         <outlet property="_birthDayText" destination="t9x-6H-xPo" id="3K7-1h-rNM"/>
                         <outlet property="_datePicker" destination="2pq-IB-rgB" id="gxf-3g-WCX"/>
+                        <outlet property="_descLabel" destination="6fN-zu-jNj" id="sxw-5b-J5M"/>
                         <outlet property="_deviceLabel" destination="afW-Z9-mD1" id="1Kt-W5-v5C"/>
                         <outlet property="_deviceText" destination="yG8-lq-ffx" id="wY4-NE-GbM"/>
                         <outlet property="_emailLabel" destination="Fci-eV-NlB" id="SMz-xV-zcO"/>
                         <outlet property="_emailText" destination="c4q-Hf-HmT" id="gPm-bP-ZEu"/>
                         <outlet property="_genderButton" destination="TcG-QN-OBi" id="nvO-QA-0Gx"/>
+                        <outlet property="_genderLabel" destination="gGe-E1-NXh" id="ADv-1u-SgM"/>
                         <outlet property="_heightLabel" destination="33g-hF-19T" id="240-wN-Y55"/>
                         <outlet property="_heightText" destination="SbG-S7-ojt" id="FkJ-gD-Dz9"/>
+                        <outlet property="_saveButton" destination="Bmd-P2-of7" id="ghL-1D-P3g"/>
+                        <outlet property="_skipButton" destination="51G-2t-4z2" id="pBQ-I1-7cV"/>
                         <outlet property="_weightLabel" destination="FTw-ym-6PN" id="3An-Ae-pl0"/>
                         <outlet property="_weightText" destination="lEg-Am-U0d" id="KrB-ej-HCT"/>
                         <segue destination="cXX-Vb-rmb" kind="presentation" identifier="showWatch" id="5iC-Gy-PTa"/>
@@ -588,6 +592,7 @@
                     <connections>
                         <outlet property="caloriesLabel" destination="lNc-l6-QzC" id="859-Sm-CPm"/>
                         <outlet property="dateLabel" destination="JUj-31-luv" id="sa2-di-m7y"/>
+                        <outlet property="deviceButton" destination="qey-wV-P4e" id="B0v-FR-YfQ"/>
                         <outlet property="stepLabel" destination="BW9-rS-e7P" id="qaa-fX-PjD"/>
                         <outlet property="stepView" destination="tiS-vP-qkg" id="Znu-S7-fKQ"/>
                         <outlet property="watchView" destination="svq-oF-8SK" id="ILC-w0-z7j"/>
@@ -602,7 +607,7 @@
         <!--CHOOSE A DEVICE-->
         <scene sceneID="x5W-n3-Dst">
             <objects>
-                <viewController id="V9B-AE-KHa" customClass="DeviceOptionsController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="V9B-AE-KHa" customClass="DeviceOptionsController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vuP-ta-vIL"/>
                         <viewControllerLayoutGuide type="bottom" id="NBa-w6-VuP"/>
@@ -740,6 +745,9 @@
                     <navigationItem key="navigationItem" title="CHOOSE A DEVICE" id="Wp2-VW-rNm"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="_addButton" destination="LS7-tW-Qfs" id="EeS-TN-ZMR"/>
+                        <outlet property="_cancelButton" destination="5ak-PE-SFR" id="lGA-Fd-cPi"/>
+                        <outlet property="_deleteButton" destination="bS6-98-8k5" id="Fpx-kI-Pi1"/>
                         <outlet property="_tableView" destination="TmM-zH-kS5" id="aMR-GG-r20"/>
                     </connections>
                 </viewController>
@@ -759,7 +767,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
                                 <rect key="frame" x="16" y="121.5" width="343" height="257.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -767,13 +775,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
-                                <rect key="frame" x="0.0" y="379" width="375" height="218"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
+                                <rect key="frame" x="0.0" y="379" width="375" height="239"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
-                                        <rect key="frame" x="28" y="63.5" width="319" height="91"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
+                                        <rect key="frame" x="28" y="74" width="319" height="91"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -789,7 +797,7 @@ Time</string>
                                                     <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="52X-e5-6Td"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
                                                 <rect key="frame" x="114" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -805,7 +813,7 @@ Sync</string>
                                                     <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="BTh-rw-Umy"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
                                                 <rect key="frame" x="228" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -886,7 +894,7 @@ Time Zone</string>
                                         <rect key="frame" x="0.0" y="248.5" width="375" height="32"/>
                                         <color key="backgroundColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="Choose a time zone fa:angleup">
+                                        <state key="normal">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -986,6 +994,8 @@ Time Zone</string>
                     </view>
                     <navigationItem key="navigationItem" title="CHANGE TIME ZONE" id="dgR-lK-jAr"/>
                     <connections>
+                        <outlet property="_applyButton" destination="egd-bN-NyZ" id="P3M-dx-bsl"/>
+                        <outlet property="_cancelButton" destination="5na-yW-3n1" id="ssL-oW-aeo"/>
                         <outlet property="_mapView" destination="nbf-uE-sdw" id="nuT-12-Wtj"/>
                         <outlet property="_searchBar" destination="sKE-x9-5Y6" id="zvS-sw-cb3"/>
                         <outlet property="_tableView" destination="kZM-B5-XXb" id="37X-AU-Y0o"/>
@@ -1145,6 +1155,8 @@ Time Zone</string>
                     <navigationItem key="navigationItem" title="SETTING" id="rvb-WR-ivs"/>
                     <connections>
                         <outlet property="_collectionView" destination="QNU-LR-ou7" id="gjU-O2-yYg"/>
+                        <outlet property="_descLabel" destination="xTN-SD-aJa" id="P45-Jl-ggw"/>
+                        <outlet property="_findButton" destination="6io-s7-WXF" id="nK2-x8-286"/>
                         <outlet property="_notificationSwitch" destination="cqL-Ec-BWw" id="UUA-DM-Fzl"/>
                     </connections>
                 </viewController>
@@ -1155,7 +1167,7 @@ Time Zone</string>
         <!--INFO-->
         <scene sceneID="p1W-mN-PWl">
             <objects>
-                <viewController id="sha-Qa-dmb" customClass="InfoController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="sha-Qa-dmb" customClass="InfoController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5BY-q4-aDA"/>
                         <viewControllerLayoutGuide type="bottom" id="yEI-s7-BJl"/>
@@ -1391,7 +1403,7 @@ Time Zone</string>
         <image name="nav_time" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2tG-Sb-2bl"/>
-        <segue reference="tiF-sG-S9t"/>
+        <segue reference="Kr1-f6-mcv"/>
+        <segue reference="5iC-Gy-PTa"/>
     </inferredMetricsTieBreakers>
 </document>

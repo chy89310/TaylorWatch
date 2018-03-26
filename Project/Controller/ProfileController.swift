@@ -13,6 +13,7 @@ import UIKit
 
 class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
 
+    @IBOutlet weak var _descLabel: UILabel!
     @IBOutlet weak var _emailLabel: UILabel!
     @IBOutlet weak var _emailText: UITextField!
     @IBOutlet weak var _deviceLabel: UILabel!
@@ -23,14 +24,28 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
     @IBOutlet weak var _weightText: UITextField!
     @IBOutlet weak var _heightLabel: UILabel!
     @IBOutlet weak var _heightText: UITextField!
+    @IBOutlet weak var _genderLabel: UILabel!
     @IBOutlet weak var _genderButton: UIButton!
     @IBOutlet var _datePicker: UIDatePicker!
+    @IBOutlet weak var _skipButton: UIButton!
+    @IBOutlet weak var _saveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let textAttributes = [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        title = "PROFILE SETTINGS"
+        // Localize
+        title = NSLocalizedString("PROFILE SETTINGS", comment: "")
+        _descLabel.text = NSLocalizedString("Please enter your personal info, the information will be saved on your device.", comment: "")
+        _emailLabel.text = NSLocalizedString("Email", comment: "")
+        _deviceLabel.text = NSLocalizedString("Name Device", comment: "")
+        _birthDayLabel.text = NSLocalizedString("Birthday", comment: "")
+        _genderLabel.text = NSLocalizedString("Gender", comment: "")
+        _weightLabel.text = NSLocalizedString("Weight", comment: "")
+        _heightLabel.text = NSLocalizedString("Height", comment: "")
+        _skipButton.setTitle(NSLocalizedString("Skip", comment: ""), for: .normal)
+        _saveButton.setTitle(NSLocalizedString("Save", comment: ""), for: .normal)
+        
         _birthDayText.inputView = _datePicker
         // Fix IQKeyboardManager bug
         _datePicker.translatesAutoresizingMaskIntoConstraints = false
@@ -132,7 +147,7 @@ class ProfileController: BaseViewController, UITextFieldDelegate, MFMailComposeV
             (navigationController ?? self).present(composeVC, animated: true, completion: nil)
         } else if validate() {
             //performSegue(withIdentifier: "showWatch", sender: nil)
-            let alert = UIAlertController(title: NSLocalizedString("Send mail", comment: ""), message: NSLocalizedString("Please set up your email first.", comment: ""), preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("Send mail", comment: ""), message: NSLocalizedString("Please set up your email first", comment: ""), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("Setting", comment: ""), style: .default, handler: { (action) in
                 let email = "mailto:?cc=&subject=&body=".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                 UIApplication.shared.open(URL.init(string: email!)!, options: [:], completionHandler: nil)

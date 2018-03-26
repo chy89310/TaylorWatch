@@ -16,11 +16,22 @@ import UIKit
 class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var _tableView: UITableView!
+    @IBOutlet weak var _addButton: UIButton!
+    @IBOutlet weak var _cancelButton: UIButton!
+    @IBOutlet weak var _deleteButton: UIButton!
+    
     var connectedPeripheral: [CBPeripheral] = []
     var deleteState = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Localize
+        title = NSLocalizedString("CHOOSE A DEVICE", comment: "")
+        _addButton.setTitle(NSLocalizedString("Add A Watch", comment: ""), for: .normal)
+        _cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
+        _deleteButton.setTitle(NSLocalizedString("Delete", comment: ""), for: .normal)
+        
         updateConnectedPeripheral()
         _tableView.reloadData()
     }

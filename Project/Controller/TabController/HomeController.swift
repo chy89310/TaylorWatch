@@ -13,6 +13,7 @@ import UIKit
 class HomeController: BaseViewController {
 
     @IBOutlet weak var watchView: WatchView!
+    @IBOutlet weak var deviceButton: RoundButton!
     @IBOutlet weak var stepView: StepPercentView!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -23,6 +24,10 @@ class HomeController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Localize
+        title = NSLocalizedString("HOME", comment: "")
+        deviceButton.setTitle(NSLocalizedString("Device Options", comment: ""), for: .normal)
         
         // Update ANCS notification
         SBManager.share.subscribeToANCS(true)
