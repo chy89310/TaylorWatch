@@ -70,7 +70,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             let volume = userInfo["AVSystemController_AudioVolumeNotificationParameter"] as? CGFloat {
             let change = volume - self.volume
             self.volume = volume
-            if change*easterEgg[0] > 0 {
+            if easterEgg.count > 0, change*easterEgg[0] > 0 {
                 easterEgg.remove(at: 0)
                 if easterEgg.count == 0 {
                     performSegue(withIdentifier: "showProfile", sender: nil)
