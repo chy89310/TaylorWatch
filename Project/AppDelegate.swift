@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        
         // SwiftyBeaver log setup
         let console = ConsoleDestination()
         console.minLevel = .debug
@@ -50,13 +52,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: { (granted, error) in })
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
+            try AVAudioSession.sharedInstance().setActive(false, with: .notifyOthersOnDeactivation)
         } catch let error {
             log.error(error.localizedDescription)
         }
         log.info(launchOptions)
         
         return true
+    }
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        SBManager.share.getTargetSteps()
+        completionHandler(.newData)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
