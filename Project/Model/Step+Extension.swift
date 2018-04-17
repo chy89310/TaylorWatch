@@ -14,6 +14,19 @@ extension Step {
         var set = [TimeInterval:Int32]()
         let calendar = Calendar.current
         let now = Date()
+        /* get the step set in last week or last month */
+        let firstDay = calendar.date(byAdding: isWeek ? .weekOfYear : .month, value: -1, to: now) ?? Date()
+        let first = calendar.dateComponents([.day], from: now, to: firstDay).day ?? 0
+        for index in first...0 {
+            if let date = calendar.date(byAdding: .day, value: index, to: now) {
+                //Get last step of each date
+                let twelvehours: Double = 60*60*24
+                let steps = step(for: date)
+                set[date.timeIntervalSince1970+twelvehours] = steps
+                log.debug("\(date):\(steps)")
+            }
+        }
+        /* get the step set in the range of week or month
         var range: CountableRange<Int> = 0..<1
         if isWeek {
             // Get day range of this week
@@ -39,6 +52,7 @@ extension Step {
             }
         }
         log.debug(set)
+        */
         return set
     }
     

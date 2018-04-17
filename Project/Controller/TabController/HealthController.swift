@@ -46,6 +46,9 @@ class HealthController: BaseViewController {
         xAxis.drawGridLinesEnabled = false
         xAxis.centerAxisLabelsEnabled = true
         xAxis.granularity = daySeconds
+        xAxis.granularityEnabled = true
+        xAxis.avoidFirstLastClippingEnabled =  true
+        xAxis.forceLabelsEnabled = true
         
         let leftAxis = chartView.leftAxis
         leftAxis.labelPosition = .outsideChart
@@ -103,6 +106,9 @@ class HealthController: BaseViewController {
         data.setValueFont(UIFont.systemFont(ofSize: 9))
 
         chartView.data = data
+        if (isWeek) {
+            chartView.xAxis.setLabelCount(set.values.count, force: true)
+        }
         chartView.xAxis.valueFormatter = XAxisDateFormatter(isWeek: isWeek)
         chartView.animate(xAxisDuration: 1)
     }
