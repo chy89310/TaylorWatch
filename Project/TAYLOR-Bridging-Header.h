@@ -3,3 +3,5 @@
 //
 
 #import "MBProgressHUD/MBProgressHUD.h"
+#import "PgySDK/PgyManager.h"
+#import "PgyUpdate/PgyUpdateManager.h"

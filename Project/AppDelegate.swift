@@ -48,6 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSTimeZone.default = timezone
         }
         
+        // PgySDK
+        PgyManager.shared().start(withAppId: "558c71c79553840cf8211c49fb305679")
+        PgyUpdateManager.sharedPgy().start(withAppId: "558c71c79553840cf8211c49fb305679")
+        PgyUpdateManager.sharedPgy().checkUpdate()
+        
         // Local Notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: { (granted, error) in })
         do {
@@ -88,6 +93,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         // Siren setup
         Siren.shared.checkVersion(checkType: .daily)
+        
+        // PgyUpdate
+        PgyUpdateManager.sharedPgy().checkUpdate()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
