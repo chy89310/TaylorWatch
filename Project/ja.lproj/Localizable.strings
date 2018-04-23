@@ -5,3 +5,161 @@
   Created by Kevin Sum on 25/3/2018.
   Copyright © 2018 KevinSum. All rights reserved.
 */
+
+// General
+"Setting" =
+"設定";
+"Cancel" =
+"キャンセル";
+"Apply" =
+"適用";
+"OK" =
+"OK";
+"Gender" =
+"性別";
+"Weight" =
+"体重";
+"Height" =
+"身長";
+
+// Notification
+"Hello I'm here" =
+"こんにちは";
+"from" =
+"から";
+"Notification triggered" =
+"通知を出しました";
+"Turn on notification" =
+"通知をオンにする";
+"Please turn on the notification for finding your phone" =
+"iPhoneを探すための通知設定を有効にしてください。";
+
+// Health
+"HEALTH" =
+"ヘルス";
+"health" =
+"ヘルス";
+"Week" =
+"週";
+"Month" =
+"月";
+"Set Goals" =
+"目標を設定する";
+"Body Measurements" =
+"身体情報";
+"Weekly Total" =
+"今週の合計";
+"Monthly Total" =
+"今月の合計";
+"Weekly Average" =
+"今週の平均";
+"Monthly Average" =
+"今月の平均";
+"steps" =
+"歩数";
+"cals" =
+"キロカロリー";
+
+// Profile
+"PROFILE SETTINGS" =
+"プロフィール";
+"Please enter your personal info, the information will be saved on your device." =
+"プロフィールを登録してください。登録情報はデバイスに記録します。";
+"Email" =
+"Email";
+"Name Device" =
+"デバイスの名称";
+"Birthday" =
+"誕生日";
+"Skip" =
+"スキップ";
+"Save" =
+"保存";
+"Male" =
+"男性";
+"Female" =
+"女性";
+"Send mail" =
+"メールを送る";
+"Please set up your email first" =
+"メールアドレスを先に設定してください";
+
+// Scan
+"Please enter the number that hour hand and minute hand indicate separately" =
+"時針と分針の示している数字をそれぞれ入力してください";
+"This code will be saved in info. It will be needed when you connect to the new mobile and want to log with history data." =
+"この番号はアプリに記録されます。また、この番号は新しい携帯電話に登録する際、履歴情報を統合するのに要求されます。";
+
+// Device Options
+"CHOOSE A DEVICE" =
+"デバイスを選択";
+"Device Options" =
+"デバイスオプション";
+"Add A Watch" =
+"腕時計を追加登録する";
+"Delete" =
+"削除";
+"Not connected!" =
+"通信エラー！";
+"Please note that all the history data will be cleared once the device is forgotten from the \"bluetooth settings\"." =
+"注意，\"Bluetooth設定\"からデバイスを削除した場合，デバイス中の履歴も同時に削除されます。";
+"Edit" =
+"編集";
+"Edit Nick Name" =
+"ニックネームの設定";
+"Back" =
+"戻る";
+
+// Home
+"HOME" =
+"ホーム";
+"home" =
+"ホーム";
+"STEPS" =
+"歩数";
+"CALS" =
+"キロカロリー";
+
+// Info
+"INFO" =
+"情報";
+"info" =
+"情報";
+"Watch Bettery" =
+"時計のバッテリー残量";
+"Bluetooth" =
+"Bluetooth";
+"Model Name" =
+"時計の型番";
+"Pairing Code" =
+"ペアリング用暗証番号";
+"Frame Number" =
+"フレーム番号";
+"App Version" =
+"アプリのバージョン";
+
+// Setting
+"SETTINGS" =
+"設定";
+"settings" =
+"設定";
+"Social Media Notification" =
+"SMS通知";
+"Find my Watch" =
+"時計を探す";
+
+// Time
+"TIME" =
+"時間";
+"time" =
+"時間";
+"Phone\nTime" =
+"携帯の時計";
+"Manual\nSync" =
+"手動で同期する";
+"Change\nTime Zone" =
+"タイムゾーンの変更";
+"Choose a time zone" =
+"タイムゾーンの選択";
+"CHANGE TIME ZONE" =
+"タイムゾーンの変更";
