@@ -13,12 +13,12 @@ extension Step {
     class func getSet(ofWeek isWeek: Bool) -> [TimeInterval:Int32] {
         var set = [TimeInterval:Int32]()
         let calendar = Calendar.current
-        let now = Date()
+        let today = calendar.date(bySettingHour: 0, minute: 0, second: 0, of: Date()) ?? Date()
         /* get the step set in last week or last month */
-        let firstDay = calendar.date(byAdding: isWeek ? .weekOfYear : .month, value: -1, to: now) ?? Date()
-        let first = calendar.dateComponents([.day], from: now, to: firstDay).day ?? 0
+        let firstDay = calendar.date(byAdding: isWeek ? .weekOfYear : .month, value: -1, to: today) ?? Date()
+        let first = calendar.dateComponents([.day], from: today, to: firstDay).day ?? 0
         for index in first...0 {
-            if let date = calendar.date(byAdding: .day, value: index, to: now) {
+            if let date = calendar.date(byAdding: .day, value: index, to: today) {
                 //Get last step of each date
                 let twelvehours: Double = 60*60*24
                 let steps = step(for: date)

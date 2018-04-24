@@ -5,3 +5,161 @@
   Created by Kevin Sum on 25/3/2018.
   Copyright © 2018 KevinSum. All rights reserved.
 */
+
+// General
+"Setting" =
+"Réglages";
+"Cancel" =
+"Annuler";
+"Apply" =
+"Appliquer";
+"OK" =
+"OK";
+"Gender" =
+"Sexe";
+"Weight" =
+"Poids";
+"Height" =
+"Taille";
+
+// Notification
+"Hello I'm here" =
+"Hello, je suis içi";
+"from" =
+"De";
+"Notification triggered" =
+"Notification activée";
+"Turn on notification" =
+"Activer notification";
+"Please turn on the notification for finding your phone" =
+"Veuillez active les notifications pour active la function trouver votre telephone";
+
+// Health
+"HEALTH" =
+"SANTÉ";
+"health" =
+"santé";
+"Week" =
+"Semaine";
+"Month" =
+"Mois";
+"Set Goals" =
+"Fixer objectifs";
+"Body Measurements" =
+"Mesures";
+"Weekly Total" =
+"Total hebdomadaire";
+"Monthly Total" =
+"Total mensuel";
+"Weekly Average" =
+"Moyenne hebdomadaire";
+"Monthly Average" =
+"Moyenne mensuelle";
+"steps" =
+"Pas";
+"cals" =
+"Cals";
+
+// Profile
+"PROFILE SETTINGS" =
+"Réglages du profil";
+"Please enter your personal info, the information will be saved on your device." =
+"Veuillez saisir vos infos personnelles. Vos informations seront sauvegardées sur votre telephone";
+"Email" =
+"Email";
+"Name Device" =
+"Nom du materiel";
+"Birthday" =
+"Anniversaire";
+"Skip" =
+"Passer à l’étape suivante";
+"Save" =
+"Sauvegarder";
+"Male" =
+"Homme";
+"Female" =
+"Femme";
+"Send mail" =
+"Envoyer email";
+"Please set up your email first" =
+"Veuillez entrer votre adresse email d’abord";
+
+// Scan
+"Please enter the number that hour hand and minute hand indicate separately" =
+"Veuillez entrer le nombre que chacune des aiguilles des heures et minutes montrent de façon indépendante";
+"This code will be saved in info. It will be needed when you connect to the new mobile and want to log with history data." =
+"Ce code sera sauvegardée dans la rubrique info de votre application. Ce code sera nécessaire pour vous utiliser notre application sur un autre téléphone et bénéficier de votre historique d’information";
+
+// Device Options
+"CHOOSE A DEVICE" =
+"Choisir la montre";
+"Device Options" =
+"Options de la montre";
+"Add A Watch" =
+"Ajouter une montre";
+"Delete" =
+"Supprimer";
+"Not connected!" =
+"Non connectée";
+"Please note that all the history data will be cleared once the device is forgotten from the \"bluetooth settings\"." =
+"Veuillez tenir compte que tout l’historique des données sera effacé une fois que votre montre sera supprimée des \"réglages bluetooth\".";
+"Edit" =
+"Editer";
+"Edit Nick Name" =
+"Choisir le pseudo";
+"Back" =
+"Retour";
+
+// Home
+"HOME" =
+"HOME";
+"home" =
+"home";
+"STEPS" =
+"PAS";
+"CALS" =
+"CALS";
+
+// Info
+"INFO" =
+"INFO";
+"info" =
+"info";
+"Watch Bettery" = 
+"Batterie de la montre";
+"Bluetooth" =
+"Bluetooth";
+"Model Name" =
+"Noms du modèle";
+"Pairing Code" =
+"Code d’appairage";
+"Frame Number" =
+"Numéro de série";
+"App Version" =
+"Version de l’app";
+
+// Setting
+"SETTINGS" =
+"RÉGLAGES";
+"settings" =
+"réglages";
+"Social Media Notification" =
+"Notification de réseaux sociaux";
+"Find my Watch" =
+"Trouver ma montre";
+
+// Time
+"TIME" =
+"HEURE";
+"time" =
+"heure";
+"Phone\nTime" =
+"Heure du \ntéléphone";
+"Manual\nSync" =
+"Syncho \nmanuelle";
+"Change\nTime Zone" =
+"Changer le \nfuseau horaire";
+"Choose a time zone" =
+"Choisir le fuseau horaire";
+"CHANGE TIME ZONE" =
+"CHANGER LE FUSEAU HORAIRE";
