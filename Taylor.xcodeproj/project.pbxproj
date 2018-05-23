@@ -44,6 +44,12 @@
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
 		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
 		4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
+		4B6562AA20B5C54300831CF8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562A920B5C54300831CF8 /* LoginController.swift */; };
+		4B6562AB20B5C54300831CF8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562A920B5C54300831CF8 /* LoginController.swift */; };
+		4B6562AC20B5C54300831CF8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562A920B5C54300831CF8 /* LoginController.swift */; };
+		4B6562AE20B5CD2200831CF8 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562AD20B5CD2200831CF8 /* RegisterController.swift */; };
+		4B6562AF20B5CD2200831CF8 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562AD20B5CD2200831CF8 /* RegisterController.swift */; };
+		4B6562B020B5CD2200831CF8 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562AD20B5CD2200831CF8 /* RegisterController.swift */; };
 		4B6691B7203C118E001421CB /* SBServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B6691B6203C118E001421CB /* SBServices.plist */; };
 		4B6691B9203C20E6001421CB /* SBService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6691B8203C20E6001421CB /* SBService+Extension.swift */; };
 		4B6DB859204AEC5F0029A10E /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */; };
@@ -203,6 +209,8 @@
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
+		4B6562A920B5C54300831CF8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		4B6562AD20B5CD2200831CF8 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		4B6691B6203C118E001421CB /* SBServices.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SBServices.plist; sourceTree = "<group>"; };
 		4B6691B8203C20E6001421CB /* SBService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBService+Extension.swift"; sourceTree = "<group>"; };
 		4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
@@ -350,7 +358,9 @@
 				4B7277981F12A021009AC306 /* BaseViewController.swift */,
 				4B167EC020166C82009DCD4D /* BaseNavigationController.swift */,
 				0A32C5572047AA9600BD6A5B /* BluetoothController.swift */,
+				4B6562A920B5C54300831CF8 /* LoginController.swift */,
 				4B8EAB28201F83EC00B2A9C6 /* ProfileController.swift */,
+				4B6562AD20B5CD2200831CF8 /* RegisterController.swift */,
 				0A0B53141FC6C53100CC094D /* ScanViewController.swift */,
 				4BF01A601FCD6686009B1262 /* TabController */,
 			);
@@ -535,17 +545,17 @@
 				ORGANIZATIONNAME = KevinSum;
 				TargetAttributes = {
 					4BA05962205E55F90047894C = {
-						DevelopmentTeam = UY2WBFR383;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = Q5WH5HB3TQ;
+						ProvisioningStyle = Automatic;
 					};
 					4BA059A1205E560B0047894C = {
 						DevelopmentTeam = Q5WH5HB3TQ;
 					};
 					4BA6EE081EE87B7B0098C4DA = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 993N97N5KD;
+						DevelopmentTeam = Q5WH5HB3TQ;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -694,6 +704,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -708,6 +719,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -778,6 +790,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -792,6 +805,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -831,6 +845,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -845,6 +860,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -906,6 +922,7 @@
 				4BA0596C205E55F90047894C /* SBManager.swift in Sources */,
 				4BA0596D205E55F90047894C /* ScanViewController.swift in Sources */,
 				4BA0596E205E55F90047894C /* RoundButton.swift in Sources */,
+				4B6562AF20B5CD2200831CF8 /* RegisterController.swift in Sources */,
 				4BA0596F205E55F90047894C /* HealthController.swift in Sources */,
 				4BA05970205E55F90047894C /* AppDelegate.swift in Sources */,
 				4BA05971205E55F90047894C /* Config.swift in Sources */,
@@ -930,6 +947,7 @@
 				4BA05983205E55F90047894C /* SBService+Extension.swift in Sources */,
 				4BA05984205E55F90047894C /* ApiHelper+Define.swift in Sources */,
 				4BA05985205E55F90047894C /* SBPeripheral.swift in Sources */,
+				4B6562AB20B5C54300831CF8 /* LoginController.swift in Sources */,
 				4BA05986205E55F90047894C /* SBManager+enum.swift in Sources */,
 				4BA05987205E55F90047894C /* BalloonMarker.swift in Sources */,
 			);
@@ -949,6 +967,7 @@
 				4BA059AB205E560B0047894C /* SBManager.swift in Sources */,
 				4BA059AC205E560B0047894C /* ScanViewController.swift in Sources */,
 				4BA059AD205E560B0047894C /* RoundButton.swift in Sources */,
+				4B6562B020B5CD2200831CF8 /* RegisterController.swift in Sources */,
 				4BA059AE205E560B0047894C /* HealthController.swift in Sources */,
 				4BA059AF205E560B0047894C /* AppDelegate.swift in Sources */,
 				4BA059B0205E560B0047894C /* Config.swift in Sources */,
@@ -973,6 +992,7 @@
 				4BA059C2205E560B0047894C /* SBService+Extension.swift in Sources */,
 				4BA059C3205E560B0047894C /* ApiHelper+Define.swift in Sources */,
 				4BA059C4205E560B0047894C /* SBPeripheral.swift in Sources */,
+				4B6562AC20B5C54300831CF8 /* LoginController.swift in Sources */,
 				4BA059C5205E560B0047894C /* SBManager+enum.swift in Sources */,
 				4BA059C6205E560B0047894C /* BalloonMarker.swift in Sources */,
 			);
@@ -992,6 +1012,7 @@
 				0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */,
 				0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */,
 				4B2BB29120113EBF00ED482E /* RoundButton.swift in Sources */,
+				4B6562AE20B5CD2200831CF8 /* RegisterController.swift in Sources */,
 				4B48DA352017B9460067ECA0 /* HealthController.swift in Sources */,
 				4BA6EE0D1EE87B7B0098C4DA /* AppDelegate.swift in Sources */,
 				4B9F7DDC1EEEF932009C13A5 /* Config.swift in Sources */,
@@ -1016,6 +1037,7 @@
 				4B6691B9203C20E6001421CB /* SBService+Extension.swift in Sources */,
 				4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */,
 				4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */,
+				4B6562AA20B5C54300831CF8 /* LoginController.swift in Sources */,
 				4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */,
 				4B6DB859204AEC5F0029A10E /* BalloonMarker.swift in Sources */,
 			);
@@ -1044,17 +1066,17 @@
 			baseConfigurationReference = 943BEF5C5AA563FBDD5CEBB0 /* Pods-Watch-FOXTER.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconFoxter;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = UY2WBFR383;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_foxter.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.foxter.smartwatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.foxter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58662953-ada7-4cd6-b8b8-ce4ab30908ae";
-				PROVISIONING_PROFILE_SPECIFIER = FOXTER_Store_1023;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1066,16 +1088,16 @@
 			baseConfigurationReference = 7C35C5C1FD5EF6362689C060 /* Pods-Watch-FOXTER.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconFoxter;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = UY2WBFR383;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_foxter.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.foxter.smartwatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.foxter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58662953-ada7-4cd6-b8b8-ce4ab30908ae";
-				PROVISIONING_PROFILE_SPECIFIER = FOXTER_Store_1023;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1220,17 +1242,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconTaylor;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 993N97N5KD;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_taylor.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.taylor.smartwatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.enterprise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7429443b-0754-4c50-93f3-cadb5503f868";
-				PROVISIONING_PROFILE_SPECIFIER = TAYLORSmartWatch;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1244,16 +1266,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconTaylor;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 993N97N5KD;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_taylor.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.taylor.smartwatch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.enterprise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7429443b-0754-4c50-93f3-cadb5503f868";
-				PROVISIONING_PROFILE_SPECIFIER = TAYLORSmartWatch;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

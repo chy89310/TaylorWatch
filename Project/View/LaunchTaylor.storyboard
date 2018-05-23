@@ -32,7 +32,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Watch_TAYLOR" translatesAutoresizingMaskIntoConstraints="NO" id="f3u-ag-Kdh">
                                         <rect key="frame" x="0.0" y="0.0" width="191" height="286"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version: 2.1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHt-KQ-AkB" userLabel="APP_VERSION">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version: 2.2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHt-KQ-AkB" userLabel="APP_VERSION">
                                         <rect key="frame" x="0.0" y="346" width="191" height="20"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                         <color key="textColor" red="0.99215686274509807" green="0.87450980392156863" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
