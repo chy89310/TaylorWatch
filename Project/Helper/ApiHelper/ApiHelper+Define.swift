@@ -13,6 +13,18 @@ extension ApiHelper {
     enum Name: String {
         case baseUrl // baseUrl is required, do not remove
         case version
+        case login
+        case logout
+        case put_user
+        case get_user
+        case post_user
+        case put_device
+        case get_devices
+        case get_device
+        case post_device
+        case delete_device
+        case put_step
+        case post_step
     }
     
     // Update the defaultEnv if you edit the Env enum

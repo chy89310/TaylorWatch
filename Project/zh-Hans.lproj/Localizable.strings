@@ -163,3 +163,12 @@
 "选择时区";
 "CHANGE TIME ZONE" =
 "改变时区";
+
+// Register
+// Register
+"Register fail" =
+"注册失败";
+"The email has already been taken." =
+"邮箱已被注册";
+"The password must be at least 6 characters." =
+"密码最少6位";

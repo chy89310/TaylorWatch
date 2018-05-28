@@ -24,6 +24,11 @@
 	<true/>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>The app will connect to the watch by using Bluetooth data</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>TargetName</key>
 	<string>$(TARGET_NAME)</string>
 	<key>UIBackgroundModes</key>

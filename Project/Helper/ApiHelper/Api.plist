@@ -7,11 +7,33 @@
 	<key>baseUrl</key>
 	<dict>
 		<key>prod</key>
-		<string>this/is/a/prod/api/</string>
+		<string>http://taylorapi.ddns.net</string>
 		<key>dev</key>
-		<string>this/is/a/dev/api/</string>
+		<string>http://taylorapi.ddns.net</string>
 	</dict>
-	<key>query</key>
-	<string>query_without_base_url</string>
+	<key>login</key>
+	<string>/api/login</string>
+	<key>logout</key>
+	<string>/api/logout</string>
+	<key>put_user</key>
+	<string>/api/user</string>
+	<key>get_user</key>
+	<string>/api/user/me</string>
+	<key>post_user</key>
+	<string>/api/user</string>
+	<key>put_device</key>
+	<string>/api/device</string>
+	<key>get_devices</key>
+	<string>/api/device</string>
+	<key>get_device</key>
+	<string>/api/device/$id</string>
+	<key>post_device</key>
+	<string>/api/device/$id</string>
+	<key>delete_device</key>
+	<string>/api/device/$id</string>
+	<key>put_step</key>
+	<string>/api/step/$id</string>
+	<key>post_step</key>
+	<string>/api/step/$id</string>
 </dict>
 </plist>

@@ -50,6 +50,9 @@
 		4B6562AE20B5CD2200831CF8 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562AD20B5CD2200831CF8 /* RegisterController.swift */; };
 		4B6562AF20B5CD2200831CF8 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562AD20B5CD2200831CF8 /* RegisterController.swift */; };
 		4B6562B020B5CD2200831CF8 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562AD20B5CD2200831CF8 /* RegisterController.swift */; };
+		4B6562B220BC5A3400831CF8 /* AuthUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562B120BC5A3400831CF8 /* AuthUtil.swift */; };
+		4B6562B320BC5A3400831CF8 /* AuthUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562B120BC5A3400831CF8 /* AuthUtil.swift */; };
+		4B6562B420BC5A3400831CF8 /* AuthUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562B120BC5A3400831CF8 /* AuthUtil.swift */; };
 		4B6691B7203C118E001421CB /* SBServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B6691B6203C118E001421CB /* SBServices.plist */; };
 		4B6691B9203C20E6001421CB /* SBService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6691B8203C20E6001421CB /* SBService+Extension.swift */; };
 		4B6DB859204AEC5F0029A10E /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */; };
@@ -211,6 +214,7 @@
 		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		4B6562A920B5C54300831CF8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4B6562AD20B5CD2200831CF8 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		4B6562B120BC5A3400831CF8 /* AuthUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUtil.swift; sourceTree = "<group>"; };
 		4B6691B6203C118E001421CB /* SBServices.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SBServices.plist; sourceTree = "<group>"; };
 		4B6691B8203C20E6001421CB /* SBService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBService+Extension.swift"; sourceTree = "<group>"; };
 		4B6DB858204AEC5F0029A10E /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
@@ -374,6 +378,7 @@
 				0A1A85251FC595FF00EEA718 /* CBHelper */,
 				4B9F7DDB1EEEF932009C13A5 /* Config.swift */,
 				4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */,
+				4B6562B120BC5A3400831CF8 /* AuthUtil.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -950,6 +955,7 @@
 				4B6562AB20B5C54300831CF8 /* LoginController.swift in Sources */,
 				4BA05986205E55F90047894C /* SBManager+enum.swift in Sources */,
 				4BA05987205E55F90047894C /* BalloonMarker.swift in Sources */,
+				4B6562B320BC5A3400831CF8 /* AuthUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,6 +1001,7 @@
 				4B6562AC20B5C54300831CF8 /* LoginController.swift in Sources */,
 				4BA059C5205E560B0047894C /* SBManager+enum.swift in Sources */,
 				4BA059C6205E560B0047894C /* BalloonMarker.swift in Sources */,
+				4B6562B420BC5A3400831CF8 /* AuthUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,6 +1047,7 @@
 				4B6562AA20B5C54300831CF8 /* LoginController.swift in Sources */,
 				4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */,
 				4B6DB859204AEC5F0029A10E /* BalloonMarker.swift in Sources */,
+				4B6562B220BC5A3400831CF8 /* AuthUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

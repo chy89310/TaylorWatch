@@ -30,6 +30,8 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
     @IBOutlet weak var _heightText: UITextField!
     @IBOutlet weak var _genderLabel: UILabel!
     @IBOutlet weak var _genderButton: UIButton!
+    @IBOutlet weak var _targetLabel: UILabel!
+    @IBOutlet weak var _targetText: UITextField!
     @IBOutlet var _datePicker: UIDatePicker!
     @IBOutlet weak var _registerButton: UIButton!
     
@@ -46,6 +48,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
         _genderLabel.text = NSLocalizedString("Gender", comment: "")
         _weightLabel.text = NSLocalizedString("Weight", comment: "")
         _heightLabel.text = NSLocalizedString("Height", comment: "")
+        _targetLabel.text = NSLocalizedString("Target", comment: "")
         _registerButton.setTitle(NSLocalizedString("Register", comment: ""), for: .normal)
         
         _birthDayText.inputView = _datePicker
@@ -59,6 +62,8 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
         _weightText.text = weight > 0 ? String(weight) : ""
         let height = UserDefaults.int(of: .height)
         _heightText.text = height > 0 ? String(height) : ""
+        let target = UserDefaults.int(of: .target)
+        _targetText.text = target > 0 ? String(target) : ""
         if UserDefaults.bool(of: .isMale) {
             _genderButton.setTitle(NSLocalizedString("Male", comment: ""), for: .normal)
         } else {
@@ -73,7 +78,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
     
     func validate() -> Bool{
         var validate = true
-        for text in [_emailText, _deviceText, _birthDayText, _weightText, _heightText] {
+        for text in [_emailText, _deviceText, _birthDayText, _weightText, _heightText, _targetText] {
             if text?.text == "" {
                 validate = false
                 break
@@ -86,6 +91,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
         _birthDayLabel.textColor = _birthDayText.text == "" ? .red : .white
         _weightLabel.textColor = _weightText.text == "" ? .red : .white
         _heightLabel.textColor = _heightText.text == "" ? .red : .white
+        _targetLabel.textColor = _targetText.text == "" ? .red : .white
         if !Helper.isValidEmail(_emailText.text) {
             validate = false
             _emailLabel.textColor = .red
@@ -110,13 +116,20 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
         if let heightStr = _heightText.text {
             UserDefaults.set(Int(heightStr), forKey: .height)
         }
-        UserDefaults.set(_genderButton.title(for: .normal) == "Male", forKey: .isMale)
+        if let targetStr = _targetText.text {
+            UserDefaults.set(Int(targetStr), forKey: .target)
+        }
+        UserDefaults.set(isMale(), forKey: .isMale)
         MagicalRecord.save(blockAndWait: { (localContext) in
             if let device = SBManager.share.selectedDevice(in: localContext) {
                 device.nickName = self._deviceText.text
             }
         })
         return validate
+    }
+    
+    func isMale() -> Bool {
+        return _genderButton.title(for: .normal) == NSLocalizedString("Male", comment: "")
     }
     
     @IBAction func datePickerDidUpdate(_ sender: UIDatePicker) {
@@ -135,8 +148,68 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
     
     @IBAction func didRegisterClick(_ sender: Any) {
         if validate() {
-            log.debug("Ready to register")
+            registerUser()
         }
+    }
+    
+    func registerUser() {
+        let parameter: [String: Any] =
+            ["email": _emailText.text!,
+             "password": _passwordText.text!,
+             "gender": isMale(),
+             "birthday": _birthDayText.text!,
+             "height": _heightText.text!,
+             "weight": _weightText.text!,
+             "target": _targetText.text!]
+        ApiHelper.shared.request(
+            name: .put_user,
+            method: .put,
+            parameters: parameter,
+            success: { (json, response) in
+                if json.dictionary?["status"]?.int == 201 {
+                    if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
+                        AuthUtil.shared.token = token
+                        self.registerDevice()
+                    } else {
+                        self.showAlert(title: "Cannot get token", message: json.description)
+                    }
+                } else if let error = json.dictionary?["result"]?.dictionary?["error"]?.array?[0].string {
+                    self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: NSLocalizedString(error, comment: ""))
+                }
+                log.debug(json)
+        },
+            failure: { (error, response) in
+                self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: error.localizedDescription)
+        })
+        log.debug("Ready to register")
+    }
+    
+    func registerDevice() {
+        let parameter: [String: Any] =
+            ["bluetoothAddr": "stestse",
+             "deviceName": "test",
+             "nickName": "nick"]
+        ApiHelper.shared.request(
+            name: .put_device,
+            method: .put,
+            parameters: parameter,
+            headers: AuthUtil.shared.header,
+            success: { (json, response) in
+                log.debug(json)
+        },
+            failure: { (error, response) in
+                log.error(error.localizedDescription)
+        })
+        log.debug("Token \(AuthUtil.shared.token)")
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

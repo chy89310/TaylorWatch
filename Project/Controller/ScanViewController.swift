@@ -73,7 +73,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             if easterEgg.count > 0, change*easterEgg[0] > 0 {
                 easterEgg.remove(at: 0)
                 if easterEgg.count == 0 {
-                    performSegue(withIdentifier: "showProfile", sender: nil)
+                    performSegue(withIdentifier: "showLogin", sender: nil)
                 }
             } else {
                 // Game over
@@ -99,7 +99,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
                         })
                         // reset notification
                         SBManager.share.setMessageEnabled(with: [])
-                        self.performSegue(withIdentifier: "showProfile", sender: nil)
+                        self.performSegue(withIdentifier: "showLogin", sender: nil)
                     } else {
                         log.error(info)
                         SBManager.share.didUpdateValue = nil
@@ -150,7 +150,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isSimulator {
-            performSegue(withIdentifier: "showProfile", sender: nil)
+            performSegue(withIdentifier: "showLogin", sender: nil)
             return
         }
         let peripheral = SBManager.share.peripherals[indexPath.row]

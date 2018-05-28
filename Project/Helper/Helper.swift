@@ -64,6 +64,7 @@ extension UserDefaults {
         case isMale
         case timezone
         case weight
+        case target
     }
     
     class func string(of key: UserDefaultKeys) -> String? {
