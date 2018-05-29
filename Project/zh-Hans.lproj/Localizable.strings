@@ -165,7 +165,16 @@
 "改变时区";
 
 // Register
-// Register
+"Register" =
+"注册";
+"Login" =
+"登陆";
+"Password" =
+"密码";
+"Confirm Password" =
+"确认密码";
+"Login fail" =
+"登陆失败";
 "Register fail" =
 "注册失败";
 "The email has already been taken." =

@@ -7,11 +7,11 @@
 //
 
 import MagicalRecord
-import MessageUI
+import MBProgressHUD
 import IQKeyboardManagerSwift
 import UIKit
 
-class RegisterController: BaseViewController, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
+class RegisterController: BaseViewController, UITextFieldDelegate {
     
     @IBOutlet weak var _descLabel: UILabel!
     @IBOutlet weak var _emailLabel: UILabel!
@@ -43,6 +43,8 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
         title = NSLocalizedString("PROFILE SETTINGS", comment: "")
         _descLabel.text = NSLocalizedString("Please enter your personal info, the information will be saved on your device.", comment: "")
         _emailLabel.text = NSLocalizedString("Email", comment: "")
+        _passwordLabel.text = NSLocalizedString("Password", comment: "")
+        _confirmPwdLabel.text = NSLocalizedString("Confirm Password", comment: "")
         _deviceLabel.text = NSLocalizedString("Name Device", comment: "")
         _birthDayLabel.text = NSLocalizedString("Birthday", comment: "")
         _genderLabel.text = NSLocalizedString("Gender", comment: "")
@@ -161,27 +163,32 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
              "height": _heightText.text!,
              "weight": _weightText.text!,
              "target": _targetText.text!]
-        ApiHelper.shared.request(
-            name: .put_user,
-            method: .put,
-            parameters: parameter,
-            success: { (json, response) in
-                if json.dictionary?["status"]?.int == 201 {
-                    if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
-                        AuthUtil.shared.token = token
-                        self.registerDevice()
-                    } else {
-                        self.showAlert(title: "Cannot get token", message: json.description)
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        DispatchQueue.global().async {
+            ApiHelper.shared.request(
+                name: .put_user,
+                method: .put,
+                parameters: parameter,
+                success: { (json, response) in
+                    DispatchQueue.main.async { hud.hide(animated: true) }
+                    if json.dictionary?["status"]?.int == 201 {
+                        if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
+                            AuthUtil.shared.token = token
+                            UserDefaults.set(token, forKey: .token)
+                            self.performSegue(withIdentifier: "showWatch", sender: self)
+                        } else {
+                            self.showAlert(title: "Cannot get token", message: json.description)
+                        }
+                    } else if let error = json.dictionary?["result"]?.dictionary?["error"]?.array?[0].string {
+                        self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: NSLocalizedString(error, comment: ""))
                     }
-                } else if let error = json.dictionary?["result"]?.dictionary?["error"]?.array?[0].string {
-                    self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: NSLocalizedString(error, comment: ""))
-                }
-                log.debug(json)
-        },
-            failure: { (error, response) in
-                self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: error.localizedDescription)
-        })
-        log.debug("Ready to register")
+                    log.debug(json)
+            },
+                failure: { (error, response) in
+                    DispatchQueue.main.async { hud.hide(animated: true) }
+                    self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: error.localizedDescription)
+            })
+        }
     }
     
     func registerDevice() {
@@ -201,15 +208,6 @@ class RegisterController: BaseViewController, UITextFieldDelegate, MFMailCompose
                 log.error(error.localizedDescription)
         })
         log.debug("Token \(AuthUtil.shared.token)")
-    }
-    
-    func showAlert(title: String, message: String) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     
 }

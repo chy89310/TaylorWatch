@@ -7,9 +7,9 @@
 	<key>baseUrl</key>
 	<dict>
 		<key>prod</key>
-		<string>http://taylorapi.ddns.net</string>
+		<string>http://159.65.82.220</string>
 		<key>dev</key>
-		<string>http://taylorapi.ddns.net</string>
+		<string>http://192.168.0.139:8002</string>
 	</dict>
 	<key>login</key>
 	<string>/api/login</string>
