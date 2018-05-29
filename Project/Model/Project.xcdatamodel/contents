@@ -8,6 +8,7 @@
     <entity name="Device" representedClassName="Device" syncable="YES" codeGenerationType="class">
         <attribute name="addDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="battery" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="device_id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="firmware" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="manufacturer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -53,7 +54,7 @@
     </entity>
     <elements>
         <element name="Api" positionX="-45" positionY="0" width="128" height="90"/>
-        <element name="Device" positionX="-9" positionY="0" width="128" height="240"/>
+        <element name="Device" positionX="-9" positionY="0" width="128" height="255"/>
         <element name="Notification" positionX="-27" positionY="81" width="128" height="270"/>
         <element name="SBService" positionX="-27" positionY="153" width="128" height="105"/>
         <element name="Step" positionX="-27" positionY="63" width="128" height="135"/>

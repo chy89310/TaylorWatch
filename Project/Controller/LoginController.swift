@@ -47,33 +47,13 @@ class LoginController: BaseViewController, UITextFieldDelegate {
 
     @IBAction func loginAction(_ sender: Any) {
         if validate() {
-            let paramter = ["email": _emailTextField.text!,
-                            "password": _passwordTextField.text!]
-            let hud = MBProgressHUD.showAdded(to: view, animated: true)
-            DispatchQueue.global().async {
-                ApiHelper.shared.request(
-                    name: .login,
-                    method: .post,
-                    parameters: paramter,
-                    success: { (json, response) in
-                        DispatchQueue.main.async { hud.hide(animated: true) }
-                        if json.dictionary?["status"]?.int == 200 {
-                            if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
-                                AuthUtil.shared.token = token
-                                UserDefaults.set(token, forKey: .token)
-                                self.performSegue(withIdentifier: "showWatch", sender: self)
-                            } else {
-                                self.showAlert(title: "Cannot get token", message: json.description)
-                            }
-                        } else if let error = json.dictionary?["message"]?.string {
-                            self.showAlert(title: NSLocalizedString("Login fail", comment: ""), message: error)
-                        }
-                },
-                    failure: { (error, response) in
-                        DispatchQueue.main.async { hud.hide(animated: true) }
-                        self.showAlert(title: NSLocalizedString("Login fail", comment: ""), message: error.localizedDescription)
-                })
-            }
+            AuthUtil.shared.login(email: _emailTextField.text!, password: _passwordTextField.text!, in: view, complete: { (success, message) in
+                if success {
+                    self.performSegue(withIdentifier: "showWatch", sender: self)
+                } else {
+                    self.showAlert(title: NSLocalizedString("Login fail", comment: ""), message: message)
+                }
+            })
         }
     }
     

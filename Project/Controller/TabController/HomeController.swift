@@ -39,6 +39,16 @@ class HomeController: BaseViewController {
                 }
             }
             SBManager.share.setMessageEnabled(with: (device.notification?.isOn ?? true) ? enabledTypes : [])
+            
+            // Try to register the device once to verify the authentication
+            let appDele = UIApplication.shared.delegate as! AppDelegate
+            if appDele.reach?.isReachable() ?? false {
+                AuthUtil.shared.registerDevice(device, { (success) in
+                    if !success {
+                        self.promptLogin(message: nil)
+                    }
+                })
+            }
         }
         
         // Get target steps
@@ -46,6 +56,7 @@ class HomeController: BaseViewController {
         
         SBManager.share.didUpdateStep = {
             self.updateView()
+            self.handleStepApi()
         }
         updateView()
     }
@@ -87,6 +98,47 @@ class HomeController: BaseViewController {
         }
         stepView.percent = CGFloat(step)/CGFloat(goal)
         stepView.setNeedsDisplay()
+    }
+    
+    func handleStepApi() {
+        let appDele = UIApplication.shared.delegate as! AppDelegate
+        if appDele.reach?.isReachable() ?? false {
+            log.debug("token \(AuthUtil.shared.token)")
+        }
+    }
+    
+    func promptLogin(message: String?) {
+        let alert = UIAlertController(title: NSLocalizedString("Please login", comment: ""), message: message, preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { (text) in
+            text.placeholder = NSLocalizedString("Email", comment: "")
+            text.textContentType = .emailAddress
+            text.keyboardType = .emailAddress
+        })
+        alert.addTextField(configurationHandler: { (text) in
+            text.placeholder = NSLocalizedString("Password", comment: "")
+            if #available(iOS 11.0, *) {
+                text.textContentType = .password
+            }
+            text.isSecureTextEntry = true
+        })
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Login", comment: ""), style: .default, handler: { (action) in
+            let email = alert.textFields![0].text ?? ""
+            let password = alert.textFields![1].text ?? ""
+            if email.count > 0 && password.count > 0 {
+                AuthUtil.shared.login(email: email, password: password, in: self.view, complete: { (success, message) in
+                    if success {
+                        // Try to register device again
+                        if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
+                            AuthUtil.shared.registerDevice(device, nil)
+                        }
+                    } else { self.promptLogin(message: message) }
+                })
+            } else {
+                self.promptLogin(message: NSLocalizedString("please input email and password", comment: ""))
+            }
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
 }

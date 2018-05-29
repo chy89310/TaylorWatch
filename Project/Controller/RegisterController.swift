@@ -191,23 +191,4 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
         }
     }
     
-    func registerDevice() {
-        let parameter: [String: Any] =
-            ["bluetoothAddr": "stestse",
-             "deviceName": "test",
-             "nickName": "nick"]
-        ApiHelper.shared.request(
-            name: .put_device,
-            method: .put,
-            parameters: parameter,
-            headers: AuthUtil.shared.header,
-            success: { (json, response) in
-                log.debug(json)
-        },
-            failure: { (error, response) in
-                log.error(error.localizedDescription)
-        })
-        log.debug("Token \(AuthUtil.shared.token)")
-    }
-    
 }

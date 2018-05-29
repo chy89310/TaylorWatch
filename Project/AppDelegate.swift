@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 import CoreBluetooth
 import IQKeyboardManagerSwift
+import Reachability
 import Siren
 import SwiftyBeaver
 import MagicalRecord
@@ -20,6 +21,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var reach: Reachability?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -56,6 +58,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error {
             log.error(error.localizedDescription)
         }
+        
+        // Reachability
+        reach = Reachability.forInternetConnection()
+        reach?.startNotifier()
+        
         log.info(launchOptions)
         
         return true

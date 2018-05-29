@@ -181,3 +181,7 @@
 "邮箱已被注册";
 "The password must be at least 6 characters." =
 "密码最少6位";
+"Please login" =
+"请登录";
+"please input email and password" =
+"请输入邮箱及密码";
