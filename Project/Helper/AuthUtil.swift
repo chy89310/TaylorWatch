@@ -86,5 +86,27 @@ class AuthUtil: NSObject {
         })
         log.debug("Token \(AuthUtil.shared.token)")
     }
+    
+    func putStep(_ date: Date, _ step: Int32, _ device: Device) {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy-MM-dd";
+        let dateStr = dateformat.string(from: date)
+        log.debug("put date: \(dateStr), step: \(step)")
+        let parameter: [String: Any] =
+            ["date": dateStr,
+             "step": step]
+        ApiHelper.shared.request(
+            name: .put_step,
+            method: .put,
+            parameters: parameter,
+            headers: header,
+            urlUpdate: { (url) -> (URL) in
+                return URL(string: url.absoluteString.replacingOccurrences(of: "$id", with: String(device.device_id))) ?? url
+        }, success: { (json, response) in
+            log.debug("Put step succes")
+        }, failure: { (error, response) in
+            log.error(error.localizedDescription);
+        })
+    }
 
 }
