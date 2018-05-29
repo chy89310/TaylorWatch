@@ -21,6 +21,10 @@ class HomeController: BaseViewController {
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var caloriesLabel: UILabel!
     var interval: TimeInterval = 0
+    let appDele = UIApplication.shared.delegate as! AppDelegate
+    var networkReachable: Bool {
+        return appDele.reach?.isReachable() ?? false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +45,7 @@ class HomeController: BaseViewController {
             SBManager.share.setMessageEnabled(with: (device.notification?.isOn ?? true) ? enabledTypes : [])
             
             // Try to register the device once to verify the authentication
-            let appDele = UIApplication.shared.delegate as! AppDelegate
-            if appDele.reach?.isReachable() ?? false {
+            if networkReachable {
                 AuthUtil.shared.registerDevice(device, { (success) in
                     if !success {
                         self.promptLogin(message: nil)
@@ -56,7 +59,11 @@ class HomeController: BaseViewController {
         
         SBManager.share.didUpdateStep = {
             self.updateView()
-            self.handleStepApi()
+            if self.networkReachable,
+                let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
+                let step = Step.step(for: Date())
+                AuthUtil.shared.putStep(Date(), step, device)
+            }
         }
         updateView()
     }
@@ -98,13 +105,6 @@ class HomeController: BaseViewController {
         }
         stepView.percent = CGFloat(step)/CGFloat(goal)
         stepView.setNeedsDisplay()
-    }
-    
-    func handleStepApi() {
-        let appDele = UIApplication.shared.delegate as! AppDelegate
-        if appDele.reach?.isReachable() ?? false {
-            log.debug("token \(AuthUtil.shared.token)")
-        }
     }
     
     func promptLogin(message: String?) {
