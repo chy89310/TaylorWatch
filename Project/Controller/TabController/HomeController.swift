@@ -138,7 +138,20 @@ class HomeController: BaseViewController {
                 self.promptLogin(message: NSLocalizedString("please input email and password", comment: ""))
             }
         }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Register", comment: ""), style: .default, handler: { (action) in
+            self.performSegue(withIdentifier: "showRegister", sender: self)
+        }))
         present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRegister", let register = segue.destination as? RegisterController {
+            register.didRegistered = { controller in
+                controller.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
 }

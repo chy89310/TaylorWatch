@@ -421,7 +421,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="mOL-Ji-0YA" kind="show" id="Kh3-Lf-SNG"/>
+                                            <segue destination="mOL-Ji-0YA" kind="show" identifier="showRegister" id="Kh3-Lf-SNG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnD-fY-BqQ">
@@ -748,6 +748,7 @@
                         <outlet property="watchView" destination="svq-oF-8SK" id="ILC-w0-z7j"/>
                         <outlet property="weekDayLabel" destination="8bx-Dx-q5v" id="Vst-do-QtM"/>
                         <outlet property="yearLabel" destination="9hL-3e-GdG" id="6Pb-xh-beG"/>
+                        <segue destination="mOL-Ji-0YA" kind="presentation" identifier="showRegister" id="SFX-L9-hW4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Uf-R3-t5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -917,7 +918,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
                                 <rect key="frame" x="16" y="121.5" width="343" height="257.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -925,13 +926,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
                                 <rect key="frame" x="0.0" y="379" width="375" height="239"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
                                         <rect key="frame" x="28" y="74" width="319" height="91"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -947,7 +948,7 @@ Time</string>
                                                     <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="52X-e5-6Td"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
                                                 <rect key="frame" x="114" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -963,7 +964,7 @@ Sync</string>
                                                     <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="BTh-rw-Umy"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
                                                 <rect key="frame" x="228" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1555,5 +1556,6 @@ Time Zone</string>
     <inferredMetricsTieBreakers>
         <segue reference="2tG-Sb-2bl"/>
         <segue reference="5Hn-sz-dSd"/>
+        <segue reference="Kh3-Lf-SNG"/>
     </inferredMetricsTieBreakers>
 </document>

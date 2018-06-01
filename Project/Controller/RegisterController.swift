@@ -34,6 +34,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var _targetText: UITextField!
     @IBOutlet var _datePicker: UIDatePicker!
     @IBOutlet weak var _registerButton: UIButton!
+    var didRegistered: ((_ controller: RegisterController) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -175,18 +176,18 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
                         if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
                             AuthUtil.shared.token = token
                             UserDefaults.set(token, forKey: .token)
-                            self.performSegue(withIdentifier: "showWatch", sender: self)
+                            self.didRegistered?(self)
                         } else {
-                            self.showAlert(title: "Cannot get token", message: json.description)
+                            self.showAlert(title: "Cannot get token", message: json.description, showDismiss: true)
                         }
                     } else if let error = json.dictionary?["result"]?.dictionary?["error"]?.array?[0].string {
-                        self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: NSLocalizedString(error, comment: ""))
+                        self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: NSLocalizedString(error, comment: ""), showDismiss: true)
                     }
                     log.debug(json)
             },
                 failure: { (error, response) in
                     DispatchQueue.main.async { hud.hide(animated: true) }
-                    self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: error.localizedDescription)
+                    self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: error.localizedDescription, showDismiss: true)
             })
         }
     }
