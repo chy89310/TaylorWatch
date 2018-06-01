@@ -15,6 +15,8 @@ abstract_target 'Watch' do
   pod 'MBProgressHUD'
   pod 'MagicalRecord'
 #  pod 'MZFormSheetController'
+  pod 'Pgyer'
+  pod 'PgyUpdate'
   pod 'Siren'
   pod 'SwiftIconFont', '2.7.1'
   pod 'SwiftyBeaver'

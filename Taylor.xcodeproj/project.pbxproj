@@ -10,6 +10,12 @@
 		0A0B53151FC6C53100CC094D /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0B53141FC6C53100CC094D /* ScanViewController.swift */; };
 		0A0B53191FC7CA3F00CC094D /* WatchApi.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0B53181FC7CA3F00CC094D /* WatchApi.plist */; };
 		0A1A85281FC595FF00EEA718 /* SBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1A85261FC595FF00EEA718 /* SBManager.swift */; };
+		0A1F15722086033800149049 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1F15712086033800149049 /* CoreTelephony.framework */; };
+		0A1F15742086034300149049 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1F15732086034300149049 /* SystemConfiguration.framework */; };
+		0A1F15762086034D00149049 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1F15752086034C00149049 /* AudioToolbox.framework */; };
+		0A1F15782086035500149049 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1F15772086035500149049 /* AVFoundation.framework */; };
+		0A1F157A2086035D00149049 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1F15792086035D00149049 /* OpenGLES.framework */; };
+		0A1F157C2086036300149049 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1F157B2086036300149049 /* CoreMotion.framework */; };
 		0A27F68F202946A600BAA063 /* Step+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27F68E202946A600BAA063 /* Step+Extension.swift */; };
 		0A304E45205B9FAB003DEC0A /* NOTIFY.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E44205B9FAB003DEC0A /* NOTIFY.m4a */; };
 		0A304E51205BB0BB003DEC0A /* NOTIFY_TAYLOR.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E50205BB0BB003DEC0A /* NOTIFY_TAYLOR.png */; };
@@ -170,6 +176,12 @@
 		0A0B53141FC6C53100CC094D /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		0A0B53181FC7CA3F00CC094D /* WatchApi.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WatchApi.plist; sourceTree = "<group>"; };
 		0A1A85261FC595FF00EEA718 /* SBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBManager.swift; sourceTree = "<group>"; };
+		0A1F15712086033800149049 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0A1F15732086034300149049 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0A1F15752086034C00149049 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0A1F15772086035500149049 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0A1F15792086035D00149049 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0A1F157B2086036300149049 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		0A27F68E202946A600BAA063 /* Step+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Step+Extension.swift"; sourceTree = "<group>"; };
 		0A304E44205B9FAB003DEC0A /* NOTIFY.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = NOTIFY.m4a; sourceTree = "<group>"; };
 		0A304E4A205BA184003DEC0A /* NOTIFY_FOXTER.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTIFY_FOXTER.png; sourceTree = "<group>"; };
@@ -264,6 +276,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A1F157C2086036300149049 /* CoreMotion.framework in Frameworks */,
+				0A1F157A2086035D00149049 /* OpenGLES.framework in Frameworks */,
+				0A1F15782086035500149049 /* AVFoundation.framework in Frameworks */,
+				0A1F15762086034D00149049 /* AudioToolbox.framework in Frameworks */,
+				0A1F15742086034300149049 /* SystemConfiguration.framework in Frameworks */,
+				0A1F15722086033800149049 /* CoreTelephony.framework in Frameworks */,
 				472269740082FD357C2F3E36 /* Pods_Watch_TAYLOR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +479,12 @@
 		920237108FBAB5FC7ADD6D79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A1F157B2086036300149049 /* CoreMotion.framework */,
+				0A1F15792086035D00149049 /* OpenGLES.framework */,
+				0A1F15772086035500149049 /* AVFoundation.framework */,
+				0A1F15752086034C00149049 /* AudioToolbox.framework */,
+				0A1F15732086034300149049 /* SystemConfiguration.framework */,
+				0A1F15712086033800149049 /* CoreTelephony.framework */,
 				2FF13DBE2561A4FA45A51256 /* Pods_Watch_FOXTER.framework */,
 				450D1568F01D2AEA8221D9C7 /* Pods_Watch_SEAGULL.framework */,
 				1282BDAA315CD31379DC7D33 /* Pods_Watch_TAYLOR.framework */,
