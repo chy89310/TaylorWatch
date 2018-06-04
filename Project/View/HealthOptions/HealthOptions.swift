@@ -41,7 +41,7 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     @IBOutlet weak var measurementsView: UIStackView!
     @IBOutlet weak var measureLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
-    @IBOutlet weak var genderText: UITextField!
+    @IBOutlet weak var genderButton: UIButton!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var weightText: UITextField!
     @IBOutlet weak var heightLabel: UILabel!
@@ -123,8 +123,11 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
             if let heightStr = heightText.text {
                 UserDefaults.set(Int(heightStr), forKey: .height)
             }
+            let isMale =  genderButton.title(for: .normal) == NSLocalizedString("Male", comment: "")
+            genderButton.setTitle(NSLocalizedString(isMale ? "Male" : "Female", comment: ""), for: .normal)
         } else {
-            genderText.text = NSLocalizedString(UserDefaults.bool(of: .isMale) ? "Male" : "Female", comment: "") 
+            let gender = NSLocalizedString(UserDefaults.bool(of: .isMale) ? "Male" : "Female", comment: "")
+            genderButton.setTitle(gender, for: .normal)
             weightText.text = String(UserDefaults.int(of: .weight))
             heightText.text = String(UserDefaults.int(of: .height))
         }
@@ -140,6 +143,15 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     // MARK: - IBActions
+    
+    @IBAction func didGenderClick(_ sender: Any) {
+        if genderButton.title(for: .normal) == NSLocalizedString("Male", comment: "") {
+            genderButton.setTitle(NSLocalizedString("Female", comment: ""), for: .normal)
+        } else {
+            genderButton.setTitle(NSLocalizedString("Male", comment: ""), for: .normal)
+        }
+    }
+    
 
     @IBAction func didSetGoalClick(_ sender: UIButton) {
         display(.goal)

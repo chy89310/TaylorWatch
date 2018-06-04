@@ -15,11 +15,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--info-->
+        <!--INFO-->
         <scene sceneID="Epo-KI-wu8">
             <objects>
                 <navigationController id="n8P-VY-2f9" customClass="BaseNavigationController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="info" image="nav_info" id="Jb2-oH-WZp"/>
+                    <tabBarItem key="tabBarItem" title="INFO" image="nav_info" id="Jb2-oH-WZp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lwp-AM-f2Y" customClass="BaseNavigationBar" customModule="FOXTER" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -32,11 +32,11 @@
             </objects>
             <point key="canvasLocation" x="2662" y="1711"/>
         </scene>
-        <!--settings-->
+        <!--SETTINGS-->
         <scene sceneID="vJJ-ph-gdo">
             <objects>
                 <navigationController id="1Yw-5r-84Y" customClass="BaseNavigationController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="settings" image="nav_setting" id="0Gd-pz-76K"/>
+                    <tabBarItem key="tabBarItem" title="SETTINGS" image="nav_setting" id="0Gd-pz-76K"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oYV-rC-Cx9" customClass="BaseNavigationBar" customModule="FOXTER" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -49,11 +49,11 @@
             </objects>
             <point key="canvasLocation" x="2662" y="932"/>
         </scene>
-        <!--home-->
+        <!--HOME-->
         <scene sceneID="9b4-L0-9sG">
             <objects>
                 <navigationController id="r7Q-Se-gSF" customClass="BaseNavigationController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="home" image="nav_dash" id="bta-er-HZB"/>
+                    <tabBarItem key="tabBarItem" title="HOME" image="nav_dash" id="bta-er-HZB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dqo-GJ-bhV" customClass="BaseNavigationBar" customModule="FOXTER" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -119,13 +119,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your personal info, the information will be saved on your device." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ut4-76-ChG">
-                                <rect key="frame" x="37.5" y="72" width="300" height="29"/>
+                                <rect key="frame" x="37.5" y="28" width="300" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TVd-zu-efv">
-                                <rect key="frame" x="20" y="109" width="335" height="418.5"/>
+                                <rect key="frame" x="20" y="65" width="335" height="418.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyQ-59-C3J">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -465,11 +465,11 @@
             </objects>
             <point key="canvasLocation" x="1678" y="-619"/>
         </scene>
-        <!--health-->
+        <!--HEALTH-->
         <scene sceneID="byR-QK-Msk">
             <objects>
                 <navigationController id="q7T-nF-4ey" customClass="BaseNavigationController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="health" image="nav_health" id="hRM-cl-dAl"/>
+                    <tabBarItem key="tabBarItem" title="HEALTH" image="nav_health" id="hRM-cl-dAl"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rE9-Uq-WGC" customClass="BaseNavigationBar" customModule="FOXTER" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -576,11 +576,11 @@
             </objects>
             <point key="canvasLocation" x="3599.1999999999998" y="-619.34032983508246"/>
         </scene>
-        <!--time-->
+        <!--TIME-->
         <scene sceneID="G9O-IZ-HPd">
             <objects>
                 <navigationController id="5tM-eo-g6w" customClass="BaseNavigationController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="time" image="nav_time" id="6y1-wa-rUg"/>
+                    <tabBarItem key="tabBarItem" title="TIME" image="nav_time" id="6y1-wa-rUg"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kXu-oj-x0m" customClass="BaseNavigationBar" customModule="FOXTER" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -658,7 +658,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-3t-Ipc">
                                         <rect key="frame" x="0.5" y="24.5" width="111" height="61.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hL-3e-GdG">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TUESDAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bx-Dx-q5v">
                                                 <rect key="frame" x="0.0" y="0.0" width="111" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -670,7 +670,7 @@
                                                 <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TUESDAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bx-Dx-q5v">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hL-3e-GdG">
                                                 <rect key="frame" x="0.0" y="41" width="111" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1556,6 +1556,6 @@ Time Zone</string>
     <inferredMetricsTieBreakers>
         <segue reference="2tG-Sb-2bl"/>
         <segue reference="5Hn-sz-dSd"/>
-        <segue reference="Kh3-Lf-SNG"/>
+        <segue reference="SFX-L9-hW4"/>
     </inferredMetricsTieBreakers>
 </document>

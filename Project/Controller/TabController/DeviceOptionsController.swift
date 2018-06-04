@@ -156,7 +156,7 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
                 cell.trashButton.isHidden = !self.deleteState
             })
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
+            formatter.dateFormat = "dd/MM/yyyy"
             let date = (device?.addDate ?? NSDate()) as Date
             cell.detailLabel.text = formatter.string(from: date)
             cell.didDelete = {

@@ -19,8 +19,8 @@
                 <outlet property="averageTitle" destination="aOD-5N-Y2o" id="m5T-b2-hNq"/>
                 <outlet property="averageWalkAndRun" destination="GlG-7E-YvS" id="aDI-US-uZ9"/>
                 <outlet property="dayView" destination="yer-PF-h57" id="ViA-zi-ykR"/>
+                <outlet property="genderButton" destination="Pg2-Q9-7Jl" id="6yH-gw-Edk"/>
                 <outlet property="genderLabel" destination="65S-Eb-725" id="2Gs-2p-ejI"/>
-                <outlet property="genderText" destination="tfe-fR-rCp" id="wdq-vo-oq8"/>
                 <outlet property="goalApplyButton" destination="50F-gE-eq2" id="VeR-EO-BKF"/>
                 <outlet property="goalCancelButton" destination="wJg-CJ-7mJ" id="c9w-bp-4j1"/>
                 <outlet property="goalLabel" destination="DSg-1S-pwl" id="Isg-oE-fUx"/>
@@ -127,16 +127,19 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Male" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tfe-fR-rCp">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg2-Q9-7Jl">
                                             <rect key="frame" x="327.5" y="0.0" width="100" height="67"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="udC-SL-Jxf"/>
+                                                <constraint firstAttribute="width" constant="100" id="cou-jf-aD2"/>
                                             </constraints>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                            <state key="normal" title="Button">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="didGenderClick:" destination="-1" eventType="touchUpInside" id="pxn-Dx-lLy"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="eKW-Et-7jI">
@@ -148,7 +151,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="80" placeholder="Weight(kg)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IzL-gQ-tsf">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="80" placeholder="Weight(kg)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IzL-gQ-tsf">
                                             <rect key="frame" x="327.5" y="0.0" width="100" height="67.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -166,7 +169,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="160" placeholder="Height(cm)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MND-O3-19z">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="160" placeholder="Height(cm)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MND-O3-19z">
                                             <rect key="frame" x="327.5" y="0.0" width="100" height="66.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -209,10 +212,10 @@
                             <constraints>
                                 <constraint firstItem="dyI-z3-ON9" firstAttribute="height" secondItem="K29-fT-dCp" secondAttribute="height" id="68h-6n-Wbu"/>
                                 <constraint firstItem="65S-Eb-725" firstAttribute="width" secondItem="rkT-Tu-gaV" secondAttribute="width" id="7Lw-Vu-KI3"/>
-                                <constraint firstItem="tfe-fR-rCp" firstAttribute="width" secondItem="IzL-gQ-tsf" secondAttribute="width" id="B3Q-rc-4Yh"/>
                                 <constraint firstItem="65S-Eb-725" firstAttribute="width" secondItem="8Ib-a9-IhI" secondAttribute="width" id="LFd-Z2-WlW"/>
                                 <constraint firstItem="eKW-Et-7jI" firstAttribute="height" secondItem="K29-fT-dCp" secondAttribute="height" id="P7Y-yF-p1q"/>
-                                <constraint firstItem="tfe-fR-rCp" firstAttribute="width" secondItem="MND-O3-19z" secondAttribute="width" id="Wam-ln-8jw"/>
+                                <constraint firstItem="Pg2-Q9-7Jl" firstAttribute="width" secondItem="IzL-gQ-tsf" secondAttribute="width" id="d0q-AB-gRo"/>
+                                <constraint firstItem="Pg2-Q9-7Jl" firstAttribute="width" secondItem="MND-O3-19z" secondAttribute="width" id="nFP-QH-cXX"/>
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AMp-zg-1ur">

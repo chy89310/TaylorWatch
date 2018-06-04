@@ -84,9 +84,9 @@ class HomeController: BaseViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         yearLabel.text = formatter.string(from: date)
-        formatter.dateFormat = "MMM dd"
+        formatter.dateFormat = "dd MMM"
         dateLabel.text = formatter.string(from: date)
-        formatter.dateFormat = "EE"
+        formatter.dateFormat = "EEEE"
         weekDayLabel.text = formatter.string(from: date)
         watchView.watchFace.setTime(date)
         let step = Step.step(for: Date())
