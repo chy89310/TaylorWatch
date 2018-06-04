@@ -27,6 +27,26 @@ class AuthUtil: NSObject {
         super.init()
     }
     
+    func me(complete: @escaping (Bool) -> ()) {
+        ApiHelper.shared.request(
+            name: .get_user,
+            method: .get,
+            headers: AuthUtil.shared.header,
+            success: { (json, response) in
+                if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
+                    self.token = token
+                    complete(true);
+                } else {
+                    log.error(json)
+                    complete(false);
+                }
+        },
+            failure: { (error, response) in
+                log.error(error)
+                complete(false);
+        })
+    }
+    
     func login(email: String, password: String, in view: UIView, complete: @escaping (Bool, String) -> ()) {
         let parameter = ["email": email, "password": password]
         let hud = MBProgressHUD.showAdded(to: view, animated: true)

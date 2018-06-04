@@ -6,6 +6,7 @@
 //  Copyright © 2018 KevinSum. All rights reserved.
 //
 
+import MagicalRecord
 import MBProgressHUD
 import UIKit
 
@@ -25,6 +26,17 @@ class LoginController: BaseViewController, UITextFieldDelegate {
         _passwordLabel.text = NSLocalizedString("Password", comment: "")
         _registerButton.setTitle(NSLocalizedString("Register", comment: ""), for: .normal)
         _loginButton.setTitle(NSLocalizedString("Login", comment: ""), for: .normal)
+        
+        // Retrive user info to verify authentication
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        DispatchQueue.global().async {
+            AuthUtil.shared.me { (success) in
+                DispatchQueue.main.async { hud.hide(animated: true) }
+                if success {
+                    self.performSegue(withIdentifier: "showWatch", sender: self)
+                }
+            }
+        }
     }
     
     func validate() -> Bool{
