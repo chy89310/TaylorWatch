@@ -28,6 +28,7 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
                                        "Indian/Cocos"       : "6-3",
                                        "Australia/Darwin"   : "9-3"]
     var timeZones = NSTimeZone.knownTimeZoneNames
+    let city2Timezone = Helper.readPlist("timezones")
     var selectedTimeZone = NSTimeZone.system
     
     override func viewDidLoad() {
@@ -119,7 +120,7 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
         bgView.backgroundColor = UIColor("#FDDFC0")
         cell.selectedBackgroundView = bgView
         let zone = NSTimeZone(name: timeZones[indexPath.row])
-        cell.textLabel?.text = zone?.localizedName(.generic, locale: Locale.current)
+        cell.textLabel?.text = zone?.localizedName(.standard, locale: Locale.current)
         cell.detailTextLabel?.text = zone?.abbreviation
         return cell
     }
@@ -141,12 +142,27 @@ class TimeZoneController: BaseViewController, UITableViewDataSource, UITableView
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText != "" {
-            timeZones = NSTimeZone.knownTimeZoneNames.filter {
-                $0.contains(searchText) || (NSTimeZone(name: $0)?.localizedName(NSTimeZone.NameStyle.generic, locale: Locale.current)?.contains(searchText) ?? false)
-            }
+        var zones = [String]()
+        if searchText != "", let dict = city2Timezone.dictionary {
+            zones = dict.filter { return $0.key.contains(searchText) }
+                .map({ (key, value) -> String in
+                    return value.dictionary?["timezone_name"]?.string ?? ""
+                })
+                .filter { return $0 != "" }
+            zones.append(contentsOf: NSTimeZone.knownTimeZoneNames.filter {
+                    $0.contains(searchText) || (NSTimeZone(name: $0)?.localizedName(NSTimeZone.NameStyle.generic, locale: Locale.current)?.contains(searchText) ?? false) })
         } else {
-            timeZones = NSTimeZone.knownTimeZoneNames
+            zones = NSTimeZone.knownTimeZoneNames
+        }
+        timeZones = [String]()
+        var timezoneNames = [String]()
+        for zone in zones {
+            if let timezoneName = NSTimeZone(name: zone)?.localizedName(.standard, locale: Locale.current) {
+                if !timezoneNames.contains(timezoneName) {
+                    timezoneNames.append(timezoneName)
+                    timeZones.append(zone)
+                }
+            }
         }
         _tableView.reloadData()
     }

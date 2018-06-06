@@ -20,6 +20,9 @@
 		0A304E45205B9FAB003DEC0A /* NOTIFY.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E44205B9FAB003DEC0A /* NOTIFY.m4a */; };
 		0A304E51205BB0BB003DEC0A /* NOTIFY_TAYLOR.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A304E50205BB0BB003DEC0A /* NOTIFY_TAYLOR.png */; };
 		0A32C5582047AA9600BD6A5B /* BluetoothController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A32C5572047AA9600BD6A5B /* BluetoothController.swift */; };
+		0A6368B720C4CC26009A977F /* timezones.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6368B620C4CC26009A977F /* timezones.plist */; };
+		0A6368B820C4CC26009A977F /* timezones.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6368B620C4CC26009A977F /* timezones.plist */; };
+		0A6368B920C4CC26009A977F /* timezones.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6368B620C4CC26009A977F /* timezones.plist */; };
 		472269740082FD357C2F3E36 /* Pods_Watch_TAYLOR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1282BDAA315CD31379DC7D33 /* Pods_Watch_TAYLOR.framework */; };
 		491C5C543FF31F54BF07A26D /* Pods_Watch_SEAGULL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450D1568F01D2AEA8221D9C7 /* Pods_Watch_SEAGULL.framework */; };
 		4B0E24CD2067CD6200B66ACD /* ResizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0E24CC2067CD6200B66ACD /* ResizedTabBar.swift */; };
@@ -188,6 +191,7 @@
 		0A304E4C205BA18B003DEC0A /* NOTIFY_SEAGULL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTIFY_SEAGULL.png; sourceTree = "<group>"; };
 		0A304E50205BB0BB003DEC0A /* NOTIFY_TAYLOR.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NOTIFY_TAYLOR.png; sourceTree = "<group>"; };
 		0A32C5572047AA9600BD6A5B /* BluetoothController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothController.swift; sourceTree = "<group>"; };
+		0A6368B620C4CC26009A977F /* timezones.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = timezones.plist; sourceTree = "<group>"; };
 		0E46DD65E142BCC5744063A2 /* Pods-Watch-TAYLOR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch-TAYLOR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR.debug.xcconfig"; sourceTree = "<group>"; };
 		1282BDAA315CD31379DC7D33 /* Pods_Watch_TAYLOR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_TAYLOR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF13DBE2561A4FA45A51256 /* Pods_Watch_FOXTER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_FOXTER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -360,6 +364,7 @@
 				0A304E4A205BA184003DEC0A /* NOTIFY_FOXTER.png */,
 				0A304E4C205BA18B003DEC0A /* NOTIFY_SEAGULL.png */,
 				0A304E44205B9FAB003DEC0A /* NOTIFY.m4a */,
+				0A6368B620C4CC26009A977F /* timezones.plist */,
 				4B0E24C12066373B00B66ACD /* TAYLOR-Bridging-Header.h */,
 				4B0E24D82067E70F00B66ACD /* Localizable.strings */,
 				4BA6EE7F1EE87D660098C4DA /* Helper */,
@@ -623,6 +628,7 @@
 				4BA05996205E55F90047894C /* WatchFace.xib in Resources */,
 				4B0E24D52067E70F00B66ACD /* Localizable.strings in Resources */,
 				4BA059E5205E622A0047894C /* LaunchFoxter.storyboard in Resources */,
+				0A6368B820C4CC26009A977F /* timezones.plist in Resources */,
 				4BA05998205E55F90047894C /* Assets.xcassets in Resources */,
 				4BA05999205E55F90047894C /* SBServices.plist in Resources */,
 			);
@@ -643,6 +649,7 @@
 				4BA059D6205E560B0047894C /* NOTIFY_SEAGULL.png in Resources */,
 				4B0E24D62067E70F00B66ACD /* Localizable.strings in Resources */,
 				4BA059E9205E64F80047894C /* LaunchSeagull.storyboard in Resources */,
+				0A6368B920C4CC26009A977F /* timezones.plist in Resources */,
 				4BA059D7205E560B0047894C /* Assets.xcassets in Resources */,
 				4BA059D8205E560B0047894C /* SBServices.plist in Resources */,
 			);
@@ -663,6 +670,7 @@
 				4BBED73120262C3200B560F4 /* HealthOptions.xib in Resources */,
 				4B0E24D42067E70F00B66ACD /* Localizable.strings in Resources */,
 				4B2BB28620112B9F00ED482E /* WatchFace.xib in Resources */,
+				0A6368B720C4CC26009A977F /* timezones.plist in Resources */,
 				4BA6EE171EE87B7B0098C4DA /* Assets.xcassets in Resources */,
 				4B6691B7203C118E001421CB /* SBServices.plist in Resources */,
 			);
