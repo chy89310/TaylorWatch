@@ -33,6 +33,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var _targetLabel: UILabel!
     @IBOutlet weak var _targetText: UITextField!
     @IBOutlet var _datePicker: UIDatePicker!
+    @IBOutlet weak var _cancelButton: UIButton!
     @IBOutlet weak var _registerButton: UIButton!
     var didRegistered: ((_ controller: RegisterController) -> ())?
     
@@ -51,8 +52,9 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
         _genderLabel.text = NSLocalizedString("Gender", comment: "")
         _weightLabel.text = NSLocalizedString("Weight", comment: "")
         _heightLabel.text = NSLocalizedString("Height", comment: "")
-        _targetLabel.text = NSLocalizedString("Target", comment: "")
+        _targetLabel.text = NSLocalizedString("Goals", comment: "")
         _registerButton.setTitle(NSLocalizedString("Register", comment: ""), for: .normal)
+        _cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         
         _birthDayText.inputView = _datePicker
         // Fix IQKeyboardManager bug
@@ -147,6 +149,10 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
         } else {
             sender.setTitle(NSLocalizedString("Male", comment: ""), for: .normal)
         }
+    }
+    
+    @IBAction func didCancelClick(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didRegisterClick(_ sender: Any) {

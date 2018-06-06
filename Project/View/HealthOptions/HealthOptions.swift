@@ -124,7 +124,7 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
                 UserDefaults.set(Int(heightStr), forKey: .height)
             }
             let isMale =  genderButton.title(for: .normal) == NSLocalizedString("Male", comment: "")
-            genderButton.setTitle(NSLocalizedString(isMale ? "Male" : "Female", comment: ""), for: .normal)
+            UserDefaults.set(isMale, forKey: .isMale)
         } else {
             let gender = NSLocalizedString(UserDefaults.bool(of: .isMale) ? "Male" : "Female", comment: "")
             genderButton.setTitle(gender, for: .normal)
@@ -166,6 +166,58 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     @IBAction func didApplyClick(_ sender: UIButton) {
+        let appDele = UIApplication.shared.delegate as! AppDelegate
+        if appDele.reach?.isReachable() ?? false {
+            // Try to update user info with api
+            var parameters = [String: Any]()
+            switch currentOption {
+            case .measurements:
+                parameters["gender"] = genderButton.title(for: .normal) == NSLocalizedString("Male", comment: "") ? 1 : 0
+                if let height = heightText.text {
+                    parameters["height"] = height
+                }
+                if let weight = weightText.text {
+                    parameters["weight"] = weight
+                }
+            case .goal:
+                let steps = goalForRow(goalPicker.selectedRow(inComponent: 0))
+                parameters["target"] = steps
+            default:
+                break
+            }
+            if parameters.count > 0 {
+                let hud = MBProgressHUD.showAdded(to: self, animated: true)
+                DispatchQueue.global().async {
+                    ApiHelper.shared.request(
+                        name: .post_user,
+                        method: .post,
+                        parameters: parameters,
+                        headers: AuthUtil.shared.header,
+                        success: { (json, response) in
+                            log.debug(json)
+                            if json.dictionary?["status"]?.int == 200 {
+                                DispatchQueue.main.async { hud.hide(animated: true) }
+                            } else {
+                                hud.mode = .text
+                                if let errors = json.dictionary?["result"]?.dictionary?["error"]?.array {
+                                    hud.label.text = errors[0].string
+                                } else if let error = json.dictionary?["message"]?.string {
+                                    hud.label.text = error
+                                } else {
+                                    hud.label.text = NSLocalizedString("Unknow Error", comment: "")
+                                }
+                                DispatchQueue.main.async { hud.hide(animated: true, afterDelay: 3.0) }
+                            }
+                    },
+                        failure: { (error, response) in
+                            hud.mode = MBProgressHUDMode.text
+                            hud.label.text = error.localizedDescription
+                            log.error(error.localizedDescription)
+                            DispatchQueue.main.async { hud.hide(animated: true, afterDelay: 3.0) }
+                    })
+                }
+            }
+        }
         didApplyOrCancelClick(isApply: true)
     }
     

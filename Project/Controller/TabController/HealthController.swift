@@ -47,8 +47,8 @@ class HealthController: BaseViewController {
         xAxis.centerAxisLabelsEnabled = true
         xAxis.granularity = daySeconds
         xAxis.granularityEnabled = true
-        xAxis.avoidFirstLastClippingEnabled =  true
         xAxis.forceLabelsEnabled = true
+        xAxis.avoidFirstLastClippingEnabled =  false
         
         let leftAxis = chartView.leftAxis
         leftAxis.labelPosition = .outsideChart

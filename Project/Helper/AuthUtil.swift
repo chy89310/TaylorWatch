@@ -35,6 +35,25 @@ class AuthUtil: NSObject {
             success: { (json, response) in
                 if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
                     self.token = token
+                    UserDefaults.set(token, forKey: .token)
+                    if let height = json.dictionary?["result"]?.dictionary?["height"]?.int {
+                        UserDefaults.set(height, forKey: .height)
+                    }
+                    if let email = json.dictionary?["result"]?.dictionary?["email"]?.string {
+                        UserDefaults.set(email, forKey: .email)
+                    }
+                    if let target = json.dictionary?["result"]?.dictionary?["target"]?.int {
+                        UserDefaults.set(target, forKey: .target)
+                    }
+                    if let isMale = json.dictionary?["result"]?.dictionary?["gender"]?.int {
+                        UserDefaults.set(isMale == 1, forKey: .isMale)
+                    }
+                    if let weight = json.dictionary?["result"]?.dictionary?["weight"]?.int {
+                        UserDefaults.set(weight, forKey: .weight)
+                    }
+                    if let birthday = json.dictionary?["result"]?.dictionary?["birthday"]?.string {
+                        UserDefaults.set(birthday, forKey: .birthday)
+                    }
                     complete(true);
                 } else {
                     log.error(json)

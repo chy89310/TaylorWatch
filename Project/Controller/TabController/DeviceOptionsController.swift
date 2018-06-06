@@ -188,13 +188,33 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
             alert.addAction(
                 UIAlertAction(title: NSLocalizedString("Edit", comment: ""), style: .default, handler: { (action) in
                     if let nickName = alert.textFields?.first?.text {
+                        var deviceId: Int16 = 0
                         MagicalRecord.save(blockAndWait: { (localContext) in
                             let peripheral = self.connectedPeripheral[indexPath.row]
                             if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext) {
+                                deviceId = device.device_id
                                 device.nickName = nickName
                             }
                         })
                         tableView.reloadData()
+                        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                        DispatchQueue.global().async {
+                            ApiHelper.shared.request(
+                                name: .post_device,
+                                method: .post,
+                                parameters: ["nickName": nickName],
+                                headers: AuthUtil.shared.header,
+                                urlUpdate: { (url) in
+                                    let str = url.absoluteString.replacingOccurrences(of: "$id", with: String(deviceId))
+                                    return URL(string: str) ?? url
+                            },
+                                success: { (json, response) in
+                                    DispatchQueue.main.async { hud.hide(animated: true) }
+                            },
+                                failure: { (error, response) in
+                                    DispatchQueue.main.async { hud.hide(animated: true) }
+                            })
+                        }
                     }
                 })
             )
