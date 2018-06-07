@@ -101,11 +101,11 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         goalCancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         goalApplyButton.setTitle(NSLocalizedString("Apply", comment: ""), for: .normal)
         if isWrite {
-            let steps = goalForRow(goalPicker.selectedRow(inComponent: 0))
+            let steps = HealthOptions.goalForRow(goalPicker.selectedRow(inComponent: 0))
             UserDefaults.set(steps, forKey: .goal)
             SBManager.share.setTargetSteps(steps: steps)
         } else {
-            goalPicker.selectRow(rowForGoal(UserDefaults.int(of: .goal)), inComponent: 0, animated: false)
+            goalPicker.selectRow(HealthOptions.rowForGoal(UserDefaults.int(of: .goal)), inComponent: 0, animated: false)
         }
     }
     
@@ -180,7 +180,7 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
                     parameters["weight"] = weight
                 }
             case .goal:
-                let steps = goalForRow(goalPicker.selectedRow(inComponent: 0))
+                let steps = HealthOptions.goalForRow(goalPicker.selectedRow(inComponent: 0))
                 parameters["target"] = steps
             default:
                 break
@@ -240,19 +240,25 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 80
+        return HealthOptions.numberOfGoals()
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let title = String(goalForRow(row))
+        let title = String(HealthOptions.goalForRow(row))
         return NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName:UIColor.white])
     }
     
-    func goalForRow(_ row: Int) -> Int {
+    // Shared function to for RegisterController reuse
+    
+    class func numberOfGoals() -> Int {
+        return 80
+    }
+    
+    class func goalForRow(_ row: Int) -> Int {
         return 1000 + 1000 * row
     }
     
-    func rowForGoal(_ goal: Int) -> Int {
+    class func rowForGoal(_ goal: Int) -> Int {
         if goal >= 1000 && goal <= 80000 {
             return (goal - 1000)/1000
         }

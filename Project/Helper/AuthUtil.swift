@@ -43,7 +43,7 @@ class AuthUtil: NSObject {
                         UserDefaults.set(email, forKey: .email)
                     }
                     if let target = json.dictionary?["result"]?.dictionary?["target"]?.int {
-                        UserDefaults.set(target, forKey: .target)
+                        UserDefaults.set(target, forKey: .goal)
                     }
                     if let isMale = json.dictionary?["result"]?.dictionary?["gender"]?.int {
                         UserDefaults.set(isMale == 1, forKey: .isMale)

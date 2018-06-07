@@ -11,7 +11,7 @@ import MBProgressHUD
 import IQKeyboardManagerSwift
 import UIKit
 
-class RegisterController: BaseViewController, UITextFieldDelegate {
+class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var _descLabel: UILabel!
     @IBOutlet weak var _emailLabel: UILabel!
@@ -32,6 +32,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var _genderButton: UIButton!
     @IBOutlet weak var _targetLabel: UILabel!
     @IBOutlet weak var _targetText: UITextField!
+    @IBOutlet var _goalPicker: UIPickerView!
     @IBOutlet var _datePicker: UIDatePicker!
     @IBOutlet weak var _cancelButton: UIButton!
     @IBOutlet weak var _registerButton: UIButton!
@@ -57,6 +58,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
         _cancelButton.setTitle(NSLocalizedString("Cancel", comment: ""), for: .normal)
         
         _birthDayText.inputView = _datePicker
+        _targetText.inputView = _goalPicker
         // Fix IQKeyboardManager bug
         _datePicker.translatesAutoresizingMaskIntoConstraints = false
         // Initial Info
@@ -67,8 +69,9 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
         _weightText.text = weight > 0 ? String(weight) : ""
         let height = UserDefaults.int(of: .height)
         _heightText.text = height > 0 ? String(height) : ""
-        let target = UserDefaults.int(of: .target)
+        let target = UserDefaults.int(of: .goal)
         _targetText.text = target > 0 ? String(target) : ""
+        _goalPicker.selectRow(HealthOptions.rowForGoal(UserDefaults.int(of: .goal)), inComponent: 0, animated: false)
         if UserDefaults.bool(of: .isMale) {
             _genderButton.setTitle(NSLocalizedString("Male", comment: ""), for: .normal)
         } else {
@@ -122,7 +125,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
             UserDefaults.set(Int(heightStr), forKey: .height)
         }
         if let targetStr = _targetText.text {
-            UserDefaults.set(Int(targetStr), forKey: .target)
+            UserDefaults.set(Int(targetStr), forKey: .goal)
         }
         UserDefaults.set(isMale(), forKey: .isMale)
         MagicalRecord.save(blockAndWait: { (localContext) in
@@ -152,7 +155,11 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
     }
     
     @IBAction func didCancelClick(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if let navigate = navigationController {
+            navigate.popViewController(animated: true)
+        }  else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func didRegisterClick(_ sender: Any) {
@@ -196,6 +203,25 @@ class RegisterController: BaseViewController, UITextFieldDelegate {
                     self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: error.localizedDescription, showDismiss: true)
             })
         }
+    }
+    
+    // MARK: - UIPickerView datasource and delegate
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return HealthOptions.numberOfGoals()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let title = String(HealthOptions.goalForRow(row))
+        return NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName:UIColor.white])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        _targetText.text = String(HealthOptions.goalForRow(row))
     }
     
 }

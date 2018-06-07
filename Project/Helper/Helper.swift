@@ -64,7 +64,6 @@ extension UserDefaults {
         case isMale
         case timezone
         case weight
-        case target
         case token
     }
     
