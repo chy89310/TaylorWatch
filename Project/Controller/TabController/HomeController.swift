@@ -84,7 +84,7 @@ class HomeController: BaseViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         yearLabel.text = formatter.string(from: date)
-        formatter.dateFormat = "dd MMM"
+        formatter.dateFormat = "dd MMMM"
         dateLabel.text = formatter.string(from: date)
         formatter.dateFormat = "EEEE"
         weekDayLabel.text = formatter.string(from: date)
