@@ -29,8 +29,6 @@
 	</dict>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>The app will connect to the watch by using Bluetooth data</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Need Library access for uploading Images</string>
 	<key>TargetName</key>
 	<string>$(TARGET_NAME)</string>
 	<key>UIBackgroundModes</key>
