@@ -8,6 +8,7 @@
 
 import MagicalRecord
 import MBProgressHUD
+import SwiftyJSON
 import UIKit
 
 class AuthUtil: NSObject {
@@ -27,42 +28,50 @@ class AuthUtil: NSObject {
         super.init()
     }
     
+    func parseUserInfo(_ json: JSON) -> Bool {
+        if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
+            AuthUtil.shared.token = token
+            UserDefaults.set(token, forKey: .token)
+            if let height = json.dictionary?["result"]?.dictionary?["height"]?.int {
+                UserDefaults.set(height, forKey: .height)
+            }
+            if let email = json.dictionary?["result"]?.dictionary?["email"]?.string {
+                UserDefaults.set(email, forKey: .email)
+            }
+            if let target = json.dictionary?["result"]?.dictionary?["target"]?.int {
+                UserDefaults.set(target, forKey: .goal)
+            }
+            if let isMale = json.dictionary?["result"]?.dictionary?["gender"]?.int {
+                UserDefaults.set(isMale == 1, forKey: .isMale)
+            }
+            if let weight = json.dictionary?["result"]?.dictionary?["weight"]?.int {
+                UserDefaults.set(weight, forKey: .weight)
+            }
+            if let birthday = json.dictionary?["result"]?.dictionary?["birthday"]?.string {
+                UserDefaults.set(birthday, forKey: .birthday)
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     func me(complete: @escaping (Bool) -> ()) {
         ApiHelper.shared.request(
             name: .get_user,
             method: .get,
             headers: AuthUtil.shared.header,
             success: { (json, response) in
-                if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
-                    self.token = token
-                    UserDefaults.set(token, forKey: .token)
-                    if let height = json.dictionary?["result"]?.dictionary?["height"]?.int {
-                        UserDefaults.set(height, forKey: .height)
-                    }
-                    if let email = json.dictionary?["result"]?.dictionary?["email"]?.string {
-                        UserDefaults.set(email, forKey: .email)
-                    }
-                    if let target = json.dictionary?["result"]?.dictionary?["target"]?.int {
-                        UserDefaults.set(target, forKey: .goal)
-                    }
-                    if let isMale = json.dictionary?["result"]?.dictionary?["gender"]?.int {
-                        UserDefaults.set(isMale == 1, forKey: .isMale)
-                    }
-                    if let weight = json.dictionary?["result"]?.dictionary?["weight"]?.int {
-                        UserDefaults.set(weight, forKey: .weight)
-                    }
-                    if let birthday = json.dictionary?["result"]?.dictionary?["birthday"]?.string {
-                        UserDefaults.set(birthday, forKey: .birthday)
-                    }
-                    complete(true);
+                if self.parseUserInfo(json) {
+                    complete(true)
                 } else {
                     log.error(json)
-                    complete(false);
+                    complete(false)
                 }
         },
             failure: { (error, response) in
                 log.error(error)
-                complete(false);
+                complete(false)
         })
     }
     
@@ -77,9 +86,7 @@ class AuthUtil: NSObject {
                 success: { (json, response) in
                     DispatchQueue.main.async { hud.hide(animated: true) }
                     if json.dictionary?["status"]?.int == 200 {
-                        if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
-                            AuthUtil.shared.token = token
-                            UserDefaults.set(token, forKey: .token)
+                        if self.parseUserInfo(json) {
                             complete(true, "login success")
                         } else {
                             complete(false, "Cannot get token: \(json.description)")

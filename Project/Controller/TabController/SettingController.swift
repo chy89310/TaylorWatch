@@ -20,7 +20,7 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
     var messageIcon: [UISwitch:String] = [:]
     var swtichArray: [UISwitch] = []
     let messageCode: [SBManager.MESSAGE_TYPE:Any] = [
-        .email: "fa:envelope",
+        .email: "fa:at",
         .facebook: "fa:facebook",
         .messenger: #imageLiteral(resourceName: "messenger"),
         .linkedin: "fa:linkedin",
@@ -28,7 +28,7 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
         .twitter: "fa:twitter",
         .line: #imageLiteral(resourceName: "line"),
         .wechat: "fa:weixin",
-        .sms: #imageLiteral(resourceName: "text"),
+        .sms: "fa:envelope",
         .qq: "fa:qq",
         .skype: "fa:skype",
         .whatsapp: "fa:whatsapp",

@@ -92,7 +92,7 @@
 
 // Device Options
 "CHOOSE A DEVICE" =
-"Choisir la montre";
+"SÉLECTIONNEZ VOTRE MONTRE";
 "Device Options" =
 "Options de la montre";
 "Add A Watch" =
@@ -163,3 +163,27 @@
 "Choisir le fuseau horaire";
 "CHANGE TIME ZONE" =
 "CHANGER LE FUSEAU HORAIRE";
+
+// Register
+"Register" =
+"S’inscrire";
+"Login" =
+"Connexion";
+"Password" =
+"Mot de passe";
+"Confirm Password" =
+"Confirmer le mot de passe";
+"Login fail" =
+"Échec de la connexion";
+"Register fail" =
+"Échec de l’inscription";
+"The email has already been taken." =
+"L'email est déjà pris";
+"The password must be at least 6 characters." =
+"Le mot de passe doit";
+"Please login" =
+"Veuillez vous connecter";
+"please input email and password" =
+"Veuillez entrer un email et un mot de";
+"Dismiss" =
+"Abandonner";

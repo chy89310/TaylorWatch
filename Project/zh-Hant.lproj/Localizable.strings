@@ -163,3 +163,31 @@
 "選擇時區";
 "CHANGE TIME ZONE" =
 "改變時區";
+
+// Register
+"Register" =
+"註冊";
+"Login" =
+"登陸";
+"Password" =
+"密碼";
+"Confirm Password" =
+"確認密碼";
+"Login fail" =
+"登陸失敗";
+"Register fail" =
+"註冊失敗";
+"The email has already been taken." =
+"郵箱已被註冊";
+"The password must be at least 6 characters." =
+"密碼最少6位";
+"Please login" =
+"請登錄";
+"please input email and password" =
+"請輸入郵箱及密碼";
+"Dismiss" =
+"返回";
+"Unknow Error" =
+"未知錯誤";
+"Goals" =
+"目標步數";
