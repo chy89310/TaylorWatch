@@ -2,8 +2,8 @@
 //  BluetoothController.swift
 //  Taylor
 //
-//  Created by Kevin on 01/03/2018.
-//  Copyright © 2018 KevinSum. All rights reserved.
+//  Created by Connectz technology co., ltd on 01/03/2018.
+//  Copyright © 2018 Connectz technology co., ltd. All rights reserved.
 //
 
 import UIKit

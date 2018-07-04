@@ -559,7 +559,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = KevinSum;
+				ORGANIZATIONNAME = "Connectz technology co., ltd";
 				TargetAttributes = {
 					4BA05962205E55F90047894C = {
 						DevelopmentTeam = Q5WH5HB3TQ;

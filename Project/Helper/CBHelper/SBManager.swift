@@ -2,8 +2,8 @@
 //  SBManager.swift
 //  Project
 //
-//  Created by Kevin on 22/11/2017.
-//  Copyright © 2017 KevinSum. All rights reserved.
+//  Created by Connectz technology co., ltd on 22/11/2017.
+//  Copyright © 2017 Connectz technology co., ltd. All rights reserved.
 //
 
 import AVFoundation

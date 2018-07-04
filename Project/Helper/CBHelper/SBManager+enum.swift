@@ -2,8 +2,8 @@
 //  SBManager+enum.swift
 //  Taylor
 //
-//  Created by Kevin Sum on 30/11/2017.
-//  Copyright © 2017 KevinSum. All rights reserved.
+//  Created by Connectz technology co., ltd on 30/11/2017.
+//  Copyright © 2017 Connectz technology co., ltd. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  ScanViewController.swift
 //  Taylor
 //
-//  Created by Kevin on 23/11/2017.
-//  Copyright © 2017 KevinSum. All rights reserved.
+//  Created by Connectz technology co., ltd on 23/11/2017.
+//  Copyright © 2017 Connectz technology co., ltd. All rights reserved.
 //
 
 import UIKit

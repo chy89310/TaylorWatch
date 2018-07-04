@@ -2,8 +2,8 @@
 //  RegisterController.swift
 //  Taylor
 //
-//  Created by Kevin Sum on 24/5/2018.
-//  Copyright © 2018 KevinSum. All rights reserved.
+//  Created by Connectz technology co., ltd on 24/5/2018.
+//  Copyright © 2018 Connectz technology co., ltd. All rights reserved.
 //
 
 import MagicalRecord

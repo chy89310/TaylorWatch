@@ -2,8 +2,8 @@
 //  Helper.swift
 //  Project
 //
-//  Created by Kevin Sum on 13/6/2017.
-//  Copyright © 2017 Kevin Sum. All rights reserved.
+//  Created by Connectz technology co., ltd on 13/6/2017.
+//  Copyright © 2017 Connectz technology co., ltd. All rights reserved.
 //
 
 import Foundation

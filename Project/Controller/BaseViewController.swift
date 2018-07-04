@@ -2,8 +2,8 @@
 //  BaseViewController.swift
 //  Project
 //
-//  Created by Kevin Sum on 10/7/2017.
-//  Copyright © 2017 Kevin Sum. All rights reserved.
+//  Created by Connectz technology co., ltd on 10/7/2017.
+//  Copyright © 2017 Connectz technology co., ltd. All rights reserved.
 //
 
 import UIKit
