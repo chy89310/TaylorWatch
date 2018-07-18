@@ -129,6 +129,53 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
         }
     }
     
+    func editAt(indexPath: IndexPath) {
+        let alert = UIAlertController(title: NSLocalizedString("Edit Nick Name", comment: ""), message: "", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { (textField) in
+            let peripheral = self.connectedPeripheral[indexPath.row]
+            if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString) {
+                textField.text = device.nickName
+            }
+        })
+        alert.addAction(
+            UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        )
+        alert.addAction(
+            UIAlertAction(title: NSLocalizedString("Edit", comment: ""), style: .default, handler: { (action) in
+                if let nickName = alert.textFields?.first?.text {
+                    var deviceId: Int16 = 0
+                    MagicalRecord.save(blockAndWait: { (localContext) in
+                        let peripheral = self.connectedPeripheral[indexPath.row]
+                        if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext) {
+                            deviceId = device.device_id
+                            device.nickName = nickName
+                        }
+                    })
+                    self._tableView.reloadData()
+                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                    DispatchQueue.global().async {
+                        ApiHelper.shared.request(
+                            name: .post_device,
+                            method: .post,
+                            parameters: ["nickName": nickName],
+                            headers: AuthUtil.shared.header,
+                            urlUpdate: { (url) in
+                                let str = url.absoluteString.replacingOccurrences(of: "$id", with: String(deviceId))
+                                return URL(string: str) ?? url
+                        },
+                            success: { (json, response) in
+                                DispatchQueue.main.async { hud.hide(animated: true) }
+                        },
+                            failure: { (error, response) in
+                                DispatchQueue.main.async { hud.hide(animated: true) }
+                        })
+                    }
+                }
+            })
+        )
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // Mark: - UITableView datasource deletegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -150,78 +197,22 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
             cell.titleLabel.text = device?.nickName ?? "N/A"
             cell.setCurrent(SBManager.share.selectedPeripheral == peripheral)
             UIView.animate(withDuration: 0.2, animations: {
-                cell.detailLabel.alpha = self.deleteState ? 0.0 : 1.0
-                cell.detailLabel.isHidden = self.deleteState
+                cell.editButton.alpha = self.deleteState ? 0.0 : 1.0
+                cell.editButton.isHidden = self.deleteState
                 cell.trashButton.alpha = self.deleteState ? 1.0 : 0.0
                 cell.trashButton.isHidden = !self.deleteState
             })
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd/MM/yyyy"
-            let date = (device?.addDate ?? NSDate()) as Date
-            cell.detailLabel.text = formatter.string(from: date)
             cell.didDelete = {
                 self.deleteAt(indexPath: indexPath)
+            }
+            cell.didEdit = {
+                self.editAt(indexPath: indexPath)
             }
 
             return cell
         } else {
             return DeviceOptionsCell()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let action = UITableViewRowAction(style: .default, title: NSLocalizedString("Edit", comment: "")) { (action, indexPath) in
-            let alert = UIAlertController(title: NSLocalizedString("Edit Nick Name", comment: ""), message: "", preferredStyle: .alert)
-            alert.addTextField(configurationHandler: { (textField) in
-                let peripheral = self.connectedPeripheral[indexPath.row]
-                if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString) {
-                    textField.text = device.nickName
-                }
-            })
-            alert.addAction(
-                UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-            )
-            alert.addAction(
-                UIAlertAction(title: NSLocalizedString("Edit", comment: ""), style: .default, handler: { (action) in
-                    if let nickName = alert.textFields?.first?.text {
-                        var deviceId: Int16 = 0
-                        MagicalRecord.save(blockAndWait: { (localContext) in
-                            let peripheral = self.connectedPeripheral[indexPath.row]
-                            if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext) {
-                                deviceId = device.device_id
-                                device.nickName = nickName
-                            }
-                        })
-                        tableView.reloadData()
-                        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-                        DispatchQueue.global().async {
-                            ApiHelper.shared.request(
-                                name: .post_device,
-                                method: .post,
-                                parameters: ["nickName": nickName],
-                                headers: AuthUtil.shared.header,
-                                urlUpdate: { (url) in
-                                    let str = url.absoluteString.replacingOccurrences(of: "$id", with: String(deviceId))
-                                    return URL(string: str) ?? url
-                            },
-                                success: { (json, response) in
-                                    DispatchQueue.main.async { hud.hide(animated: true) }
-                            },
-                                failure: { (error, response) in
-                                    DispatchQueue.main.async { hud.hide(animated: true) }
-                            })
-                        }
-                    }
-                })
-            )
-            self.present(alert, animated: true, completion: nil)
-        }
-        action.backgroundColor = UIColor("#FDDFC0")
-        return [action]
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -238,9 +229,7 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
     // Mark: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showScan", let scanController = segue.destination as? ScanViewController {
-            let backItem = UIBarButtonItem(title: NSLocalizedString("Back", comment: ""), style: .plain, target: scanController, action: #selector(ScanViewController.backAction))
-            backItem.tintColor = .white
-            scanController.navigationItem.leftBarButtonItem = backItem
+            scanController.hideBackButton = false
         }
     }
 
@@ -249,13 +238,18 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
 class DeviceOptionsCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var trashButton: UIButton!
     
     var didDelete: (() -> ())?
+    var didEdit: (() -> ())?
     
     @IBAction func didTrashClick(_ sender: UIButton) {
         didDelete?()
+    }
+    
+    @IBAction func didEditClick(_ sender: UIButton) {
+        didEdit?()
     }
     
     func setCurrent(_ isCurrent: Bool) {
@@ -267,7 +261,7 @@ class DeviceOptionsCell: UITableViewCell {
         }
         backgroundColor = color
         titleLabel.textColor = fontColor
-        detailLabel.textColor = fontColor
+        editButton.setTitleColor(fontColor, for: .normal)
         trashButton.setTitleColor(fontColor, for: .normal)
     }
 }

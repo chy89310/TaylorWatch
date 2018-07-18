@@ -20,7 +20,7 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
         super.viewDidLoad()
         
         // Localize
-        title = NSLocalizedString("INFO", comment: "")
+        title = NSLocalizedString("INFOS", comment: "")
     }
     
     func updateAppAction() {
@@ -34,7 +34,7 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,11 +62,15 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
                 }
                 cell.detailTextLabel?.parseIcon()
             case 1:
-                cell.textLabel?.text = NSLocalizedString("Bluetooth", comment: "")
-                cell.detailTextLabel?.text = "\(device?.system ?? "N/A")"
-            case 2:
                 cell.textLabel?.text = NSLocalizedString("Model Name", comment: "")
                 cell.detailTextLabel?.text = "\(device?.serial ?? "N/A")"
+            case 2:
+                cell.textLabel?.text = NSLocalizedString("App Version", comment: "")
+                #if DEBUG
+                cell.detailTextLabel?.text = "\(Bundle.main.infoDictionary!["CFBundleShortVersionString"] ?? "1.0.0")"
+                #else
+                cell.detailTextLabel?.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+                #endif
             case 3:
                 cell.textLabel?.text = NSLocalizedString("Pairing Code", comment: "")
                 let passcode = device?.passcode ?? 0
@@ -75,12 +79,8 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
                 cell.textLabel?.text = NSLocalizedString("Frame Number", comment: "")
                 cell.detailTextLabel?.text = "\(device?.firmware ?? "N/A")"
             case 5:
-                cell.textLabel?.text = NSLocalizedString("App Version", comment: "")
-                #if DEBUG
-                    cell.detailTextLabel?.text = "\(Bundle.main.infoDictionary!["CFBundleShortVersionString"] ?? "1.0.0")"
-                #else
-                    cell.detailTextLabel?.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-                #endif
+                cell.textLabel?.text = NSLocalizedString("Bluetooth", comment: "")
+                cell.detailTextLabel?.text = "\(device?.system ?? "N/A")"
             default:
                 break
             }

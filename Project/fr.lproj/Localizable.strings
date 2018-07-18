@@ -44,7 +44,7 @@
 "Month" =
 "Mois";
 "Set Goals" =
-"Fixer objectifs";
+"Fixer votre objectif";
 "Body Measurements" =
 "Mesures";
 "Weekly Total" =
@@ -58,7 +58,7 @@
 "steps" =
 "Pas";
 "cals" =
-"Cals";
+"Kcals";
 
 // Profile
 "PROFILE SETTINGS" =
@@ -118,13 +118,13 @@
 "STEPS" =
 "PAS";
 "CALS" =
-"CALS";
+"KCALS";
 
 // Info
-"INFO" =
-"INFO";
-"info" =
-"info";
+"INFOS" =
+"INFOS";
+"infos" =
+"infos";
 "Watch Bettery" = 
 "Batterie de la montre";
 "Bluetooth" =
@@ -144,7 +144,7 @@
 "settings" =
 "réglages";
 "Social Media Notification" =
-"Notification de réseaux sociaux";
+"Activer/Désactiver toutes les notifications";
 "Find my Watch" =
 "Trouver ma montre";
 
