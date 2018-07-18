@@ -145,11 +145,11 @@ class Helper: Any {
         var tic = true
         var bytes = [UInt8]()
         var byte = 0
-        if str.characters.count % 2 == 1 {
+        if str.count % 2 == 1 {
             // Add 0 at the last 2 bite
-            str.characters.insert("0", at: str.characters.index(before: str.characters.endIndex))
+            str.insert("0", at: str.index(before: str.endIndex))
         }
-        for c in str.characters {
+        for c in str {
             var d = 0
             switch String(c).lowercased() {
             case "a":
