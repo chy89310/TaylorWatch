@@ -123,6 +123,8 @@
 // Info
 "INFOS" =
 "情報";
+"INFORMATIONS" =
+"情報";
 "infos" =
 "情報";
 "Watch Bettery" =
@@ -139,6 +141,8 @@
 "アプリのバージョン";
 
 // Setting
+"SETTING" =
+"設定";
 "SETTINGS" =
 "設定";
 "settings" =

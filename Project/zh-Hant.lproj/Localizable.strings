@@ -123,6 +123,8 @@
 // Info
 "INFOS" =
 "關於";
+"INFORMATIONS" =
+"關於";
 "infos" =
 "關於";
 "Watch Bettery" =
@@ -139,6 +141,8 @@
 "程序版本";
 
 // Setting
+"SETTING" =
+"設定";
 "SETTINGS" =
 "設定";
 "settings" =

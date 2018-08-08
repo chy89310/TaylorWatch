@@ -20,7 +20,8 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
         super.viewDidLoad()
         
         // Localize
-        title = NSLocalizedString("INFOS", comment: "")
+        title = NSLocalizedString("INFORMATIONS", comment: "")
+        navigationController?.title = NSLocalizedString("INFOS", comment: "")
     }
     
     func updateAppAction() {

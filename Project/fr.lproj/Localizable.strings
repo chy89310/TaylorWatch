@@ -123,6 +123,8 @@
 // Info
 "INFOS" =
 "INFOS";
+"INFORMATIONS" =
+"INFORMATIONS";
 "infos" =
 "infos";
 "Watch Bettery" = 
@@ -139,12 +141,14 @@
 "Version de l’app";
 
 // Setting
+"SETTING" =
+"NOTIFS";
 "SETTINGS" =
 "RÉGLAGES";
 "settings" =
 "réglages";
 "Social Media Notification" =
-"Activer/Désactiver toutes les notifications";
+"Done/Désactiver toutes les notifications";
 "Find my Watch" =
 "Trouver ma montre";
 

@@ -26,11 +26,11 @@
             </objects>
             <point key="canvasLocation" x="2662" y="1711"/>
         </scene>
-        <!--SETTINGS-->
+        <!--SETTING-->
         <scene sceneID="vJJ-ph-gdo">
             <objects>
                 <navigationController id="1Yw-5r-84Y" customClass="BaseNavigationController" customModule="FOXTER" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SETTINGS" image="nav_setting" id="0Gd-pz-76K"/>
+                    <tabBarItem key="tabBarItem" title="SETTING" image="nav_setting" id="0Gd-pz-76K"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oYV-rC-Cx9" customClass="BaseNavigationBar" customModule="FOXTER" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
