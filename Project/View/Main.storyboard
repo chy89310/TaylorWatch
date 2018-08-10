@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zvv-gg-z90">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zvv-gg-z90">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Baseline standard spacing" minToolsVersion="9.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -76,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-Z7-0e5" customClass="SwiftIconButton" customModule="SwiftIconFont">
-                                <rect key="frame" x="-189" y="237.5" width="753" height="192"/>
+                                <rect key="frame" x="123" y="252.5" width="129" height="162"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="150"/>
                                 <state key="normal" title="fa:bluetooth">
                                     <color key="titleColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -113,13 +119,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your personal info, the information will be saved on your device." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ut4-76-ChG">
-                                <rect key="frame" x="37.5" y="28" width="300" height="29"/>
+                                <rect key="frame" x="37.5" y="72" width="300" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TVd-zu-efv">
-                                <rect key="frame" x="20" y="65" width="335" height="418.5"/>
+                                <rect key="frame" x="20" y="109" width="335" height="418.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyQ-59-C3J">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -265,7 +271,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="23l-vv-4I7">
-                                <rect key="frame" x="0.0" y="583" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="534" width="375" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCs-nA-sxh">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
@@ -667,6 +673,17 @@
                                     <segue destination="V9B-AE-KHa" kind="show" id="QJX-Kt-Ycg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqK-uh-MUs">
+                                <rect key="frame" x="299" y="72" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="IUz-N7-gmY"/>
+                                    <constraint firstAttribute="width" secondItem="eqK-uh-MUs" secondAttribute="height" id="fSk-8D-7ZQ"/>
+                                </constraints>
+                                <state key="normal" image="gear"/>
+                                <connections>
+                                    <segue destination="V9B-AE-KHa" kind="show" id="DZx-IW-Jdq"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ks4-GO-ybz" customClass="RoundView" customModule="FOXTER" customModuleProvider="target">
                                 <rect key="frame" x="132.5" y="414.5" width="110.5" height="110.5"/>
                                 <subviews>
@@ -740,8 +757,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="eqK-uh-MUs" firstAttribute="trailing" secondItem="svq-oF-8SK" secondAttribute="trailing" id="0X2-lE-RvG"/>
                             <constraint firstItem="svq-oF-8SK" firstAttribute="trailing" secondItem="BLL-Fd-qf2" secondAttribute="trailingMargin" id="1uo-dw-gG7"/>
                             <constraint firstItem="qey-wV-P4e" firstAttribute="bottom" secondItem="svq-oF-8SK" secondAttribute="bottom" id="7Ao-0b-Mcj"/>
+                            <constraint firstItem="eqK-uh-MUs" firstAttribute="top" secondItem="svq-oF-8SK" secondAttribute="top" id="E7l-9J-NzJ"/>
                             <constraint firstItem="Q9u-KC-3dg" firstAttribute="top" secondItem="tiS-vP-qkg" secondAttribute="centerY" id="HlX-BM-hii"/>
                             <constraint firstItem="svq-oF-8SK" firstAttribute="top" secondItem="BFo-OD-v0S" secondAttribute="bottom" constant="8" symbolic="YES" id="KUC-DG-KZz"/>
                             <constraint firstAttribute="centerX" secondItem="qey-wV-P4e" secondAttribute="centerX" multiplier="0.6" id="N16-A2-0uy"/>
@@ -758,6 +777,7 @@
                         <outlet property="caloriesLabel" destination="lNc-l6-QzC" id="859-Sm-CPm"/>
                         <outlet property="dateLabel" destination="JUj-31-luv" id="sa2-di-m7y"/>
                         <outlet property="deviceButton" destination="qey-wV-P4e" id="B0v-FR-YfQ"/>
+                        <outlet property="settingButton" destination="eqK-uh-MUs" id="V98-QB-RWX"/>
                         <outlet property="stepLabel" destination="BW9-rS-e7P" id="qaa-fX-PjD"/>
                         <outlet property="stepView" destination="tiS-vP-qkg" id="Znu-S7-fKQ"/>
                         <outlet property="watchView" destination="svq-oF-8SK" id="ILC-w0-z7j"/>
@@ -937,7 +957,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
                                 <rect key="frame" x="16" y="121.5" width="343" height="257.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -945,10 +965,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
                                 <rect key="frame" x="0.0" y="379" width="375" height="239"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
                                         <rect key="frame" x="28" y="74" width="319" height="91"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
@@ -1577,6 +1597,7 @@ Time Zone</string>
         <image name="0" width="476" height="317"/>
         <image name="601_taylor_dial" width="270" height="270"/>
         <image name="Set" width="16" height="16"/>
+        <image name="gear" width="34" height="34"/>
         <image name="nav_dash" width="24" height="24"/>
         <image name="nav_health" width="33" height="27"/>
         <image name="nav_info" width="28" height="28"/>
@@ -1585,7 +1606,8 @@ Time Zone</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Kr1-f6-mcv"/>
-        <segue reference="tiF-sG-S9t"/>
-        <segue reference="SFX-L9-hW4"/>
+        <segue reference="QJX-Kt-Ycg"/>
+        <segue reference="5Hn-sz-dSd"/>
+        <segue reference="Kh3-Lf-SNG"/>
     </inferredMetricsTieBreakers>
 </document>

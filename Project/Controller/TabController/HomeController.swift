@@ -14,6 +14,7 @@ class HomeController: BaseViewController {
 
     @IBOutlet weak var watchView: WatchView!
     @IBOutlet weak var deviceButton: RoundButton!
+    @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var stepView: StepPercentView!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -32,6 +33,11 @@ class HomeController: BaseViewController {
         // Localize
         title = NSLocalizedString("HOME", comment: "")
         deviceButton.setTitle(NSLocalizedString("Device Options", comment: ""), for: .normal)
+        
+        // Display gear button or device button
+        let showGear = Bundle.main.infoDictionary?["showGear"] as? Bool ?? false
+        settingButton.isHidden = !showGear
+        deviceButton.isHidden = showGear
         
         // Update ANCS notification
         SBManager.share.subscribeToANCS(true)
