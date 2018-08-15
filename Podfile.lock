@@ -17,6 +17,7 @@ PODS:
   - SwiftyBeaver (1.5.1)
   - SwiftyJSON (3.1.4)
   - SwiftyTimer (2.0.0)
+  - UIButton-SSEdgeInsets (0.1.7)
 
 DEPENDENCIES:
   - Alamofire
@@ -33,6 +34,25 @@ DEPENDENCIES:
   - SwiftyBeaver
   - SwiftyJSON
   - SwiftyTimer
+  - UIButton-SSEdgeInsets
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Charts
+    - HexColors
+    - IQKeyboardManagerSwift
+    - MagicalRecord
+    - MBProgressHUD
+    - Pgyer
+    - PgyUpdate
+    - Reachability
+    - Siren
+    - SwiftIconFont
+    - SwiftyBeaver
+    - SwiftyJSON
+    - SwiftyTimer
+    - UIButton-SSEdgeInsets
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
@@ -49,7 +69,8 @@ SPEC CHECKSUMS:
   SwiftyBeaver: 4f74563624b2c1e821c522c54142b5dd5ebb0f30
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyTimer: 2efd74b060d69ad4f1496baf5bbedbe132125fcf
+  UIButton-SSEdgeInsets: 64a600adc670d98e140ddcde1d0e64d7b952502c
 
-PODFILE CHECKSUM: 70b5b7b349433866525f160c4466135a5d8e6775
+PODFILE CHECKSUM: f961455c08e8b76765aa65b7554e54dcf5cb4763
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3

@@ -9,6 +9,7 @@
 import HexColors
 import MagicalRecord
 import UIKit
+import UIButton_SSEdgeInsets
 
 class HomeController: BaseViewController {
 
@@ -33,6 +34,8 @@ class HomeController: BaseViewController {
         // Localize
         title = NSLocalizedString("HOME", comment: "")
         deviceButton.setTitle(NSLocalizedString("Device Options", comment: ""), for: .normal)
+        settingButton.setTitle(NSLocalizedString("Setting", comment: ""), for: .normal)
+        settingButton.setImagePositionWith(.top, spacing: 5)
         
         // Display gear button or device button
         let showGear = Bundle.main.infoDictionary?["showGear"] as? Bool ?? false
