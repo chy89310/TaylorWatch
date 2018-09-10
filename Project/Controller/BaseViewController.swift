@@ -30,12 +30,12 @@ class BaseViewController: UIViewController {
         navigationItem.setHidesBackButton(true, animated: false)
     }
     
-    func showAlert(title: String, message: String, showDismiss: Bool = false) {
+    func showAlert(title: String, message: String, showDismiss: Bool = false, ok_handler handler: ((UIAlertAction) -> Swift.Void)? = nil) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: handler))
         if showDismiss {
             alert.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: .default, handler: { (action) in
                 self.dismiss(animated: true, completion: nil)

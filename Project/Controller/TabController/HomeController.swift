@@ -158,7 +158,20 @@ class HomeController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRegister", let register = segue.destination as? RegisterController {
             register.didRegistered = { controller in
-                controller.dismiss(animated: true, completion: nil)
+                controller.dismiss(animated: true, completion: {
+                    self.showAlert(title: NSLocalizedString("Please login after validate your email address", comment: ""),
+                                   message: "",
+                                   showDismiss: false,
+                                   ok_handler: { (action) in
+                                    var controller: UIViewController = self
+                                    if let tabBar = self.tabBarController {
+                                        controller = tabBar
+                                    } else if let navigate = self.navigationController {
+                                        controller = navigate
+                                    }
+                                    controller.dismiss(animated: true, completion: nil)
+                    })
+                })
             }
         }
     }

@@ -84,7 +84,12 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRegister", let register = segue.destination as? RegisterController {
             register.didRegistered = { controller in
-                controller.performSegue(withIdentifier: "showWatch", sender: self)
+                self.showAlert(title: NSLocalizedString("Please login after validate your email address", comment: ""),
+                          message: "",
+                          showDismiss: false,
+                          ok_handler: { (action) in
+                            controller.didCancelClick(self)
+                })
             }
         }
     }
