@@ -42,7 +42,7 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
         // Localize
         title = NSLocalizedString("SETTINGS", comment: "")
         navigationController?.title = NSLocalizedString("SETTING", comment: "")
-        _descLabel.text = NSLocalizedString("Social Media Notification", comment: "")
+        _descLabel.text = NSLocalizedString("Enable/Disable notifications", comment: "")
         _findButton.setTitle(NSLocalizedString("Find my Watch", comment: ""), for: .normal)
         
         _notificationSwitch.layer.cornerRadius = 16

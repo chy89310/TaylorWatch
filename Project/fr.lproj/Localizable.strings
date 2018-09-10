@@ -85,10 +85,10 @@
 "Veuillez entrer votre adresse email d’abord";
 
 // Scan
-"Please enter the number that hour hand and minute hand indicate separately" =
-"Veuillez entrer le nombre que chacune des aiguilles des heures et minutes montrent de façon indépendante";
-"This code will be saved in info. It will be needed when you connect to the new mobile and want to log with history data." =
-"Ce code sera sauvegardée dans la rubrique info de votre application. Ce code sera nécessaire pour vous utiliser notre application sur un autre téléphone et bénéficier de votre historique d’information";
+"Please enter the time indicated on your watch." =
+"Veuillez saisir l’heure indiquée sur votre montre.";
+"HOURS : MINUTES" =
+"HEURES : MINUTES";
 
 // Device Options
 "CHOOSE A DEVICE" =
@@ -147,8 +147,8 @@
 "NOTIFICATIONS";
 "settings" =
 "réglages";
-"Social Media Notification" =
-"Activer/Désactiver toutes les notifications";
+"Enable/Disable notifications" =
+"Activer/Désactiver les notifications";
 "Find my Watch" =
 "Trouver ma montre";
 

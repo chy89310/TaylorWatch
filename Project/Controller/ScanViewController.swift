@@ -177,8 +177,8 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             SBManager.share.didUpdateValue = { (character) in
                 SBManager.share.didUpdateValue = nil
                 let alertController = UIAlertController(
-                    title: NSLocalizedString("Please enter the number that hour hand and minute hand indicate separately", comment: ""),
-                    message: NSLocalizedString("This code will be saved in info. It will be needed when you connect to the new mobile and want to log with history data.", comment: ""),
+                    title: NSLocalizedString("Please enter the time indicated on your watch.", comment: ""),
+                    message: NSLocalizedString("HOURS : MINUTES", comment: ""),
                     preferredStyle: .alert)
                 alertController.addTextField(configurationHandler: { (textFiled) in
                     self.textField = textFiled
