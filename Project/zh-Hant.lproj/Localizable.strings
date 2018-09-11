@@ -195,3 +195,13 @@
 "未知錯誤";
 "Goals" =
 "目標步數";
+"account not activated" =
+"帳號未激活";
+"invalid credentials" =
+"帳號或密碼錯誤";
+"forget password" =
+"忘記密碼";
+"Reset Password" =
+"重設密碼";
+"Send Reset Link" =
+"發送郵件";

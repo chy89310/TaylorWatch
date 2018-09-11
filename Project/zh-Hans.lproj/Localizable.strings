@@ -195,3 +195,13 @@
 "未知错误";
 "Goals" =
 "目标步数";
+"account not activated" =
+"账号未激活";
+"invalid credentials" =
+"账号或密码错误";
+"forget password" =
+"忘记密码";
+"Reset Password" =
+"重设密码";
+"Send Reset Link" =
+"发送邮件";

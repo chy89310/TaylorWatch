@@ -16,6 +16,7 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var _emailTextField: UITextField!
     @IBOutlet weak var _passwordLabel: UILabel!
     @IBOutlet weak var _passwordTextField: UITextField!
+    @IBOutlet weak var _forgetButton: UIButton!
     @IBOutlet weak var _registerButton: UIButton!
     @IBOutlet weak var _loginButton: UIButton!
     
@@ -24,6 +25,7 @@ class LoginController: BaseViewController, UITextFieldDelegate {
 
         _emailLabel.text = NSLocalizedString("Email", comment: "")
         _passwordLabel.text = NSLocalizedString("Password", comment: "")
+        _forgetButton.setTitle(NSLocalizedString("forget password", comment: ""), for: .normal)
         _registerButton.setTitle(NSLocalizedString("Register", comment: ""), for: .normal)
         _loginButton.setTitle(NSLocalizedString("Login", comment: ""), for: .normal)
         
@@ -63,7 +65,7 @@ class LoginController: BaseViewController, UITextFieldDelegate {
                 if success {
                     self.performSegue(withIdentifier: "showWatch", sender: self)
                 } else {
-                    self.showAlert(title: NSLocalizedString("Login fail", comment: ""), message: message)
+                    self.showAlert(title: NSLocalizedString("Login fail", comment: ""), message: NSLocalizedString(message, comment: ""))
                 }
             })
         }
@@ -77,6 +79,31 @@ class LoginController: BaseViewController, UITextFieldDelegate {
             _passwordTextField.becomeFirstResponder()
         }
         return true
+    }
+    
+    @IBAction func forgetAction(_ sender: Any) {
+        let alert = UIAlertController(title: NSLocalizedString("Reset Password", comment: ""), message: "", preferredStyle: .alert)
+        alert.addTextField { (textfield) in
+            textfield.placeholder = NSLocalizedString("Email", comment: "")
+        }
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Send Reset Link", comment: ""), style: .default, handler: { (action) in
+            let parameter = ["email": alert.textFields?[0].text ?? ""]
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            DispatchQueue.global().async {
+                ApiHelper.shared.request(
+                    name: .forget_password,
+                    method: .post,
+                    parameters: parameter,
+                    success: { (json, response) in
+                        DispatchQueue.main.async { hud.hide(animated: true) }
+                },
+                    failure: { (error, response) in
+                        DispatchQueue.main.async { hud.hide(animated: true) }
+                })
+            }
+        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Navigation

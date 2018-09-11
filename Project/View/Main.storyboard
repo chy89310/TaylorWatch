@@ -82,7 +82,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-Z7-0e5" customClass="SwiftIconButton" customModule="SwiftIconFont">
-                                <rect key="frame" x="-189" y="237.5" width="753" height="192"/>
+                                <rect key="frame" x="123" y="252.5" width="129" height="162"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="150"/>
                                 <state key="normal" title="fa:bluetooth">
                                     <color key="titleColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,13 +119,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your personal info, the information will be saved on your device." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ut4-76-ChG">
-                                <rect key="frame" x="37.5" y="28" width="300" height="29"/>
+                                <rect key="frame" x="37.5" y="72" width="300" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TVd-zu-efv">
-                                <rect key="frame" x="20" y="65" width="335" height="418.5"/>
+                                <rect key="frame" x="20" y="109" width="335" height="418.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyQ-59-C3J">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -271,7 +271,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="23l-vv-4I7">
-                                <rect key="frame" x="0.0" y="583" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="534" width="375" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCs-nA-sxh">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="40"/>
@@ -422,11 +422,22 @@
                                             <constraint firstItem="oun-5p-wCy" firstAttribute="width" secondItem="YD1-7r-VEh" secondAttribute="width" id="RaE-9O-WfK"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef2-5d-rtD">
+                                        <rect key="frame" x="224" y="285" width="111" height="30"/>
+                                        <state key="normal" title="forget password">
+                                            <color key="titleColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgetAction:" destination="tRw-cv-PWC" eventType="touchUpInside" id="hks-aC-4au"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Ef2-5d-rtD" firstAttribute="trailing" secondItem="YD1-7r-VEh" secondAttribute="trailing" id="1fT-6X-wnB"/>
                                     <constraint firstAttribute="trailing" secondItem="YD1-7r-VEh" secondAttribute="trailing" id="7Xw-KZ-UCb"/>
                                     <constraint firstItem="YD1-7r-VEh" firstAttribute="centerY" secondItem="Rmk-pH-Drp" secondAttribute="centerY" id="Xzy-Ey-Hgh"/>
+                                    <constraint firstItem="Ef2-5d-rtD" firstAttribute="top" secondItem="YD1-7r-VEh" secondAttribute="bottom" id="ZNe-Qv-oT5"/>
                                     <constraint firstItem="YD1-7r-VEh" firstAttribute="leading" secondItem="Rmk-pH-Drp" secondAttribute="leading" id="fhe-le-9Ut"/>
                                 </constraints>
                             </view>
@@ -477,6 +488,7 @@
                     <connections>
                         <outlet property="_emailLabel" destination="MnP-au-X26" id="bMU-RG-G76"/>
                         <outlet property="_emailTextField" destination="oun-5p-wCy" id="sbb-iC-bg5"/>
+                        <outlet property="_forgetButton" destination="Ef2-5d-rtD" id="Jmr-1t-LCN"/>
                         <outlet property="_loginButton" destination="pnD-fY-BqQ" id="zzx-Qc-jZV"/>
                         <outlet property="_passwordLabel" destination="uwB-Ur-2S4" id="L3j-sf-ZAd"/>
                         <outlet property="_passwordTextField" destination="8JF-qz-Ev7" id="kI2-Cr-4Ml"/>
@@ -959,7 +971,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
                                 <rect key="frame" x="16" y="121.5" width="343" height="257.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -967,13 +979,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
                                 <rect key="frame" x="0.0" y="379" width="375" height="239"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
                                         <rect key="frame" x="28" y="74" width="319" height="91"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -989,7 +1001,7 @@ Time</string>
                                                     <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="52X-e5-6Td"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-3W-68s" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
                                                 <rect key="frame" x="114" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -1005,7 +1017,7 @@ Sync</string>
                                                     <action selector="didButtonClick:" destination="GhL-s6-QZw" eventType="touchUpInside" id="BTh-rw-Umy"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQY-47-fBN" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
                                                 <rect key="frame" x="228" y="0.0" width="91" height="91"/>
                                                 <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>

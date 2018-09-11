@@ -35,5 +35,7 @@
 	<string>/api/step/$id</string>
 	<key>post_step</key>
 	<string>/api/step/$id</string>
+	<key>forget_password</key>
+	<string>/api/forget_password</string>
 </dict>
 </plist>
