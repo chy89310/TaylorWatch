@@ -40,8 +40,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let textAttributes = [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
         // Localize
         title = NSLocalizedString("PROFILE SETTINGS", comment: "")
         _descLabel.text = NSLocalizedString("Please enter your personal info, the information will be saved on your device.", comment: "")

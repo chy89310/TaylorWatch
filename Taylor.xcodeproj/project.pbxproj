@@ -51,6 +51,9 @@
 		4B48DA352017B9460067ECA0 /* HealthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA342017B9450067ECA0 /* HealthController.swift */; };
 		4B48DA382018F9C60067ECA0 /* TimeZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */; };
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
+		4B5CEF9A2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
+		4B5CEF9B2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
+		4B5CEF9C2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
 		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
 		4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
 		4B6562AA20B5C54300831CF8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562A920B5C54300831CF8 /* LoginController.swift */; };
@@ -223,6 +226,7 @@
 		4B48DA342017B9450067ECA0 /* HealthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthController.swift; sourceTree = "<group>"; };
 		4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneController.swift; sourceTree = "<group>"; };
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
+		4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyController.swift; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		4B6562A920B5C54300831CF8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 				4B167EC020166C82009DCD4D /* BaseNavigationController.swift */,
 				0A32C5572047AA9600BD6A5B /* BluetoothController.swift */,
 				4B6562A920B5C54300831CF8 /* LoginController.swift */,
+				4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */,
 				4B6562AD20B5CD2200831CF8 /* RegisterController.swift */,
 				0A0B53141FC6C53100CC094D /* ScanViewController.swift */,
 				4BF01A601FCD6686009B1262 /* TabController */,
@@ -974,6 +979,7 @@
 				4BA05979205E55F90047894C /* WatchView.swift in Sources */,
 				4BA0597A205E55F90047894C /* TitleView.swift in Sources */,
 				4BA0597B205E55F90047894C /* TimeZoneController.swift in Sources */,
+				4B5CEF9B2190B32800EB9BB8 /* PrivacyController.swift in Sources */,
 				4BA0597C205E55F90047894C /* BaseViewController.swift in Sources */,
 				4BA0597D205E55F90047894C /* Helper.swift in Sources */,
 				4BA0597E205E55F90047894C /* Notification+Extension.swift in Sources */,
@@ -1019,6 +1025,7 @@
 				4BA059B8205E560B0047894C /* WatchView.swift in Sources */,
 				4BA059B9205E560B0047894C /* TitleView.swift in Sources */,
 				4BA059BA205E560B0047894C /* TimeZoneController.swift in Sources */,
+				4B5CEF9C2190B32800EB9BB8 /* PrivacyController.swift in Sources */,
 				4BA059BB205E560B0047894C /* BaseViewController.swift in Sources */,
 				4BA059BC205E560B0047894C /* Helper.swift in Sources */,
 				4BA059BD205E560B0047894C /* Notification+Extension.swift in Sources */,
@@ -1064,6 +1071,7 @@
 				4B2BB273200D22A900ED482E /* WatchView.swift in Sources */,
 				4B2BB27D200FC94400ED482E /* TitleView.swift in Sources */,
 				4B48DA382018F9C60067ECA0 /* TimeZoneController.swift in Sources */,
+				4B5CEF9A2190B32800EB9BB8 /* PrivacyController.swift in Sources */,
 				4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */,
 				4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */,
 				4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */,
@@ -1109,7 +1117,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_foxter.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.foxter;
@@ -1131,7 +1138,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_foxter.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.foxter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1150,7 +1156,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconSeagull;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_seagull.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.seagull;
@@ -1168,7 +1173,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconSeagull;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_seagull.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.seagull;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1301,7 +1305,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_taylor.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.enterprise;
@@ -1325,7 +1328,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_taylor.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.enterprise;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -50,6 +50,9 @@ class AuthUtil: NSObject {
             if let birthday = json.dictionary?["result"]?.dictionary?["birthday"]?.string {
                 UserDefaults.set(birthday, forKey: .birthday)
             }
+            if let privacyVersion = json.dictionary?["result"]?.dictionary?["privacy_version"]?.int {
+                UserDefaults.set(privacyVersion, forKey: .privacyVersion)
+            }
             return true;
         } else {
             return false;

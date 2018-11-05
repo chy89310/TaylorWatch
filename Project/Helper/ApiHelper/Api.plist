@@ -37,5 +37,7 @@
 	<string>/api/step/$id</string>
 	<key>forget_password</key>
 	<string>/api/forget_password</string>
+	<key>get_privacy</key>
+	<string>/api/content/privacy</string>
 </dict>
 </plist>

@@ -26,6 +26,7 @@ extension ApiHelper {
         case put_step
         case post_step
         case forget_password
+        case get_privacy
     }
     
     // Update the defaultEnv if you edit the Env enum

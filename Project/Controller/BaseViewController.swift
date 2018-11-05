@@ -23,6 +23,12 @@ class BaseViewController: UIViewController {
     deinit {
         log.verbose("\(self)")
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let textAttributes = [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

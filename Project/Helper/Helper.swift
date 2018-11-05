@@ -62,6 +62,7 @@ extension UserDefaults {
         case goal
         case height
         case isMale
+        case privacyVersion
         case timezone
         case weight
         case token
