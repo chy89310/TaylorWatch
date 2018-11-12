@@ -5,3 +5,7 @@
   Created by Kevin Sum on 25/3/2018.
   Copyright © 2018 KevinSum. All rights reserved.
 */
+
+// Register & Login
+"invalid credentials" =
+"This is incorrect, check the email address and password entered.";

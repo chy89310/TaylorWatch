@@ -63,8 +63,8 @@
 "卡";
 
 // Profile
-"PROFILE SETTINGS" =
-"个人资料";
+"Registration by email" =
+"邮箱注册";
 "Please enter your personal info, the information will be saved on your device." =
 "请输入你的个人数据";
 "Email" =
@@ -207,3 +207,11 @@
 "重设密码";
 "Send Reset Link" =
 "发送邮件";
+"Please login after validate your email address" =
+"进入邮箱进行验证后使用用户名和密码登录";
+
+// Privacy
+"I accept" =
+"接受";
+"I refuse" =
+"拒绝";

@@ -20,6 +20,7 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var _forgetButton: UIButton!
     @IBOutlet weak var _registerButton: UIButton!
     @IBOutlet weak var _loginButton: UIButton!
+    @IBOutlet weak var _watchFace: WatchFace!
     
     var privacyContent: JSON?
     
@@ -31,12 +32,17 @@ class LoginController: BaseViewController, UITextFieldDelegate {
         _forgetButton.setTitle(NSLocalizedString("forget password", comment: ""), for: .normal)
         _registerButton.setTitle(NSLocalizedString("Register", comment: ""), for: .normal)
         _loginButton.setTitle(NSLocalizedString("Login", comment: ""), for: .normal)
+        _watchFace.updateAsset(withDial: true)
         
         // Retrive user info to verify authentication
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         DispatchQueue.global().async {
             AuthUtil.shared.me { (success) in
-                self.loginSuccess(success, message: "", hud: hud)
+                if success {
+                    self.loginSuccess(success, message: "", hud: hud)
+                } else {
+                    DispatchQueue.main.async { hud.hide(animated: true) }
+                }
             }
         }
     }
@@ -88,7 +94,7 @@ class LoginController: BaseViewController, UITextFieldDelegate {
             })
         } else {
             DispatchQueue.main.async { hud.hide(animated: true) }
-            self.showAlert(title: NSLocalizedString("Login fail", comment: ""), message: message)
+            self.showAlert(title: NSLocalizedString("Login fail", comment: ""), message: NSLocalizedString(message, comment: ""))
         }
     }
     

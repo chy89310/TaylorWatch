@@ -515,7 +515,6 @@
 				4BA0598A205E55F90047894C /* ShellScript */,
 				4BA0598B205E55F90047894C /* Resources */,
 				4BA0599A205E55F90047894C /* [CP] Embed Pods Frameworks */,
-				8107DA360A81F8DF3E354F3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -536,7 +535,6 @@
 				4BA059C9205E560B0047894C /* ShellScript */,
 				4BA059CA205E560B0047894C /* Resources */,
 				4BA059D9205E560B0047894C /* [CP] Embed Pods Frameworks */,
-				C7F4AEE840221A99A61541D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -557,7 +555,6 @@
 				4B2BB26F200B7A4D00ED482E /* ShellScript */,
 				4BA6EE071EE87B7B0098C4DA /* Resources */,
 				4FD2103C3723A7F7250F7C80 /* [CP] Embed Pods Frameworks */,
-				8C409E731FDA0B05CA82461D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -902,51 +899,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8107DA360A81F8DF3E354F3B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8C409E731FDA0B05CA82461D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C7F4AEE840221A99A61541D8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

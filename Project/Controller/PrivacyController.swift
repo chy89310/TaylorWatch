@@ -13,6 +13,7 @@ import WebKit
 class PrivacyController: BaseViewController {
     
     @IBOutlet weak var webViewContainer: UIView!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var agreeButton: UIBarButtonItem!
     
     let observerKeyPath = "estimatedProgress"
@@ -22,7 +23,8 @@ class PrivacyController: BaseViewController {
         
         super.viewDidLoad()
         
-        agreeButton.title = NSLocalizedString("Agree", comment: "")
+        agreeButton.title = NSLocalizedString("I accept", comment: "")
+        cancelButton.title = NSLocalizedString("I refuse", comment: "")
         
         if let name = json?.dictionary?["result"]?.dictionary?["title"]?.string {
             title = name

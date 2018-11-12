@@ -42,8 +42,8 @@ class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewD
         super.viewDidLoad()
         
         // Localize
-        title = NSLocalizedString("PROFILE SETTINGS", comment: "")
-        _descLabel.text = NSLocalizedString("Please enter your personal info, the information will be saved on your device.", comment: "")
+        title = NSLocalizedString("Registration by email", comment: "")
+        _descLabel.text = ""
         _emailLabel.text = NSLocalizedString("Email", comment: "")
         _passwordLabel.text = NSLocalizedString("Password", comment: "")
         _confirmPwdLabel.text = NSLocalizedString("Confirm Password", comment: "")
