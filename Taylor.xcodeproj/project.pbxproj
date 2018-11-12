@@ -45,6 +45,9 @@
 		4B48DA352017B9460067ECA0 /* HealthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA342017B9450067ECA0 /* HealthController.swift */; };
 		4B48DA382018F9C60067ECA0 /* TimeZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */; };
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
+		4B5CEF9A2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
+		4B5CEF9B2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
+		4B5CEF9C2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
 		4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA121FDC6263001FA30F /* Notification+Extension.swift */; };
 		4B61EA1C1FDC6F5B001FA30F /* Project.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */; };
 		4B6562AA20B5C54300831CF8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6562A920B5C54300831CF8 /* LoginController.swift */; };
@@ -217,6 +220,7 @@
 		4B48DA342017B9450067ECA0 /* HealthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthController.swift; sourceTree = "<group>"; };
 		4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneController.swift; sourceTree = "<group>"; };
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
+		4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyController.swift; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		4B6562A920B5C54300831CF8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 				4B167EC020166C82009DCD4D /* BaseNavigationController.swift */,
 				0A32C5572047AA9600BD6A5B /* BluetoothController.swift */,
 				4B6562A920B5C54300831CF8 /* LoginController.swift */,
+				4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */,
 				4B6562AD20B5CD2200831CF8 /* RegisterController.swift */,
 				0A0B53141FC6C53100CC094D /* ScanViewController.swift */,
 				4BF01A601FCD6686009B1262 /* TabController */,
@@ -498,7 +503,6 @@
 				4BA0598A205E55F90047894C /* ShellScript */,
 				4BA0598B205E55F90047894C /* Resources */,
 				4BA0599A205E55F90047894C /* [CP] Embed Pods Frameworks */,
-				4BA0599B205E55F90047894C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -519,7 +523,6 @@
 				4BA059C9205E560B0047894C /* ShellScript */,
 				4BA059CA205E560B0047894C /* Resources */,
 				4BA059D9205E560B0047894C /* [CP] Embed Pods Frameworks */,
-				4BA059DA205E560B0047894C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -540,7 +543,6 @@
 				4B2BB26F200B7A4D00ED482E /* ShellScript */,
 				4BA6EE071EE87B7B0098C4DA /* Resources */,
 				4FD2103C3723A7F7250F7C80 /* [CP] Embed Pods Frameworks */,
-				A952F651E2CFA6C71A4379E1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -558,11 +560,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Connectz technology co., ltd";
 				TargetAttributes = {
 					4BA05962205E55F90047894C = {
 						DevelopmentTeam = Q5WH5HB3TQ;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					4BA059A1205E560B0047894C = {
@@ -571,7 +574,7 @@
 					4BA6EE081EE87B7B0098C4DA = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = Q5WH5HB3TQ;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -730,6 +733,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework",
+				"${BUILT_PRODUCTS_DIR}/UIButton-SSEdgeInsets/UIButton_SSEdgeInsets.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -745,25 +749,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyTimer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIButton_SSEdgeInsets.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4BA0599B205E55F90047894C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4BA059A2205E560B0047894C /* [CP] Check Pods Manifest.lock */ = {
@@ -816,6 +806,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework",
+				"${BUILT_PRODUCTS_DIR}/UIButton-SSEdgeInsets/UIButton_SSEdgeInsets.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -831,25 +822,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyTimer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIButton_SSEdgeInsets.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4BA059DA205E560B0047894C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4FD2103C3723A7F7250F7C80 /* [CP] Embed Pods Frameworks */ = {
@@ -871,6 +848,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework",
+				"${BUILT_PRODUCTS_DIR}/UIButton-SSEdgeInsets/UIButton_SSEdgeInsets.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -886,6 +864,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyTimer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIButton_SSEdgeInsets.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -908,21 +887,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A952F651E2CFA6C71A4379E1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -955,6 +919,7 @@
 				4BA05979205E55F90047894C /* WatchView.swift in Sources */,
 				4BA0597A205E55F90047894C /* TitleView.swift in Sources */,
 				4BA0597B205E55F90047894C /* TimeZoneController.swift in Sources */,
+				4B5CEF9B2190B32800EB9BB8 /* PrivacyController.swift in Sources */,
 				4BA0597C205E55F90047894C /* BaseViewController.swift in Sources */,
 				4BA0597D205E55F90047894C /* Helper.swift in Sources */,
 				4BA0597E205E55F90047894C /* Notification+Extension.swift in Sources */,
@@ -1000,6 +965,7 @@
 				4BA059B8205E560B0047894C /* WatchView.swift in Sources */,
 				4BA059B9205E560B0047894C /* TitleView.swift in Sources */,
 				4BA059BA205E560B0047894C /* TimeZoneController.swift in Sources */,
+				4B5CEF9C2190B32800EB9BB8 /* PrivacyController.swift in Sources */,
 				4BA059BB205E560B0047894C /* BaseViewController.swift in Sources */,
 				4BA059BC205E560B0047894C /* Helper.swift in Sources */,
 				4BA059BD205E560B0047894C /* Notification+Extension.swift in Sources */,
@@ -1045,6 +1011,7 @@
 				4B2BB273200D22A900ED482E /* WatchView.swift in Sources */,
 				4B2BB27D200FC94400ED482E /* TitleView.swift in Sources */,
 				4B48DA382018F9C60067ECA0 /* TimeZoneController.swift in Sources */,
+				4B5CEF9A2190B32800EB9BB8 /* PrivacyController.swift in Sources */,
 				4B7277991F12A021009AC306 /* BaseViewController.swift in Sources */,
 				4B9F7DDA1EEEF8FC009C13A5 /* Helper.swift in Sources */,
 				4B61EA131FDC6263001FA30F /* Notification+Extension.swift in Sources */,
@@ -1090,7 +1057,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_foxter.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.foxter;
@@ -1112,7 +1078,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_foxter.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.foxter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1131,7 +1096,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconSeagull;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_seagull.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.seagull;
@@ -1149,7 +1113,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = IconSeagull;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_seagull.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.seagull;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1170,15 +1133,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1222,15 +1193,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1266,7 +1245,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_taylor.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.enterprise;
@@ -1290,7 +1268,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5WH5HB3TQ;
 				INFOPLIST_FILE = Project/Info_taylor.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.enterprise;
 				PRODUCT_NAME = "$(TARGET_NAME)";

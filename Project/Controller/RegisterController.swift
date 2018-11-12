@@ -40,8 +40,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let textAttributes = [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
         // Localize
         title = NSLocalizedString("PROFILE SETTINGS", comment: "")
         _descLabel.text = NSLocalizedString("Please enter your personal info, the information will be saved on your device.", comment: "")
@@ -105,6 +104,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewD
             _emailLabel.textColor = .red
         }
         if _confirmPwdText.text != _passwordText.text {
+            validate = false
             _confirmPwdLabel.textColor = .red
         }
         if let birthDayStr = _birthDayText.text {
@@ -186,13 +186,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewD
                 success: { (json, response) in
                     DispatchQueue.main.async { hud.hide(animated: true) }
                     if json.dictionary?["status"]?.int == 201 {
-                        if let token = json.dictionary?["result"]?.dictionary?["api_token"]?.string {
-                            AuthUtil.shared.token = token
-                            UserDefaults.set(token, forKey: .token)
-                            self.didRegistered?(self)
-                        } else {
-                            self.showAlert(title: "Cannot get token", message: json.description, showDismiss: true)
-                        }
+                        self.didRegistered?(self)
                     } else if let error = json.dictionary?["result"]?.dictionary?["error"]?.array?[0].string {
                         self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: NSLocalizedString(error, comment: ""), showDismiss: true)
                     }

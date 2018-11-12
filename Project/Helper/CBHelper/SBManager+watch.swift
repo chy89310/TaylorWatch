@@ -163,7 +163,7 @@ extension SBManager {
                 let nickName = SBManager.share.selectedDevice(in: .mr_default())?.nickName ?? Helper.targetName
                 content.subtitle = "\(NSLocalizedString("from", comment: "")) \(nickName)"
                 content.body = NSLocalizedString("Notification triggered", comment: "")
-                let serviceName = SBManager.share.selectedDevice(in: .mr_default())?.serviceName ?? Helper.targetName
+                //let serviceName = SBManager.share.selectedDevice(in: .mr_default())?.serviceName ?? Helper.targetName
                 if let imageURL = Bundle.main.url(forResource: "NOTIFY_\(Helper.targetName)", withExtension: "png") {
                     do {
                         try content.attachments = [UNNotificationAttachment.init(identifier: "image", url: imageURL, options: nil)]

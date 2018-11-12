@@ -63,8 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         reach = Reachability.forInternetConnection()
         reach?.startNotifier()
         
-        log.info(launchOptions)
-        
         return true
     }
     

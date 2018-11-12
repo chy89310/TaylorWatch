@@ -21,6 +21,8 @@
 "體重";
 "Height" =
 "身高";
+"Agree" =
+"同意";
 
 // Notification
 "Hello I'm here" =
@@ -121,9 +123,11 @@
 "卡";
 
 // Info
-"INFO" =
+"INFOS" =
 "關於";
-"info" =
+"INFORMATIONS" =
+"關於";
+"infos" =
 "關於";
 "Watch Bettery" =
 "手錶電量";
@@ -139,6 +143,8 @@
 "程序版本";
 
 // Setting
+"SETTING" =
+"設定";
 "SETTINGS" =
 "設定";
 "settings" =
@@ -163,3 +169,41 @@
 "選擇時區";
 "CHANGE TIME ZONE" =
 "改變時區";
+
+// Register
+"Register" =
+"註冊";
+"Login" =
+"登陸";
+"Password" =
+"密碼";
+"Confirm Password" =
+"確認密碼";
+"Login fail" =
+"登陸失敗";
+"Register fail" =
+"註冊失敗";
+"The email has already been taken." =
+"郵箱已被註冊";
+"The password must be at least 6 characters." =
+"密碼最少6位";
+"Please login" =
+"請登錄";
+"please input email and password" =
+"請輸入郵箱及密碼";
+"Dismiss" =
+"返回";
+"Unknow Error" =
+"未知錯誤";
+"Goals" =
+"目標步數";
+"account not activated" =
+"帳號未激活";
+"invalid credentials" =
+"帳號或密碼錯誤";
+"forget password" =
+"忘記密碼";
+"Reset Password" =
+"重設密碼";
+"Send Reset Link" =
+"發送郵件";

@@ -20,6 +20,7 @@ abstract_target 'Watch' do
   pod 'SwiftyBeaver'
   pod 'SwiftyJSON'
   pod 'SwiftyTimer'
+  pod 'UIButton-SSEdgeInsets'
   
   target 'TAYLOR'
   target 'FOXTER'

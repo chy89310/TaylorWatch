@@ -16,14 +16,20 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var _pickerView: UIPickerView!
     @IBOutlet weak var _collectionView: UICollectionView!
     @IBOutlet weak var _watchView: WatchView!
+    @IBOutlet weak var _backButton: UIButton!
     var textField: UITextField?
     var passcode: String?
     var easterEgg: [CGFloat] = [1,1,-1,-1,1,-1,-1]
     var volume: CGFloat = 0.0
     var isSimulator = false
+    var hideBackButton = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _backButton.setTitle(NSLocalizedString("Back", comment: ""), for: .normal)
+        _backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        _backButton.isHidden = hideBackButton
         
         #if DEBUG && (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
             isSimulator = true
@@ -36,7 +42,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         
         log.debug("Devices count: \(Device.mr_findAll()?.count ?? 0)")
         for device in Device.mr_findAll()! as! [Device] {
-            log.debug("\(device.name) \(device.uuid) \(device.passcode)")
+            log.debug("\(String(describing: device.name)) \(String(describing: device.uuid)) \(device.passcode)")
         }
         SBManager.share.scanAction()
         SBManager.share.didFindDevice = { (peripheral) in
@@ -49,7 +55,6 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.setHidesBackButton(false, animated: true)
         _watchView.watchFace.animate(true)
     }
     
@@ -101,7 +106,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
                         SBManager.share.setMessageEnabled(with: [])
                         self.performSegue(withIdentifier: "showLogin", sender: nil)
                     } else {
-                        log.error(info)
+                        log.error(String(describing: info))
                         SBManager.share.didUpdateValue = nil
                         self.textField?.isEnabled = true
                         self.textField?.becomeFirstResponder()
@@ -172,8 +177,8 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
             SBManager.share.didUpdateValue = { (character) in
                 SBManager.share.didUpdateValue = nil
                 let alertController = UIAlertController(
-                    title: NSLocalizedString("Please enter the number that hour hand and minute hand indicate separately", comment: ""),
-                    message: NSLocalizedString("This code will be saved in info. It will be needed when you connect to the new mobile and want to log with history data.", comment: ""),
+                    title: NSLocalizedString("Please enter the time indicated on your watch.", comment: ""),
+                    message: NSLocalizedString("HOURS : MINUTES", comment: ""),
                     preferredStyle: .alert)
                 alertController.addTextField(configurationHandler: { (textFiled) in
                     self.textField = textFiled
@@ -229,7 +234,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: titleForRow(row: row, forComponent: component),
-                                  attributes: [NSForegroundColorAttributeName: UIColor("#FDDFC0")])
+                                  attributes: [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white])
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return titleForRow(row: row, forComponent: component)

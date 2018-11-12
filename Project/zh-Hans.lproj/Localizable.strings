@@ -21,6 +21,8 @@
 "体重";
 "Height" =
 "身高";
+"Agree" =
+"同意";
 
 // Notification
 "Hello I'm here" =
@@ -121,9 +123,11 @@
 "卡";
 
 // Info
-"INFO" =
+"INFOS" =
 "关于";
-"info" =
+"INFORMATIONS" =
+"关于";
+"infos" =
 "关于";
 "Watch Bettery" =
 "手表电量";
@@ -139,6 +143,8 @@
 "程序版本";
 
 // Setting
+"SETTING" =
+"设定";
 "SETTINGS" =
 "设定";
 "settings" =
@@ -191,3 +197,13 @@
 "未知错误";
 "Goals" =
 "目标步数";
+"account not activated" =
+"账号未激活";
+"invalid credentials" =
+"账号或密码错误";
+"forget password" =
+"忘记密码";
+"Reset Password" =
+"重设密码";
+"Send Reset Link" =
+"发送邮件";

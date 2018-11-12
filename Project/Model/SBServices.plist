@@ -46,16 +46,12 @@
 			<integer>1</integer>
 			<key>email</key>
 			<integer>2</integer>
-			<key>qq</key>
-			<integer>3</integer>
-			<key>wechat</key>
-			<integer>4</integer>
 			<key>facebook</key>
 			<integer>5</integer>
-			<key>messenger</key>
-			<integer>6</integer>
-			<key>line</key>
-			<integer>7</integer>
+			<key>skype</key>
+			<integer>8</integer>
+			<key>twitter</key>
+			<integer>9</integer>
 			<key>whatsapp</key>
 			<integer>10</integer>
 			<key>linkedin</key>

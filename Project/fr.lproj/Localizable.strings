@@ -21,6 +21,8 @@
 "Poids";
 "Height" =
 "Taille";
+"Agree" =
+"d'accord";
 
 // Notification
 "Hello I'm here" =
@@ -44,7 +46,7 @@
 "Month" =
 "Mois";
 "Set Goals" =
-"Fixer objectifs";
+"Fixer votre objectif";
 "Body Measurements" =
 "Mesures";
 "Weekly Total" =
@@ -58,7 +60,7 @@
 "steps" =
 "Pas";
 "cals" =
-"Cals";
+"Kcals";
 
 // Profile
 "PROFILE SETTINGS" =
@@ -85,14 +87,14 @@
 "Veuillez entrer votre adresse email d’abord";
 
 // Scan
-"Please enter the number that hour hand and minute hand indicate separately" =
-"Veuillez entrer le nombre que chacune des aiguilles des heures et minutes montrent de façon indépendante";
-"This code will be saved in info. It will be needed when you connect to the new mobile and want to log with history data." =
-"Ce code sera sauvegardée dans la rubrique info de votre application. Ce code sera nécessaire pour vous utiliser notre application sur un autre téléphone et bénéficier de votre historique d’information";
+"Please enter the time indicated on your watch." =
+"Veuillez saisir l’heure indiquée sur votre montre.";
+"HOURS : MINUTES" =
+"HEURES : MINUTES";
 
 // Device Options
 "CHOOSE A DEVICE" =
-"Choisir la montre";
+"SÉLECTIONNEZ VOTRE MONTRE";
 "Device Options" =
 "Options de la montre";
 "Add A Watch" =
@@ -118,13 +120,15 @@
 "STEPS" =
 "PAS";
 "CALS" =
-"CALS";
+"KCALS";
 
 // Info
-"INFO" =
-"INFO";
-"info" =
-"info";
+"INFOS" =
+"INFOS";
+"INFORMATIONS" =
+"INFORMATIONS";
+"infos" =
+"infos";
 "Watch Bettery" = 
 "Batterie de la montre";
 "Bluetooth" =
@@ -139,12 +143,14 @@
 "Version de l’app";
 
 // Setting
+"SETTING" =
+"NOTIFS";
 "SETTINGS" =
-"RÉGLAGES";
+"NOTIFICATIONS";
 "settings" =
 "réglages";
-"Social Media Notification" =
-"Notification de réseaux sociaux";
+"Enable/Disable notifications" =
+"Activer/Désactiver les notifications";
 "Find my Watch" =
 "Trouver ma montre";
 
@@ -163,3 +169,27 @@
 "Choisir le fuseau horaire";
 "CHANGE TIME ZONE" =
 "CHANGER LE FUSEAU HORAIRE";
+
+// Register
+"Register" =
+"S’inscrire";
+"Login" =
+"Connexion";
+"Password" =
+"Mot de passe";
+"Confirm Password" =
+"Confirmer le mot de passe";
+"Login fail" =
+"Échec de la connexion";
+"Register fail" =
+"Échec de l’inscription";
+"The email has already been taken." =
+"L'email est déjà pris";
+"The password must be at least 6 characters." =
+"Le mot de passe doit";
+"Please login" =
+"Veuillez vous connecter";
+"please input email and password" =
+"Veuillez entrer un email et un mot de";
+"Dismiss" =
+"Abandonner";

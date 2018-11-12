@@ -9,7 +9,7 @@
 		<key>prod</key>
 		<string>http://159.65.82.220</string>
 		<key>dev</key>
-		<string>http://192.168.0.139:8002</string>
+		<string>http://159.65.82.220</string>
 	</dict>
 	<key>login</key>
 	<string>/api/login</string>
@@ -35,5 +35,9 @@
 	<string>/api/step/$id</string>
 	<key>post_step</key>
 	<string>/api/step/$id</string>
+	<key>forget_password</key>
+	<string>/api/forget_password</string>
+	<key>get_privacy</key>
+	<string>/api/content/privacy</string>
 </dict>
 </plist>

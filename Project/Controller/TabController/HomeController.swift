@@ -9,11 +9,13 @@
 import HexColors
 import MagicalRecord
 import UIKit
+import UIButton_SSEdgeInsets
 
 class HomeController: BaseViewController {
 
     @IBOutlet weak var watchView: WatchView!
     @IBOutlet weak var deviceButton: RoundButton!
+    @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var stepView: StepPercentView!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -32,6 +34,13 @@ class HomeController: BaseViewController {
         // Localize
         title = NSLocalizedString("HOME", comment: "")
         deviceButton.setTitle(NSLocalizedString("Device Options", comment: ""), for: .normal)
+        settingButton.setTitle(NSLocalizedString("Setting", comment: ""), for: .normal)
+        settingButton.setImagePositionWith(.top, spacing: 5)
+        
+        // Display gear button or device button
+        let showGear = Bundle.main.infoDictionary?["showGear"] as? Bool ?? false
+        settingButton.isHidden = !showGear
+        deviceButton.isHidden = showGear
         
         // Update ANCS notification
         SBManager.share.subscribeToANCS(true)
@@ -149,7 +158,20 @@ class HomeController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRegister", let register = segue.destination as? RegisterController {
             register.didRegistered = { controller in
-                controller.dismiss(animated: true, completion: nil)
+                controller.dismiss(animated: true, completion: {
+                    self.showAlert(title: NSLocalizedString("Please login after validate your email address", comment: ""),
+                                   message: "",
+                                   showDismiss: false,
+                                   ok_handler: { (action) in
+                                    var controller: UIViewController = self
+                                    if let tabBar = self.tabBarController {
+                                        controller = tabBar
+                                    } else if let navigate = self.navigationController {
+                                        controller = navigate
+                                    }
+                                    controller.dismiss(animated: true, completion: nil)
+                    })
+                })
             }
         }
     }

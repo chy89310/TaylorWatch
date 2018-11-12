@@ -21,6 +21,8 @@
 "体重";
 "Height" =
 "身長";
+"Agree" =
+"同意する";
 
 // Notification
 "Hello I'm here" =
@@ -121,9 +123,11 @@
 "キロカロリー";
 
 // Info
-"INFO" =
+"INFOS" =
 "情報";
-"info" =
+"INFORMATIONS" =
+"情報";
+"infos" =
 "情報";
 "Watch Bettery" =
 "時計のバッテリー残量";
@@ -139,6 +143,8 @@
 "アプリのバージョン";
 
 // Setting
+"SETTING" =
+"設定";
 "SETTINGS" =
 "設定";
 "settings" =
