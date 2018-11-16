@@ -76,7 +76,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIh-Z7-0e5" customClass="SwiftIconButton" customModule="SwiftIconFont">
-                                <rect key="frame" x="123" y="252.5" width="129" height="162"/>
+                                <rect key="frame" x="-189" y="237.5" width="753" height="192"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="150"/>
                                 <state key="normal" title="fa:bluetooth">
                                     <color key="titleColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -429,7 +429,7 @@
                                                 <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="tRw-cv-PWC" id="P1T-NF-3gq"/>
                                                 </connections>
@@ -854,7 +854,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVF-1k-mir">
-                                                    <rect key="frame" x="160" y="0.0" width="140" height="43.5"/>
+                                                    <rect key="frame" x="215" y="0.0" width="140" height="43.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9T-eI-O6Q" customClass="SwiftIconButton" customModule="SwiftIconFont">
                                                             <rect key="frame" x="0.0" y="0.0" width="74" height="43.5"/>
@@ -991,7 +991,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
                                 <rect key="frame" x="16" y="121.5" width="343" height="257.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -999,10 +999,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
                                 <rect key="frame" x="0.0" y="379" width="375" height="239"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
                                         <rect key="frame" x="28" y="74" width="319" height="91"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
@@ -1669,6 +1669,7 @@ Time Zone</string>
                         <outlet property="_watchView" destination="Ip8-xp-xIw" id="G8H-D9-KAV"/>
                         <segue destination="cXX-Vb-rmb" kind="presentation" identifier="showWatch" id="tiF-sG-S9t"/>
                         <segue destination="tRw-cv-PWC" kind="show" identifier="showLogin" id="hHh-2U-Vs8"/>
+                        <segue destination="Kv2-gx-8Ml" kind="show" identifier="showPrivacy" id="Mxo-8o-HxX"/>
                     </connections>
                 </viewController>
                 <pickerView contentMode="scaleToFill" id="pat-92-4c5">
@@ -1687,18 +1688,19 @@ Time Zone</string>
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="953" height="634"/>
+        <image name="0" width="476" height="317"/>
         <image name="601_taylor_dial" width="270" height="270"/>
         <image name="Set" width="16" height="16"/>
-        <image name="gear" width="69" height="69"/>
+        <image name="gear" width="34" height="34"/>
         <image name="nav_dash" width="24" height="24"/>
         <image name="nav_health" width="33" height="27"/>
         <image name="nav_info" width="28" height="28"/>
-        <image name="nav_setting" width="28.5" height="27"/>
+        <image name="nav_setting" width="28" height="27"/>
         <image name="nav_time" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2tG-Sb-2bl"/>
+        <segue reference="1r3-Zc-GI1"/>
         <segue reference="QJX-Kt-Ycg"/>
         <segue reference="5Hn-sz-dSd"/>
         <segue reference="Kh3-Lf-SNG"/>

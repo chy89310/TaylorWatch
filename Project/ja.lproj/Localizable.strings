@@ -23,6 +23,8 @@
 "身長";
 "Agree" =
 "同意する";
+"locale_code" =
+"jp";
 
 // Notification
 "Hello I'm here" =

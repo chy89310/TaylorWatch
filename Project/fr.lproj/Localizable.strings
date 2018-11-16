@@ -23,6 +23,8 @@
 "Taille";
 "Agree" =
 "d'accord";
+"locale_code" =
+"fr";
 
 // Notification
 "Hello I'm here" =

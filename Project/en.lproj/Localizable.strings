@@ -9,3 +9,6 @@
 // Register & Login
 "invalid credentials" =
 "This is incorrect, check the email address and password entered.";
+
+"locale_code" =
+"en";

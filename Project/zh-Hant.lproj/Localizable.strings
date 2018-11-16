@@ -23,6 +23,8 @@
 "身高";
 "Agree" =
 "同意";
+"locale_code" =
+"zh-TW";
 
 // Notification
 "Hello I'm here" =

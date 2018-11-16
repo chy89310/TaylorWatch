@@ -10,6 +10,7 @@ import UIKit
 import CoreBluetooth
 import MediaPlayer
 import MagicalRecord
+import SwiftyJSON
 
 class ScanViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
@@ -23,6 +24,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     var volume: CGFloat = 0.0
     var isSimulator = false
     var hideBackButton = true
+    var privacyJson: JSON?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,6 +120,11 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     
     func backAction() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func showPrivacy(_ json: JSON?) {
+        privacyJson = json
+        performSegue(withIdentifier: "showPrivacy", sender: nil)
     }
     
     // Mark: - UICollectionView datasource and delegate
@@ -250,6 +257,14 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.isEnabled = false
+    }
+    
+    // Mark: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPrivacy", let privacyController = segue.destination as? PrivacyController {
+            privacyController.json = privacyJson
+        }
     }
 
 }

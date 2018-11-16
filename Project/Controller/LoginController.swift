@@ -28,6 +28,7 @@ class LoginController: BaseViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         _emailLabel.text = NSLocalizedString("Email", comment: "")
+        _emailTextField.text = UserDefaults.string(of: .email)
         _passwordLabel.text = NSLocalizedString("Password", comment: "")
         _forgetButton.setTitle(NSLocalizedString("forget password", comment: ""), for: .normal)
         _registerButton.setTitle(NSLocalizedString("Register", comment: ""), for: .normal)
@@ -67,6 +68,7 @@ class LoginController: BaseViewController, UITextFieldDelegate {
 
     @IBAction func loginAction(_ sender: Any) {
         if validate() {
+            UserDefaults.set(_emailTextField.text, forKey: .email)
             let hud = MBProgressHUD.showAdded(to: view, animated: true)
             AuthUtil.shared.login(email: _emailTextField.text!, password: _passwordTextField.text!, in: view, complete: { (success, message) in
                 self.loginSuccess(success, message: message, hud: hud)
@@ -77,7 +79,7 @@ class LoginController: BaseViewController, UITextFieldDelegate {
     func loginSuccess(_ success: Bool, message: String, hud: MBProgressHUD) {
         if success {
             ApiHelper.shared.request(name: .get_privacy, method: .get, headers: AuthUtil.shared.header, urlUpdate: { (url) -> (URL) in
-                return URL(string: "\(url.absoluteString)/en") ?? url
+                return URL(string: "\(url.absoluteString)/\(NSLocalizedString("locale_code", comment: ""))") ?? url
             }, success: { (json, response) in
                 DispatchQueue.main.async { hud.hide(animated: true) }
                 let version = UserDefaults.int(of: .privacyVersion)
@@ -89,8 +91,10 @@ class LoginController: BaseViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "showWatch", sender: self)
                 }
             }, failure: { (error, response) in
-                DispatchQueue.main.async { hud.hide(animated: true) }
-                self.showAlert(title: NSLocalizedString("Login fail", comment: ""), message: error.localizedDescription)
+                DispatchQueue.main.async {
+                    hud.hide(animated: true)
+                    self.performSegue(withIdentifier: "showWatch", sender: self)
+                }
             })
         } else {
             DispatchQueue.main.async { hud.hide(animated: true) }

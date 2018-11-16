@@ -108,9 +108,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewD
             _confirmPwdLabel.textColor = .red
         }
         if let birthDayStr = _birthDayText.text {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-            UserDefaults.set(formatter.date(from: birthDayStr)?.timeIntervalSince1970, forKey: .birthday)
+            UserDefaults.set(Helper.dateFormatter().date(from: birthDayStr)?.timeIntervalSince1970, forKey: .birthday)
         }
         if let emailStr = _emailText.text {
             UserDefaults.set(emailStr, forKey: .email)
@@ -141,9 +139,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewD
     }
     
     @IBAction func datePickerDidUpdate(_ sender: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        _birthDayText.text = formatter.string(from: sender.date)
+        _birthDayText.text = Helper.dateFormatter().string(from: sender.date)
     }
     
     @IBAction func didGenderClick(_ sender: UIButton) {
