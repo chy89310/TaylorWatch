@@ -23,6 +23,8 @@
 "身長";
 "Agree" =
 "同意する";
+"locale_code" =
+"jp";
 
 // Notification
 "Hello I'm here" =
@@ -63,8 +65,8 @@
 "キロカロリー";
 
 // Profile
-"PROFILE SETTINGS" =
-"プロフィール";
+"Registration by email" =
+"メール登録";
 "Please enter your personal info, the information will be saved on your device." =
 "プロフィールを登録してください。登録情報はデバイスに記録します。";
 "Email" =
@@ -169,3 +171,49 @@
 "タイムゾーンの選択";
 "CHANGE TIME ZONE" =
 "タイムゾーンの変更";
+
+// Register
+"Register" =
+"登録";
+"Login" =
+"ログイン";
+"Password" =
+"パスワード";
+"Confirm Password" =
+"パスワードを認証する";
+"Login fail" =
+"ログイン失敗";
+"Register fail" =
+"登録失敗";
+"The email has already been taken." =
+"電子メールはすでに取得済みです。";
+"The password must be at least 6 characters." =
+"パスワードは6文字以上でなければなりません。";
+"Please login" =
+"ログインしてください";
+"please input email and password" =
+"メールとパスワードを入力してください";
+"Dismiss" =
+"却下する";
+"Unknow Error" =
+"未知のエラー";
+"Goals" =
+"目標";
+"account not activated" =
+"アカウントが有効になっていない";
+"invalid credentials" =
+"無効な資格情報";
+"forget password" =
+"パスワードを忘れる";
+"Reset Password" =
+"パスワードを再設定する";
+"Send Reset Link" =
+"リセットリンクを送信する";
+"Please login after validate your email address" =
+"あなたのメールアドレスを検証した後にログインしてください";
+
+// Privacy
+"I accept" =
+"受け入れる";
+"I refuse" =
+"拒否";

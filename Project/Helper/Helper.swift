@@ -229,4 +229,10 @@ class Helper: Any {
         return emailTest.evaluate(with: testStr)
     }
     
+    class func dateFormatter() -> DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        return formatter;
+    }
+    
 }

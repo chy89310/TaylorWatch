@@ -23,6 +23,8 @@
 "Taille";
 "Agree" =
 "d'accord";
+"locale_code" =
+"fr";
 
 // Notification
 "Hello I'm here" =
@@ -63,8 +65,8 @@
 "Kcals";
 
 // Profile
-"PROFILE SETTINGS" =
-"Réglages du profil";
+"Registration by email" =
+"Inscription par e-mail";
 "Please enter your personal info, the information will be saved on your device." =
 "Veuillez saisir vos infos personnelles. Vos informations seront sauvegardées sur votre telephone";
 "Email" =
@@ -170,7 +172,7 @@
 "CHANGE TIME ZONE" =
 "CHANGER LE FUSEAU HORAIRE";
 
-// Register
+// Register & Login
 "Register" =
 "S’inscrire";
 "Login" =
@@ -186,10 +188,32 @@
 "The email has already been taken." =
 "L'email est déjà pris";
 "The password must be at least 6 characters." =
-"Le mot de passe doit";
+"Le mot de passe doit au contenir au moins 6 caractères";
 "Please login" =
 "Veuillez vous connecter";
 "please input email and password" =
 "Veuillez entrer un email et un mot de";
 "Dismiss" =
 "Abandonner";
+"Unknow Error" =
+"Erreur inconnue";
+"Goals" =
+"Mon objectif de pas";
+"account not activated" =
+"compte non activé";
+"invalid credentials" =
+"C’est incorrect, vérifiez l’adresse mail et le mot de passe saisis.";
+"forget password" =
+"Mot de passe oublié?";
+"Reset Password" =
+"Mot de passe oublié";
+"Send Reset Link" =
+"Envoyer";
+"Please login after validate your email address" =
+"Un email a été envoyé. Veuillez activer votre compte avant de vous connecter.";
+
+// Privacy
+"I accept" =
+"J'accepte";
+"I refuse" =
+"Je refuse";

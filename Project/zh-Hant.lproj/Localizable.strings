@@ -23,6 +23,8 @@
 "身高";
 "Agree" =
 "同意";
+"locale_code" =
+"zh-TW";
 
 // Notification
 "Hello I'm here" =
@@ -63,8 +65,8 @@
 "卡";
 
 // Profile
-"PROFILE SETTINGS" =
-"個人資料";
+"Registration by email" =
+"郵箱註冊";
 "Please enter your personal info, the information will be saved on your device." =
 "請輸入你的個人數據";
 "Email" =
@@ -207,3 +209,11 @@
 "重設密碼";
 "Send Reset Link" =
 "發送郵件";
+"Please login after validate your email address" =
+"進入郵箱進行驗證後使用用戶名和密碼登錄";
+
+// Privacy
+"I accept" =
+"接受";
+"I refuse" =
+"拒絕";

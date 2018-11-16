@@ -163,7 +163,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     SBManager.share.updateSelected(peripheral: peripheral)
                     if let current = appDelegate.window?.currentViewController() as? ScanViewController {
-                        current.performSegue(withIdentifier: "showWatch", sender: nil)
+                        self.showWatchAction(current)
                     } else {
                         let tabController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabController")
                         Helper.makeRootView(controller: tabController, complete: nil)
@@ -258,7 +258,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             log.error("central did disconnect to peripheral: \(peripheral.name ?? "") \(e)")
             if peripheral == selectedPeripheral {
                 log.debug("try to scan again")
-                let scanController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController")
+                let scanController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ScanViewController") as! ScanViewController
                 Helper.makeRootView(controller: scanController, complete: {
                     log.debug("Try to reconnet \(peripheral)")
                     let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
@@ -267,7 +267,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                             self.didPaired = { (p, success, info) in
                                 if success {
                                     SBManager.share.selectedPeripheral = p
-                                    scanController.performSegue(withIdentifier: "showWatch", sender: nil)
+                                    self.showWatchAction(scanController)
                                 } else {
                                     log.error(info ?? "")
                                 }
@@ -302,6 +302,43 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
         if let index = peripherals.index(of: peripheral) {
             peripherals.remove(at: index)
         }
+    }
+    
+    func showWatchAction(_ scanController: ScanViewController) {
+        let hud = MBProgressHUD.showAdded(to: scanController.view, animated: true)
+        DispatchQueue.global().async {
+            // Check if user logged in
+            AuthUtil.shared.me { (success) in
+                if success {
+                    // Check privacy version
+                    ApiHelper.shared.request(name: .get_privacy, method: .get, headers: AuthUtil.shared.header, urlUpdate: { (url) -> (URL) in
+                        return URL(string: "\(url.absoluteString)/\(NSLocalizedString("locale_code", comment: ""))") ?? url
+                    }, success: { (json, response) in
+                        let user_version = UserDefaults.int(of: .privacyVersion)
+                        let version = json.dictionary?["result"]?.dictionary?["version"]?.int ?? user_version+1
+                        DispatchQueue.main.async {
+                            hud.hide(animated: true)
+                            if (user_version < version) {
+                                scanController.showPrivacy(json)
+                            } else {
+                                scanController.performSegue(withIdentifier: "showWatch", sender: nil)
+                            }
+                        }
+                    }, failure: { (error, response) in
+                        DispatchQueue.main.async {
+                            hud.hide(animated: true)
+                            scanController.performSegue(withIdentifier: "showWatch", sender: nil)
+                        }
+                    })
+                } else {
+                    DispatchQueue.main.async {
+                        hud.hide(animated: true)
+                        scanController.performSegue(withIdentifier: "showLogin", sender: nil)
+                    }
+                }
+            }
+        }
+        
     }
     
     // MARK: - CBPeripheralDelegate methods

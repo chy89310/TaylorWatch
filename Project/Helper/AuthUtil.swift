@@ -137,9 +137,7 @@ class AuthUtil: NSObject {
     }
     
     func putStep(_ date: Date, _ step: Int32, _ device: Device) {
-        let dateformat = DateFormatter()
-        dateformat.dateFormat = "yyyy-MM-dd";
-        let dateStr = dateformat.string(from: date)
+        let dateStr = Helper.dateFormatter().string(from: date)
         log.debug("put date: \(dateStr), step: \(step)")
         let parameter: [String: Any] =
             ["date": dateStr,

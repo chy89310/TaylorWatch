@@ -130,7 +130,6 @@ class HomeController: BaseViewController {
             }
             text.isSecureTextEntry = true
         })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: NSLocalizedString("Login", comment: ""), style: .default, handler: { (action) in
             let email = alert.textFields![0].text ?? ""
             let password = alert.textFields![1].text ?? ""

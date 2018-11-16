@@ -377,33 +377,59 @@
                                 <rect key="frame" x="20" y="72" width="335" height="547"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YD1-7r-VEh">
-                                        <rect key="frame" x="0.0" y="215.5" width="335" height="116"/>
+                                        <rect key="frame" x="0.0" y="113" width="335" height="321"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JU-px-Aie">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="200"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ayh-s5-O4a" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
+                                                        <rect key="frame" x="67.5" y="0.0" width="200" height="200"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ayh-s5-O4a" secondAttribute="height" id="fzY-8n-mvx"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="image" keyPath="background" value="601_taylor_dial"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="BfR-VV-zTI"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ayh-s5-O4a" secondAttribute="bottom" id="F24-K3-uHx"/>
+                                                    <constraint firstItem="ayh-s5-O4a" firstAttribute="top" secondItem="2JU-px-Aie" secondAttribute="top" id="fKt-gi-ILO"/>
+                                                    <constraint firstItem="ayh-s5-O4a" firstAttribute="centerX" secondItem="2JU-px-Aie" secondAttribute="centerX" id="oIq-WI-2pG"/>
+                                                </constraints>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnP-au-X26">
-                                                <rect key="frame" x="0.0" y="0.0" width="41" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="205" width="41" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oun-5p-wCy">
-                                                <rect key="frame" x="0.0" y="25.5" width="335" height="30"/>
+                                                <rect key="frame" x="0.0" y="230.5" width="335" height="30"/>
                                                 <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="tRw-cv-PWC" id="YaB-u6-J6I"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwB-Ur-2S4">
-                                                <rect key="frame" x="0.0" y="60.5" width="74" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="265.5" width="74" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8JF-qz-Ev7">
-                                                <rect key="frame" x="0.0" y="86" width="335" height="30"/>
+                                                <rect key="frame" x="0.0" y="291" width="335" height="30"/>
                                                 <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="tRw-cv-PWC" id="P1T-NF-3gq"/>
                                                 </connections>
@@ -412,10 +438,11 @@
                                         <constraints>
                                             <constraint firstItem="8JF-qz-Ev7" firstAttribute="width" secondItem="YD1-7r-VEh" secondAttribute="width" id="3kf-Ho-iPJ"/>
                                             <constraint firstItem="oun-5p-wCy" firstAttribute="width" secondItem="YD1-7r-VEh" secondAttribute="width" id="RaE-9O-WfK"/>
+                                            <constraint firstItem="2JU-px-Aie" firstAttribute="width" secondItem="YD1-7r-VEh" secondAttribute="width" id="yg6-gS-qno"/>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef2-5d-rtD">
-                                        <rect key="frame" x="224" y="331.5" width="111" height="30"/>
+                                        <rect key="frame" x="224" y="434" width="111" height="30"/>
                                         <state key="normal" title="forget password">
                                             <color key="titleColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -484,6 +511,7 @@
                         <outlet property="_passwordLabel" destination="uwB-Ur-2S4" id="L3j-sf-ZAd"/>
                         <outlet property="_passwordTextField" destination="8JF-qz-Ev7" id="kI2-Cr-4Ml"/>
                         <outlet property="_registerButton" destination="IGv-OG-45L" id="s3m-fX-jQk"/>
+                        <outlet property="_watchFace" destination="ayh-s5-O4a" id="t3o-ik-OWM"/>
                         <segue destination="cXX-Vb-rmb" kind="presentation" identifier="showWatch" id="5Hn-sz-dSd"/>
                         <segue destination="Kv2-gx-8Ml" kind="show" identifier="showPrivacy" id="1r3-Zc-GI1"/>
                     </connections>
@@ -963,7 +991,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ra-rx-Kmk" customClass="WatchFace" customModule="FOXTER" customModuleProvider="target">
                                 <rect key="frame" x="16" y="121.5" width="343" height="257.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -971,10 +999,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="interactable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="281-x8-ibM">
                                 <rect key="frame" x="0.0" y="379" width="375" height="239"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-Uv-n4a">
                                         <rect key="frame" x="28" y="74" width="319" height="91"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-E6-E3B" customClass="RoundButton" customModule="FOXTER" customModuleProvider="target">
@@ -1459,14 +1487,14 @@ Time Zone</string>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C85-hw-L2B">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="cancel" id="agB-UK-fNw">
+                                    <barButtonItem title="I refuse" id="agB-UK-fNw">
                                         <color key="tintColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="didCancelClick:" destination="Kv2-gx-8Ml" id="fbU-3p-cOo"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gVb-4c-v7a"/>
-                                    <barButtonItem title="Agree" id="487-Nn-qdc">
+                                    <barButtonItem title="I accept" id="487-Nn-qdc">
                                         <color key="tintColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="didAgreeClick:" destination="Kv2-gx-8Ml" id="h1G-Ux-2Pr"/>
@@ -1494,6 +1522,7 @@ Time Zone</string>
                     <toolbarItems/>
                     <connections>
                         <outlet property="agreeButton" destination="487-Nn-qdc" id="cfa-zs-SfX"/>
+                        <outlet property="cancelButton" destination="agB-UK-fNw" id="wyG-1l-gpg"/>
                         <outlet property="webViewContainer" destination="MI3-9R-h3U" id="kHp-h8-8ra"/>
                         <segue destination="cXX-Vb-rmb" kind="presentation" identifier="showWatch" id="eEX-N9-shg"/>
                     </connections>
@@ -1640,6 +1669,7 @@ Time Zone</string>
                         <outlet property="_watchView" destination="Ip8-xp-xIw" id="G8H-D9-KAV"/>
                         <segue destination="cXX-Vb-rmb" kind="presentation" identifier="showWatch" id="tiF-sG-S9t"/>
                         <segue destination="tRw-cv-PWC" kind="show" identifier="showLogin" id="hHh-2U-Vs8"/>
+                        <segue destination="Kv2-gx-8Ml" kind="show" identifier="showPrivacy" id="Mxo-8o-HxX"/>
                     </connections>
                 </viewController>
                 <pickerView contentMode="scaleToFill" id="pat-92-4c5">
@@ -1658,20 +1688,21 @@ Time Zone</string>
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="953" height="634"/>
+        <image name="0" width="476" height="317"/>
         <image name="601_taylor_dial" width="270" height="270"/>
         <image name="Set" width="16" height="16"/>
-        <image name="gear" width="69" height="69"/>
+        <image name="gear" width="34" height="34"/>
         <image name="nav_dash" width="24" height="24"/>
         <image name="nav_health" width="33" height="27"/>
         <image name="nav_info" width="28" height="28"/>
-        <image name="nav_setting" width="28.5" height="27"/>
+        <image name="nav_setting" width="28" height="27"/>
         <image name="nav_time" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2tG-Sb-2bl"/>
+        <segue reference="1r3-Zc-GI1"/>
         <segue reference="QJX-Kt-Ycg"/>
-        <segue reference="eEX-N9-shg"/>
+        <segue reference="5Hn-sz-dSd"/>
         <segue reference="Kh3-Lf-SNG"/>
     </inferredMetricsTieBreakers>
 </document>
