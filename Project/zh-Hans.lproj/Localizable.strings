@@ -89,10 +89,10 @@
 "请先设定邮箱";
 
 // Scan
-"Please enter the number that hour hand and minute hand indicate separately" =
+"Please enter the time indicated on your watch." =
 "请分别选择手表时针与分针的数值";
-"This code will be saved in info. It will be needed when you connect to the new mobile and want to log with history data." =
-"配对码将会存储到应用信息中，每次手表时都需要使用该配对码。";
+"HOURS : MINUTES" =
+"时针 : 分针";
 
 // Device Options
 "CHOOSE A DEVICE" =

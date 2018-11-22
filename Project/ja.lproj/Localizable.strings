@@ -89,10 +89,10 @@
 "メールアドレスを先に設定してください";
 
 // Scan
-"Please enter the number that hour hand and minute hand indicate separately" =
+"Please enter the time indicated on your watch." =
 "時針と分針の示している数字をそれぞれ入力してください";
-"This code will be saved in info. It will be needed when you connect to the new mobile and want to log with history data." =
-"この番号はアプリに記録されます。また、この番号は新しい携帯電話に登録する際、履歴情報を統合するのに要求されます。";
+"HOURS : MINUTES" =
+"時針 : 分針";
 
 // Device Options
 "CHOOSE A DEVICE" =
