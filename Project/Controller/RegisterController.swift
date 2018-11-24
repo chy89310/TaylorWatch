@@ -185,6 +185,8 @@ class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewD
                         self.didRegistered?(self)
                     } else if let error = json.dictionary?["result"]?.dictionary?["error"]?.array?[0].string {
                         self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: NSLocalizedString(error, comment: ""), showDismiss: true)
+                    } else {
+                        self.showAlert(title: NSLocalizedString("Register fail", comment: ""), message: "")
                     }
                     log.debug(json)
             },
