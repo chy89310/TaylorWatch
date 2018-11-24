@@ -305,38 +305,43 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     }
     
     func showWatchAction(_ scanController: ScanViewController) {
-        let hud = MBProgressHUD.showAdded(to: scanController.view, animated: true)
-        DispatchQueue.global().async {
-            // Check if user logged in
-            AuthUtil.shared.me { (success) in
-                if success {
-                    // Check privacy version
-                    ApiHelper.shared.request(name: .get_privacy, method: .get, headers: AuthUtil.shared.header, urlUpdate: { (url) -> (URL) in
-                        return URL(string: "\(url.absoluteString)/\(NSLocalizedString("locale_code", comment: ""))") ?? url
-                    }, success: { (json, response) in
-                        let user_version = UserDefaults.int(of: .privacyVersion)
-                        let version = json.dictionary?["result"]?.dictionary?["version"]?.int ?? user_version+1
-                        DispatchQueue.main.async {
-                            hud.hide(animated: true)
-                            if (user_version < version) {
-                                scanController.showPrivacy(json)
-                            } else {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.reach?.isReachable() ?? false  {
+            let hud = MBProgressHUD.showAdded(to: scanController.view, animated: true)
+            DispatchQueue.global().async {
+                // Check if user logged in
+                AuthUtil.shared.me { (success) in
+                    if success {
+                        // Check privacy version
+                        ApiHelper.shared.request(name: .get_privacy, method: .get, headers: AuthUtil.shared.header, urlUpdate: { (url) -> (URL) in
+                            return URL(string: "\(url.absoluteString)/\(NSLocalizedString("locale_code", comment: ""))") ?? url
+                        }, success: { (json, response) in
+                            let user_version = UserDefaults.int(of: .privacyVersion)
+                            let version = json.dictionary?["result"]?.dictionary?["version"]?.int ?? user_version+1
+                            DispatchQueue.main.async {
+                                hud.hide(animated: true)
+                                if (user_version < version) {
+                                    scanController.showPrivacy(json)
+                                } else {
+                                    scanController.performSegue(withIdentifier: "showWatch", sender: nil)
+                                }
+                            }
+                        }, failure: { (error, response) in
+                            DispatchQueue.main.async {
+                                hud.hide(animated: true)
                                 scanController.performSegue(withIdentifier: "showWatch", sender: nil)
                             }
-                        }
-                    }, failure: { (error, response) in
+                        })
+                    } else {
                         DispatchQueue.main.async {
                             hud.hide(animated: true)
-                            scanController.performSegue(withIdentifier: "showWatch", sender: nil)
+                            scanController.performSegue(withIdentifier: "showLogin", sender: nil)
                         }
-                    })
-                } else {
-                    DispatchQueue.main.async {
-                        hud.hide(animated: true)
-                        scanController.performSegue(withIdentifier: "showLogin", sender: nil)
                     }
                 }
             }
+        } else {
+            scanController.performSegue(withIdentifier: "showWatch", sender: nil)
         }
         
     }
