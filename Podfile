@@ -22,6 +22,7 @@ abstract_target 'Watch' do
   pod 'SwiftyBeaver'
   pod 'SwiftyJSON'
   pod 'SwiftyTimer'
+  pod 'SpringIndicator'
   pod 'UIButton-SSEdgeInsets'
   
   target 'TAYLOR'

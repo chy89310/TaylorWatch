@@ -13,6 +13,7 @@ PODS:
   - PgyUpdate (1.5)
   - Reachability (3.2)
   - Siren (2.0.2)
+  - SpringIndicator (4.0.1)
   - SwiftIconFont (2.7.1)
   - SwiftyBeaver (1.5.1)
   - SwiftyJSON (3.1.4)
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - PgyUpdate
   - Reachability
   - Siren
+  - SpringIndicator
   - SwiftIconFont (= 2.7.1)
   - SwiftyBeaver
   - SwiftyJSON
@@ -48,6 +50,7 @@ SPEC REPOS:
     - PgyUpdate
     - Reachability
     - Siren
+    - SpringIndicator
     - SwiftIconFont
     - SwiftyBeaver
     - SwiftyJSON
@@ -65,12 +68,13 @@ SPEC CHECKSUMS:
   PgyUpdate: bad71685b91bba4aa520b7fe29356a476700fdf2
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Siren: 33994aad31aab24344689b3a918d0a9d9eede2e2
+  SpringIndicator: 96eb6158a9dc94c1623d84130639a52225f04056
   SwiftIconFont: 33d13d656c2dd7ed8464169a815b5b81d7250878
   SwiftyBeaver: 4f74563624b2c1e821c522c54142b5dd5ebb0f30
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyTimer: 2efd74b060d69ad4f1496baf5bbedbe132125fcf
   UIButton-SSEdgeInsets: 64a600adc670d98e140ddcde1d0e64d7b952502c
 
-PODFILE CHECKSUM: f961455c08e8b76765aa65b7554e54dcf5cb4763
+PODFILE CHECKSUM: 4047d8a738fc384ff43583850528e5eac649a6d8
 
 COCOAPODS: 1.5.3

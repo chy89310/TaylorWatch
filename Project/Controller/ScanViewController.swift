@@ -11,6 +11,7 @@ import CoreBluetooth
 import MediaPlayer
 import MagicalRecord
 import SwiftyJSON
+import SpringIndicator
 
 class ScanViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
@@ -118,6 +119,13 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         }
     }
     
+    func disconnectAction() {
+        if let row = _collectionView.indexPathsForSelectedItems?[0].row {
+            let peripheral = SBManager.share.peripherals[row]
+            SBManager.share.centralManager.cancelPeripheralConnection(peripheral)
+        }
+    }
+    
     func backAction() {
         navigationController?.popViewController(animated: true)
     }
@@ -147,8 +155,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         } else if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "deviceCell", for: indexPath) as? ScanViewCell {
             let peripheral = SBManager.share.peripherals[indexPath.row]
             let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString)
-            cell.titleLabel.text = device?.name ?? "N/A"
-//            if peripheral == SBManager.share.selectedPeripheral {
+            cell.titleLabel.text = device?.nickName ?? device?.name ?? "N/A"
             if peripheral.state == .connected {
                 cell.titleLabel.textColor = UIColor("#323232")
             } else {
@@ -167,49 +174,53 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         }
         let peripheral = SBManager.share.peripherals[indexPath.row]
         if peripheral != SBManager.share.selectedPeripheral {
-        SBManager.share.centralManager.stopScan()
-        SBManager.share.centralManager.connect(peripheral, options: nil)
-        if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString), device.passcode != 0xffff {
-            log.debug("Remember device with passcode: \(device.passcode)")
-            SBManager.share.didPaired = { (peripheral, success, info) in
-                if success {
-                    SBManager.share.selectedPeripheral = peripheral
-                    self.performSegue(withIdentifier: "showWatch", sender: nil)
-                } else {
-                    log.error(info ?? "")
+            let cell = collectionView.cellForItem(at: indexPath) as? ScanViewCell
+            cell?.indicator.start()
+            SBManager.share.centralManager.stopScan()
+            SBManager.share.centralManager.connect(peripheral, options: nil)
+            if let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString), device.passcode != 0xffff {
+                log.debug("Remember device with passcode: \(device.passcode)")
+                SBManager.share.didPaired = { (peripheral, success, info) in
+                    if success {
+                        SBManager.share.selectedPeripheral = peripheral
+                        self.performSegue(withIdentifier: "showWatch", sender: nil)
+                    } else {
+                        log.error(info ?? "")
+                    }
+                }
+            } else {
+                log.debug("New device!")
+                SBManager.share.didUpdateValue = { (character) in
+                    cell?.indicator.stop()
+                    SBManager.share.didUpdateValue = nil
+                    let alertController = UIAlertController(
+                        title: NSLocalizedString("Please enter the time indicated on your watch.", comment: ""),
+                        message: NSLocalizedString("HOURS : MINUTES", comment: ""),
+                        preferredStyle: .alert)
+                    alertController.addTextField(configurationHandler: { (textFiled) in
+                        self.textField = textFiled
+                        textFiled.inputView = self._pickerView
+                        textFiled.textAlignment = .center
+                    })
+                    alertController.addAction(UIAlertAction(
+                        title: NSLocalizedString("OK", comment: ""),
+                        style: .default,
+                        handler: { (action) in
+                            self.passcode = self.textField?.text
+                            self.connectAction()
+                            self.textField = nil
+                    }))
+                    alertController.addAction(UIAlertAction(
+                        title: NSLocalizedString("Cancel", comment: ""),
+                        style: .cancel,
+                        handler: { (action) in
+                            self.disconnectAction()
+                            self.textField = nil
+                    }))
+                    self.present(alertController, animated: true, completion: nil)
+                    SBManager.share.peripheral(peripheral, write: Data.init(bytes: Helper.stringToBytes("00ffff")))
                 }
             }
-        } else {
-            log.debug("New device!")
-            SBManager.share.didUpdateValue = { (character) in
-                SBManager.share.didUpdateValue = nil
-                let alertController = UIAlertController(
-                    title: NSLocalizedString("Please enter the time indicated on your watch.", comment: ""),
-                    message: NSLocalizedString("HOURS : MINUTES", comment: ""),
-                    preferredStyle: .alert)
-                alertController.addTextField(configurationHandler: { (textFiled) in
-                    self.textField = textFiled
-                    textFiled.inputView = self._pickerView
-                    textFiled.textAlignment = .center
-                })
-                alertController.addAction(UIAlertAction(
-                    title: NSLocalizedString("OK", comment: ""),
-                    style: .default,
-                    handler: { (action) in
-                        self.passcode = self.textField?.text
-                        self.connectAction()
-                        self.textField = nil
-                }))
-                alertController.addAction(UIAlertAction(
-                    title: NSLocalizedString("Cancel", comment: ""),
-                    style: .cancel,
-                    handler: { (action) in
-                        self.textField = nil
-                }))
-                self.present(alertController, animated: true, completion: nil)
-                SBManager.share.peripheral(peripheral, write: Data.init(bytes: Helper.stringToBytes("00ffff")))
-            }
-        }
         }
     }
     
@@ -273,6 +284,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
 class ScanViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var indicator: SpringIndicator!
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)

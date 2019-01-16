@@ -103,6 +103,7 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { (action) in
                 UIApplication.shared.open(url, options: [:], completionHandler: { (finish) in
                     SBManager.share.didDisconnect = {
+                        SBManager.share.didDisconnect = nil
                         MagicalRecord.save({ (localContext) in
                             let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
                             device?.mr_deleteEntity(in: localContext)
