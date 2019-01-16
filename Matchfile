@@ -1,11 +1,11 @@
-git_url "git@gitlab.cloudmacau.com:bsd/fastlane-match.git"
+git_url "git@gitlab.cloudmacau.com:bsd/fastlane-match-enterprise.git"
 
 type "development" # The default type, can be: appstore, adhoc, enterprise or development
 
-username	"lawrence.sm.lo@ctm.com.mo" # Your Apple Developer Portal username
+username	"roger.jg.lin@ctm.com.mo" # Your Apple Developer Portal username
 
 app_identifier	"com.bsd.cbdemo.enterprise"
 
-git_branch	"enterprise"
+git_branch	"master"
 
 team_id		"Q5WH5HB3TQ"
