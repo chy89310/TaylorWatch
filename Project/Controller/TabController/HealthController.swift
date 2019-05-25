@@ -88,7 +88,7 @@ class HealthController: BaseViewController {
                 log.debug(step.value)
                 return ChartDataEntry(x: step.key, y: Double(step.value))
         }
-        let set = LineChartDataSet(values: values, label: "Steps")
+        let set = LineChartDataSet(entries: values, label: "Steps")
         set.axisDependency = .left
         set.setColor(UIColor("#fddfc0")!)
         set.lineWidth = 1.5
@@ -107,7 +107,7 @@ class HealthController: BaseViewController {
 
         chartView.data = data
         if (isWeek) {
-            chartView.xAxis.setLabelCount(set.values.count, force: true)
+            chartView.xAxis.setLabelCount(set.entries.count, force: true)
         }
         chartView.xAxis.valueFormatter = XAxisDateFormatter(isWeek: isWeek)
         chartView.animate(xAxisDuration: 1)

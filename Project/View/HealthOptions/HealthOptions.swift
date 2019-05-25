@@ -60,8 +60,8 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         if (nib.instantiate(withOwner: self, options: nil).count > 0) {
             let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
             view.frame = bounds
-            view.autoresizingMask = [UIViewAutoresizing.flexibleWidth,
-                                     UIViewAutoresizing.flexibleHeight]
+            view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth,
+                                     UIView.AutoresizingMask.flexibleHeight]
             addSubview(view)
             setupMonth(OrWeek: false)
             setupGoal(isWrite: false)
@@ -245,7 +245,7 @@ class HealthOptions: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let title = String(HealthOptions.goalForRow(row))
-        return NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName:UIColor.white])
+        return NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
     }
     
     // Shared function to for RegisterController reuse

@@ -444,7 +444,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                                 step?.month = Int16(month)
                                 step?.day = Int16(day)
                                 step?.steps = Int32(steps)
-                                step?.date = NSDate()
+                                step?.date =  Date()
                                 step?.device = device
                             }, completion: { (finish, error) in
                                 self.didUpdateStep?()

@@ -26,7 +26,7 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let textAttributes = [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor("#FDDFC0") ?? .white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 

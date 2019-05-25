@@ -72,7 +72,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         SBManager.share.centralManager.stopScan()
     }
     
-    func volumeChanged(notification: NSNotification) {
+    @objc func volumeChanged(notification: NSNotification) {
         if let userInfo = notification.userInfo,
             userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String == "ExplicitVolumeChange",
             let volume = userInfo["AVSystemController_AudioVolumeNotificationParameter"] as? CGFloat {
@@ -126,7 +126,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
         }
     }
     
-    func backAction() {
+    @objc func backAction() {
         navigationController?.popViewController(animated: true)
     }
     
@@ -252,7 +252,7 @@ class ScanViewController: BaseViewController, UICollectionViewDataSource, UIColl
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: titleForRow(row: row, forComponent: component),
-                                  attributes: [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white])
+                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor("#FDDFC0") ?? .white])
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return titleForRow(row: row, forComponent: component)

@@ -171,7 +171,7 @@ extension SBManager {
                         log.error(error.localizedDescription)
                     }
                 }
-                content.sound = UNNotificationSound.default()
+                content.sound = UNNotificationSound.default
                 
                 let request = UNNotificationRequest(identifier: "notification", content: content, trigger: nil)
                 UNUserNotificationCenter.current().add(request, withCompletionHandler: {error in
@@ -187,7 +187,7 @@ extension SBManager {
                 alert.addAction(UIAlertAction(title: NSLocalizedString("Setting", comment: ""),
                                               style: .default,
                                               handler: { (action) in
-                                                if let settingUrl = URL(string: UIApplicationOpenSettingsURLString),
+                                                if let settingUrl = URL(string: UIApplication.openSettingsURLString),
                                                     UIApplication.shared.canOpenURL(settingUrl) {
                                                     UIApplication.shared.open(settingUrl, options: [:], completionHandler: nil)
                                                 }
@@ -205,7 +205,7 @@ extension SBManager {
         } else {
             guard let url = Bundle.main.url(forResource: "NOTIFY", withExtension: "m4a") else { return }
             do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: [.mixWithOthers, .duckOthers])
+                try AVAudioSession.sharedInstance().setCategory(.playback, options: [.mixWithOthers, .duckOthers])
                 try AVAudioSession.sharedInstance().setActive(true)
             } catch let error {
                 log.error(error.localizedDescription)

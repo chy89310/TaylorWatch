@@ -20,7 +20,7 @@ class BaseNavigationController: UINavigationController {
         navigationBar.insertSubview(titleView, at: 0)
         
         navigationBar.setTitleVerticalPositionAdjustment(titleView.topConstraint.constant, for: .default)
-        let textAttributes = [NSForegroundColorAttributeName: UIColor("#FDDFC0") ?? .white]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor("#FDDFC0") ?? .white]
         navigationBar.titleTextAttributes = textAttributes
     }
     

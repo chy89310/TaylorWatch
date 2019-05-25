@@ -209,7 +209,7 @@ class RegisterController: BaseViewController, UITextFieldDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let title = String(HealthOptions.goalForRow(row))
-        return NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName:UIColor.white])
+        return NSAttributedString(string: title, attributes: [NSAttributedString.Key.foregroundColor:UIColor.white])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
