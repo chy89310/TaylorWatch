@@ -53,6 +53,9 @@
 		4B4FAE2C2299921500576C5E /* UIWindow+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2B2299921500576C5E /* UIWindow+Extesion.swift */; };
 		4B4FAE2D2299921500576C5E /* UIWindow+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2B2299921500576C5E /* UIWindow+Extesion.swift */; };
 		4B4FAE2E2299921500576C5E /* UIWindow+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2B2299921500576C5E /* UIWindow+Extesion.swift */; };
+		4B4FAE302299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */; };
+		4B4FAE312299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */; };
+		4B4FAE322299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */; };
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
 		4B5CEF9A2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
 		4B5CEF9B2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
@@ -229,6 +232,7 @@
 		4B48DA342017B9450067ECA0 /* HealthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthController.swift; sourceTree = "<group>"; };
 		4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneController.swift; sourceTree = "<group>"; };
 		4B4FAE2B2299921500576C5E /* UIWindow+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extesion.swift"; sourceTree = "<group>"; };
+		4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Extennsionnn.swift"; sourceTree = "<group>"; };
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
 		4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyController.swift; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
@@ -416,6 +420,7 @@
 			children = (
 				4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */,
 				4B6691B6203C118E001421CB /* SBServices.plist */,
+				4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */,
 				4B61EA121FDC6263001FA30F /* Notification+Extension.swift */,
 				4B6691B8203C20E6001421CB /* SBService+Extension.swift */,
 				0A27F68E202946A600BAA063 /* Step+Extension.swift */,
@@ -919,6 +924,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4FAE312299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */,
 				4BA05965205E55F90047894C /* RoundView.swift in Sources */,
 				4BA05966205E55F90047894C /* ApiHelper.swift in Sources */,
 				4BA05967205E55F90047894C /* BluetoothController.swift in Sources */,
@@ -966,6 +972,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4FAE322299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */,
 				4BA059A4205E560B0047894C /* RoundView.swift in Sources */,
 				4BA059A5205E560B0047894C /* ApiHelper.swift in Sources */,
 				4BA059A6205E560B0047894C /* BluetoothController.swift in Sources */,
@@ -1013,6 +1020,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4FAE302299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */,
 				4B2BB277200FBCF000ED482E /* RoundView.swift in Sources */,
 				4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */,
 				0A32C5582047AA9600BD6A5B /* BluetoothController.swift in Sources */,

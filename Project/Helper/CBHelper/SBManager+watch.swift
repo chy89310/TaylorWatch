@@ -32,9 +32,12 @@ extension SBManager {
     
     func setMessageEnabled(with types:[MESSAGE_TYPE]) {
         var flag = 0;
-        for type in types {
-            if let offSet = SBManager.share.messageOffset[type] {
-                flag |= 1 << offSet
+        if let device = SBManager.share.selectedDevice(in: .mr_default()) {
+            let messageOffset = device.messageOffset()
+            for type in types {
+                if let offSet = messageOffset[type] {
+                    flag |= 1 << offSet
+                }
             }
         }
         let data = Data.init(bytes:

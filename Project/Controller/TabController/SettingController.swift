@@ -32,9 +32,9 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
         .qq: "fa:qq",
         .skype: "fa:skype",
         .whatsapp: "fa:whatsapp",
-        .calendar: "calendar",
+        .calendar: "fa:calendar",
         ]
-    let messageTypes = Array(SBManager.share.messageOffset.keys)
+    var messageTypes: [SBManager.MESSAGE_TYPE] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,11 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
         _notificationSwitch.tintColor = UIColor("#4a4a4a")
         _notificationSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         
+        if let device = SBManager.share.selectedDevice(in: .mr_default()) {
+            messageTypes = Array(device.messageOffset().keys)
+            _collectionView.reloadData()
+        }
+        
         updateSwitch()
     }
     
@@ -56,7 +61,7 @@ class SettingController: BaseViewController, UICollectionViewDataSource, UIColle
         var enabledTypes: [SBManager.MESSAGE_TYPE] = []
         if let device = SBManager.share.selectedDevice(in: NSManagedObjectContext.mr_default()) {
             _notificationSwitch.isOn = device.notification?.isOn ?? true
-            for (type, _) in SBManager.share.messageOffset {
+            for (type, _) in device.messageOffset() {
                 if device.notification?.isTypeOn(type) ?? false {
                     enabledTypes.append(type)
                 }
