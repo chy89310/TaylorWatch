@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var reach: Reachability?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         
         // SwiftyBeaver log setup
         let console = ConsoleDestination()
@@ -35,10 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         log.info(Helper.documentDirectory)
         
         // Siren setup
-        Siren.shared.checkVersion(checkType: .daily)
+        Siren.shared.wail()
         
         // IQKeyboardManager
-        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.shared.enable = true
         
         // MagicalRecord
         MagicalRecord.setLoggingLevel(.off)
@@ -53,8 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Local Notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: { (granted, error) in })
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(false, with: .notifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
         } catch let error {
             log.error(error.localizedDescription)
         }
@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
         // Siren setup
-        Siren.shared.checkVersion(checkType: .daily)
+        Siren.shared.wail()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

@@ -35,7 +35,7 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,11 +72,11 @@ class InfoController: BaseViewController, UITableViewDataSource, UITableViewDele
                 #else
                 cell.detailTextLabel?.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
                 #endif
-            case 3:
+            case 4:
                 cell.textLabel?.text = NSLocalizedString("Pairing Code", comment: "")
                 let passcode = device?.passcode ?? 0
                 cell.detailTextLabel?.text = "\(passcode/1000)\(passcode%1000/100)\(passcode%100/10)\(passcode%10)"
-            case 4:
+            case 3:
                 cell.textLabel?.text = NSLocalizedString("Frame Number", comment: "")
                 cell.detailTextLabel?.text = "\(device?.firmware ?? "N/A")"
             case 5:

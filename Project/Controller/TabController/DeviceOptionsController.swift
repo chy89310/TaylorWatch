@@ -95,7 +95,7 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
     
     func deleteAt(indexPath: IndexPath) {
         let peripheral = connectedPeripheral[indexPath.row]
-        if let url = URL.init(string: UIApplicationOpenSettingsURLString), UIApplication.shared.canOpenURL(url) {
+        if let url = URL.init(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
             let alert = UIAlertController(
                 title: NSLocalizedString("Please note that all the history data will be cleared once the device is forgotten from the \"bluetooth settings\".", comment: ""),
                 message: "",
@@ -103,6 +103,7 @@ class DeviceOptionsController: BaseViewController, UITableViewDataSource, UITabl
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: { (action) in
                 UIApplication.shared.open(url, options: [:], completionHandler: { (finish) in
                     SBManager.share.didDisconnect = {
+                        SBManager.share.didDisconnect = nil
                         MagicalRecord.save({ (localContext) in
                             let device = Device.mr_findFirst(byAttribute: "uuid", withValue: peripheral.identifier.uuidString, in: localContext)
                             device?.mr_deleteEntity(in: localContext)

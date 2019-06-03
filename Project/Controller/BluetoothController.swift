@@ -21,8 +21,8 @@ class BluetoothController: BaseViewController {
         bluetoothButton.addTarget(self, action: #selector(didButtonClick), for: .touchUpInside)
     }
     
-    func didButtonClick() {
-        if let url = URL.init(string: UIApplicationOpenSettingsURLString), UIApplication.shared.canOpenURL(url) {
+    @objc func didButtonClick() {
+        if let url = URL.init(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }

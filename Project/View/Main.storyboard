@@ -1573,21 +1573,36 @@ Time Zone</string>
                                 <rect key="frame" x="20" y="380" width="335" height="279"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="huw-n3-iq3">
-                                    <size key="itemSize" width="70" height="70"/>
+                                    <size key="itemSize" width="90" height="90"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="deviceCell" id="ENM-IS-ZAg" customClass="ScanViewCell" customModule="FOXTER" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVV-py-e2v">
-                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfX-E3-hVO" customClass="SpringIndicator" customModule="SpringIndicator">
+                                                    <rect key="frame" x="7" y="7" width="76" height="76"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                            <color key="value" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="lineCap" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="rotationDuration">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVV-py-e2v">
+                                                    <rect key="frame" x="10" y="10" width="70" height="70"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.99215686270000003" green="0.87450980389999999" blue="0.75294117650000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1596,24 +1611,29 @@ Time Zone</string>
                                         </view>
                                         <color key="backgroundColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="hVV-py-e2v" secondAttribute="bottom" id="3fU-1I-il8"/>
-                                            <constraint firstAttribute="trailing" secondItem="hVV-py-e2v" secondAttribute="trailing" id="Lp5-XS-BfV"/>
-                                            <constraint firstItem="hVV-py-e2v" firstAttribute="top" secondItem="ENM-IS-ZAg" secondAttribute="top" id="WeV-VD-LRP"/>
-                                            <constraint firstItem="hVV-py-e2v" firstAttribute="leading" secondItem="ENM-IS-ZAg" secondAttribute="leading" id="s4k-5J-hvb"/>
+                                            <constraint firstAttribute="bottom" secondItem="hVV-py-e2v" secondAttribute="bottom" constant="10" id="3fU-1I-il8"/>
+                                            <constraint firstAttribute="bottom" secondItem="sfX-E3-hVO" secondAttribute="bottom" constant="7" id="FdQ-kf-6Xl"/>
+                                            <constraint firstAttribute="trailing" secondItem="hVV-py-e2v" secondAttribute="trailing" constant="10" id="Lp5-XS-BfV"/>
+                                            <constraint firstItem="sfX-E3-hVO" firstAttribute="leading" secondItem="ENM-IS-ZAg" secondAttribute="leading" constant="7" id="Ood-iI-Oyl"/>
+                                            <constraint firstItem="sfX-E3-hVO" firstAttribute="top" secondItem="ENM-IS-ZAg" secondAttribute="top" constant="7" id="QId-fb-wq3"/>
+                                            <constraint firstItem="hVV-py-e2v" firstAttribute="top" secondItem="ENM-IS-ZAg" secondAttribute="top" constant="10" id="WeV-VD-LRP"/>
+                                            <constraint firstItem="hVV-py-e2v" firstAttribute="leading" secondItem="ENM-IS-ZAg" secondAttribute="leading" constant="10" id="s4k-5J-hvb"/>
+                                            <constraint firstAttribute="trailing" secondItem="sfX-E3-hVO" secondAttribute="trailing" constant="7" id="unt-OG-aK5"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="indicator" destination="sfX-E3-hVO" id="he1-bp-cJv"/>
                                             <outlet property="titleLabel" destination="hVV-py-e2v" id="JJ6-Kc-hK4"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="simulatorCell" id="jsM-SD-ajS" customClass="ScanViewCell" customModule="FOXTER" customModuleProvider="target">
-                                        <rect key="frame" x="88.5" y="0.0" width="70" height="70"/>
+                                        <rect key="frame" x="122.5" y="0.0" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simulate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-wL-XSf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1688,14 +1708,14 @@ Time Zone</string>
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="476" height="317"/>
+        <image name="0" width="953" height="634"/>
         <image name="601_taylor_dial" width="270" height="270"/>
         <image name="Set" width="16" height="16"/>
-        <image name="gear" width="34" height="34"/>
+        <image name="gear" width="69" height="69"/>
         <image name="nav_dash" width="24" height="24"/>
         <image name="nav_health" width="33" height="27"/>
         <image name="nav_info" width="28" height="28"/>
-        <image name="nav_setting" width="28" height="27"/>
+        <image name="nav_setting" width="28.5" height="27"/>
         <image name="nav_time" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -44,6 +44,12 @@
 		4B3BD6B92030527500B7A3BD /* CBUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3BD6B82030527500B7A3BD /* CBUtils.swift */; };
 		4B48DA352017B9460067ECA0 /* HealthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA342017B9450067ECA0 /* HealthController.swift */; };
 		4B48DA382018F9C60067ECA0 /* TimeZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */; };
+		4B4FAE2C2299921500576C5E /* UIWindow+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2B2299921500576C5E /* UIWindow+Extesion.swift */; };
+		4B4FAE2D2299921500576C5E /* UIWindow+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2B2299921500576C5E /* UIWindow+Extesion.swift */; };
+		4B4FAE2E2299921500576C5E /* UIWindow+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2B2299921500576C5E /* UIWindow+Extesion.swift */; };
+		4B4FAE302299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */; };
+		4B4FAE312299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */; };
+		4B4FAE322299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */; };
 		4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */; };
 		4B5CEF9A2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
 		4B5CEF9B2190B32800EB9BB8 /* PrivacyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */; };
@@ -219,6 +225,8 @@
 		4B3BD6B82030527500B7A3BD /* CBUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBUtils.swift; sourceTree = "<group>"; };
 		4B48DA342017B9450067ECA0 /* HealthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthController.swift; sourceTree = "<group>"; };
 		4B48DA372018F9C60067ECA0 /* TimeZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneController.swift; sourceTree = "<group>"; };
+		4B4FAE2B2299921500576C5E /* UIWindow+Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extesion.swift"; sourceTree = "<group>"; };
+		4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+Extennsionnn.swift"; sourceTree = "<group>"; };
 		4B5971E01FCF35B300F744F9 /* SBManager+enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SBManager+enum.swift"; sourceTree = "<group>"; };
 		4B5CEF992190B32800EB9BB8 /* PrivacyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyController.swift; sourceTree = "<group>"; };
 		4B61EA121FDC6263001FA30F /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
@@ -390,6 +398,7 @@
 				4B9F7DDB1EEEF932009C13A5 /* Config.swift */,
 				4B9F7DD91EEEF8FC009C13A5 /* Helper.swift */,
 				4B6562B120BC5A3400831CF8 /* AuthUtil.swift */,
+				4B4FAE2B2299921500576C5E /* UIWindow+Extesion.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -399,6 +408,7 @@
 			children = (
 				4B61EA1B1FDC6F5B001FA30F /* Project.xcdatamodel */,
 				4B6691B6203C118E001421CB /* SBServices.plist */,
+				4B4FAE2F2299A5EA00576C5E /* Device+Extennsionnn.swift */,
 				4B61EA121FDC6263001FA30F /* Notification+Extension.swift */,
 				4B6691B8203C20E6001421CB /* SBService+Extension.swift */,
 				0A27F68E202946A600BAA063 /* Step+Extension.swift */,
@@ -720,7 +730,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
@@ -729,6 +739,7 @@
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
+				"${BUILT_PRODUCTS_DIR}/SpringIndicator/SpringIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -745,6 +756,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpringIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -753,7 +765,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Watch-FOXTER/Pods-Watch-FOXTER-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4BA059A2205E560B0047894C /* [CP] Check Pods Manifest.lock */ = {
@@ -793,7 +805,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
@@ -802,6 +814,7 @@
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
+				"${BUILT_PRODUCTS_DIR}/SpringIndicator/SpringIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -818,6 +831,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpringIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -826,7 +840,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Watch-SEAGULL/Pods-Watch-SEAGULL-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4FD2103C3723A7F7250F7C80 /* [CP] Embed Pods Frameworks */ = {
@@ -835,7 +849,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
@@ -844,6 +858,7 @@
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Siren/Siren.framework",
+				"${BUILT_PRODUCTS_DIR}/SpringIndicator/SpringIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -860,6 +875,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siren.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpringIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -868,7 +884,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Watch-TAYLOR/Pods-Watch-TAYLOR-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6D7AA5B64D450DCC6351DA1C /* [CP] Check Pods Manifest.lock */ = {
@@ -896,6 +912,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4FAE312299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */,
 				4BA05965205E55F90047894C /* RoundView.swift in Sources */,
 				4BA05966205E55F90047894C /* ApiHelper.swift in Sources */,
 				4BA05967205E55F90047894C /* BluetoothController.swift in Sources */,
@@ -930,6 +947,7 @@
 				4BA05982205E55F90047894C /* NavigationBar.swift in Sources */,
 				4BA05983205E55F90047894C /* SBService+Extension.swift in Sources */,
 				4BA05984205E55F90047894C /* ApiHelper+Define.swift in Sources */,
+				4B4FAE2D2299921500576C5E /* UIWindow+Extesion.swift in Sources */,
 				4BA05985205E55F90047894C /* SBPeripheral.swift in Sources */,
 				4B6562AB20B5C54300831CF8 /* LoginController.swift in Sources */,
 				4BA05986205E55F90047894C /* SBManager+enum.swift in Sources */,
@@ -942,6 +960,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4FAE322299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */,
 				4BA059A4205E560B0047894C /* RoundView.swift in Sources */,
 				4BA059A5205E560B0047894C /* ApiHelper.swift in Sources */,
 				4BA059A6205E560B0047894C /* BluetoothController.swift in Sources */,
@@ -976,6 +995,7 @@
 				4BA059C1205E560B0047894C /* NavigationBar.swift in Sources */,
 				4BA059C2205E560B0047894C /* SBService+Extension.swift in Sources */,
 				4BA059C3205E560B0047894C /* ApiHelper+Define.swift in Sources */,
+				4B4FAE2E2299921500576C5E /* UIWindow+Extesion.swift in Sources */,
 				4BA059C4205E560B0047894C /* SBPeripheral.swift in Sources */,
 				4B6562AC20B5C54300831CF8 /* LoginController.swift in Sources */,
 				4BA059C5205E560B0047894C /* SBManager+enum.swift in Sources */,
@@ -988,6 +1008,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4FAE302299A5EA00576C5E /* Device+Extennsionnn.swift in Sources */,
 				4B2BB277200FBCF000ED482E /* RoundView.swift in Sources */,
 				4BDF650A1F124471003230A1 /* ApiHelper.swift in Sources */,
 				0A32C5582047AA9600BD6A5B /* BluetoothController.swift in Sources */,
@@ -1022,6 +1043,7 @@
 				4B167EBF20166900009DCD4D /* NavigationBar.swift in Sources */,
 				4B6691B9203C20E6001421CB /* SBService+Extension.swift in Sources */,
 				4BDF650C1F124531003230A1 /* ApiHelper+Define.swift in Sources */,
+				4B4FAE2C2299921500576C5E /* UIWindow+Extesion.swift in Sources */,
 				4B8E585C1FC4A45E00FE7B75 /* SBPeripheral.swift in Sources */,
 				4B6562AA20B5C54300831CF8 /* LoginController.swift in Sources */,
 				4B5971E11FCF35B300F744F9 /* SBManager+enum.swift in Sources */,
@@ -1064,7 +1086,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1084,7 +1106,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1101,7 +1123,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.seagull;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1117,7 +1139,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.bsd.cbdemo.seagull;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1253,7 +1275,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1274,7 +1296,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Project/TAYLOR-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

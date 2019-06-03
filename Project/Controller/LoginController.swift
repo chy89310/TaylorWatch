@@ -35,16 +35,22 @@ class LoginController: BaseViewController, UITextFieldDelegate {
         _loginButton.setTitle(NSLocalizedString("Login", comment: ""), for: .normal)
         _watchFace.updateAsset(withDial: true)
         
-        // Retrive user info to verify authentication
-        let hud = MBProgressHUD.showAdded(to: view, animated: true)
-        DispatchQueue.global().async {
-            AuthUtil.shared.me { (success) in
-                if success {
-                    self.loginSuccess(success, message: "", hud: hud)
-                } else {
-                    DispatchQueue.main.async { hud.hide(animated: true) }
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.reach?.isReachable() ?? false {
+            // Retrive user info to verify authentication
+            let hud = MBProgressHUD.showAdded(to: view, animated: true)
+            DispatchQueue.global().async {
+                AuthUtil.shared.me { (success) in
+                    if success {
+                        self.loginSuccess(success, message: "", hud: hud)
+                    } else {
+                        DispatchQueue.main.async { hud.hide(animated: true) }
+                    }
                 }
             }
+        } else if let _ = UserDefaults.string(of: .token) {
+            // If network not reachable and the is already a token stored, show home immediately
+            self.performSegue(withIdentifier: "showWatch", sender: self)
         }
     }
     

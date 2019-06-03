@@ -23,7 +23,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var selectedPeripheral: CBPeripheral?
     var player: AVAudioPlayer?
     var writeCharacteristic = [CBPeripheral:CBCharacteristic]()
-    var messageOffset: [SBManager.MESSAGE_TYPE:Int] = [:]
+    var messageOffset: [Int:[SBManager.MESSAGE_TYPE:Int]] = [:]
     
     // MARK: - Callback methods
     
@@ -57,12 +57,16 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                     } else if key == "receiver" {
                         entity?.receiver = value.stringValue
                     } else if key == "message" {
-                        for (type, offset) in value.dictionaryValue {
-                            if let mesageType = MESSAGE_TYPE(rawValue: type) {
-                                self.messageOffset[mesageType] = offset.intValue
-                            } else {
-                                log.error("Unparse dictionary key \(type) in SBServices.plist")
+                        for (firmware, dict) in value.dictionaryValue {
+                            var offsets: [SBManager.MESSAGE_TYPE:Int] = [:]
+                            for (type, offset) in dict.dictionaryValue {
+                                if let messageType = MESSAGE_TYPE(rawValue: type) {
+                                    offsets[messageType] = offset.intValue
+                                } else {
+                                    log.error("Unparse dictionary key \(type) in SBServices.plist")
+                                }
                             }
+                            self.messageOffset[Int(firmware)!] = offsets
                         }
                     }
                 }
@@ -444,7 +448,7 @@ class SBManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
                                 step?.month = Int16(month)
                                 step?.day = Int16(day)
                                 step?.steps = Int32(steps)
-                                step?.date = NSDate()
+                                step?.date =  Date()
                                 step?.device = device
                             }, completion: { (finish, error) in
                                 self.didUpdateStep?()
